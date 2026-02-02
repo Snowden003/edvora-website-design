@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - KoMoJa</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0337CD;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teachers.html">Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="events.html">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="competitions.html">Competitions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-warning" onclick="location.href='signup.html'" style="background-color: #FFAC1E; border-color: #FFAC1E;">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Premium Events Hero Section -->
+<section class="events-hero-section">
+    <div class="events-hero-bg"></div>
+    <div class="spotlight"></div>
+
+    <!-- Floating Icons -->
+    <div class="floating-icon icon-calendar">
+        <i class="bi bi-calendar-heart-fill"></i>
+    </div>
+    <div class="floating-icon icon-clock">
+        <i class="bi bi-clock-history"></i>
+    </div>
+    <div class="floating-icon icon-ticket">
+        <i class="bi bi-ticket-detailed-fill"></i>
+    </div>
+    <div class="floating-icon icon-star">
+        <i class="bi bi-stars"></i>
+    </div>
+    <div class="floating-icon icon-mic">
+        <i class="bi bi-mic-fill"></i>
+    </div>
+    <div class="floating-icon icon-award">
+        <i class="bi bi-award-fill"></i>
+    </div>
+
+    <!-- Particles -->
+    <div class="event-particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+
+    <div class="container text-center text-white position-relative" style="z-index: 10;">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="premium-badge-events">
+                    <i class="bi bi-gem"></i>
+                    <span>Premium Events</span>
+                </div>
+                
+                <h1 class="events-hero-title">
+                    <span>Discover</span>
+                    <span>Our Exclusive</span>
+                    <span>Events</span>
+                </h1>
+                
+                <p class="events-hero-subtitle">
+                    Join workshops, webinars, and conferences led by global experts.
+                </p>
+
+                <div class="row g-4 justify-content-center events-stats">
+                    <div class="col-6 col-md-4">
+                        <div class="stat-card">
+                            <i class="bi bi-calendar-check-fill"></i>
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Events Annually</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="stat-card">
+                            <i class="bi bi-person-video3"></i>
+                            <span class="stat-number">250+</span>
+                            <span class="stat-label">Expert Speakers</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="stat-card">
+                            <i class="bi bi-globe-americas"></i>
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Global Attendees</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#eventsGrid" class="btn btn-events-hero mt-4">
+                    <span>Explore Events</span>
+                    <i class="bi bi-arrow-down-circle-fill"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Event Categories -->
+    <section class="py-4" style="background-color: #EEEEEE;">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <button class="btn btn-outline-primary w-100 active" data-category="all">All Events</button>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <button class="btn btn-outline-primary w-100" data-category="workshop">Workshops</button>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <button class="btn btn-outline-primary w-100" data-category="webinar">Webinars</button>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <button class="btn btn-outline-primary w-100" data-category="conference">Conferences</button>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <button class="btn btn-outline-primary w-100" data-category="networking">Networking</button>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <button class="btn btn-outline-primary w-100" data-category="bootcamp">Bootcamps</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Event -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="card border-0 shadow-lg overflow-hidden">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop" 
+                                     class="img-fluid h-100 object-fit-cover" alt="Featured Event">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body p-5">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="badge bg-danger me-2">Featured</span>
+                                        <span class="badge bg-primary">Conference</span>
+                                    </div>
+                                    <h3 class="fw-bold mb-3" style="color: #0337CD;">Global Tech Conference 2024</h3>
+                                    <p class="text-muted mb-4">Join industry leaders and innovators for a 3-day conference featuring the latest trends in technology, AI, and digital transformation.</p>
+                                    
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-calendar3 me-2 text-primary"></i>
+                                                <div>
+                                                    <small class="text-muted d-block">Date</small>
+                                                    <strong>Dec 15-17, 2024</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-geo-alt me-2 text-primary"></i>
+                                                <div>
+                                                    <small class="text-muted d-block">Location</small>
+                                                    <strong>Online & SF</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-clock me-2 text-primary"></i>
+                                                <div>
+                                                    <small class="text-muted d-block">Duration</small>
+                                                    <strong>3 Days</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-people me-2 text-primary"></i>
+                                                <div>
+                                                    <small class="text-muted d-block">Attendees</small>
+                                                    <strong>2,500+</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-primary flex-fill" style="background-color: #FF6D00; border-color: #FF6D00;">
+                                            Register Now - $299
+                                        </button>
+                                        <button class="btn btn-outline-primary" onclick="showEventDetails(1)">
+                                            <i class="bi bi-info-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Grid -->
+    <section class="py-5" style="background-color: #EEEEEE;">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold" style="color: #0337CD;">All Events</h2>
+                    <p class="text-muted">Discover events that match your interests and career goals</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" id="eventSearch" placeholder="Search events...">
+                    </div>
+                </div>
+            </div>
+            
+            <div id="eventsGrid" class="row g-4">
+                <!-- Events will be loaded here by JavaScript -->
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-5">
+                <button id="loadMoreEvents" class="btn btn-primary btn-lg" style="background-color: #FF6D00; border-color: #FF6D00;">
+                    <i class="bi bi-plus-circle me-2"></i>Load More Events
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Detail Modal -->
+    <div class="modal fade" id="eventModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Event Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="eventModalBody">
+                    <!-- Event details will be loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" style="background-color: #FF6D00; border-color: #FF6D00;">
+                        Register Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-5">
+                            <i class="bi bi-envelope-fill fs-1 mb-3" style="color: #FF6D00;"></i>
+                            <h3 class="fw-bold mb-3" style="color: #0337CD;">Never Miss an Event</h3>
+                            <p class="text-muted mb-4">Subscribe to our newsletter and get notified about upcoming events, workshops, and exclusive opportunities.</p>
+                            <form class="row g-3 justify-content-center">
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Enter your email address" required>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #FF6D00; border-color: #FF6D00;">
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background-color: #0337CD;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-3">
+                        <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+                    </h5>
+                    <p class="text-white-50">
+                        Empowering learners worldwide with quality education and innovative teaching methods.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="courses.html" class="text-white-50 text-decoration-none">Courses</a></li>
+                        <li><a href="teachers.html" class="text-white-50 text-decoration-none">Teachers</a></li>
+                        <li><a href="events.html" class="text-white-50 text-decoration-none">Events</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="faq.html" class="text-white-50 text-decoration-none">FAQ</a></li>
+                        <li><a href="terms.html" class="text-white-50 text-decoration-none">Terms of Service</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h6 class="text-white fw-bold mb-3">Newsletter</h6>
+                    <p class="text-white-50 mb-3">Stay updated with our latest courses and events</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-warning" type="submit" style="background-color: #FFAC1E; border-color: #FFAC1E;">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <hr class="my-4 text-white-50">
+            <div class="text-center text-white-50">
+                <p class="mb-0">&copy; 2024 KoMoJa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/events.js"></script>
+</body>
+</html>

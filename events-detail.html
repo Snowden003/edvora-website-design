@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - KoMoJa</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0337CD 0%, #FF6D00 50%, #FFAC1E 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* MEGA Premium Event Hero Section */
+        .event-detail-hero {
+            background: linear-gradient(135deg, #0337CD 0%, #FF6D00 50%, #FFAC1E 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .event-detail-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 109, 0, 0.4) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(255, 172, 30, 0.4) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(3, 55, 205, 0.4) 0%, transparent 50%);
+            animation: megaBackgroundPulse 10s ease-in-out infinite;
+        }
+        
+        @keyframes megaBackgroundPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+        }
+        
+        .floating-event-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        /* MEGA Floating Elements */
+        .floating-event-icon {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.6);
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        
+        .floating-event-icon:nth-child(1) { top: 10%; left: 10%; animation: megaFloat1 6s infinite; }
+        .floating-event-icon:nth-child(2) { top: 20%; right: 15%; animation: megaFloat2 7s infinite; }
+        .floating-event-icon:nth-child(3) { bottom: 30%; left: 20%; animation: megaFloat3 8s infinite; }
+        .floating-event-icon:nth-child(4) { bottom: 20%; right: 10%; animation: megaFloat4 9s infinite; }
+        .floating-event-icon:nth-child(5) { top: 50%; left: 5%; animation: megaFloat5 5s infinite; }
+        .floating-event-icon:nth-child(6) { top: 60%; right: 8%; animation: megaFloat6 6.5s infinite; }
+        .floating-event-icon:nth-child(7) { top: 30%; left: 50%; animation: megaFloat7 7.5s infinite; }
+        .floating-event-icon:nth-child(8) { bottom: 40%; right: 30%; animation: megaFloat8 8.5s infinite; }
+        
+        @keyframes megaFloat1 {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-40px) rotate(180deg) scale(1.3); opacity: 1; }
+        }
+        
+        @keyframes megaFloat2 {
+            0%, 100% { transform: translateX(0) rotate(0deg) scale(1); opacity: 0.5; }
+            50% { transform: translateX(30px) rotate(-90deg) scale(1.2); opacity: 0.9; }
+        }
+        
+        @keyframes megaFloat3 {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(35px) scale(1.4) rotate(45deg); opacity: 1; }
+        }
+        
+        @keyframes megaFloat4 {
+            0%, 100% { transform: rotate(0deg) translateX(0) scale(1); opacity: 0.6; }
+            50% { transform: rotate(360deg) translateX(-25px) scale(1.1); opacity: 0.8; }
+        }
+        
+        @keyframes megaFloat5 {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-50px) rotate(90deg) scale(1.5); opacity: 1; }
+        }
+        
+        @keyframes megaFloat6 {
+            0%, 100% { transform: scale(1) rotate(0deg) translateX(0); opacity: 0.7; }
+            50% { transform: scale(1.3) rotate(-180deg) translateX(20px); opacity: 0.9; }
+        }
+        
+        @keyframes megaFloat7 {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.4; }
+            50% { transform: translateY(-30px) rotate(270deg) scale(1.2); opacity: 0.8; }
+        }
+        
+        @keyframes megaFloat8 {
+            0%, 100% { transform: rotate(0deg) scale(1) translateY(0); opacity: 0.6; }
+            50% { transform: rotate(180deg) scale(1.4) translateY(25px); opacity: 1; }
+        }
+        
+        /* MEGA Particles */
+        .mega-particle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: megaParticleFloat 15s infinite linear;
+            box-shadow: 0 0 30px currentColor;
+        }
+        
+        .mega-particle:nth-child(1) { left: 10%; background: #FFAC1E; animation-delay: 0s; }
+        .mega-particle:nth-child(2) { left: 20%; background: #FF6D00; animation-delay: 3s; }
+        .mega-particle:nth-child(3) { left: 30%; background: #0337CD; animation-delay: 6s; }
+        .mega-particle:nth-child(4) { left: 40%; background: #FFAC1E; animation-delay: 9s; }
+        .mega-particle:nth-child(5) { left: 50%; background: #FF6D00; animation-delay: 12s; }
+        .mega-particle:nth-child(6) { left: 60%; background: #0337CD; animation-delay: 2s; }
+        .mega-particle:nth-child(7) { left: 70%; background: #FFAC1E; animation-delay: 5s; }
+        .mega-particle:nth-child(8) { left: 80%; background: #FF6D00; animation-delay: 8s; }
+        .mega-particle:nth-child(9) { left: 90%; background: #0337CD; animation-delay: 11s; }
+        .mega-particle:nth-child(10) { left: 15%; background: #FFAC1E; animation-delay: 1s; }
+        
+        @keyframes megaParticleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(720deg) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        /* MEGA Premium Badge */
+        .event-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 12px 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            animation: megaBadgeGlow 4s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: megaBadgeShimmer 3s linear infinite;
+        }
+        
+        @keyframes megaBadgeGlow {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 172, 30, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 50px rgba(255, 255, 255, 0.6), 0 0 100px rgba(255, 172, 30, 0.5);
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes megaBadgeShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        /* MEGA Title */
+        .event-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ffffff, #FFAC1E, #ffffff, #FF6D00, #ffffff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: megaTitleShine 5s ease-in-out infinite;
+            text-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+        
+        .event-title::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: megaTitleGlow 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes megaTitleShine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes megaTitleGlow {
+            0%, 100% { opacity: 0; transform: translateX(-100%); }
+            50% { opacity: 1; transform: translateX(100%); }
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* MEGA Meta Items */
+        .meta-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .meta-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .meta-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        .meta-item:hover::before {
+            left: 100%;
+        }
+        
+        .meta-item i {
+            font-size: 1.2rem;
+            color: #FFAC1E;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(3, 55, 205, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-title {
+            color: #0337CD;
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title i {
+            background: linear-gradient(45deg, #0337CD, #FF6D00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.5rem;
+        }
+        
+        /* Speaker Card */
+        .speaker-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(3, 55, 205, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .speaker-card:hover {
+            border-color: #0337CD;
+            transform: translateY(-5px);
+        }
+        
+        .speaker-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 4px solid #FF6D00;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        /* Registration Section */
+        .registration-section {
+            background: linear-gradient(135deg, #0337CD 0%, #FF6D00 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .registration-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: registrationGlow 6s ease-in-out infinite;
+        }
+        
+        @keyframes registrationGlow {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+        
+        .price-tag {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .register-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid white;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .register-btn:hover {
+            background: white;
+            color: #0337CD;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .event-title {
+                font-size: 2.5rem;
+            }
+            
+            .event-meta {
+                flex-direction: column;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .price-tag {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0337CD;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teachers.html">Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="events.html">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="competitions.html">Competitions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-warning" onclick="location.href='signup.html'" style="background-color: #FFAC1E; border-color: #FFAC1E;">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="py-3" style="background-color: #f8f9fa;">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item"><a href="events.html" class="text-decoration-none">Events</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbTitle">Event Details</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Event Hero Section -->
+    <section class="event-detail-hero">
+        <!-- MEGA Floating Elements -->
+        <div class="floating-event-icons">
+            <div class="floating-event-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="floating-event-icon"><i class="fas fa-users"></i></div>
+            <div class="floating-event-icon"><i class="fas fa-microphone"></i></div>
+            <div class="floating-event-icon"><i class="fas fa-trophy"></i></div>
+            <div class="floating-event-icon"><i class="fas fa-star"></i></div>
+            <div class="floating-event-icon"><i class="fas fa-rocket"></i></div>
+            <div class="floating-event-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="floating-event-icon"><i class="fas fa-graduation-cap"></i></div>
+        </div>
+        
+        <!-- MEGA Particles -->
+        <div class="mega-particle"></div>
+        <div class="mega-particle"></div>
+        <div class="mega-particle"></div>
+        <div class="mega-particle"></div>
+        <div class="mega-particle"></div>
+        <div class="mega-particle"></div>
+        <div class="mega-particle"></div>
+        <div class="mega-particle"></div>
+        <div class="mega-particle"></div>
+        <div class="mega-particle"></div>
+        
+        <div class="container position-relative" style="z-index: 10;">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center text-white">
+                    <div class="event-badge">
+                        <i class="fas fa-gem" style="color: #FFAC1E; font-size: 1.2rem;"></i>
+                        <span id="eventCategory" style="font-weight: 600;">Premium Event</span>
+                    </div>
+                    
+                    <h1 class="event-title" id="eventTitle">Global Technology Conference 2024</h1>
+                    
+                    <div class="event-meta justify-content-center">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar-alt" style="color: #FFAC1E; font-size: 1.5rem;"></i>
+                            <div>
+                                <small style="color: rgba(255,255,255,0.8);">Date</small>
+                                <div id="eventDate" style="font-weight: 600;">Dec 15-17, 2024</div>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock" style="color: #FF6D00; font-size: 1.5rem;"></i>
+                            <div>
+                                <small style="color: rgba(255,255,255,0.8);">Duration</small>
+                                <div id="eventDuration" style="font-weight: 600;">3 Days</div>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-map-marker-alt" style="color: #0337CD; font-size: 1.5rem;"></i>
+                            <div>
+                                <small style="color: rgba(255,255,255,0.8);">Location</small>
+                                <div id="eventLocation" style="font-weight: 600;">Online & San Francisco</div>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-users" style="color: #FFAC1E; font-size: 1.5rem;"></i>
+                            <div>
+                                <small style="color: rgba(255,255,255,0.8);">Attendees</small>
+                                <div id="eventAttendees" style="font-weight: 600;">2,500+ People</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <!-- Event Overview -->
+                    <div class="content-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Event Overview
+                        </h2>
+                        <div id="eventDescription">
+                            <p>Join industry leaders and innovators for a 3-day conference featuring the latest trends in technology, AI, and digital transformation. This premium event brings together thought leaders, entrepreneurs, and tech enthusiasts from around the globe.</p>
+                            <p>Discover cutting-edge technologies, network with industry professionals, and gain insights that will shape the future of your career and business.</p>
+                        </div>
+                    </div>
+
+                    <!-- Key Speakers -->
+                    <div class="content-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-microphone"></i>
+                            Key Speakers
+                        </h2>
+                        <div class="row g-4" id="eventSpeakers">
+                            <div class="col-md-6">
+                                <div class="speaker-card text-center">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Speaker" class="speaker-avatar">
+                                    <h5 class="fw-bold text-primary">Dr. Alex Johnson</h5>
+                                    <p class="text-muted mb-2">AI Research Director, TechCorp</p>
+                                    <p class="small">Leading expert in artificial intelligence and machine learning with 15+ years of experience.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="speaker-card text-center">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" alt="Speaker" class="speaker-avatar">
+                                    <h5 class="fw-bold text-primary">Sarah Chen</h5>
+                                    <p class="text-muted mb-2">CEO, InnovateTech</p>
+                                    <p class="small">Successful entrepreneur and thought leader in digital transformation and startup ecosystem.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- What You'll Learn -->
+                    <div class="content-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-lightbulb"></i>
+                            What You'll Learn
+                        </h2>
+                        <div class="row g-3" id="eventLearning">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; flex-shrink: 0;">
+                                        <i class="bi bi-check"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">AI & Machine Learning Trends</h6>
+                                        <p class="text-muted small mb-0">Latest developments and practical applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; flex-shrink: 0;">
+                                        <i class="bi bi-check"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Digital Transformation</h6>
+                                        <p class="text-muted small mb-0">Strategies for business modernization</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; flex-shrink: 0;">
+                                        <i class="bi bi-check"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Networking Opportunities</h6>
+                                        <p class="text-muted small mb-0">Connect with industry leaders and peers</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; flex-shrink: 0;">
+                                        <i class="bi bi-check"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Future Tech Insights</h6>
+                                        <p class="text-muted small mb-0">Emerging technologies and market trends</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Registration -->
+                    <div class="registration-section mb-4">
+                        <h3 class="fw-bold mb-3">Register Now</h3>
+                        <div class="price-tag" id="eventPrice" style="color: #00C851; font-size: 2.5rem;">FREE</div>
+                        <p class="mb-4">No registration fee required - Join us for free!</p>
+                        <button class="btn register-btn w-100 mb-3" onclick="registerForEvent()">
+                            <i class="fas fa-ticket-alt me-2"></i>
+                            Register Now
+                        </button>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-light flex-fill" onclick="addToWishlist()">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn btn-outline-light flex-fill" onclick="shareEvent()">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Event Features -->
+                    <div class="content-section">
+                        <h4 class="section-title">
+                            <i class="fas fa-star"></i>
+                            Event Features
+                        </h4>
+                        <div class="d-flex flex-column gap-3" id="eventFeatures">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="fas fa-video text-primary"></i>
+                                <span>Live Streaming Available</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="fas fa-file-pdf text-primary"></i>
+                                <span>Digital Resources Included</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="fas fa-certificate text-primary"></i>
+                                <span>Certificate of Attendance</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="fas fa-users text-primary"></i>
+                                <span>Networking Opportunities</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background-color: #0337CD;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-3">
+                        <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+                    </h5>
+                    <p class="text-white-50">
+                        Empowering learners worldwide with quality education and innovative teaching methods.
+                    </p>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="courses.html" class="text-white-50 text-decoration-none">Courses</a></li>
+                        <li><a href="teachers.html" class="text-white-50 text-decoration-none">Teachers</a></li>
+                        <li><a href="events.html" class="text-white-50 text-decoration-none">Events</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="faq.html" class="text-white-50 text-decoration-none">FAQ</a></li>
+                        <li><a href="terms.html" class="text-white-50 text-decoration-none">Terms</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h6 class="text-white fw-bold mb-3">Newsletter</h6>
+                    <p class="text-white-50 mb-3">Stay updated with our latest events</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-warning" type="submit" style="background-color: #FFAC1E; border-color: #FFAC1E;">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <hr class="my-4 text-white-50">
+            <div class="text-center text-white-50">
+                <p class="mb-0">&copy; 2024 KoMoJa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/events-detail.js"></script>
+</body>
+</html>

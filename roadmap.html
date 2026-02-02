@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Roadmap - KoMoJa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="assets/css/roadmap.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0337CD;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teachers.html">Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="competitions.html">Competitions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="roadmap.html">Roadmap</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            About
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="story.html">Our Story</a></li>
+                            <li><a class="dropdown-item" href="how-we-work.html">How We Work</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-warning" onclick="location.href='signup.html'" style="background-color: #FFAC1E; border-color: #FFAC1E;">Sign Up</button>
+                    <button class="btn btn-outline-light" id="themeToggle">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-element"><i class="fas fa-network-wired"></i></div>
+        <div class="floating-element"><i class="fab fa-windows"></i></div>
+        <div class="floating-element"><i class="fas fa-keyboard"></i></div>
+        <div class="floating-element"><i class="fas fa-code"></i></div>
+        <div class="floating-element"><i class="fab fa-linux"></i></div>
+        <div class="floating-element"><i class="fas fa-user-secret"></i></div>
+        
+        <!-- Particles -->
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-route me-2"></i>
+Professional Learning Path
+            </div>
+            <h1 class="hero-title">Computer Science Roadmap</h1>
+            <p class="hero-subtitle">From Beginner to Professional in 6 Stages</p>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap-section">
+        <div class="roadmap-container">
+            <h2 class="roadmap-title">Your Learning Journey</h2>
+            
+            <div class="timeline">
+                <!-- Stage 1: Network -->
+                <div class="timeline-item">
+                    <div class="timeline-node">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="stage-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop&crop=center" alt="Network Infrastructure" class="img-fluid rounded">
+                        </div>
+                        <div class="stage-number">Stage 1</div>
+                        <h3 class="stage-title">Network Fundamentals</h3>
+                        <p class="stage-description">
+                            Start your IT journey by learning network fundamentals. From basic protocols to network equipment configuration.
+                        </p>
+                        <div class="stage-skills">
+                            <span class="skill-tag">TCP/IP</span>
+                            <span class="skill-tag">OSI Model</span>
+                            <span class="skill-tag">Router & Switch</span>
+                            <span class="skill-tag">DHCP & DNS</span>
+                            <span class="skill-tag">Subnetting</span>
+                        </div>
+                        <div class="stage-duration">
+                            <i class="fas fa-clock me-1"></i>
+                            Duration: 2-3 months
+                        </div>
+                        <button class="progress-btn mt-3">Start Learning</button>
+                    </div>
+                </div>
+
+                <!-- Stage 2: Windows -->
+                <div class="timeline-item">
+                    <div class="timeline-node">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="stage-image">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop&crop=center" alt="Windows System" class="img-fluid rounded">
+                        </div>
+                        <div class="stage-number">Stage 2</div>
+                        <h3 class="stage-title">Windows Administration</h3>
+                        <p class="stage-description">
+                            Master Windows operating system management, from installation and configuration to troubleshooting and system optimization.
+                        </p>
+                        <div class="stage-skills">
+                            <span class="skill-tag">Windows Server</span>
+                            <span class="skill-tag">Active Directory</span>
+                            <span class="skill-tag">Group Policy</span>
+                            <span class="skill-tag">PowerShell</span>
+                            <span class="skill-tag">Registry</span>
+                        </div>
+                        <div class="stage-duration">
+                            <i class="fas fa-clock me-1"></i>
+                            Duration: 1.5-2 months
+                        </div>
+                        <button class="progress-btn mt-3">Start Learning</button>
+                    </div>
+                </div>
+
+                <!-- Stage 3: Typing -->
+                <div class="timeline-item">
+                    <div class="timeline-node">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="stage-image">
+                            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=250&fit=crop&crop=center" alt="Keyboard Typing" class="img-fluid rounded">
+                        </div>
+                        <div class="stage-number">Stage 3</div>
+                        <h3 class="stage-title">Touch Typing Mastery</h3>
+                        <p class="stage-description">
+                            Develop fast and accurate typing skills, essential for success in all IT fields. Master both English and multilingual typing.
+                        </p>
+                        <div class="stage-skills">
+                            <span class="skill-tag">10-Finger Typing</span>
+                            <span class="skill-tag">60+ WPM Speed</span>
+                            <span class="skill-tag">Multilingual Typing</span>
+                            <span class="skill-tag">Code Typing</span>
+                            <span class="skill-tag">Accuracy 95%+</span>
+                        </div>
+                        <div class="stage-duration">
+                            <i class="fas fa-clock me-1"></i>
+                            Duration: 1 month
+                        </div>
+                        <button class="progress-btn mt-3">Start Learning</button>
+                    </div>
+                </div>
+
+                <!-- Stage 4: Programming -->
+                <div class="timeline-item">
+                    <div class="timeline-node">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="stage-image">
+                            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop&crop=center" alt="Programming Code" class="img-fluid rounded">
+                        </div>
+                        <div class="stage-number">Stage 4</div>
+                        <h3 class="stage-title">Programming Fundamentals</h3>
+                        <p class="stage-description">
+                            Enter the world of programming from scratch. From basic concepts to advanced projects and real-world applications.
+                        </p>
+                        <div class="stage-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">Git & GitHub</span>
+                            <span class="skill-tag">Database</span>
+                        </div>
+                        <div class="stage-duration">
+                            <i class="fas fa-clock me-1"></i>
+                            Duration: 4-6 months
+                        </div>
+                        <button class="progress-btn mt-3">Start Learning</button>
+                    </div>
+                </div>
+
+                <!-- Stage 5: Linux -->
+                <div class="timeline-item">
+                    <div class="timeline-node">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="stage-image">
+                            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400&h=250&fit=crop&crop=center" alt="Linux Terminal" class="img-fluid rounded">
+                        </div>
+                        <div class="stage-number">Stage 5</div>
+                        <h3 class="stage-title">Linux System Administration</h3>
+                        <p class="stage-description">
+                            Discover the power of Linux operating system. From command line mastery to advanced server management.
+                        </p>
+                        <div class="stage-skills">
+                            <span class="skill-tag">Command Line</span>
+                            <span class="skill-tag">Shell Scripting</span>
+                            <span class="skill-tag">System Admin</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Apache/Nginx</span>
+                        </div>
+                        <div class="stage-duration">
+                            <i class="fas fa-clock me-1"></i>
+                            Duration: 3-4 months
+                        </div>
+                        <button class="progress-btn mt-3">Start Learning</button>
+                    </div>
+                </div>
+
+                <!-- Stage 6: Hacking -->
+                <div class="timeline-item">
+                    <div class="timeline-node">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="stage-image">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop&crop=center" alt="Cybersecurity" class="img-fluid rounded">
+                        </div>
+                        <div class="stage-number">Stage 6</div>
+                        <h3 class="stage-title">Ethical Hacking & Cybersecurity</h3>
+                        <p class="stage-description">
+                            Master cybersecurity and ethical hacking. From penetration testing to system protection and security analysis.
+                        </p>
+                        <div class="stage-skills">
+                            <span class="skill-tag">Penetration Testing</span>
+                            <span class="skill-tag">Kali Linux</span>
+                            <span class="skill-tag">Web Security</span>
+                            <span class="skill-tag">Network Security</span>
+                            <span class="skill-tag">OWASP Top 10</span>
+                        </div>
+                        <div class="stage-duration">
+                            <i class="fas fa-clock me-1"></i>
+                            Duration: 4-5 months
+                        </div>
+                        <button class="progress-btn mt-3">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background-color: #0337CD;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-3">
+                        <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+                    </h5>
+                    <p class="text-white-50">
+                        Empowering learners worldwide with quality education and innovative teaching methods.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="courses.html" class="text-white-50 text-decoration-none">Courses</a></li>
+                        <li><a href="teachers.html" class="text-white-50 text-decoration-none">Teachers</a></li>
+                        <li><a href="events.html" class="text-white-50 text-decoration-none">Events</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="faq.html" class="text-white-50 text-decoration-none">FAQ</a></li>
+                        <li><a href="terms.html" class="text-white-50 text-decoration-none">Terms of Service</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h6 class="text-white fw-bold mb-3">Newsletter</h6>
+                    <p class="text-white-50 mb-3">Stay updated with our latest courses and events</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-warning" type="submit" style="background-color: #FFAC1E; border-color: #FFAC1E;">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <hr class="my-4 text-white-50">
+            <div class="text-center text-white-50">
+                <p class="mb-0">&copy; 2024 KoMoJa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/roadmap.js"></script>
+</body>
+</html>

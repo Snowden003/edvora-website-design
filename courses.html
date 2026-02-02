@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Courses - KoMoJa</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0337CD;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teachers.html">Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="competitions.html">Competitions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-warning" onclick="location.href='signup.html'" style="background-color: #FFAC1E; border-color: #FFAC1E;">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Special Animation -->
+    <section class="py-5 courses-hero-section">
+        <!-- Animated Background -->
+        <div class="courses-bg-animation">
+            <!-- Floating Learning Icons -->
+            <div class="floating-learning-icon icon-1"><i class="bi bi-book"></i></div>
+            <div class="floating-learning-icon icon-2"><i class="bi bi-lightbulb"></i></div>
+            <div class="floating-learning-icon icon-3"><i class="bi bi-mortarboard"></i></div>
+            <div class="floating-learning-icon icon-4"><i class="bi bi-trophy"></i></div>
+            <div class="floating-learning-icon icon-5"><i class="bi bi-star"></i></div>
+            <div class="floating-learning-icon icon-6"><i class="bi bi-award"></i></div>
+            
+            <!-- Animated Particles -->
+            <div class="learning-particle particle-1"></div>
+            <div class="learning-particle particle-2"></div>
+            <div class="learning-particle particle-3"></div>
+            <div class="learning-particle particle-4"></div>
+            <div class="learning-particle particle-5"></div>
+            <div class="learning-particle particle-6"></div>
+            <div class="learning-particle particle-7"></div>
+            <div class="learning-particle particle-8"></div>
+            
+            <!-- Animated Lines -->
+            <div class="animated-line line-1"></div>
+            <div class="animated-line line-2"></div>
+            <div class="animated-line line-3"></div>
+            
+            <!-- Floating Geometric Shapes -->
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+            <div class="geometric-shape shape-4"></div>
+        </div>
+        
+        <div class="container position-relative">
+            <div class="row align-items-center text-white">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-3 hero-title">
+                            <span class="typewriter-text" data-text="Explore Our Courses"></span>
+                        </h1>
+                        <p class="lead mb-4 hero-subtitle">
+                            <span class="typewriter-text" data-text="Discover world-class courses taught by industry experts. From programming to design, data science to marketing - find your perfect learning path."></span>
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap hero-stats">
+                            <div class="stat-card stat-1">
+                                <i class="bi bi-people me-2"></i>50,000+ Students
+                            </div>
+                            <div class="stat-card stat-2">
+                                <i class="bi bi-book me-2"></i>200+ Courses
+                            </div>
+                            <div class="stat-card stat-3">
+                                <i class="bi bi-award me-2"></i>Certificates
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="hero-image-container">
+                        <div class="image-glow"></div>
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop" alt="Students Learning" class="hero-image">
+                        <div class="image-overlay">
+                            <div class="pulse-ring ring-1"></div>
+                            <div class="pulse-ring ring-2"></div>
+                            <div class="pulse-ring ring-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="py-4" style="background-color: #EEEEEE;">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" class="form-control" id="searchCourses" placeholder="Search courses...">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <select class="form-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="programming">Programming</option>
+                        <option value="data-science">Data Science</option>
+                        <option value="design">Design</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="business">Business</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <select class="form-select" id="levelFilter">
+                        <option value="">All Levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <select class="form-select" id="sortBy">
+                        <option value="popular">Most Popular</option>
+                        <option value="newest">Newest</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Grid -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4" id="coursesGrid">
+                <!-- Courses will be populated by JavaScript -->
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-primary btn-lg" id="loadMoreBtn">
+                    Load More Courses
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5" style="background-color: #EEEEEE;">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-3" style="color: #0337CD;">Stay Updated</h3>
+                    <p class="text-muted mb-4">Get notified about new courses, special offers, and learning tips delivered to your inbox.</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-primary" type="submit" style="background-color: #FF6D00; border-color: #FF6D00;">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background-color: #0337CD;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-3">
+                        <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+                    </h5>
+                    <p class="text-white-50">
+                        Empowering learners worldwide with quality education and innovative teaching methods.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="courses.html" class="text-white-50 text-decoration-none">Courses</a></li>
+                        <li><a href="teachers.html" class="text-white-50 text-decoration-none">Teachers</a></li>
+                        <li><a href="events.html" class="text-white-50 text-decoration-none">Events</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Categories</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Programming</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Data Science</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Design</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Marketing</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Business</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h6 class="text-white fw-bold mb-3">Contact Info</h6>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-geo-alt me-2"></i>123 Education Street, Learning City
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-telephone me-2"></i>+1 (555) 123-4567
+                    </p>
+                    <p class="text-white-50">
+                        <i class="bi bi-envelope me-2"></i>info@komoja.com
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="my-4 text-white-50">
+            <div class="text-center text-white-50">
+                <p class="mb-0">&copy; 2024 KoMoJa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Typewriter Animation JS -->
+    <script src="assets/js/typewriter.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/courses.js"></script>
+</body>
+</html>

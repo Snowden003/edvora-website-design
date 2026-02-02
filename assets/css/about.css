@@ -1,0 +1,180 @@
+/* Brand utilities */
+.bg-brand-blue{background-color:var(--brand-blue)!important}
+.text-brand-yellow{color:var(--brand-yellow)!important}
+.btn-brand-yellow{background-color:var(--brand-yellow)!important; border-color:var(--brand-yellow)!important; color:#1b1b1b!important}
+
+/* Hero generic animated gradient */
+.hero-animated{background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-orange) 50%, var(--brand-yellow) 100%); min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden}
+.hero-animated .container{position:relative; z-index:10}
+
+/* Enhance hero with animated gradient flow */
+.hero-animated{
+  background-size:300% 300%;
+  animation:komojaGradientFlow 14s ease-in-out infinite;
+}
+@keyframes komojaGradientFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* Keep background effects behind content */
+.hero-animated .story-bg-effects{position:absolute; inset:0; z-index:1; pointer-events:none}
+
+/* Premium gradient sheen for hero title */
+.hero-animated .story-title{
+  background:linear-gradient(90deg,#fff,var(--brand-yellow),#fff);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:titleSheen 6s ease-in-out infinite;
+}
+@keyframes titleSheen{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* Hero CTA buttons */
+.hero-cta{display:flex; gap:14px; justify-content:center; margin-top:1.5rem; flex-wrap:wrap}
+.btn-hero-primary{padding:12px 22px; border-radius:14px; border:none; font-weight:700; background:linear-gradient(135deg, var(--brand-yellow), #ffd24d); color:#1b1b1b; box-shadow:0 10px 30px rgba(255,172,30,.35); transition:transform .25s ease, box-shadow .25s ease, filter .25s ease}
+.btn-hero-primary:hover{transform:translateY(-2px); filter:brightness(.97); box-shadow:0 14px 36px rgba(255,172,30,.45)}
+.btn-hero-secondary{padding:12px 22px; border-radius:14px; font-weight:700; background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.35); backdrop-filter:blur(10px); transition:transform .25s ease, box-shadow .25s ease, background .25s ease}
+.btn-hero-secondary:hover{transform:translateY(-2px); box-shadow:0 10px 30px rgba(0,0,0,.25); background:rgba(255,255,255,.18)}
+
+/* Hero stats glass cards */
+.hero-stats{display:flex; gap:18px; justify-content:center; margin-top:2rem; flex-wrap:wrap}
+.hero-stat{min-width:180px; padding:16px 18px; border-radius:18px; text-align:center; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); color:#fff; backdrop-filter:blur(10px); box-shadow:0 12px 40px rgba(0,0,0,.15); animation:statFloat 6s ease-in-out infinite}
+.hero-stat .value{font-size:1.8rem; font-weight:900; color:var(--brand-yellow)}
+.hero-stat .label{opacity:.9; font-weight:600}
+.hero-stat:nth-child(2){animation-delay:.8s}
+.hero-stat:nth-child(3){animation-delay:1.6s}
+@keyframes statFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* Badge variations */
+.heart-beat{animation:heartBeat 2s ease-in-out infinite}
+
+/* Impact section */
+.impact-section{background: linear-gradient(135deg, var(--brand-blue), var(--brand-orange))}
+.impact-card{background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius:20px; padding:2.5rem; text-align:center; border:1px solid rgba(255,255,255,0.2)}
+.impact-value{color:var(--brand-yellow); font-size:3rem; font-weight:800; margin-bottom:1rem}
+.impact-label{color:#fff; font-weight:600; font-size:1.1rem}
+
+/* About pages shared styles (story + how-we-work) */
+:root{
+  --brand-blue:#0337CD;
+  --brand-orange:#FF6D00;
+  --brand-yellow:#FFAC1E;
+}
+
+/* Navbar */
+.navbar-komoja{background-color:var(--brand-blue)!important}
+
+/* Buttons */
+.btn-signup-custom{background-color:var(--brand-yellow)!important;border-color:var(--brand-yellow)!important;color:#111}
+.btn-signup-custom:hover{filter:brightness(0.95)}
+
+/* Hero */
+.story-hero-section{
+  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-orange) 50%, var(--brand-yellow) 100%);
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.story-bg-effects{position:absolute; inset:0; pointer-events:none; z-index:1}
+.floating-tech-icon{position:absolute; color:rgba(255,255,255,0.2); animation:techFloat 12s ease-in-out infinite}
+.floating-tech-icon.orange{color:rgba(255,172,30,0.3)}
+.floating-tech-icon.deep-orange{color:rgba(255,109,0,0.25)}
+.floating-tech-icon.light{color:rgba(255,255,255,0.15)}
+.floating-tech-icon.yellow{color:rgba(255,172,30,0.2)}
+.floating-tech-icon.orange-strong{color:rgba(255,109,0,0.3)}
+
+/* Simple delay utilities */
+.delay-0{animation-delay:0s}
+.delay-1{animation-delay:1s}
+.delay-2{animation-delay:2s}
+.delay-3{animation-delay:3s}
+.delay-4{animation-delay:4s}
+.delay-5{animation-delay:5s}
+
+/* Animation utility classes */
+.anim-slide-in-left{animation:slideInLeft 1s ease-out}
+.anim-slide-in-right{animation:slideInRight 1s ease-out}
+.anim-both{animation-fill-mode:both}
+.anim-delay-03{animation-delay:.3s}
+.anim-rocket{animation:rocketFloat 4s ease-in-out infinite}
+.anim-globe{animation:globeRotate 8s linear infinite}
+
+/* Badge / Titles */
+.story-badge{display:inline-block; background:rgba(255,255,255,.1); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.2); border-radius:50px; padding:12px 30px; margin-bottom:2rem; animation:badgeGlow 4s ease-in-out infinite alternate}
+.story-badge .bi-gem{color:var(--brand-yellow); font-size:1.2rem; margin-right:10px; animation:gemSpin 3s linear infinite}
+.story-title{color:#fff; font-size:4rem; font-weight:900; margin-bottom:1.5rem; text-shadow:0 10px 30px rgba(0,0,0,.8); letter-spacing:2px}
+.story-title .highlight{color:var(--brand-yellow); text-shadow:0 5px 20px rgba(0,0,0,.8)}
+.story-subtitle{color:rgba(255,255,255,.9); font-size:1.4rem; line-height:1.6; margin-bottom:3rem; text-shadow:0 3px 10px rgba(0,0,0,.3); animation:fadeInUp 2s ease-out 1s both; max-width:800px; margin-left:auto; margin-right:auto}
+
+/* Text utilities */
+.text-brand-blue{color:var(--brand-blue)!important}
+.text-brand-orange{color:var(--brand-orange)!important}
+.para-lg{color:#333; line-height:1.8; font-size:1.1rem; font-weight:500}
+
+/* Sections */
+.story-content-section{background: linear-gradient(45deg, #f8f9fa, #e3f2fd, #fff3e0, #f3e5f5); background-size:400% 400%; animation:gradientShift 8s ease-in-out infinite}
+.section-alt-1{background: linear-gradient(315deg, #e3f2fd, #f3e5f5, #fff3e0, #f8f9fa); background-size:400% 400%; animation:gradientShift 12s ease-in-out infinite}
+.section-alt-2{background: linear-gradient(225deg, #f8f9fa, #fff3e0, #e3f2fd, #f3e5f5); background-size:400% 400%; animation:gradientShift 10s ease-in-out infinite reverse}
+
+/* Cards */
+.story-card{background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(227,242,253,.9), rgba(255,243,224,.9)); backdrop-filter: blur(15px); border-radius:20px; padding:3rem; box-shadow:0 20px 60px rgba(0,0,0,.15); border:1px solid rgba(255,255,255,.3); background-size:200% 200%; animation:cardGradientMove 6s ease-in-out infinite}
+.story-card.alt-1{background: linear-gradient(135deg, rgba(255,243,224,.95), rgba(255,255,255,.9), rgba(243,229,245,.9)); animation-duration:7s; animation-direction:reverse}
+.story-card.alt-2{background: linear-gradient(135deg, rgba(243,229,245,.95), rgba(227,242,253,.9), rgba(255,255,255,.9)); animation-duration:8s}
+
+.story-icon{width:80px; height:80px; background: linear-gradient(45deg, var(--brand-blue), var(--brand-orange)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:2rem; box-shadow:0 10px 30px rgba(3,55,205,.3)}
+.story-icon i{color:#fff; font-size:2rem}
+.story-icon.orange{background:linear-gradient(45deg, var(--brand-orange), var(--brand-yellow)); box-shadow:0 10px 30px rgba(255,109,0,.3)}
+
+/* Visual block */
+.story-visual{height:400px; background: linear-gradient(135deg, var(--brand-blue), var(--brand-orange), var(--brand-yellow), var(--brand-blue)); background-size:300% 300%; animation:visualGradientFlow 10s ease-in-out infinite; border-radius:20px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden}
+.story-visual i{color:#fff; font-size:5rem; position:relative}
+.visual-alt-1{background: linear-gradient(135deg, var(--brand-orange), var(--brand-yellow), var(--brand-blue), var(--brand-orange)); animation-direction:reverse; animation-duration:12s}
+.visual-elements{position:absolute; inset:0}
+.bubble{position:absolute; border-radius:50%}
+.bubble.white{background:rgba(255,255,255,.2)}
+.bubble.orange{background:rgba(255,172,30,.3)}
+.bubble.deep-orange{background:rgba(255,109,0,.2)}
+
+.z-top{position:relative; z-index:10}
+
+/* Mission section */
+.mission-card{background: linear-gradient(135deg, rgba(3,55,205,.15), rgba(255,109,0,.15), rgba(255,172,30,.1), rgba(3,55,205,.1)); background-size:400% 400%; animation: missionGradientPulse 8s ease-in-out infinite; backdrop-filter: blur(15px); border-radius:30px; padding:4rem; box-shadow:0 30px 80px rgba(0,0,0,.15); border:1px solid rgba(255,255,255,.4)}
+.mission-icon{width:120px; height:120px; background: linear-gradient(45deg, var(--brand-blue), var(--brand-orange), var(--brand-yellow)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 3rem; box-shadow:0 20px 50px rgba(3,55,205,.3); animation:missionPulse 4s ease-in-out infinite}
+.mission-icon i{color:#fff; font-size:3.5rem}
+.mission-title{color:var(--brand-blue); font-weight:800; margin-bottom:2rem; font-size:2.5rem}
+.mission-text{color:#333; line-height:1.8; font-size:1.3rem; max-width:900px; margin:0 auto; font-weight:500}
+.mission-stats{display:flex; justify-content:center; gap:3rem; margin-top:3rem; flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-item .value{font-size:2.5rem; font-weight:800}
+.stat-item .label{color:#666; font-weight:600}
+
+/* Footer */
+.footer-komoja{background-color:var(--brand-blue); color:#fff}
+
+/* Animations */
+@keyframes techFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes badgeGlow{from{box-shadow:0 0 0 rgba(255,255,255,0)}to{box-shadow:0 0 30px rgba(255,255,255,.25)}}
+@keyframes gemSpin{to{transform:rotate(360deg)}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes cardGradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes visualGradientFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes slideInLeft{from{opacity:0; transform:translateX(-30px)}to{opacity:1; transform:translateX(0)}}
+@keyframes slideInRight{from{opacity:0; transform:translateX(30px)}to{opacity:1; transform:translateX(0)}}
+@keyframes fadeInUp{from{opacity:0; transform:translateY(15px)}to{opacity:1; transform:translateY(0)}}
+@keyframes rocketFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes globeRotate{to{transform:rotate(360deg)}}
+@keyframes missionPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes missionGradientPulse{0%,100%{background-position:0% 50%; opacity:.9}25%{background-position:50% 0%; opacity:1}50%{background-position:100% 50%; opacity:.95}75%{background-position:50% 100%; opacity:1}}
+@keyframes storyParticleFloat{0%,100%{transform:translateY(0); opacity:.8}50%{transform:translateY(-30px); opacity:1}}
+
+/* Particles */
+.story-particle{position:absolute; bottom:0; width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.5); animation:storyParticleFloat 6s ease-in-out infinite}
+.story-particle.orange{background:rgba(255,172,30,.6); animation-duration:7s}
+.story-particle.deep-orange{background:rgba(255,109,0,.6); animation-duration:8s}
+.story-particle.light{background:rgba(255,255,255,.4); animation-duration:5s}
+
+/* Decorative bubbles in visual */
+.float1{animation:float1 6s ease-in-out infinite}
+.float2{animation:float2 8s ease-in-out infinite}
+.float3{animation:float3 7s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes float3{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* Heart beat animation */
+@keyframes heartBeat{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}

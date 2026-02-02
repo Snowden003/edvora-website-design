@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation - KoMoJa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/foundation.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0337CD;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teachers.html">Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="competitions.html">Competitions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="roadmap.html">Roadmap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="foundation.html">Foundation</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            About
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="story.html">Our Story</a></li>
+                            <li><a class="dropdown-item" href="how-we-work.html">How We Work</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-warning" onclick="location.href='signup.html'" style="background-color: #FFAC1E; border-color: #FFAC1E;">Sign Up</button>
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="floating-element heart-1"><i class="fas fa-heart"></i></div>
+            <div class="floating-element coin-1"><i class="fas fa-coins"></i></div>
+            <div class="floating-element hand-1"><i class="fas fa-hands-helping"></i></div>
+            <div class="floating-element star-1"><i class="fas fa-star"></i></div>
+            <div class="floating-element gift-1"><i class="fas fa-gift"></i></div>
+            <div class="floating-element donate-1"><i class="fas fa-donate"></i></div>
+            
+            <div class="floating-particle particle-1"></div>
+            <div class="floating-particle particle-2"></div>
+            <div class="floating-particle particle-3"></div>
+            <div class="floating-particle particle-4"></div>
+            <div class="floating-particle particle-5"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <div class="premium-badge">
+                            <i class="fas fa-gem gem-icon"></i>
+                            <span>KoMoJa Foundation</span>
+                        </div>
+                        
+                        <h1 class="hero-title">
+                            <span class="title-line-1">Supporting the Future</span>
+                            <span class="title-line-2">of Technology</span>
+                        </h1>
+                        
+                        <p class="hero-subtitle">
+                            With your support, thousands of young people find their way into the world of technology
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number" data-target="15000">0</div>
+                                    <div class="stat-label">Students Supported</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number" data-target="250">0</div>
+                                    <div class="stat-label">Active Supporters</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number" data-target="20">0</div>
+                                    <div class="stat-label">Million USD Raised</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <button class="btn-donate-now">
+                                <i class="fas fa-heart"></i>
+                                <span>Donate Now</span>
+                            </button>
+                            <button class="btn-learn-more">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Learn More</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="hero-visual">
+                        <div class="donation-circle">
+                            <div class="circle-content">
+                                <i class="fas fa-heart main-heart"></i>
+                                <div class="circle-text">Supporting Future</div>
+                            </div>
+                            
+                            <div class="orbiting-element orbit-1">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="orbiting-element orbit-2">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="orbiting-element orbit-3">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="orbiting-element orbit-4">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Total Donations Section -->
+    <section class="total-donations-section">
+        <div class="container">
+            <div class="total-donations-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="donations-info">
+                            <h2 class="donations-title">
+                                <i class="fas fa-chart-line"></i>
+                                Total Donations Received
+                            </h2>
+                            <p class="donations-description">
+                                With your support, we have been able to accompany thousands of young people on their technology learning journey
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="total-amount">
+                            <div class="amount-number" id="totalAmount">20,000,000</div>
+                            <div class="amount-currency">USD</div>
+                            <div class="amount-progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monthly Chart Section -->
+    <section class="monthly-chart-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title">
+                                <i class="fas fa-chart-line"></i>
+                                Monthly Donations Progress
+                            </h3>
+                            <p class="chart-subtitle">Track our donation progress over the past 6 months</p>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="monthlyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Donor Section -->
+    <section class="top-donor-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">
+                            <i class="fas fa-crown"></i>
+                            Top Supporter
+                        </h2>
+                        <p class="section-subtitle">
+                            Our biggest supporter who made the greatest impact
+                        </p>
+                    </div>
+                    
+                    <div class="top-donor-card">
+                        <div class="donor-crown">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="donor-avatar">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" alt="Top Donor">
+                            <div class="donor-badge">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="donor-info">
+                            <h3 class="donor-name">Hossein Rezaei</h3>
+                            <p class="donor-title">Top Supporter</p>
+                            <div class="donor-amount">
+                                <span class="amount-value">$240,000</span>
+                                <span class="amount-label">Total Contribution</span>
+                            </div>
+                            <div class="donor-message">
+                                <i class="fas fa-quote-left"></i>
+                                "Investing in the future of youth is investing in the future of the country"
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="donor-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Supporting since 2023</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Helped 120+ students</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Form Section -->
+    <section class="donation-form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="donation-form-card">
+                        <div class="form-header">
+                            <h2 class="form-title">
+                                <i class="fas fa-heart"></i>
+                                Support KoMoJa
+                            </h2>
+                            <p class="form-subtitle">
+                                With your support, we can help more Iranian youth
+                            </p>
+                        </div>
+                        
+                        <form class="donation-form" id="donationForm">
+                            <div class="amount-selection">
+                                <label class="form-label">Select your donation amount:</label>
+                                <div class="amount-buttons">
+                                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                                    <button type="button" class="amount-btn" data-amount="50">$50</button>
+                                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                                    <button type="button" class="amount-btn" data-amount="250">$250</button>
+                                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                                    <button type="button" class="amount-btn" data-amount="1000">$1,000</button>
+                                </div>
+                                <div class="custom-amount">
+                                    <input type="number" class="form-control" id="customAmount" placeholder="Custom amount (USD)">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="donorName" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="donorName" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="donorEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="donorEmail" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="donorPhone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="donorPhone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="donorMessage" class="form-label">Message (Optional)</label>
+                                <textarea class="form-control" id="donorMessage" rows="4" placeholder="Encouraging message for students..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showName">
+                                    <label class="form-check-label" for="showName">
+                                        Show my name in the supporters list
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-submit-donation">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Pay & Support</span>
+                                    <div class="btn-loading">
+                                        <i class="fas fa-spinner"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <img src="assets/images/logo1.jpg" alt="KoMoJa Logo" class="footer-logo">
+                        <h5>KoMoJa Foundation</h5>
+                        <p>Supporting the Future of Iranian Technology</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-links">
+                        <h6>Useful Links</h6>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="terms.html">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-contact">
+                        <h6>Contact Us</h6>
+                        <p><i class="fas fa-envelope"></i> foundation@komoja.ir</p>
+                        <p><i class="fas fa-phone"></i> +98 21 1234 5678</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KoMoJa Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Foundation JS -->
+    <script src="assets/js/foundation.js"></script>
+</body>
+</html>

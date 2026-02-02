@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - KoMoJa</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0337CD;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+            </a>
+            <div class="d-flex">
+                <a href="login.html" class="btn btn-outline-light">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Signup Section -->
+    <section class="min-vh-100 d-flex align-items-center py-5" style="background: linear-gradient(135deg, #0337CD 0%, #FF6D00 100%);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <h2 class="fw-bold" style="color: #0337CD;">Join KoMoJa!</h2>
+                                <p class="text-muted">Create your account and start your learning journey</p>
+                            </div>
+
+                            <form id="signupForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-person"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-person"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-envelope"></i>
+                                        </span>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-lock"></i>
+                                        </span>
+                                        <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="password-strength mt-2" id="passwordStrength" style="display: none;">
+                                        <div class="progress" style="height: 4px;">
+                                            <div class="progress-bar" id="strengthBar"></div>
+                                        </div>
+                                        <small class="text-muted" id="strengthText"></small>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-lock-fill"></i>
+                                        </span>
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                                        <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="userType" class="form-label">I want to join as</label>
+                                    <select class="form-select" id="userType" required>
+                                        <option value="">Select your role</option>
+                                        <option value="student">Student - Learn from expert instructors</option>
+                                        <option value="teacher">Teacher - Share your knowledge and skills</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="interests" class="form-label">Areas of Interest (Optional)</label>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="programming" value="programming">
+                                                <label class="form-check-label" for="programming">Programming</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="datascience" value="datascience">
+                                                <label class="form-check-label" for="datascience">Data Science</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="design" value="design">
+                                                <label class="form-check-label" for="design">Design</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="marketing" value="marketing">
+                                                <label class="form-check-label" for="marketing">Marketing</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="business" value="business">
+                                                <label class="form-check-label" for="business">Business</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="other" value="other">
+                                                <label class="form-check-label" for="other">Other</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                        <label class="form-check-label" for="agreeTerms">
+                                            I agree to the <a href="terms.html" class="text-decoration-none" style="color: #FF6D00;">Terms of Service</a> 
+                                            and <a href="#" class="text-decoration-none" style="color: #FF6D00;">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            Subscribe to our newsletter for updates and special offers
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100 mb-3" style="background-color: #FF6D00; border-color: #FF6D00;">
+                                    <i class="bi bi-person-plus me-2"></i>Create Account
+                                </button>
+
+                                <div class="text-center mb-3">
+                                    <span class="text-muted">or sign up with</span>
+                                </div>
+
+                                <div class="row g-2 mb-4">
+                                    <div class="col-6">
+                                        <button type="button" class="btn btn-outline-danger w-100">
+                                            <i class="bi bi-google me-2"></i>Google
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="button" class="btn btn-outline-primary w-100">
+                                            <i class="bi bi-facebook me-2"></i>Facebook
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <p class="text-muted mb-0">
+                                        Already have an account? 
+                                        <a href="login.html" class="text-decoration-none fw-medium" style="color: #FF6D00;">Sign in here</a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/auth.js"></script>
+    <script>
+        // Password strength indicator
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const strengthDiv = document.getElementById('passwordStrength');
+            const strengthBar = document.getElementById('strengthBar');
+            const strengthText = document.getElementById('strengthText');
+            
+            if (password.length > 0) {
+                strengthDiv.style.display = 'block';
+                const strength = checkPasswordStrength(password);
+                
+                let strengthClass = '';
+                let strengthLabel = '';
+                
+                if (strength.score <= 2) {
+                    strengthClass = 'bg-danger';
+                    strengthLabel = 'Weak';
+                } else if (strength.score <= 3) {
+                    strengthClass = 'bg-warning';
+                    strengthLabel = 'Medium';
+                } else {
+                    strengthClass = 'bg-success';
+                    strengthLabel = 'Strong';
+                }
+                
+                strengthBar.className = `progress-bar ${strengthClass}`;
+                strengthBar.style.width = `${(strength.score / 5) * 100}%`;
+                strengthText.textContent = `${strengthLabel} - ${strength.feedback.join(', ')}`;
+            } else {
+                strengthDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

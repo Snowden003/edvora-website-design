@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details - KoMoJa</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    
+    <style>
+        .course-hero {
+            background: linear-gradient(135deg, #0337CD 0%, #FF6D00 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-thumbnail {
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .course-stats {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .instructor-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .curriculum-item {
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid #FF6D00;
+            transition: all 0.3s ease;
+        }
+        
+        .review-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .enroll-btn {
+            background: linear-gradient(45deg, #FF6D00, #FFAC1E);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 40px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(255, 109, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .price-tag {
+            background: linear-gradient(45deg, #0337CD, #FF6D00);
+            color: white;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(3, 55, 205, 0.3);
+        }
+        
+        .skill-badge {
+            background: linear-gradient(45deg, #0337CD, #FF6D00);
+            color: white;
+            border-radius: 25px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 5px;
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0337CD;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teachers.html">Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="competitions.html">Competitions</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            About
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                            <li><a class="dropdown-item" href="terms.html">Terms</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-warning" onclick="location.href='signup.html'" style="background-color: #FFAC1E; border-color: #FFAC1E;">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Hero Section -->
+    <section class="course-hero py-5 position-relative">
+        <div class="container position-relative">
+            <div class="row align-items-center text-white">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb" class="mb-4">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white-50">Home</a></li>
+                            <li class="breadcrumb-item"><a href="courses.html" class="text-white-50">Courses</a></li>
+                            <li class="breadcrumb-item active text-white" id="courseBreadcrumb">Course Details</li>
+                        </ol>
+                    </nav>
+                    
+                    <div class="mb-3">
+                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill" id="courseCategory">Programming</span>
+                        <span class="badge bg-success text-white px-3 py-2 rounded-pill ms-2" id="courseLevel">Intermediate</span>
+                    </div>
+                    
+                    <h1 class="display-4 fw-bold mb-3" id="courseTitle">Complete Web Development Bootcamp</h1>
+                    <p class="lead mb-4" id="courseDescription">
+                        Master modern web development with HTML, CSS, JavaScript, React, Node.js, and more. Build real-world projects and launch your career as a full-stack developer.
+                    </p>
+                    
+                    <div class="course-stats p-4 mb-4">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <i class="bi bi-people fs-3 mb-2 d-block"></i>
+                                    <h5 class="mb-1" id="enrolledStudents">15,234</h5>
+                                    <small>Students</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <i class="bi bi-star-fill fs-3 mb-2 d-block text-warning"></i>
+                                    <h5 class="mb-1" id="courseRating">4.8</h5>
+                                    <small>Rating</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <i class="bi bi-clock fs-3 mb-2 d-block"></i>
+                                    <h5 class="mb-1" id="courseDuration">12 weeks</h5>
+                                    <small>Duration</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <i class="bi bi-award fs-3 mb-2 d-block"></i>
+                                    <h5 class="mb-1">Certificate</h5>
+                                    <small>Included</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex gap-3 align-items-center flex-wrap">
+                        <button class="btn enroll-btn text-white btn-lg">
+                            <i class="bi bi-play-circle me-2"></i>Enroll Now
+                        </button>
+                        <span class="price-tag" id="coursePrice">$49</span>
+                        <button class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-heart me-2"></i>Add to Wishlist
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 text-center">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop" 
+                         alt="Course Thumbnail" class="course-thumbnail img-fluid" id="courseThumbnail">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <div class="container py-5">
+        <div class="row g-5">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <!-- Course Overview -->
+                <section class="mb-5">
+                    <h2 class="fw-bold mb-4" style="color: #0337CD;">
+                        <i class="bi bi-info-circle me-2"></i>Course Overview
+                    </h2>
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <p class="mb-4" id="courseOverview">
+                                This comprehensive web development course takes you from beginner to professional level. You'll learn the latest technologies and frameworks used by top companies worldwide.
+                            </p>
+                            
+                            <h5 class="fw-bold mb-3">What You'll Learn:</h5>
+                            <div class="row g-3" id="learningObjectives">
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span>HTML5 & CSS3 Fundamentals</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span>JavaScript ES6+ Features</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span>React.js & Component Architecture</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span>Node.js & Express.js Backend</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Course Curriculum -->
+                <section class="mb-5">
+                    <h2 class="fw-bold mb-4" style="color: #0337CD;">
+                        <i class="bi bi-list-ul me-2"></i>Course Curriculum
+                    </h2>
+                    <div class="accordion" id="curriculumAccordion">
+                        <!-- Module 1 -->
+                        <div class="curriculum-item mb-3 p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="mb-1">Module 1: HTML & CSS Fundamentals</h5>
+                                    <p class="text-muted mb-0">8 lessons • 3 hours • Beginner</p>
+                                </div>
+                                <button class="btn btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#module1">
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="collapse mt-3" id="module1">
+                                <ul class="list-unstyled ms-3">
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Introduction to HTML5</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>CSS3 Styling & Layout</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Flexbox & Grid Systems</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Responsive Design Principles</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Module 2 -->
+                        <div class="curriculum-item mb-3 p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="mb-1">Module 2: JavaScript Mastery</h5>
+                                    <p class="text-muted mb-0">12 lessons • 5 hours • Intermediate</p>
+                                </div>
+                                <button class="btn btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#module2">
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="collapse mt-3" id="module2">
+                                <ul class="list-unstyled ms-3">
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>JavaScript Fundamentals</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>ES6+ Features & Syntax</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>DOM Manipulation</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Async Programming & APIs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Student Reviews -->
+                <section class="mb-5">
+                    <h2 class="fw-bold mb-4" style="color: #0337CD;">
+                        <i class="bi bi-star me-2"></i>Student Reviews
+                    </h2>
+                    <div class="row g-4" id="studentReviews">
+                        <div class="col-md-6">
+                            <div class="review-card p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" 
+                                         alt="Student" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                                    <div>
+                                        <h6 class="mb-0">John Smith</h6>
+                                        <div class="text-warning">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mb-0">"Excellent course! The instructor explains everything clearly and the projects are very practical."</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="review-card p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face" 
+                                         alt="Student" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                                    <div>
+                                        <h6 class="mb-0">Sarah Johnson</h6>
+                                        <div class="text-warning">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mb-0">"Great content and well-structured curriculum. Highly recommended for beginners!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Instructor Info -->
+                <div class="instructor-card p-4 mb-4">
+                    <h4 class="fw-bold mb-3" style="color: #0337CD;">Your Instructor</h4>
+                    <div class="text-center mb-3">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+                             alt="Instructor" class="rounded-circle mb-3" style="width: 100px; height: 100px;" id="instructorPhoto">
+                        <h5 class="mb-1" id="instructorName">Dr. Michael Chen</h5>
+                        <p class="text-muted mb-0" id="instructorTitle">Senior Full-Stack Developer</p>
+                    </div>
+                    <p class="text-center mb-3" id="instructorBio">
+                        10+ years of experience in web development. Former lead developer at Google and Microsoft.
+                    </p>
+                    <div class="text-center">
+                        <div class="row g-2">
+                            <div class="col-4">
+                                <small class="text-muted d-block">Students</small>
+                                <strong id="instructorStudents">50K+</strong>
+                            </div>
+                            <div class="col-4">
+                                <small class="text-muted d-block">Courses</small>
+                                <strong id="instructorCourses">12</strong>
+                            </div>
+                            <div class="col-4">
+                                <small class="text-muted d-block">Rating</small>
+                                <strong id="instructorRating">4.9</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Features -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3" style="color: #0337CD;">Course Features</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Lifetime Access</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mobile & Desktop</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Certificate of Completion</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>30-Day Money Back</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Downloadable Resources</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Community Access</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills You'll Gain -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3" style="color: #0337CD;">Skills You'll Gain</h5>
+                        <div id="courseSkills">
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS3</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">React.js</span>
+                            <span class="skill-badge">Node.js</span>
+                            <span class="skill-badge">MongoDB</span>
+                            <span class="skill-badge">Git</span>
+                            <span class="skill-badge">API Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Courses -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3" style="color: #0337CD;">Related Courses</h5>
+                        <div class="d-grid gap-3" id="relatedCourses">
+                            <div class="d-flex">
+                                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=80&h=60&fit=crop" 
+                                     alt="Course" class="rounded me-3" style="width: 80px; height: 60px;">
+                                <div>
+                                    <h6 class="mb-1">Advanced React Patterns</h6>
+                                    <small class="text-muted">$39</small>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=80&h=60&fit=crop" 
+                                     alt="Course" class="rounded me-3" style="width: 80px; height: 60px;">
+                                <div>
+                                    <h6 class="mb-1">Node.js Masterclass</h6>
+                                    <small class="text-muted">$59</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background-color: #0337CD;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-3">
+                        <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+                    </h5>
+                    <p class="text-white-50">
+                        Empowering learners worldwide with quality education and innovative teaching methods.
+                    </p>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="courses.html" class="text-white-50 text-decoration-none">Courses</a></li>
+                        <li><a href="teachers.html" class="text-white-50 text-decoration-none">Teachers</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h6 class="text-white fw-bold mb-3">Contact Info</h6>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-geo-alt me-2"></i>123 Education Street, Learning City
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-telephone me-2"></i>+1 (555) 123-4567
+                    </p>
+                    <p class="text-white-50">
+                        <i class="bi bi-envelope me-2"></i>info@komoja.com
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="my-4 text-white-50">
+            <div class="text-center text-white-50">
+                <p class="mb-0">&copy; 2024 KoMoJa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/course-detail.js"></script>
+</body>
+</html>
