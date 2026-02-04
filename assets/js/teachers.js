@@ -316,7 +316,7 @@ function showTeacherDetails(teacherId) {
                 </div>
             </div>
             <div class="col-md-8">
-                <h4 class="fw-bold mb-2" style="color: #0337CD;">${teacher.name}</h4>
+                <h4 class="fw-bold mb-2" style="color: #1F8FFF;">${teacher.name}</h4>
                 <p class="text-muted mb-1">${teacher.title}</p>
                 <p class="text-muted mb-3">
                     <i class="bi bi-building me-1"></i>${teacher.company}
@@ -336,7 +336,7 @@ function showTeacherDetails(teacherId) {
                     <h6 class="fw-bold">Skills</h6>
                     <div>
                         ${teacher.skills.map(skill => 
-                            `<span class="badge bg-primary me-1 mb-1" style="background-color: #FF6D00 !important;">${skill}</span>`
+                            `<span class="badge bg-primary me-1 mb-1" style="background-color: #1F8FFF !important;">${skill}</span>`
                         ).join('')}
                     </div>
                 </div>
@@ -372,8 +372,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .teacher-card:hover .btn {
-            background-color: #0337CD !important;
-            border-color: #0337CD !important;
+            background-color: #1F8FFF !important;
+            border-color: #1F8FFF !important;
         }
     `;
     document.head.appendChild(style);

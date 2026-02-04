@@ -101,7 +101,7 @@
 
 /* Gradient Text */
 .gradient-text {
-    background: linear-gradient(45deg, #FFAC1E, #FF6D00);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -128,7 +128,7 @@
 .stat-icon-hero {
     width: 40px;
     height: 40px;
-    background: linear-gradient(45deg, #FFAC1E, #FF6D00);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -171,7 +171,7 @@
     position: absolute;
     width: 200px;
     height: 200px;
-    background: linear-gradient(45deg, #0337CD, #FF6D00);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -226,7 +226,7 @@
 /* Floating Background Elements */
 .floating-sphere {
     position: absolute;
-    background: linear-gradient(45deg, #FFAC1E, #FF6D00);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
     border-radius: 50%;
     opacity: 0.1;
 }
@@ -257,7 +257,7 @@
 
 .floating-cube {
     position: absolute;
-    background: linear-gradient(45deg, #0337CD, #FFAC1E);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
     opacity: 0.1;
 }
 
@@ -287,7 +287,7 @@
 .pyramid-1 {
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
-    border-bottom: 80px solid #FF6D00;
+    border-bottom: 80px solid #1F8FFF;
     top: 20%;
     right: 25%;
     animation: floatingPyramid 9s infinite ease-in-out;
@@ -296,7 +296,7 @@
 .pyramid-2 {
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    border-bottom: 60px solid #0337CD;
+    border-bottom: 60px solid #1F8FFF;
     bottom: 30%;
     left: 15%;
     animation: floatingPyramid 11s infinite ease-in-out 2s;
@@ -306,9 +306,9 @@
     position: absolute;
     width: 8px;
     height: 8px;
-    background: radial-gradient(circle, #FFAC1E, #FF6D00);
+    background: radial-gradient(circle, #1F8FFF, #1F8FFF);
     border-radius: 50%;
-    box-shadow: 0 0 20px rgba(255, 172, 30, 0.5);
+    box-shadow: 0 0 20px rgba(31, 143, 255, 0.5);
 }
 
 .particle-1 {
@@ -344,7 +344,7 @@
 /* Section Background Elements */
 .bg-shape {
     position: absolute;
-    background: linear-gradient(45deg, rgba(3, 55, 205, 0.05), rgba(255, 109, 0, 0.05));
+    background: linear-gradient(45deg, rgba(31, 143, 255, 0.05), rgba(31, 143, 255, 0.05));
     border-radius: 50%;
 }
 
@@ -391,7 +391,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #0337CD, #FF6D00, #FFAC1E);
+    background: linear-gradient(90deg, #1F8FFF, #1F8FFF, #1F8FFF);
     animation: formBorderFlow 3s infinite;
 }
 
@@ -408,7 +408,7 @@
 .form-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(45deg, #0337CD, #FF6D00);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -420,12 +420,12 @@
 }
 
 @keyframes iconPulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(3, 55, 205, 0.7); }
-    50% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(3, 55, 205, 0); }
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(31, 143, 255, 0.7); }
+    50% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(31, 143, 255, 0); }
 }
 
 .form-title {
-    color: #0337CD;
+    color: #1F8FFF;
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
@@ -471,10 +471,10 @@
 
 .premium-input:focus, .premium-select:focus, .premium-textarea:focus {
     outline: none;
-    border-color: #0337CD;
+    border-color: #1F8FFF;
     background: white;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(3, 55, 205, 0.1);
+    box-shadow: 0 10px 30px rgba(31, 143, 255, 0.1);
 }
 
 .input-border, .select-border, .textarea-border {
@@ -485,7 +485,7 @@
     bottom: 0;
     border: 2px solid transparent;
     border-radius: 15px;
-    background: linear-gradient(45deg, #0337CD, #FF6D00, #FFAC1E);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF, #1F8FFF);
     background-clip: border-box;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -503,7 +503,7 @@
     left: 1.5rem;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #0337CD, #FF6D00);
+    background: linear-gradient(90deg, #1F8FFF, #1F8FFF);
     transition: width 0.3s ease;
     transform: translateY(-50%);
 }
@@ -523,7 +523,7 @@
 }
 
 .premium-input:focus ~ .input-icon {
-    color: #0337CD;
+    color: #1F8FFF;
 }
 
 .select-arrow {
@@ -538,7 +538,7 @@
 
 .premium-select:focus + .select-border + .select-arrow {
     transform: translateY(-50%) rotate(180deg);
-    color: #0337CD;
+    color: #1F8FFF;
 }
 
 /* Premium Submit Button */
@@ -581,17 +581,17 @@
 }
 
 .layer-1 {
-    background: linear-gradient(45deg, #0337CD, #FF6D00);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
 }
 
 .layer-2 {
-    background: linear-gradient(45deg, #FF6D00, #FFAC1E);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .layer-3 {
-    background: linear-gradient(45deg, #FFAC1E, #0337CD);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -643,7 +643,7 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #0337CD, #FF6D00, #FFAC1E);
+    background: linear-gradient(45deg, #1F8FFF, #1F8FFF, #1F8FFF);
     border-radius: 50px;
     opacity: 0;
     z-index: -2;
@@ -675,10 +675,10 @@
     left: 50%;
     width: 150px;
     height: 150px;
-    background: radial-gradient(circle at 30% 30%, #FFAC1E, #FF6D00, #0337CD);
+    background: radial-gradient(circle at 30% 30%, #1F8FFF, #1F8FFF, #1F8FFF);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 50px #FF6D00, inset 0 0 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 50px #1F8FFF, inset 0 0 20px rgba(255, 255, 255, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -691,7 +691,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255, 172, 30, 0.8) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(31, 143, 255, 0.8) 0%, transparent 70%);
     border-radius: 50%;
     animation: orbGlowPulse 2s infinite ease-in-out;
 }
@@ -708,7 +708,7 @@
     border: 2px solid transparent; /* Required for background-clip to work */
     border-radius: 50%;
     transform-style: preserve-3d;
-    background: linear-gradient(90deg, #0337CD, #FF6D00, #FFAC1E, #0337CD) border-box;
+    background: linear-gradient(90deg, #1F8FFF, #1F8FFF, #1F8FFF, #1F8FFF) border-box;
     background-size: 400% 400%;
     -webkit-mask: 
         linear-gradient(#fff 0 0) content-box, 
@@ -766,7 +766,7 @@
 .ring-inner .icon-4 { right: -20px; top: 50%; transform: translateY(-50%); }
 
 .gradient-text-animated {
-    background: linear-gradient(90deg, #0337CD, #FFA07A, #FFAC1E, #0337CD);
+    background: linear-gradient(90deg, #1F8FFF, #FFA07A, #1F8FFF, #1F8FFF);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;

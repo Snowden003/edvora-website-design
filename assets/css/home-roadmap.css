@@ -2,9 +2,10 @@
 
 /* Premium Roadmap Section */
 .premium-roadmap-section {
-    background: linear-gradient(135deg, #0D0D0D 0%, #1F8FFF 50%, #BFC0C0 100%);
+    background: linear-gradient(135deg, #0D0D0D 0%, #1a1a1a 100%);
     position: relative;
     overflow: hidden;
+    padding: 80px 0;
 }
 
 /* Premium Background Effects */
@@ -135,43 +136,40 @@
 .roadmap-particle {
     position: absolute;
     border-radius: 50%;
-    animation: premiumParticleFloat 8s ease-in-out infinite;
+    animation: premiumParticleFloat 15s linear infinite;
+    opacity: 0.2;
 }
 
 .roadmap-particle:nth-child(7) {
-    width: 12px;
-    height: 12px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 100%);
-    left: 20%;
+    width: 4px;
+    height: 4px;
+    background: white;
+    left: 10%;
     animation-delay: 0s;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.3);
 }
 
 .roadmap-particle:nth-child(8) {
-    width: 10px;
-    height: 10px;
-    background: radial-gradient(circle, rgba(255, 172, 30, 0.9) 0%, rgba(255, 172, 30, 0.3) 100%);
-    left: 40%;
+    width: 6px;
+    height: 6px;
+    background: #1F8FFF;
+    left: 30%;
     animation-delay: 2s;
-    box-shadow: 0 0 20px rgba(255, 172, 30, 0.7), 0 0 40px rgba(255, 172, 30, 0.4);
 }
 
 .roadmap-particle:nth-child(9) {
-    width: 14px;
-    height: 14px;
-    background: radial-gradient(circle, rgba(255, 109, 0, 0.9) 0%, rgba(255, 109, 0, 0.3) 100%);
+    width: 5px;
+    height: 5px;
+    background: #00F0FF;
     left: 60%;
-    animation-delay: 4s;
-    box-shadow: 0 0 30px rgba(255, 109, 0, 0.8), 0 0 60px rgba(255, 109, 0, 0.4);
+    animation-delay: 5s;
 }
 
 .roadmap-particle:nth-child(10) {
-    width: 8px;
-    height: 8px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 100%);
-    left: 80%;
+    width: 4px;
+    height: 4px;
+    background: white;
+    left: 85%;
     animation-delay: 1s;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
 /* Section Header */
@@ -182,12 +180,13 @@
 }
 
 .compact-roadmap {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 2rem;
-    margin: 2rem 0;
-    box-shadow: 0 10px 30px rgba(3, 55, 205, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 3rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .roadmap-steps {
@@ -201,19 +200,22 @@
 .step-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    background: white;
-    padding: 1.2rem 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    max-width: 200px;
+    min-width: 240px;
+    flex: 1;
 }
 
 .step-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(3, 55, 205, 0.2);
+    background: rgba(31, 143, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: rgba(31, 143, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 /* Step Image */
@@ -238,24 +240,25 @@
 }
 
 .step-content h6 {
-    margin: 0;
-    font-size: 1rem;
+    margin: 0 0 4px 0;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: white;
 }
 
 .step-content small {
-    color: #7f8c8d;
-    font-size: 0.8rem;
+    color: #00F0FF;
+    font-size: 0.85rem;
+    font-weight: 500;
     display: block;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
 }
 
 .step-content p {
     margin: 0;
-    font-size: 0.75rem;
-    color: #95a5a6;
-    line-height: 1.3;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
 }
 
 .step-arrow {
@@ -314,7 +317,7 @@
 }
 
 .roadmap-badge i {
-    color: #FFAC1E;
+    color: #1F8FFF;
     margin-right: 8px;
 }
 
@@ -329,7 +332,7 @@
     font-size: 3.5rem;
     text-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     animation: premiumTitleGlow 4s ease-in-out infinite alternate;
-    background: linear-gradient(45deg, #ffffff 0%, #FFAC1E 50%, #ffffff 100%);
+    background: linear-gradient(45deg, #ffffff 0%, #1F8FFF 50%, #ffffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -343,121 +346,64 @@
     font-weight: 500;
 }
 
-/* Premium Learning Path Cards */
+/* Standardized Learning Cards */
 .learning-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 2.5rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid var(--primary-blue);
+    height: 100%;
 }
 
-.learning-card-blue {
-    background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
-    box-shadow: 0 10px 40px rgba(3, 55, 205, 0.15), 0 0 0 1px rgba(3, 55, 205, 0.1);
-    border-top: 5px solid #1F8FFF;
+.learning-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-10px) scale(1.02);
+    border-top-color: var(--accent-cyan);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
 }
 
-.learning-card-orange {
-    background: linear-gradient(145deg, #ffffff 0%, #fff5f0 100%);
-    box-shadow: 0 10px 40px rgba(255, 109, 0, 0.15), 0 0 0 1px rgba(255, 109, 0, 0.1);
-    border-top: 5px solid #FF6D00;
-}
-
-.learning-card-yellow {
-    background: linear-gradient(145deg, #ffffff 0%, #fffbf0 100%);
-    box-shadow: 0 10px 40px rgba(255, 172, 30, 0.15), 0 0 0 1px rgba(255, 172, 30, 0.1);
-    border-top: 5px solid #FFAC1E;
-}
-
-/* Card Background Patterns */
 .card-bg-pattern {
     position: absolute;
     top: -50%;
     right: -50%;
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, rgba(3, 55, 205, 0.03) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(31, 143, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
 }
 
-.card-pattern-blue {
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(3, 55, 205, 0.03) 0%, transparent 70%);
-    border-radius: 50%;
-}
-
-.card-pattern-orange {
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255, 109, 0, 0.03) 0%, transparent 70%);
-    border-radius: 50%;
-}
-
-.card-pattern-yellow {
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255, 172, 30, 0.03) 0%, transparent 70%);
-    border-radius: 50%;
-}
+/* Pattern styles merged into .card-bg-pattern above */
 
 /* Stage Numbers */
+/* Standardized Stage Number */
 .stage-number {
     width: 60px;
     height: 60px;
     color: white;
-    border-radius: 20px;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     margin-right: 1.5rem;
     font-size: 1.5rem;
+    background: linear-gradient(135deg, #1F8FFF 0%, #00F0FF 100%);
+    box-shadow: 0 8px 20px rgba(31, 143, 255, 0.3);
 }
 
-.stage-number-blue {
-    background: linear-gradient(135deg, #0D0D0D 0%, #1F8FFF 100%);
-    box-shadow: 0 8px 25px rgba(3, 55, 205, 0.3);
-}
-
-.stage-number-orange {
-    background: linear-gradient(135deg, #FF6D00 0%, #FF8C42 100%);
-    box-shadow: 0 8px 25px rgba(255, 109, 0, 0.3);
-}
-
-.stage-number-yellow {
-    background: linear-gradient(135deg, #FFAC1E 0%, #FFD700 100%);
-    box-shadow: 0 8px 25px rgba(255, 172, 30, 0.3);
-}
-
-/* Stage Titles */
+/* Stage Titles Standardized */
 .stage-title {
-    color: #1a202c;
-    font-size: 1.4rem;
+    color: white;
+    font-size: 1.55rem;
     margin: 0;
     font-weight: 700;
-}
-
-.stage-title-blue {
-    color: #1F8FFF;
-}
-
-.stage-title-orange {
-    color: #FF6D00;
-}
-
-.stage-title-yellow {
-    color: #FFAC1E;
+    letter-spacing: -0.02em;
 }
 
 /* Stage Badges */
@@ -473,11 +419,11 @@
 }
 
 .stage-badge-orange {
-    background: linear-gradient(135deg, #FF6D00 0%, #FF8C42 100%);
+    background: linear-gradient(135deg, #1F8FFF 0%, #FF8C42 100%);
 }
 
 .stage-badge-yellow {
-    background: linear-gradient(135deg, #FFAC1E 0%, #FFD700 100%);
+    background: linear-gradient(135deg, #1F8FFF 0%, #1F8FFF 100%);
 }
 
 /* Stage Descriptions */
@@ -490,7 +436,7 @@
 
 /* Skills Tags */
 .skill-tag {
-    background: rgba(3, 55, 205, 0.1);
+    background: rgba(31, 143, 255, 0.1);
     color: #1F8FFF;
     padding: 4px 10px;
     border-radius: 15px;
@@ -502,18 +448,18 @@
 }
 
 .skill-tag-blue {
-    background: rgba(3, 55, 205, 0.1);
+    background: rgba(31, 143, 255, 0.1);
     color: #1F8FFF;
 }
 
 .skill-tag-orange {
-    background: rgba(255, 109, 0, 0.1);
-    color: #FF6D00;
+    background: rgba(31, 143, 255, 0.1);
+    color: #1F8FFF;
 }
 
 .skill-tag-yellow {
-    background: rgba(255, 172, 30, 0.1);
-    color: #FFAC1E;
+    background: rgba(31, 143, 255, 0.1);
+    color: #1F8FFF;
 }
 
 .skills-tags .badge {
@@ -525,18 +471,18 @@
 }
 
 .skills-tags .badge-blue {
-    background: rgba(3, 55, 205, 0.1);
+    background: rgba(31, 143, 255, 0.1);
     color: #1F8FFF;
 }
 
 .skills-tags .badge-orange {
-    background: rgba(255, 109, 0, 0.1);
-    color: #FF6D00;
+    background: rgba(31, 143, 255, 0.1);
+    color: #1F8FFF;
 }
 
 .skills-tags .badge-yellow {
-    background: rgba(255, 172, 30, 0.1);
-    color: #FFAC1E;
+    background: rgba(31, 143, 255, 0.1);
+    color: #1F8FFF;
 }
 
 /* Duration Icons and Text */
@@ -557,14 +503,14 @@
 }
 
 .premium-cta-btn {
-    background: linear-gradient(135deg, #0337CD 0%, #FF6D00 50%, #FFAC1E 100%);
+    background: linear-gradient(135deg, #1F8FFF 0%, #1F8FFF 50%, #1F8FFF 100%);
     border: none;
     color: white;
     padding: 20px 50px;
     border-radius: 60px;
     font-size: 1.2rem;
     font-weight: 700;
-    box-shadow: 0 15px 40px rgba(3, 55, 205, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(31, 143, 255, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
     position: relative;
@@ -593,20 +539,20 @@
 }
 
 .learning-card-blue:hover {
-    box-shadow: 0 20px 60px rgba(3, 55, 205, 0.25), 0 0 0 1px rgba(3, 55, 205, 0.2);
+    box-shadow: 0 20px 60px rgba(31, 143, 255, 0.25), 0 0 0 1px rgba(31, 143, 255, 0.2);
 }
 
 .learning-card-orange:hover {
-    box-shadow: 0 20px 60px rgba(255, 109, 0, 0.25), 0 0 0 1px rgba(255, 109, 0, 0.2);
+    box-shadow: 0 20px 60px rgba(31, 143, 255, 0.25), 0 0 0 1px rgba(31, 143, 255, 0.2);
 }
 
 .learning-card-yellow:hover {
-    box-shadow: 0 20px 60px rgba(255, 172, 30, 0.25), 0 0 0 1px rgba(255, 172, 30, 0.2);
+    box-shadow: 0 20px 60px rgba(31, 143, 255, 0.25), 0 0 0 1px rgba(31, 143, 255, 0.2);
 }
 
 .premium-cta-btn:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 25px 60px rgba(3, 55, 205, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 60px rgba(31, 143, 255, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 /* Animations */
@@ -658,11 +604,11 @@
 
     0%,
     100% {
-        text-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 172, 30, 0.3);
+        text-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 30px rgba(31, 143, 255, 0.3);
     }
 
     50% {
-        text-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 50px rgba(255, 172, 30, 0.6);
+        text-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 50px rgba(31, 143, 255, 0.6);
     }
 }
 
@@ -694,11 +640,11 @@
 
     0%,
     100% {
-        box-shadow: 0 0 20px rgba(255, 172, 30, 0.3);
+        box-shadow: 0 0 20px rgba(31, 143, 255, 0.3);
     }
 
     50% {
-        box-shadow: 0 0 40px rgba(255, 172, 30, 0.6);
+        box-shadow: 0 0 40px rgba(31, 143, 255, 0.6);
     }
 }
 

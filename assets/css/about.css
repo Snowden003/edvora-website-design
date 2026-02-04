@@ -52,9 +52,9 @@
 
 /* About pages shared styles (story + how-we-work) */
 :root{
-  --brand-blue:#0337CD;
-  --brand-orange:#FF6D00;
-  --brand-yellow:#FFAC1E;
+  --brand-blue:#1F8FFF;
+  --brand-orange:#1F8FFF;
+  --brand-yellow:#1F8FFF;
 }
 
 /* Navbar */

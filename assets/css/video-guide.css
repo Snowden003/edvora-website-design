@@ -16,58 +16,57 @@
     z-index: 1;
 }
 
-/* Floating Video Icons */
+/* Secondary icons made static for performance */
 .video-float-icon {
     position: absolute;
     font-size: 2rem;
-    color: rgba(3, 55, 205, 0.1);
-    animation: videoIconFloat 6s ease-in-out infinite;
+    color: rgba(31, 143, 255, 0.1);
 }
 
 .video-float-icon.icon-1 {
     top: 10%;
     left: 10%;
     animation-delay: 0s;
-    color: rgba(3, 55, 205, 0.15);
+    color: rgba(31, 143, 255, 0.15);
 }
 
 .video-float-icon.icon-2 {
     top: 20%;
     right: 15%;
     animation-delay: 1s;
-    color: rgba(255, 109, 0, 0.15);
+    color: rgba(31, 143, 255, 0.15);
 }
 
 .video-float-icon.icon-3 {
     bottom: 30%;
     left: 5%;
     animation-delay: 2s;
-    color: rgba(255, 172, 30, 0.15);
+    color: rgba(31, 143, 255, 0.15);
 }
 
 .video-float-icon.icon-4 {
     bottom: 15%;
     right: 10%;
     animation-delay: 3s;
-    color: rgba(3, 55, 205, 0.12);
+    color: rgba(31, 143, 255, 0.12);
 }
 
 .video-float-icon.icon-5 {
     top: 50%;
     left: 3%;
     animation-delay: 4s;
-    color: rgba(255, 109, 0, 0.12);
+    color: rgba(31, 143, 255, 0.12);
 }
 
-/* Floating Particles */
+/* Simplified Floating Particles */
 .video-particle {
     position: absolute;
-    width: 8px;
-    height: 8px;
-    background: linear-gradient(45deg, #0D0D0D, #1F8FFF);
+    width: 6px;
+    height: 6px;
+    background: var(--primary-blue);
     border-radius: 50%;
-    animation: videoParticleFloat 8s ease-in-out infinite;
-    opacity: 0.6;
+    animation: videoParticleFloat 10s linear infinite;
+    opacity: 0.3;
 }
 
 .video-particle.particle-1 {
@@ -119,7 +118,7 @@
     color: #1F8FFF;
     margin-bottom: 2rem;
     animation: videoBadgeGlow 3s ease-in-out infinite;
-    box-shadow: 0 8px 25px rgba(3, 55, 205, 0.1);
+    box-shadow: 0 8px 25px rgba(31, 143, 255, 0.1);
 }
 
 .video-badge i {
@@ -128,15 +127,15 @@
 }
 
 .video-title {
-    color: #1F8FFF;
+    color: var(--primary-blue);
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #0D0D0D, #1F8FFF);
+    background: linear-gradient(135deg, var(--primary-black), var(--primary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: videoTitleGlow 4s ease-in-out infinite;
+    text-shadow: 0 4px 15px rgba(31, 143, 255, 0.1);
 }
 
 .video-subtitle {
@@ -151,13 +150,13 @@
 .video-container {
     position: relative;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    animation: videoContainerFloat 6s ease-in-out infinite;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Float animation removed for stability */
 }
 
 /* Video Placeholder */
@@ -174,7 +173,7 @@
 
 .video-placeholder:hover {
     transform: scale(1.02);
-    box-shadow: 0 25px 80px rgba(3, 55, 205, 0.3);
+    box-shadow: 0 25px 80px rgba(31, 143, 255, 0.3);
 }
 
 /* Play Button Overlay */
@@ -211,7 +210,7 @@
     margin-left: 5px;
 }
 
-/* Play Button Ripples */
+/* Simplified Play Button Ripple (One ripple only) */
 .video-play-ripple {
     position: absolute;
     top: 50%;
@@ -219,17 +218,14 @@
     transform: translate(-50%, -50%);
     width: 100px;
     height: 100px;
-    border: 2px solid rgba(255, 255, 255, 0.6);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
     border-radius: 50%;
-    animation: videoRipple 2s ease-out infinite;
+    animation: videoRipple 3s ease-out infinite;
 }
 
-.video-play-ripple.ripple-2 {
-    animation-delay: 0.5s;
-}
-
+.video-play-ripple.ripple-2,
 .video-play-ripple.ripple-3 {
-    animation-delay: 1s;
+    display: none;
 }
 
 /* Video Info */
@@ -292,14 +288,14 @@
     align-items: center;
     gap: 10px;
     padding: 15px;
-    background: rgba(3, 55, 205, 0.05);
+    background: rgba(31, 143, 255, 0.05);
     border-radius: 10px;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .video-feature-item:hover {
-    background: rgba(3, 55, 205, 0.1);
+    background: rgba(31, 143, 255, 0.1);
     transform: translateY(-2px);
 }
 
@@ -314,51 +310,37 @@
 }
 
 /* Video Info Cards */
+/* Video Info Cards - Optimized */
 .video-info-card {
     text-align: center;
     padding: 2rem 1.5rem;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
-    animation: videoInfoCardFloat 8s ease-in-out infinite;
-}
-
-.video-info-card:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.video-info-card:nth-child(2) {
-    animation-delay: 2s;
-}
-
-.video-info-card:nth-child(3) {
-    animation-delay: 4s;
 }
 
 .video-info-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(3, 55, 205, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(31, 143, 255, 0.1);
 }
 
 .video-info-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #0D0D0D, #1F8FFF);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-black), var(--primary-blue));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: white;
-    animation: videoInfoIconSpin 6s linear infinite;
 }
 
 .video-info-card h5 {
-    color: #0337CD;
+    color: var(--primary-blue);
     font-weight: 700;
     margin-bottom: 1rem;
     font-size: 1.3rem;
@@ -369,6 +351,7 @@
     line-height: 1.6;
     margin: 0;
 }
+
 
 /* Animations */
 @keyframes videoIconFloat {
@@ -403,11 +386,11 @@
 
     0%,
     100% {
-        box-shadow: 0 8px 25px rgba(3, 55, 205, 0.1);
+        box-shadow: 0 8px 25px rgba(31, 143, 255, 0.1);
     }
 
     50% {
-        box-shadow: 0 8px 25px rgba(3, 55, 205, 0.3);
+        box-shadow: 0 8px 25px rgba(31, 143, 255, 0.3);
     }
 }
 
@@ -425,11 +408,11 @@
 
     0%,
     100% {
-        text-shadow: 0 0 20px rgba(3, 55, 205, 0.3);
+        text-shadow: 0 0 20px rgba(31, 143, 255, 0.3);
     }
 
     50% {
-        text-shadow: 0 0 40px rgba(255, 109, 0, 0.4);
+        text-shadow: 0 0 40px rgba(31, 143, 255, 0.4);
     }
 }
 
@@ -455,7 +438,7 @@
 
     50% {
         transform: scale(1.05);
-        box-shadow: 0 20px 50px rgba(3, 55, 205, 0.3);
+        box-shadow: 0 20px 50px rgba(31, 143, 255, 0.3);
     }
 }
 

@@ -20,8 +20,8 @@ function initCharts() {
             datasets: [{
                 label: 'Earnings ($)',
                 data: [5200, 5800, 6200, 6800, 7200, 7600, 8000, 8200, 8100, 8300, 8400, 8450],
-                borderColor: '#FF6D00',
-                backgroundColor: 'rgba(255, 109, 0, 0.1)',
+                borderColor: '#1F8FFF',
+                backgroundColor: 'rgba(31, 143, 255, 0.1)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4
@@ -58,7 +58,7 @@ function initCharts() {
                 data: [65, 25, 10],
                 backgroundColor: [
                     '#28a745',
-                    '#FFAC1E',
+                    '#1F8FFF',
                     '#dc3545'
                 ],
                 borderWidth: 0
@@ -142,7 +142,7 @@ function loadMyCourses() {
             <td>
                 <div class="d-flex align-items-center">
                     <div class="progress me-2" style="width: 60px; height: 8px;">
-                        <div class="progress-bar" style="width: ${course.progress}%; background: linear-gradient(90deg, #FF6D00, #FFAC1E);"></div>
+                        <div class="progress-bar" style="width: ${course.progress}%; background: linear-gradient(90deg, #1F8FFF, #1F8FFF);"></div>
                     </div>
                     <small>${course.progress}%</small>
                 </div>

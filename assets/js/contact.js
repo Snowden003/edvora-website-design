@@ -202,7 +202,7 @@ function addInputGlow(input) {
         left: -2px;
         right: -2px;
         bottom: -2px;
-        background: linear-gradient(45deg, #0337CD, #FF6D00, #FFAC1E);
+        background: linear-gradient(45deg, #1F8FFF, #1F8FFF, #1F8FFF);
         border-radius: 17px;
         opacity: 0;
         z-index: -1;

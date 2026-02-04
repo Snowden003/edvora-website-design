@@ -65,7 +65,7 @@
 :root {
     --brand-blue: #1F8FFF;
     --brand-orange: #0D0D0D;
-    --brand-yellow: #FFAC1E;
+    --brand-yellow: #1F8FFF;
 }
 
 /* Navbar */
@@ -109,11 +109,11 @@
 }
 
 .floating-tech-icon.orange {
-    color: rgba(255, 172, 30, 0.3)
+    color: rgba(31, 143, 255, 0.3)
 }
 
 .floating-tech-icon.deep-orange {
-    color: rgba(255, 109, 0, 0.25)
+    color: rgba(31, 143, 255, 0.25)
 }
 
 .floating-tech-icon.light {
@@ -121,11 +121,11 @@
 }
 
 .floating-tech-icon.yellow {
-    color: rgba(255, 172, 30, 0.2)
+    color: rgba(31, 143, 255, 0.2)
 }
 
 .floating-tech-icon.orange-strong {
-    color: rgba(255, 109, 0, 0.3)
+    color: rgba(31, 143, 255, 0.3)
 }
 
 /* Simple delay utilities */
@@ -290,7 +290,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
-    box-shadow: 0 10px 30px rgba(3, 55, 205, .3)
+    box-shadow: 0 10px 30px rgba(31, 143, 255, .3)
 }
 
 .story-icon i {
@@ -300,7 +300,7 @@
 
 .story-icon.orange {
     background: linear-gradient(45deg, var(--brand-orange), var(--brand-yellow));
-    box-shadow: 0 10px 30px rgba(255, 109, 0, .3)
+    box-shadow: 0 10px 30px rgba(31, 143, 255, .3)
 }
 
 /* Visual block */
@@ -344,11 +344,11 @@
 }
 
 .bubble.orange {
-    background: rgba(255, 172, 30, .3)
+    background: rgba(31, 143, 255, .3)
 }
 
 .bubble.deep-orange {
-    background: rgba(255, 109, 0, .2)
+    background: rgba(31, 143, 255, .2)
 }
 
 .z-top {
@@ -358,7 +358,7 @@
 
 /* Mission section */
 .mission-card {
-    background: linear-gradient(135deg, rgba(3, 55, 205, .15), rgba(255, 109, 0, .15), rgba(255, 172, 30, .1), rgba(3, 55, 205, .1));
+    background: linear-gradient(135deg, rgba(31, 143, 255, .15), rgba(31, 143, 255, .15), rgba(31, 143, 255, .1), rgba(31, 143, 255, .1));
     background-size: 400% 400%;
     animation: missionGradientPulse 8s ease-in-out infinite;
     backdrop-filter: blur(15px);
@@ -377,7 +377,7 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto 3rem;
-    box-shadow: 0 20px 50px rgba(3, 55, 205, .3);
+    box-shadow: 0 20px 50px rgba(31, 143, 255, .3);
     animation: missionPulse 4s ease-in-out infinite
 }
 
@@ -617,12 +617,12 @@
 }
 
 .story-particle.orange {
-    background: rgba(255, 172, 30, .6);
+    background: rgba(31, 143, 255, .6);
     animation-duration: 7s
 }
 
 .story-particle.deep-orange {
-    background: rgba(255, 109, 0, .6);
+    background: rgba(31, 143, 255, .6);
     animation-duration: 8s
 }
 
@@ -786,21 +786,21 @@
 .hero-orb.orb1 {
     left: -60px;
     top: 20%;
-    background: radial-gradient(circle at 30% 30%, #FF6D00, transparent 60%);
+    background: radial-gradient(circle at 30% 30%, #1F8FFF, transparent 60%);
     animation-delay: 0.2s;
 }
 
 .hero-orb.orb2 {
     right: -40px;
     top: 10%;
-    background: radial-gradient(circle at 60% 30%, #0337CD, transparent 60%);
+    background: radial-gradient(circle at 60% 30%, #1F8FFF, transparent 60%);
     animation-delay: 0.8s;
 }
 
 .hero-orb.orb3 {
     left: 20%;
     bottom: -60px;
-    background: radial-gradient(circle at 40% 40%, #FFAC1E, transparent 60%);
+    background: radial-gradient(circle at 40% 40%, #1F8FFF, transparent 60%);
     animation-delay: 1.2s;
 }
 
@@ -809,7 +809,7 @@
     bottom: 0;
     width: 160px;
     height: 160px;
-    background: radial-gradient(circle at 50% 50%, #FF6D00, transparent 60%);
+    background: radial-gradient(circle at 50% 50%, #1F8FFF, transparent 60%);
     animation-delay: 1.8s;
 }
 
@@ -822,7 +822,7 @@
 }
 
 .floating-tech-icon.orange {
-    color: #FF6D00;
+    color: #1F8FFF;
     opacity: 0.9;
 }
 
@@ -832,12 +832,12 @@
 }
 
 .floating-tech-icon.deep-orange {
-    color: #FFAC1E;
+    color: #1F8FFF;
     opacity: 0.95;
 }
 
 .floating-tech-icon.yellow {
-    color: #FFAC1E;
+    color: #1F8FFF;
 }
 
 .floating-tech-icon.light {
@@ -872,18 +872,18 @@
     height: 6px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
-    box-shadow: 0 0 18px rgba(255, 255, 255, 0.7), 0 0 32px rgba(255, 172, 30, 0.35);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.7), 0 0 32px rgba(31, 143, 255, 0.35);
     animation: storyParticleFloat 5.5s ease-in-out infinite;
 }
 
 .story-particle.orange {
-    background: rgba(255, 109, 0, 0.9);
-    box-shadow: 0 0 18px rgba(255, 109, 0, 0.8), 0 0 32px rgba(255, 109, 0, 0.35);
+    background: rgba(31, 143, 255, 0.9);
+    box-shadow: 0 0 18px rgba(31, 143, 255, 0.8), 0 0 32px rgba(31, 143, 255, 0.35);
     animation-duration: 6.5s;
 }
 
 .story-particle.deep-orange {
-    background: rgba(255, 172, 30, 0.95);
+    background: rgba(31, 143, 255, 0.95);
     animation-duration: 7s;
 }
 
@@ -907,7 +907,7 @@
 }
 
 .story-badge i {
-    color: #FF6D00;
+    color: #1F8FFF;
     animation: gemSpin 6s linear infinite;
 }
 
@@ -976,11 +976,11 @@
 
     0%,
     100% {
-        box-shadow: 0 0 20px rgba(255, 172, 30, 0.3);
+        box-shadow: 0 0 20px rgba(31, 143, 255, 0.3);
     }
 
     50% {
-        box-shadow: 0 0 40px rgba(255, 172, 30, 0.6);
+        box-shadow: 0 0 40px rgba(31, 143, 255, 0.6);
     }
 }
 
@@ -1002,7 +1002,7 @@
     }
 
     50% {
-        text-shadow: 0 0 40px rgba(255, 172, 30, 0.8);
+        text-shadow: 0 0 40px rgba(31, 143, 255, 0.8);
     }
 }
 
@@ -1010,11 +1010,11 @@
 
     0%,
     100% {
-        text-shadow: 0 0 20px rgba(255, 172, 30, 0.5);
+        text-shadow: 0 0 20px rgba(31, 143, 255, 0.5);
     }
 
     50% {
-        text-shadow: 0 0 40px rgba(255, 109, 0, 0.8);
+        text-shadow: 0 0 40px rgba(31, 143, 255, 0.8);
     }
 }
 
@@ -1189,12 +1189,12 @@
     0%,
     100% {
         transform: scale(1);
-        box-shadow: 0 20px 50px rgba(3, 55, 205, 0.3);
+        box-shadow: 0 20px 50px rgba(31, 143, 255, 0.3);
     }
 
     50% {
         transform: scale(1.05);
-        box-shadow: 0 25px 60px rgba(3, 55, 205, 0.5);
+        box-shadow: 0 25px 60px rgba(31, 143, 255, 0.5);
     }
 }
 

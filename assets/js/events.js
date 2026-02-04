@@ -197,7 +197,7 @@ function renderEvents() {
                 </div>
                 
                 <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3" style="color: #0337CD;">${event.title}</h5>
+                    <h5 class="fw-bold mb-3" style="color: #1F8FFF;">${event.title}</h5>
                     <p class="text-muted mb-3" style="font-size: 0.9rem;">${event.description.substring(0, 100)}...</p>
                     
                     <div class="row g-2 mb-3 small">
@@ -228,7 +228,7 @@ function renderEvents() {
                     </div>
                     
                     <div class="d-flex gap-2">
-                        <button class="btn btn-primary" style="background-color: #FF6D00; border-color: #FF6D00;" onclick="registerForEvent(${event.id})">
+                        <button class="btn btn-primary" style="background-color: #1F8FFF; border-color: #1F8FFF;" onclick="registerForEvent(${event.id})">
                             ${event.price === 0 ? 'Join Free' : 'Register'}
                         </button>
                         <button class="btn btn-outline-primary" onclick="goToEventDetail('${getEventSlug(event)}')">
@@ -419,7 +419,7 @@ function showEventDetails(eventId) {
                             </div>
                         </div>
                         <div class="text-center mt-3">
-                            <div class="fw-bold fs-4" style="color: #FF6D00;">
+                            <div class="fw-bold fs-4" style="color: #1F8FFF;">
                                 ${event.price === 0 ? 'Free Event' : `$${event.price}`}
                             </div>
                         </div>
@@ -432,7 +432,7 @@ function showEventDetails(eventId) {
                     ${event.featured ? '<span class="badge bg-danger">Featured</span>' : ''}
                 </div>
                 
-                <h4 class="fw-bold mb-3" style="color: #0337CD;">${event.title}</h4>
+                <h4 class="fw-bold mb-3" style="color: #1F8FFF;">${event.title}</h4>
                 <p class="text-muted mb-4">${event.description}</p>
                 
                 <div class="mb-4">
@@ -501,8 +501,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .event-card:hover .btn {
-            background-color: #0337CD !important;
-            border-color: #0337CD !important;
+            background-color: #1F8FFF !important;
+            border-color: #1F8FFF !important;
         }
     `;
     document.head.appendChild(style);

@@ -28,11 +28,20 @@ Each member is responsible for a specific part of the project. Work should be do
 
 After a preliminary review of the codebase, here are the areas that require further work:
 
-### 1. General Consistency (Global)
-- [ ] **Unified Color Palette:** Ensure the primary blue (`#1F8FFF` / `#0337CD`) and orange/warning colors are consistent across all pages and dashboards.
-- [ ] **Navigation Sync:** Check that all links in the header and footer work correctly and point to the right files across all 20+ HTML files.
-- [ ] **Dark/Light Mode:** Implement or polish the theme toggle functionality to ensure all components respond correctly to theme changes.
-- [ ] **Responsive Design:** Verify that all pages (especially tables in dashboards) are fully responsive on mobile and tablet views.
+### 1. Unified Brand Palette (Mandatory)
+Use only the following colors:
+- **Midnight Black:** `#0D0D0D` (Main background, text)
+- **Electric Blue:** `#1F8FFF` (Primary actions, headers, buttons)
+- **Cyan Glow:** `#00F0FF` (Secondary accents, highlights)
+- **Silver Gray:** `#BFC0C0` (Borders, secondary text)
+
+> [!IMPORTANT]
+> **NO YELLOW.** All action buttons, alerts, and notifications must now use **Electric Blue** with white text or **Cyan Glow** for highlights. Avoid all instances of `#1F8FFF`.
+
+### 2. General Consistency (Global)
+- [ ] **Navigation Sync:** Check that all links in the header and footer work correctly across all 20+ HTML files.
+- [ ] **Theme Integration:** Ensure dark/light mode uses the palette correctly (Midnight Black for dark backgrounds).
+- [ ] **Responsive Design:** Verify that all pages (especially tables in dashboards) are fully responsive.
 
 ### 2. Main Pages (Mobin's Focus)
 - [ ] **Dynamic Content:** Review `assets/js/main.js` and other page-specific JS files to ensure they correctly populate data placeholders (e.g., upcoming events, popular courses).

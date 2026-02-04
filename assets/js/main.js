@@ -1,5 +1,5 @@
-// Main JavaScript for KoMoJa
-document.addEventListener('DOMContentLoaded', function() {
+// Main JavaScript for Edvora Tech
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize all components
     initThemeToggle();
     loadPopularCourses();
@@ -18,17 +18,17 @@ function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const icon = themeToggle.querySelector('i');
-    
+
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
         icon.className = 'bi bi-moon-fill';
     }
-    
-    themeToggle.addEventListener('click', function() {
+
+    themeToggle.addEventListener('click', function () {
         body.classList.toggle('dark-mode');
-        
+
         if (body.classList.contains('dark-mode')) {
             icon.className = 'bi bi-moon-fill';
             localStorage.setItem('theme', 'dark');
@@ -45,48 +45,48 @@ function initCoursesSlider() {
     const prevBtn = document.querySelector('.slider-prev');
     const nextBtn = document.querySelector('.slider-next');
     const indicators = document.querySelectorAll('.indicator');
-    
+
     if (!sliderTrack || !prevBtn || !nextBtn) return;
-    
+
     const originalCards = Array.from(document.querySelectorAll('.course-card'));
     const totalCards = originalCards.length;
-    
+
     // Create seamless infinite scroll by duplicating cards
     sliderTrack.innerHTML = '';
-    
+
     // Add original cards first
     originalCards.forEach(card => {
         sliderTrack.appendChild(card.cloneNode(true));
     });
-    
+
     // Add duplicate cards for seamless loop
     originalCards.forEach(card => {
         sliderTrack.appendChild(card.cloneNode(true));
     });
-    
+
     const cardWidth = 340; // 320px card + 20px gap
     let currentIndex = 0;
     let isTransitioning = false;
-    
+
     // Update slider position
     function updateSlider(smooth = true) {
         sliderTrack.style.transition = smooth ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
         sliderTrack.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
-        
+
         // Update indicators based on position within original set
         const indicatorIndex = currentIndex % totalCards;
         indicators.forEach((indicator, index) => {
             indicator.classList.toggle('active', index === indicatorIndex);
         });
     }
-    
+
     // Previous slide
     prevBtn.addEventListener('click', () => {
         if (isTransitioning) return;
-        
+
         currentIndex--;
         updateSlider();
-        
+
         // Reset to end when reaching beginning
         if (currentIndex < 0) {
             isTransitioning = true;
@@ -97,14 +97,14 @@ function initCoursesSlider() {
             }, 500);
         }
     });
-    
+
     // Next slide
     nextBtn.addEventListener('click', () => {
         if (isTransitioning) return;
-        
+
         currentIndex++;
         updateSlider();
-        
+
         // Reset to beginning when reaching end of first set
         if (currentIndex >= totalCards) {
             isTransitioning = true;
@@ -115,7 +115,7 @@ function initCoursesSlider() {
             }, 500);
         }
     });
-    
+
     // Indicator clicks
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
@@ -124,14 +124,14 @@ function initCoursesSlider() {
             updateSlider();
         });
     });
-    
+
     // Auto-play functionality
     let autoPlayInterval = setInterval(() => {
         if (isTransitioning) return;
-        
+
         currentIndex++;
         updateSlider();
-        
+
         // Reset to beginning when reaching end of first set
         if (currentIndex >= totalCards) {
             isTransitioning = true;
@@ -142,20 +142,20 @@ function initCoursesSlider() {
             }, 500);
         }
     }, 4000);
-    
+
     // Pause auto-play on hover
     const sliderContainer = document.querySelector('.courses-slider-container');
     sliderContainer.addEventListener('mouseenter', () => {
         clearInterval(autoPlayInterval);
     });
-    
+
     sliderContainer.addEventListener('mouseleave', () => {
         autoPlayInterval = setInterval(() => {
             if (isTransitioning) return;
-            
+
             currentIndex++;
             updateSlider();
-            
+
             if (currentIndex >= totalCards) {
                 isTransitioning = true;
                 setTimeout(() => {
@@ -166,29 +166,29 @@ function initCoursesSlider() {
             }
         }, 4000);
     });
-    
+
     // Touch/swipe support for mobile
     let startX = 0;
     let isDragging = false;
-    
+
     sliderTrack.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         isDragging = true;
         clearInterval(autoPlayInterval);
     });
-    
+
     sliderTrack.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
     });
-    
+
     sliderTrack.addEventListener('touchend', (e) => {
         if (!isDragging) return;
         isDragging = false;
-        
+
         const endX = e.changedTouches[0].clientX;
         const diffX = startX - endX;
-        
+
         if (Math.abs(diffX) > 50) {
             if (diffX > 0) {
                 currentSlide++;
@@ -210,12 +210,12 @@ function initCoursesSlider() {
                 }
             }
         }
-        
+
         // Restart auto-play
         autoPlayInterval = setInterval(() => {
             currentSlide++;
             updateSlider();
-            
+
             if (currentSlide > totalSlides) {
                 setTimeout(() => {
                     currentSlide = 1;
@@ -224,20 +224,20 @@ function initCoursesSlider() {
             }
         }, 5000);
     });
-    
+
     // Add hover effects to navigation buttons
     [prevBtn, nextBtn].forEach(btn => {
         btn.addEventListener('mouseenter', () => {
             btn.style.transform = 'translateY(-50%) scale(1.1)';
-            btn.style.boxShadow = '0 8px 25px rgba(3, 55, 205, 0.5)';
+            btn.style.boxShadow = '0 8px 25px rgba(31, 143, 255, 0.5)';
         });
-        
+
         btn.addEventListener('mouseleave', () => {
             btn.style.transform = 'translateY(-50%) scale(1)';
-            btn.style.boxShadow = '0 4px 15px rgba(3, 55, 205, 0.3)';
+            btn.style.boxShadow = '0 4px 15px rgba(31, 143, 255, 0.3)';
         });
     });
-    
+
     // Initialize
     updateSlider(false);
 }
@@ -253,7 +253,7 @@ function loadPopularCourses() {
 function loadUpcomingEvents() {
     const eventsContainer = document.getElementById('eventsSliderTrack');
     if (!eventsContainer) return;
-    
+
     const events = [
         {
             id: 1,
@@ -328,7 +328,7 @@ function loadUpcomingEvents() {
             price: "$59"
         }
     ];
-    
+
     // Create enhanced event cards with animations
     eventsContainer.innerHTML = events.map((event, index) => `
         <div class="event-card-enhanced" style="animation: eventCardEntrance 0.8s ease-out ${index * 0.1}s both;">
@@ -364,7 +364,7 @@ function loadUpcomingEvents() {
             </div>
         </div>
     `).join('');
-    
+
     // Initialize events slider after loading content
     setTimeout(() => {
         initEventsSlider();
@@ -377,48 +377,48 @@ function initEventsSlider() {
     const prevBtn = document.querySelector('.events-prev');
     const nextBtn = document.querySelector('.events-next');
     const indicators = document.querySelectorAll('.events-indicator');
-    
+
     if (!sliderTrack || !prevBtn || !nextBtn) return;
-    
+
     const originalCards = Array.from(sliderTrack.querySelectorAll('.event-card-enhanced'));
     const totalCards = originalCards.length;
-    
+
     // Create seamless infinite scroll by duplicating cards
     sliderTrack.innerHTML = '';
-    
+
     // Add original cards first
     originalCards.forEach(card => {
         sliderTrack.appendChild(card.cloneNode(true));
     });
-    
+
     // Add duplicate cards for seamless loop
     originalCards.forEach(card => {
         sliderTrack.appendChild(card.cloneNode(true));
     });
-    
+
     const cardWidth = 380; // 350px card + 30px gap
     let currentIndex = 0;
     let isTransitioning = false;
-    
+
     // Update slider position
     function updateSlider(smooth = true) {
         sliderTrack.style.transition = smooth ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
         sliderTrack.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
-        
+
         // Update indicators based on position within original set
         const indicatorIndex = currentIndex % totalCards;
         indicators.forEach((indicator, index) => {
             indicator.classList.toggle('active', index === indicatorIndex);
         });
     }
-    
+
     // Previous slide
     prevBtn.addEventListener('click', () => {
         if (isTransitioning) return;
-        
+
         currentIndex--;
         updateSlider();
-        
+
         // Reset to end when reaching beginning
         if (currentIndex < 0) {
             isTransitioning = true;
@@ -429,14 +429,14 @@ function initEventsSlider() {
             }, 500);
         }
     });
-    
+
     // Next slide
     nextBtn.addEventListener('click', () => {
         if (isTransitioning) return;
-        
+
         currentIndex++;
         updateSlider();
-        
+
         // Reset to beginning when reaching end of first set
         if (currentIndex >= totalCards) {
             isTransitioning = true;
@@ -447,7 +447,7 @@ function initEventsSlider() {
             }, 500);
         }
     });
-    
+
     // Indicator clicks
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
@@ -456,14 +456,14 @@ function initEventsSlider() {
             updateSlider();
         });
     });
-    
+
     // Auto-play functionality
     let autoPlayInterval = setInterval(() => {
         if (isTransitioning) return;
-        
+
         currentIndex++;
         updateSlider();
-        
+
         // Reset to beginning when reaching end of first set
         if (currentIndex >= totalCards) {
             isTransitioning = true;
@@ -474,20 +474,20 @@ function initEventsSlider() {
             }, 500);
         }
     }, 4000);
-    
+
     // Pause auto-play on hover
     const sliderContainer = document.querySelector('.events-slider-container');
     sliderContainer.addEventListener('mouseenter', () => {
         clearInterval(autoPlayInterval);
     });
-    
+
     sliderContainer.addEventListener('mouseleave', () => {
         autoPlayInterval = setInterval(() => {
             if (isTransitioning) return;
-            
+
             currentIndex++;
             updateSlider();
-            
+
             if (currentIndex >= totalCards) {
                 isTransitioning = true;
                 setTimeout(() => {
@@ -498,29 +498,29 @@ function initEventsSlider() {
             }
         }, 4000);
     });
-    
+
     // Touch/swipe support for mobile
     let startX = 0;
     let isDragging = false;
-    
+
     sliderTrack.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         isDragging = true;
         clearInterval(autoPlayInterval);
     });
-    
+
     sliderTrack.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
     });
-    
+
     sliderTrack.addEventListener('touchend', (e) => {
         if (!isDragging) return;
         isDragging = false;
-        
+
         const endX = e.changedTouches[0].clientX;
         const diffX = startX - endX;
-        
+
         if (Math.abs(diffX) > 50) {
             if (diffX > 0) {
                 currentIndex++;
@@ -542,12 +542,12 @@ function initEventsSlider() {
                 }
             }
         }
-        
+
         // Restart auto-play
         autoPlayInterval = setInterval(() => {
             currentIndex++;
             updateSlider();
-            
+
             if (currentIndex >= totalCards) {
                 setTimeout(() => {
                     currentIndex = 0;
@@ -556,20 +556,20 @@ function initEventsSlider() {
             }
         }, 4000);
     });
-    
+
     // Add hover effects to navigation buttons
     [prevBtn, nextBtn].forEach(btn => {
         btn.addEventListener('mouseenter', () => {
             btn.style.transform = 'translateY(-50%) scale(1.1)';
-            btn.style.boxShadow = '0 8px 25px rgba(3, 55, 205, 0.5)';
+            btn.style.boxShadow = '0 8px 25px rgba(31, 143, 255, 0.5)';
         });
-        
+
         btn.addEventListener('mouseleave', () => {
             btn.style.transform = 'translateY(-50%) scale(1)';
-            btn.style.boxShadow = '0 4px 15px rgba(3, 55, 205, 0.3)';
+            btn.style.boxShadow = '0 4px 15px rgba(31, 143, 255, 0.3)';
         });
     });
-    
+
     // Initialize
     updateSlider(false);
 }
@@ -578,7 +578,7 @@ function initEventsSlider() {
 function loadUpcomingCompetitions() {
     const competitionsContainer = document.getElementById('upcomingCompetitions');
     if (!competitionsContainer) return;
-    
+
     const competitions = [
         {
             id: 1,
@@ -602,7 +602,7 @@ function loadUpcomingCompetitions() {
             deadline: "Jan 25, 2024"
         }
     ];
-    
+
     competitionsContainer.innerHTML = competitions.map(comp => `
         <div class="col-md-4">
             <div class="card competition-card h-100">
@@ -625,7 +625,7 @@ function loadUpcomingCompetitions() {
 function loadTopStudents() {
     const studentsContainer = document.getElementById('studentsSliderTrack');
     if (!studentsContainer) return;
-    
+
     const students = [
         {
             id: 1,
@@ -683,7 +683,7 @@ function loadTopStudents() {
             achievements: 4
         }
     ];
-    
+
     studentsContainer.innerHTML = students.map(student => `
         <div class="student-card-enhanced">
             <div class="student-avatar">
@@ -708,7 +708,7 @@ function loadTopStudents() {
             </div>
         </div>
     `).join('');
-    
+
     // Initialize students slider after loading content
     setTimeout(() => {
         initStudentsSlider();
@@ -721,48 +721,48 @@ function initStudentsSlider() {
     const prevBtn = document.querySelector('.students-prev');
     const nextBtn = document.querySelector('.students-next');
     const indicators = document.querySelectorAll('.students-indicator');
-    
+
     if (!sliderTrack || !prevBtn || !nextBtn) return;
-    
+
     const originalCards = Array.from(sliderTrack.querySelectorAll('.student-card-enhanced'));
     const totalCards = originalCards.length;
-    
+
     // Create seamless infinite scroll by duplicating cards
     sliderTrack.innerHTML = '';
-    
+
     // Add original cards first
     originalCards.forEach(card => {
         sliderTrack.appendChild(card.cloneNode(true));
     });
-    
+
     // Add duplicate cards for seamless loop
     originalCards.forEach(card => {
         sliderTrack.appendChild(card.cloneNode(true));
     });
-    
+
     const cardWidth = 380; // 350px card + 30px gap
     let currentIndex = 0;
     let isTransitioning = false;
-    
+
     // Update slider position
     function updateSlider(smooth = true) {
         sliderTrack.style.transition = smooth ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
         sliderTrack.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
-        
+
         // Update indicators based on position within original set
         const indicatorIndex = currentIndex % totalCards;
         indicators.forEach((indicator, index) => {
             indicator.classList.toggle('active', index === indicatorIndex);
         });
     }
-    
+
     // Previous slide
     prevBtn.addEventListener('click', () => {
         if (isTransitioning) return;
-        
+
         currentIndex--;
         updateSlider();
-        
+
         // Reset to end when reaching beginning
         if (currentIndex < 0) {
             isTransitioning = true;
@@ -773,14 +773,14 @@ function initStudentsSlider() {
             }, 500);
         }
     });
-    
+
     // Next slide
     nextBtn.addEventListener('click', () => {
         if (isTransitioning) return;
-        
+
         currentIndex++;
         updateSlider();
-        
+
         // Reset to beginning when reaching end of first set
         if (currentIndex >= totalCards) {
             isTransitioning = true;
@@ -791,7 +791,7 @@ function initStudentsSlider() {
             }, 500);
         }
     });
-    
+
     // Indicator clicks
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
@@ -800,14 +800,14 @@ function initStudentsSlider() {
             updateSlider();
         });
     });
-    
+
     // Auto-play functionality
     let autoPlayInterval = setInterval(() => {
         if (isTransitioning) return;
-        
+
         currentIndex++;
         updateSlider();
-        
+
         // Reset to beginning when reaching end of first set
         if (currentIndex >= totalCards) {
             isTransitioning = true;
@@ -818,20 +818,20 @@ function initStudentsSlider() {
             }, 500);
         }
     }, 5000);
-    
+
     // Pause auto-play on hover
     const sliderContainer = document.querySelector('.students-slider-container');
     sliderContainer.addEventListener('mouseenter', () => {
         clearInterval(autoPlayInterval);
     });
-    
+
     sliderContainer.addEventListener('mouseleave', () => {
         autoPlayInterval = setInterval(() => {
             if (isTransitioning) return;
-            
+
             currentIndex++;
             updateSlider();
-            
+
             if (currentIndex >= totalCards) {
                 isTransitioning = true;
                 setTimeout(() => {
@@ -842,29 +842,29 @@ function initStudentsSlider() {
             }
         }, 5000);
     });
-    
+
     // Touch/swipe support for mobile
     let startX = 0;
     let isDragging = false;
-    
+
     sliderTrack.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         isDragging = true;
         clearInterval(autoPlayInterval);
     });
-    
+
     sliderTrack.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
     });
-    
+
     sliderTrack.addEventListener('touchend', (e) => {
         if (!isDragging) return;
         isDragging = false;
-        
+
         const endX = e.changedTouches[0].clientX;
         const diffX = startX - endX;
-        
+
         if (Math.abs(diffX) > 50) {
             if (diffX > 0) {
                 currentIndex++;
@@ -886,12 +886,12 @@ function initStudentsSlider() {
                 }
             }
         }
-        
+
         // Restart auto-play
         autoPlayInterval = setInterval(() => {
             currentIndex++;
             updateSlider();
-            
+
             if (currentIndex >= totalCards) {
                 setTimeout(() => {
                     currentIndex = 0;
@@ -900,20 +900,20 @@ function initStudentsSlider() {
             }
         }, 5000);
     });
-    
+
     // Add hover effects to navigation buttons
     [prevBtn, nextBtn].forEach(btn => {
         btn.addEventListener('mouseenter', () => {
             btn.style.transform = 'translateY(-50%) scale(1.1)';
-            btn.style.boxShadow = '0 8px 25px rgba(3, 55, 205, 0.5)';
+            btn.style.boxShadow = '0 8px 25px rgba(31, 143, 255, 0.5)';
         });
-        
+
         btn.addEventListener('mouseleave', () => {
             btn.style.transform = 'translateY(-50%) scale(1)';
-            btn.style.boxShadow = '0 4px 15px rgba(3, 55, 205, 0.3)';
+            btn.style.boxShadow = '0 4px 15px rgba(31, 143, 255, 0.3)';
         });
     });
-    
+
     // Initialize
     updateSlider(false);
 }
@@ -922,7 +922,7 @@ function initStudentsSlider() {
 function loadStartedCourses() {
     const coursesContainer = document.getElementById('startedCourses');
     if (!coursesContainer) return;
-    
+
     const startedCourses = [
         {
             id: 1,
@@ -946,24 +946,27 @@ function loadStartedCourses() {
             instructor: "Mike Johnson"
         }
     ];
-    
+
     coursesContainer.innerHTML = startedCourses.map(course => `
         <div class="col-md-4">
-            <div class="card h-100">
+            <div class="course-card-enhanced">
                 <div class="card-body">
                     <h5 class="card-title">${course.title}</h5>
-                    <p class="text-muted small">by ${course.instructor}</p>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span class="small">Progress</span>
-                            <span class="small">${course.progress}%</span>
+                    <p class="instructor-text">by ${course.instructor}</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span>Progress</span>
+                            <span>${course.progress}%</span>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar" style="width: ${course.progress}%"></div>
+                        <div class="premium-progress">
+                            <div class="premium-progress-bar" style="width: ${course.progress}%"></div>
                         </div>
                     </div>
-                    <p class="small text-muted mb-3">Next: ${course.nextLesson}</p>
-                    <button class="btn btn-primary btn-sm w-100" onclick="continueCourse(${course.id})">
+                    
+                    <p class="next-lesson-text">Next: <strong>${course.nextLesson}</strong></p>
+                    
+                    <button class="btn-premium" onclick="continueCourse(${course.id})">
                         Continue Learning
                     </button>
                 </div>
@@ -976,7 +979,7 @@ function loadStartedCourses() {
 function loadTestimonials() {
     const testimonialsContainer = document.getElementById('testimonials');
     if (!testimonialsContainer) return;
-    
+
     const testimonials = [
         {
             id: 1,
@@ -1003,7 +1006,7 @@ function loadTestimonials() {
             rating: 5
         }
     ];
-    
+
     testimonialsContainer.innerHTML = testimonials.map((testimonial, index) => `
         <div class="carousel-item ${index === 0 ? 'active' : ''}">
             <div class="testimonial-card">
@@ -1023,19 +1026,19 @@ function loadTestimonials() {
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
-    
-    contactForm.addEventListener('submit', function(e) {
+
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
-        
+
         // Show loading state
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<span class="loading"></span> Sending...';
         submitBtn.disabled = true;
-        
+
         // Simulate form submission
         setTimeout(() => {
             alert('Thank you for your message! We\'ll get back to you soon.');
@@ -1052,15 +1055,15 @@ function initAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
     }, observerOptions);
-    
+
     // Add fade-in class to elements
     const animateElements = document.querySelectorAll('.card, .hero-section h1, .hero-section p');
     animateElements.forEach(el => {
@@ -1074,25 +1077,25 @@ function generateStars(rating) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
     let stars = '';
-    
+
     for (let i = 0; i < fullStars; i++) {
         stars += '<i class="bi bi-star-fill"></i>';
     }
-    
+
     if (hasHalfStar) {
         stars += '<i class="bi bi-star-half"></i>';
     }
-    
+
     const emptyStars = 5 - Math.ceil(rating);
     for (let i = 0; i < emptyStars; i++) {
         stars += '<i class="bi bi-star"></i>';
     }
-    
+
     return stars;
 }
 
 function getRankClass(rank) {
-    switch(rank) {
+    switch (rank) {
         case 1: return 'gold';
         case 2: return 'silver';
         case 3: return 'bronze';
@@ -1125,8 +1128,8 @@ function continueCourse(courseId) {
 function initSearch() {
     const searchInput = document.querySelector('.search-input');
     if (!searchInput) return;
-    
-    searchInput.addEventListener('input', function(e) {
+
+    searchInput.addEventListener('input', function (e) {
         const query = e.target.value.toLowerCase();
         // Implement search logic here
         console.log('Searching for:', query);
@@ -1153,7 +1156,7 @@ function subscribeNewsletter(email) {
         alert('Please enter a valid email address.');
         return;
     }
-    
+
     alert('Thank you for subscribing to our newsletter!');
     // Implement newsletter subscription logic
 }
