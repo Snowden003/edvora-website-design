@@ -71,7 +71,7 @@ function loadMyCourses() {
                             <span class="small">${course.progress}% (${course.completedLessons}/${course.totalLessons})</span>
                         </div>
                         <div class="progress" style="height: 8px;">
-                            <div class="progress-bar" style="width: ${course.progress}%; background: linear-gradient(90deg, #FF6D00, #FFAC1E);"></div>
+                            <div class="progress-bar" style="width: ${course.progress}%; background: linear-gradient(90deg, #1F8FFF, #1F8FFF);"></div>
                         </div>
                     </div>
                     

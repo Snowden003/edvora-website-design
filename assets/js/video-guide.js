@@ -30,7 +30,7 @@ function initVideoGuide() {
     featureItems.forEach((item, index) => {
         item.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-5px) scale(1.05)';
-            this.style.boxShadow = '0 10px 30px rgba(3, 55, 205, 0.2)';
+            this.style.boxShadow = '0 10px 30px rgba(31, 143, 255, 0.2)';
         });
 
         item.addEventListener('mouseleave', function() {
@@ -49,12 +49,12 @@ function initVideoGuide() {
     infoCards.forEach((card, index) => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-15px) scale(1.02)';
-            this.style.boxShadow = '0 25px 80px rgba(3, 55, 205, 0.2)';
+            this.style.boxShadow = '0 25px 80px rgba(31, 143, 255, 0.2)';
         });
 
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 10px 40px rgba(3, 55, 205, 0.1)';
+            this.style.boxShadow = '0 10px 40px rgba(31, 143, 255, 0.1)';
         });
     });
 
@@ -239,7 +239,7 @@ function showVideoModal() {
         
         .video-modal-header h4 {
             margin: 0;
-            color: #0337CD;
+            color: #1F8FFF;
             font-weight: 700;
         }
         
@@ -261,7 +261,7 @@ function showVideoModal() {
         
         .video-modal-close:hover {
             background: #f8f9fa;
-            color: #0337CD;
+            color: #1F8FFF;
         }
         
         .video-modal-body {
@@ -275,7 +275,7 @@ function showVideoModal() {
         .coming-soon-icon {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #0337CD, #FF6D00);
+            background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -287,7 +287,7 @@ function showVideoModal() {
         }
         
         .video-coming-soon h3 {
-            color: #0337CD;
+            color: #1F8FFF;
             margin-bottom: 1rem;
             font-weight: 700;
         }
@@ -318,7 +318,7 @@ function showVideoModal() {
         }
         
         .btn-notify-me {
-            background: linear-gradient(135deg, #0337CD, #FF6D00);
+            background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
             color: white;
             border: none;
             padding: 15px 30px;
@@ -334,7 +334,7 @@ function showVideoModal() {
         
         .btn-notify-me:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(3, 55, 205, 0.3);
+            box-shadow: 0 10px 30px rgba(31, 143, 255, 0.3);
         }
         
         @keyframes modalFadeIn {

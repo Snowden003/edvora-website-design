@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             setTimeout(() => {
                 this.innerHTML = '<i class="fas fa-play me-2"></i>Start Learning';
-                this.style.background = 'linear-gradient(135deg, #0337CD, #FF6D00)';
+                this.style.background = 'linear-gradient(135deg, #1F8FFF, #1F8FFF)';
             }, 2000);
         });
     });
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #0337CD, #FF6D00);
+        background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
         z-index: 9999;
         display: flex;
         align-items: center;
@@ -175,7 +175,7 @@ function addProgressIndicator() {
         <div style="text-align: center;">
             <i class="fas fa-chart-line mb-2" style="font-size: 1.5rem;"></i>
             <div>Progress</div>
-            <div style="font-size: 1.5rem; color: #FFAC1E;">${progress.percentage}%</div>
+            <div style="font-size: 1.5rem; color: #1F8FFF;">${progress.percentage}%</div>
             <div style="font-size: 0.8rem;">${progress.completed}/${progress.total} stages</div>
         </div>
     `;

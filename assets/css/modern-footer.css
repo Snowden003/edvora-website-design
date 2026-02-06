@@ -228,7 +228,7 @@
     opacity: 0;
     transform: translateX(-10px);
     transition: all 0.3s ease;
-    color: #FF6D00;
+    color: #1F8FFF;
 }
 
 .footer-links a:hover {
@@ -274,7 +274,7 @@
 }
 
 .newsletter-btn {
-    background: linear-gradient(135deg, #FF6D00, #FFAC1E);
+    background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
     border: none;
     padding: 1rem 1.5rem;
     color: white;
@@ -301,7 +301,7 @@
 
 .stat-number {
     display: block;
-    color: #FFAC1E;
+    color: #1F8FFF;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
@@ -342,7 +342,7 @@
 }
 
 .footer-bottom-links a:hover {
-    color: #FFAC1E;
+    color: #1F8FFF;
 }
 
 /* Animations */

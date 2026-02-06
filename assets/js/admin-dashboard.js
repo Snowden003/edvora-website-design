@@ -18,8 +18,8 @@ function initCharts() {
             datasets: [{
                 label: 'Revenue ($)',
                 data: [32000, 35000, 38000, 42000, 39000, 45000, 48000, 52000, 49000, 55000, 58000, 62000],
-                borderColor: '#FF6D00',
-                backgroundColor: 'rgba(255, 109, 0, 0.1)',
+                borderColor: '#1F8FFF',
+                backgroundColor: 'rgba(31, 143, 255, 0.1)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4
@@ -55,9 +55,9 @@ function initCharts() {
             datasets: [{
                 data: [35, 25, 20, 12, 8],
                 backgroundColor: [
-                    '#FF6D00',
-                    '#0337CD',
-                    '#FFAC1E',
+                    '#1F8FFF',
+                    '#1F8FFF',
+                    '#1F8FFF',
                     '#28a745',
                     '#dc3545'
                 ],

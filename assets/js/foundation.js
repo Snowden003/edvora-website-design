@@ -10,12 +10,12 @@ function initMonthlyChart() {
             datasets: [{
                 label: 'Monthly Donations ($)',
                 data: [45000, 62000, 78000, 95000, 120000, 150000],
-                borderColor: '#FF6D00',
-                backgroundColor: 'rgba(255, 109, 0, 0.1)',
+                borderColor: '#1F8FFF',
+                backgroundColor: 'rgba(31, 143, 255, 0.1)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4,
-                pointBackgroundColor: '#FF6D00',
+                pointBackgroundColor: '#1F8FFF',
                 pointBorderColor: '#ffffff',
                 pointBorderWidth: 3,
                 pointRadius: 6,
@@ -30,10 +30,10 @@ function initMonthlyChart() {
                     display: false
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(3, 55, 205, 0.9)',
+                    backgroundColor: 'rgba(31, 143, 255, 0.9)',
                     titleColor: '#ffffff',
                     bodyColor: '#ffffff',
-                    borderColor: '#FF6D00',
+                    borderColor: '#1F8FFF',
                     borderWidth: 2,
                     cornerRadius: 10,
                     displayColors: false,
@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function() {
     inputs.forEach(input => {
         // Add focus glow effect
         input.addEventListener('focus', function() {
-            this.style.boxShadow = '0 0 20px rgba(255, 109, 0, 0.3)';
+            this.style.boxShadow = '0 0 20px rgba(31, 143, 255, 0.3)';
             this.style.borderColor = 'var(--primary-orange)';
         });
         

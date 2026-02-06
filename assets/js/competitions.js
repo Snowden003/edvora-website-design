@@ -482,14 +482,14 @@ function showCompetitionDetails(competitionId) {
                     <span class="badge ${getStatusBadgeClass(competition.status)}">${formatStatus(competition.status)}</span>
                 </div>
                 
-                <h4 class="fw-bold mb-3" style="color: #0337CD;">${competition.title}</h4>
+                <h4 class="fw-bold mb-3" style="color: #1F8FFF;">${competition.title}</h4>
                 <p class="text-muted mb-4">${competition.description}</p>
                 
                 <div class="mb-4">
                     <h6 class="fw-bold mb-2">Requirements</h6>
                     <div class="d-flex flex-wrap gap-2">
                         ${competition.requirements.map(req => 
-                            `<span class="badge bg-primary" style="background-color: #FF6D00 !important;">${req}</span>`
+                            `<span class="badge bg-primary" style="background-color: #1F8FFF !important;">${req}</span>`
                         ).join('')}
                     </div>
                 </div>
@@ -722,7 +722,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .premium-competition-card:hover {
             transform: translateY(-12px) rotateX(2deg);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-            border-color: rgba(3, 55, 205, 0.3);
+            border-color: rgba(31, 143, 255, 0.3);
         }
         
         .premium-competition-card.hovered .card-glow {
@@ -745,7 +745,7 @@ document.addEventListener('DOMContentLoaded', function() {
             position: absolute;
             width: 6px;
             height: 6px;
-            background: linear-gradient(45deg, #FF6D00, #FFAC1E);
+            background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
             border-radius: 50%;
             opacity: 0.6;
         }
@@ -771,7 +771,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .floating-orb {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(3, 55, 205, 0.1), rgba(255, 109, 0, 0.05));
+            background: radial-gradient(circle, rgba(31, 143, 255, 0.1), rgba(31, 143, 255, 0.05));
             backdrop-filter: blur(10px);
         }
         
@@ -796,7 +796,7 @@ document.addEventListener('DOMContentLoaded', function() {
             position: absolute;
             top: 16px;
             left: 16px;
-            background: linear-gradient(135deg, #FF6D00, #FFAC1E);
+            background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
@@ -806,7 +806,7 @@ document.addEventListener('DOMContentLoaded', function() {
             display: flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 4px 15px rgba(255, 109, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(31, 143, 255, 0.4);
             animation: featuredPulse 3s ease-in-out infinite;
         }
         
@@ -816,7 +816,7 @@ document.addEventListener('DOMContentLoaded', function() {
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(135deg, #FF6D00, #FFAC1E);
+            background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
             border-radius: 22px;
             opacity: 0.5;
             filter: blur(8px);
@@ -902,9 +902,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .status-badge.upcoming {
-            background: rgba(3, 55, 205, 0.9);
+            background: rgba(31, 143, 255, 0.9);
             color: white;
-            box-shadow: 0 4px 15px rgba(3, 55, 205, 0.3);
+            box-shadow: 0 4px 15px rgba(31, 143, 255, 0.3);
         }
         
         .status-badge.completed {
@@ -931,7 +931,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .status-badge.upcoming .status-glow {
-            background: rgba(3, 55, 205, 0.8);
+            background: rgba(31, 143, 255, 0.8);
         }
         
         .status-badge.completed .status-glow {
@@ -943,7 +943,7 @@ document.addEventListener('DOMContentLoaded', function() {
             position: absolute;
             bottom: 16px;
             left: 16px;
-            background: linear-gradient(135deg, rgba(255, 172, 30, 0.95), rgba(255, 109, 0, 0.95));
+            background: linear-gradient(135deg, rgba(31, 143, 255, 0.95), rgba(31, 143, 255, 0.95));
             color: white;
             padding: 10px 16px;
             border-radius: 18px;
@@ -954,7 +954,7 @@ document.addEventListener('DOMContentLoaded', function() {
             gap: 8px;
             z-index: 10;
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(255, 172, 30, 0.4);
+            box-shadow: 0 4px 20px rgba(31, 143, 255, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -965,7 +965,7 @@ document.addEventListener('DOMContentLoaded', function() {
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(135deg, #FFAC1E, #FF6D00);
+            background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
             border-radius: 20px;
             opacity: 0.7;
             filter: blur(8px);
@@ -992,13 +992,13 @@ document.addEventListener('DOMContentLoaded', function() {
             display: flex;
             align-items: center;
             gap: 6px;
-            background: linear-gradient(135deg, rgba(3, 55, 205, 0.1), rgba(255, 109, 0, 0.05));
-            color: #0337CD;
+            background: linear-gradient(135deg, rgba(31, 143, 255, 0.1), rgba(31, 143, 255, 0.05));
+            color: #1F8FFF;
             padding: 6px 12px;
             border-radius: 12px;
             font-size: 0.8rem;
             font-weight: 600;
-            border: 1px solid rgba(3, 55, 205, 0.2);
+            border: 1px solid rgba(31, 143, 255, 0.2);
         }
         
         .difficulty-tag {
@@ -1018,9 +1018,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .difficulty-tag.intermediate {
-            background: rgba(255, 172, 30, 0.1);
+            background: rgba(31, 143, 255, 0.1);
             color: #D97706;
-            border: 1px solid rgba(255, 172, 30, 0.2);
+            border: 1px solid rgba(31, 143, 255, 0.2);
         }
         
         .difficulty-tag.advanced {
@@ -1054,7 +1054,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .title-gradient {
-            background: linear-gradient(135deg, #0337CD, #FF6D00);
+            background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1065,7 +1065,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         .title-underline {
             height: 3px;
-            background: linear-gradient(90deg, #0337CD, #FF6D00, #FFAC1E);
+            background: linear-gradient(90deg, #1F8FFF, #1F8FFF, #1F8FFF);
             border-radius: 2px;
             margin-top: 8px;
             transform: scaleX(0);
@@ -1098,21 +1098,21 @@ document.addEventListener('DOMContentLoaded', function() {
             align-items: center;
             gap: 12px;
             padding: 12px;
-            background: rgba(3, 55, 205, 0.05);
+            background: rgba(31, 143, 255, 0.05);
             border-radius: 12px;
-            border: 1px solid rgba(3, 55, 205, 0.1);
+            border: 1px solid rgba(31, 143, 255, 0.1);
             transition: all 0.3s ease;
         }
         
         .stat-item:hover {
-            background: rgba(3, 55, 205, 0.1);
+            background: rgba(31, 143, 255, 0.1);
             transform: translateY(-2px);
         }
         
         .stat-icon {
             width: 36px;
             height: 36px;
-            background: linear-gradient(135deg, #0337CD, #FF6D00);
+            background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -1129,7 +1129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .stat-number {
             font-weight: 700;
             font-size: 1.1rem;
-            color: #0337CD;
+            color: #1F8FFF;
         }
         
         .stat-label {
@@ -1139,7 +1139,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         /* Countdown Container */
         .countdown-container {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(255, 109, 0, 0.05));
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(31, 143, 255, 0.05));
             border: 1px solid rgba(239, 68, 68, 0.2);
             border-radius: 16px;
             padding: 16px;
@@ -1170,7 +1170,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         .progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, #DC2626, #FF6D00);
+            background: linear-gradient(90deg, #DC2626, #1F8FFF);
             border-radius: 2px;
             width: 70%;
         }
@@ -1195,13 +1195,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .premium-action-btn.active {
-            background: linear-gradient(135deg, #FF6D00, #FFAC1E);
-            box-shadow: 0 8px 25px rgba(255, 109, 0, 0.3);
+            background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
+            box-shadow: 0 8px 25px rgba(31, 143, 255, 0.3);
         }
         
         .premium-action-btn.upcoming {
-            background: linear-gradient(135deg, #0337CD, #3B82F6);
-            box-shadow: 0 8px 25px rgba(3, 55, 205, 0.3);
+            background: linear-gradient(135deg, #1F8FFF, #3B82F6);
+            box-shadow: 0 8px 25px rgba(31, 143, 255, 0.3);
         }
         
         .premium-action-btn.completed {
@@ -1211,7 +1211,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         .premium-action-btn:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(255, 109, 0, 0.4);
+            box-shadow: 0 12px 35px rgba(31, 143, 255, 0.4);
         }
         
         .premium-action-btn:disabled {
@@ -1260,7 +1260,7 @@ document.addEventListener('DOMContentLoaded', function() {
             left: -4px;
             right: -4px;
             bottom: -4px;
-            background: linear-gradient(135deg, rgba(3, 55, 205, 0.3), rgba(255, 109, 0, 0.3));
+            background: linear-gradient(135deg, rgba(31, 143, 255, 0.3), rgba(31, 143, 255, 0.3));
             border-radius: 28px;
             opacity: 0;
             filter: blur(20px);

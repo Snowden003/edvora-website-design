@@ -95,7 +95,7 @@ function showNoResultsMessage(show) {
                     <i class="bi bi-search fs-1 text-muted mb-3"></i>
                     <h4 class="text-muted">No Results Found</h4>
                     <p class="text-muted">Try adjusting your search terms or browse different categories.</p>
-                    <button class="btn btn-primary" onclick="clearSearch()" style="background-color: #FF6D00; border-color: #FF6D00;">
+                    <button class="btn btn-primary" onclick="clearSearch()" style="background-color: #1F8FFF; border-color: #1F8FFF;">
                         Clear Search
                     </button>
                 </div>

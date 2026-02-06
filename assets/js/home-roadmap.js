@@ -16,11 +16,11 @@ function initRoadmapHoverEffects() {
             
             // Apply specific hover shadow based on card type
             if (this.classList.contains('learning-card-blue')) {
-                this.style.boxShadow = '0 20px 60px rgba(3, 55, 205, 0.25), 0 0 0 1px rgba(3, 55, 205, 0.2)';
+                this.style.boxShadow = '0 20px 60px rgba(31, 143, 255, 0.25), 0 0 0 1px rgba(31, 143, 255, 0.2)';
             } else if (this.classList.contains('learning-card-orange')) {
-                this.style.boxShadow = '0 20px 60px rgba(255, 109, 0, 0.25), 0 0 0 1px rgba(255, 109, 0, 0.2)';
+                this.style.boxShadow = '0 20px 60px rgba(31, 143, 255, 0.25), 0 0 0 1px rgba(31, 143, 255, 0.2)';
             } else if (this.classList.contains('learning-card-yellow')) {
-                this.style.boxShadow = '0 20px 60px rgba(255, 172, 30, 0.25), 0 0 0 1px rgba(255, 172, 30, 0.2)';
+                this.style.boxShadow = '0 20px 60px rgba(31, 143, 255, 0.25), 0 0 0 1px rgba(31, 143, 255, 0.2)';
             }
         });
         
@@ -30,11 +30,11 @@ function initRoadmapHoverEffects() {
             
             // Reset to original shadow based on card type
             if (this.classList.contains('learning-card-blue')) {
-                this.style.boxShadow = '0 10px 40px rgba(3, 55, 205, 0.15), 0 0 0 1px rgba(3, 55, 205, 0.1)';
+                this.style.boxShadow = '0 10px 40px rgba(31, 143, 255, 0.15), 0 0 0 1px rgba(31, 143, 255, 0.1)';
             } else if (this.classList.contains('learning-card-orange')) {
-                this.style.boxShadow = '0 10px 40px rgba(255, 109, 0, 0.15), 0 0 0 1px rgba(255, 109, 0, 0.1)';
+                this.style.boxShadow = '0 10px 40px rgba(31, 143, 255, 0.15), 0 0 0 1px rgba(31, 143, 255, 0.1)';
             } else if (this.classList.contains('learning-card-yellow')) {
-                this.style.boxShadow = '0 10px 40px rgba(255, 172, 30, 0.15), 0 0 0 1px rgba(255, 172, 30, 0.1)';
+                this.style.boxShadow = '0 10px 40px rgba(31, 143, 255, 0.15), 0 0 0 1px rgba(31, 143, 255, 0.1)';
             }
         });
     });
@@ -45,12 +45,12 @@ function initRoadmapHoverEffects() {
     if (ctaButton) {
         ctaButton.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-5px) scale(1.05)';
-            this.style.boxShadow = '0 25px 60px rgba(3, 55, 205, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2)';
+            this.style.boxShadow = '0 25px 60px rgba(31, 143, 255, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2)';
         });
         
         ctaButton.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 15px 40px rgba(3, 55, 205, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)';
+            this.style.boxShadow = '0 15px 40px rgba(31, 143, 255, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)';
         });
     }
 }
