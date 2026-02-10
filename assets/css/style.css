@@ -2492,7 +2492,7 @@ body.dark-mode .card {
 
 /* ===== COURSES PAGE HERO ANIMATION STYLES ===== */
 .courses-hero-section {
-    background: linear-gradient(135deg, #1F8FFF 0%, #1F8FFF 50%, #1F8FFF 100%);
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--primary-blue) 100%);
     position: relative;
     overflow: hidden;
     min-height: 100vh;

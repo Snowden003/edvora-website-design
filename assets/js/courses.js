@@ -1,5 +1,5 @@
 // Courses Page JavaScript
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadCourses();
     initFilters();
     initSearch();
@@ -189,7 +189,7 @@ function loadCourses() {
     if (!coursesGrid) return;
 
     const coursesToShow = filteredCourses.slice(0, displayedCourses);
-    
+
     coursesGrid.innerHTML = coursesToShow.map(course => `
         <div class="col-lg-4 col-md-6">
             <div class="card course-card h-100">
@@ -198,12 +198,6 @@ function loadCourses() {
                     <div class="position-absolute top-0 start-0 m-2">
                         ${course.popular ? '<span class="badge bg-danger">Popular</span>' : ''}
                         ${course.new ? '<span class="badge bg-success">New</span>' : ''}
-                    </div>
-                    <div class="position-absolute top-0 end-0 m-2">
-                        <span class="badge bg-dark">$${course.price}</span>
-                        ${course.originalPrice > course.price ? 
-                            `<br><small class="text-decoration-line-through text-muted">$${course.originalPrice}</small>` : ''
-                        }
                     </div>
                 </div>
                 <div class="card-body d-flex flex-column">
@@ -272,7 +266,7 @@ function initSearch() {
     if (!searchInput) return;
 
     let searchTimeout;
-    searchInput.addEventListener('input', function() {
+    searchInput.addEventListener('input', function () {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
             applyFilters();
@@ -290,9 +284,9 @@ function applyFilters() {
     // Filter courses
     filteredCourses = coursesData.filter(course => {
         const matchesSearch = course.title.toLowerCase().includes(searchTerm) ||
-                            course.instructor.toLowerCase().includes(searchTerm) ||
-                            course.description.toLowerCase().includes(searchTerm);
-        
+            course.instructor.toLowerCase().includes(searchTerm) ||
+            course.description.toLowerCase().includes(searchTerm);
+
         const matchesCategory = !categoryFilter || course.category === categoryFilter;
         const matchesLevel = !levelFilter || course.level === levelFilter;
 
@@ -300,18 +294,12 @@ function applyFilters() {
     });
 
     // Sort courses
-    switch(sortBy) {
+    switch (sortBy) {
         case 'newest':
             filteredCourses.sort((a, b) => b.new - a.new);
             break;
         case 'rating':
             filteredCourses.sort((a, b) => b.rating - a.rating);
-            break;
-        case 'price-low':
-            filteredCourses.sort((a, b) => a.price - b.price);
-            break;
-        case 'price-high':
-            filteredCourses.sort((a, b) => b.price - a.price);
             break;
         case 'popular':
         default:
@@ -329,7 +317,7 @@ function initLoadMore() {
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     if (!loadMoreBtn) return;
 
-    loadMoreBtn.addEventListener('click', function() {
+    loadMoreBtn.addEventListener('click', function () {
         displayedCourses += 6;
         loadCourses();
     });
@@ -406,12 +394,8 @@ function viewCourseDetails(courseId) {
                         <strong>Category:</strong><br>
                         <span class="text-muted">${getCategoryName(course.category)}</span>
                     </div>
-                    <div class="col-6">
-                        <strong>Price:</strong><br>
-                        <span class="text-success fw-bold">$${course.price}</span>
-                        ${course.originalPrice > course.price ? 
-                            `<small class="text-decoration-line-through text-muted ms-1">$${course.originalPrice}</small>` : ''
-                        }
+                        <strong>Category:</strong><br>
+                        <span class="text-muted">${getCategoryName(course.category)}</span>
                     </div>
                 </div>
             </div>
@@ -437,20 +421,20 @@ function generateStars(rating) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
     let stars = '';
-    
+
     for (let i = 0; i < fullStars; i++) {
         stars += '<i class="bi bi-star-fill text-warning"></i>';
     }
-    
+
     if (hasHalfStar) {
         stars += '<i class="bi bi-star-half text-warning"></i>';
     }
-    
+
     const emptyStars = 5 - Math.ceil(rating);
     for (let i = 0; i < emptyStars; i++) {
         stars += '<i class="bi bi-star text-warning"></i>';
     }
-    
+
     return stars;
 }
 
@@ -469,7 +453,7 @@ function getCategoryName(category) {
 function getCourseSlug(course) {
     const slugMap = {
         1: 'web-development',
-        2: 'data-science-python', 
+        2: 'data-science-python',
         3: 'digital-marketing',
         4: 'ui-ux-design',
         5: 'machine-learning',
