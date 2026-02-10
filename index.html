@@ -20,7 +20,7 @@
 
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #1F8FFF;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-header">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
                 <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
@@ -41,23 +41,29 @@
                     <li class="nav-item">
                         <a class="nav-link" href="teachers.html">Teachers</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="events.html">Events</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Community
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="competitions.html">Competitions</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="competitions.html">Competitions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="roadmap.html">Roadmap</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="foundation.html">Foundation</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="roadmap.html">Roadmap</a></li>
+                            <li><a class="dropdown-item" href="foundation.html">Foundation</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             About
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu glass-dropdown">
                             <li><a class="dropdown-item" href="about.html">About Us</a></li>
                             <li><a class="dropdown-item" href="story.html">Our Story</a></li>
                             <li><a class="dropdown-item" href="how-we-work.html">How We Work</a></li>
@@ -69,10 +75,9 @@
                 </ul>
 
                 <div class="d-flex gap-2">
-                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
-                    <button class="btn btn-warning" onclick="location.href='signup.html'"
-                        style="background-color: #1F8FFF; border-color: #1F8FFF;">Sign Up</button>
-                    <button class="btn btn-outline-light" id="themeToggle">
+                    <button class="btn btn-outline-light btn-sm rounded-pill px-4" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-primary btn-sm rounded-pill px-4 btn-glow" onclick="location.href='signup.html'">Sign Up</button>
+                    <button class="btn btn-outline-light btn-sm rounded-circle" id="themeToggle">
                         <i class="bi bi-sun-fill"></i>
                     </button>
                 </div>
