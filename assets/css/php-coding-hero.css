@@ -23,15 +23,19 @@
     width: 350px !important;
     height: 350px !important;
     border-radius: 50%;
-    border: 8px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
-        0 0 100px rgba(31, 143, 255, 0.4),
-        inset 0 0 50px rgba(255, 255, 255, 0.1);
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 0 30px rgba(255, 255, 255, 0.05);
+
     animation: logoFloat 6s ease-in-out infinite,
         logoEntrance 2s ease-out;
     position: relative;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;

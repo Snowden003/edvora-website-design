@@ -141,7 +141,7 @@ function initCoursesSlider() {
                 isTransitioning = false;
             }, 500);
         }
-    }, 4000);
+    }, 6000);
 
     // Pause auto-play on hover
     const sliderContainer = document.querySelector('.courses-slider-container');
@@ -164,7 +164,7 @@ function initCoursesSlider() {
                     isTransitioning = false;
                 }, 500);
             }
-        }, 4000);
+        }, 6000);
     });
 
     // Touch/swipe support for mobile
@@ -986,7 +986,7 @@ function loadTestimonials() {
             name: "Emily Rodriguez",
             role: "Software Developer",
             content: "KoMoJa transformed my career! The courses are well-structured and the instructors are incredibly knowledgeable. I landed my dream job after completing the Full Stack Development program.",
-            avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+            avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face",
             rating: 5
         },
         {
@@ -1010,13 +1010,20 @@ function loadTestimonials() {
     testimonialsContainer.innerHTML = testimonials.map((testimonial, index) => `
         <div class="carousel-item ${index === 0 ? 'active' : ''}">
             <div class="testimonial-card">
-                <img src="${testimonial.avatar}" alt="${testimonial.name}" class="testimonial-avatar">
-                <div class="rating mb-3">
-                    ${generateStars(testimonial.rating)}
+                <div class="quote-icon">
+                    <i class="bi bi-quote"></i>
                 </div>
-                <p class="mb-3">"${testimonial.content}"</p>
-                <h6 class="mb-1">${testimonial.name}</h6>
-                <small class="text-muted">${testimonial.role}</small>
+                <div class="testimonial-content-wrapper">
+                    <img src="${testimonial.avatar}" alt="${testimonial.name}" class="testimonial-avatar">
+                    <div class="rating mb-3">
+                        ${generateStars(testimonial.rating)}
+                    </div>
+                    <p class="testimonial-text">"${testimonial.content}"</p>
+                    <div class="testimonial-author">
+                        <h6 class="mb-1 fw-bold">${testimonial.name}</h6>
+                        <small class="text-primary-blue">${testimonial.role}</small>
+                    </div>
+                </div>
             </div>
         </div>
     `).join('');

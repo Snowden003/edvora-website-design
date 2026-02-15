@@ -1,72 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Details - KoMoJa</title>
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/home-roadmap.css">
+    <link rel="stylesheet" href="assets/css/video-guide.css">
+    <link rel="stylesheet" href="assets/css/modern-footer.css">
+    <link rel="stylesheet" href="assets/css/php-coding-hero.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
-    
+
     <style>
+        :root {
+            --primary-blue: #1F8FFF;
+            --primary-black: #0D0D0D;
+            --primary-blue-dark: #0070E0;
+            --accent-cyan: #00F0FF;
+            --primary-orange: #1F8FFF;
+        }
+
         .course-hero {
-            background: linear-gradient(135deg, #1F8FFF 0%, #1F8FFF 100%);
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--primary-blue) 100%);
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
+            /* Account for fixed header */
         }
-        
+
+        /* Add grain texture overlay to match homepage */
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
         .course-thumbnail {
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+            /* Ensure it's above overlay */
         }
-        
+
         .course-stats {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .instructor-card {
             background: white;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        
+
         .curriculum-item {
             background: white;
             border-radius: 15px;
-            border-left: 4px solid #1F8FFF;
+            border-left: 4px solid var(--primary-blue);
             transition: all 0.3s ease;
         }
-        
+
         .review-card {
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        
+
+        /* Use standard gradient */
         .enroll-btn {
-            background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
             border: none;
             border-radius: 50px;
             padding: 15px 40px;
             font-weight: 600;
-            box-shadow: 0 10px 30px rgba(31, 143, 255, 0.3);
+            box-shadow: 0 0 15px rgba(31, 143, 255, 0.4);
             transition: all 0.3s ease;
         }
-        
+
+        .enroll-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(31, 143, 255, 0.6);
+        }
+
         .price-tag {
-            background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
             color: white;
             border-radius: 50px;
             padding: 10px 25px;
@@ -75,10 +113,11 @@
             display: inline-block;
             box-shadow: 0 5px 20px rgba(31, 143, 255, 0.3);
         }
-        
+
         .skill-badge {
-            background: linear-gradient(45deg, #1F8FFF, #1F8FFF);
-            color: white;
+            background: rgba(31, 143, 255, 0.1);
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
             border-radius: 25px;
             padding: 8px 16px;
             font-size: 0.9rem;
@@ -87,20 +126,27 @@
             margin: 5px;
             transition: transform 0.3s ease;
         }
+
+        .skill-badge:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
+
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #1F8FFF;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-header">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
-                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+                <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
             </a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
@@ -112,28 +158,47 @@
                     <li class="nav-item">
                         <a class="nav-link" href="teachers.html">Teachers</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="events.html">Events</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Community
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="competitions.html">Competitions</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="competitions.html">Competitions</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="roadmap.html">Roadmap</a></li>
+                            <li><a class="dropdown-item" href="foundation.html">Foundation</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             About
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu glass-dropdown">
                             <li><a class="dropdown-item" href="about.html">About Us</a></li>
-                            <li><a class="dropdown-item" href="contact.html">Contact</a></li>
-                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-                            <li><a class="dropdown-item" href="terms.html">Terms</a></li>
+                            <li><a class="dropdown-item" href="story.html">Our Story</a></li>
+                            <li><a class="dropdown-item" href="how-we-work.html">How We Work</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
                 </ul>
-                
+
                 <div class="d-flex gap-2">
-                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
-                    <button class="btn btn-warning" onclick="location.href='signup.html'" style="background-color: #1F8FFF; border-color: #1F8FFF;">Sign Up</button>
+                    <button class="btn btn-outline-light btn-sm rounded-pill px-4"
+                        onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-primary btn-sm rounded-pill px-4 btn-glow"
+                        onclick="location.href='signup.html'">Sign Up</button>
+                    <button class="btn btn-outline-light btn-sm rounded-circle" id="themeToggle">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -151,17 +216,20 @@
                             <li class="breadcrumb-item active text-white" id="courseBreadcrumb">Course Details</li>
                         </ol>
                     </nav>
-                    
+
                     <div class="mb-3">
-                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill" id="courseCategory">Programming</span>
-                        <span class="badge bg-success text-white px-3 py-2 rounded-pill ms-2" id="courseLevel">Intermediate</span>
+                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill"
+                            id="courseCategory">Programming</span>
+                        <span class="badge bg-success text-white px-3 py-2 rounded-pill ms-2"
+                            id="courseLevel">Intermediate</span>
                     </div>
-                    
+
                     <h1 class="display-4 fw-bold mb-3" id="courseTitle">Complete Web Development Bootcamp</h1>
                     <p class="lead mb-4" id="courseDescription">
-                        Master modern web development with HTML, CSS, JavaScript, React, Node.js, and more. Build real-world projects and launch your career as a full-stack developer.
+                        Master modern web development with HTML, CSS, JavaScript, React, Node.js, and more. Build
+                        real-world projects and launch your career as a full-stack developer.
                     </p>
-                    
+
                     <div class="course-stats p-4 mb-4">
                         <div class="row g-3">
                             <div class="col-md-3">
@@ -194,21 +262,21 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="d-flex gap-3 align-items-center flex-wrap">
                         <button class="btn enroll-btn text-white btn-lg">
                             <i class="bi bi-play-circle me-2"></i>Enroll Now
                         </button>
                         <span class="price-tag" id="coursePrice">$49</span>
-                        <button class="btn btn-outline-light btn-lg">
+                        <button class="btn btn-outline-light btn-lg" data-action="wishlist">
                             <i class="bi bi-heart me-2"></i>Add to Wishlist
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 text-center">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop" 
-                         alt="Course Thumbnail" class="course-thumbnail img-fluid" id="courseThumbnail">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop"
+                        alt="Course Thumbnail" class="course-thumbnail img-fluid" id="courseThumbnail">
                 </div>
             </div>
         </div>
@@ -227,9 +295,10 @@
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-4">
                             <p class="mb-4" id="courseOverview">
-                                This comprehensive web development course takes you from beginner to professional level. You'll learn the latest technologies and frameworks used by top companies worldwide.
+                                This comprehensive web development course takes you from beginner to professional level.
+                                You'll learn the latest technologies and frameworks used by top companies worldwide.
                             </p>
-                            
+
                             <h5 class="fw-bold mb-3">What You'll Learn:</h5>
                             <div class="row g-3" id="learningObjectives">
                                 <div class="col-md-6">
@@ -274,16 +343,21 @@
                                     <h5 class="mb-1">Module 1: HTML & CSS Fundamentals</h5>
                                     <p class="text-muted mb-0">8 lessons • 3 hours • Beginner</p>
                                 </div>
-                                <button class="btn btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#module1">
+                                <button class="btn btn-outline-primary" data-bs-toggle="collapse"
+                                    data-bs-target="#module1">
                                     <i class="bi bi-chevron-down"></i>
                                 </button>
                             </div>
                             <div class="collapse mt-3" id="module1">
                                 <ul class="list-unstyled ms-3">
-                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Introduction to HTML5</li>
-                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>CSS3 Styling & Layout</li>
-                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Flexbox & Grid Systems</li>
-                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Responsive Design Principles</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Introduction to
+                                        HTML5</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>CSS3 Styling &
+                                        Layout</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Flexbox & Grid
+                                        Systems</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Responsive
+                                        Design Principles</li>
                                 </ul>
                             </div>
                         </div>
@@ -295,16 +369,21 @@
                                     <h5 class="mb-1">Module 2: JavaScript Mastery</h5>
                                     <p class="text-muted mb-0">12 lessons • 5 hours • Intermediate</p>
                                 </div>
-                                <button class="btn btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#module2">
+                                <button class="btn btn-outline-primary" data-bs-toggle="collapse"
+                                    data-bs-target="#module2">
                                     <i class="bi bi-chevron-down"></i>
                                 </button>
                             </div>
                             <div class="collapse mt-3" id="module2">
                                 <ul class="list-unstyled ms-3">
-                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>JavaScript Fundamentals</li>
-                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>ES6+ Features & Syntax</li>
-                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>DOM Manipulation</li>
-                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Async Programming & APIs</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>JavaScript
+                                        Fundamentals</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>ES6+ Features &
+                                        Syntax</li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>DOM Manipulation
+                                    </li>
+                                    <li class="mb-2"><i class="bi bi-play-circle me-2 text-primary"></i>Async
+                                        Programming & APIs</li>
                                 </ul>
                             </div>
                         </div>
@@ -320,8 +399,8 @@
                         <div class="col-md-6">
                             <div class="review-card p-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" 
-                                         alt="Student" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face"
+                                        alt="Student" class="rounded-circle me-3" style="width: 50px; height: 50px;">
                                     <div>
                                         <h6 class="mb-0">John Smith</h6>
                                         <div class="text-warning">
@@ -333,14 +412,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="mb-0">"Excellent course! The instructor explains everything clearly and the projects are very practical."</p>
+                                <p class="mb-0">"Excellent course! The instructor explains everything clearly and the
+                                    projects are very practical."</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="review-card p-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face" 
-                                         alt="Student" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face"
+                                        alt="Student" class="rounded-circle me-3" style="width: 50px; height: 50px;">
                                     <div>
                                         <h6 class="mb-0">Sarah Johnson</h6>
                                         <div class="text-warning">
@@ -352,7 +432,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="mb-0">"Great content and well-structured curriculum. Highly recommended for beginners!"</p>
+                                <p class="mb-0">"Great content and well-structured curriculum. Highly recommended for
+                                    beginners!"</p>
                             </div>
                         </div>
                     </div>
@@ -365,8 +446,9 @@
                 <div class="instructor-card p-4 mb-4">
                     <h4 class="fw-bold mb-3" style="color: #1F8FFF;">Your Instructor</h4>
                     <div class="text-center mb-3">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
-                             alt="Instructor" class="rounded-circle mb-3" style="width: 100px; height: 100px;" id="instructorPhoto">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                            alt="Instructor" class="rounded-circle mb-3" style="width: 100px; height: 100px;"
+                            id="instructorPhoto">
                         <h5 class="mb-1" id="instructorName">Dr. Michael Chen</h5>
                         <p class="text-muted mb-0" id="instructorTitle">Senior Full-Stack Developer</p>
                     </div>
@@ -396,12 +478,18 @@
                     <div class="card-body">
                         <h5 class="fw-bold mb-3" style="color: #1F8FFF;">Course Features</h5>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Lifetime Access</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mobile & Desktop</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Certificate of Completion</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>30-Day Money Back</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Downloadable Resources</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Community Access</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Lifetime Access
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mobile & Desktop
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Certificate of
+                                Completion</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>30-Day Money Back
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Downloadable
+                                Resources</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Community Access
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -429,16 +517,16 @@
                         <h5 class="fw-bold mb-3" style="color: #1F8FFF;">Related Courses</h5>
                         <div class="d-grid gap-3" id="relatedCourses">
                             <div class="d-flex">
-                                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=80&h=60&fit=crop" 
-                                     alt="Course" class="rounded me-3" style="width: 80px; height: 60px;">
+                                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=80&h=60&fit=crop"
+                                    alt="Course" class="rounded me-3" style="width: 80px; height: 60px;">
                                 <div>
                                     <h6 class="mb-1">Advanced React Patterns</h6>
                                     <small class="text-muted">$39</small>
                                 </div>
                             </div>
                             <div class="d-flex">
-                                <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=80&h=60&fit=crop" 
-                                     alt="Course" class="rounded me-3" style="width: 80px; height: 60px;">
+                                <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=80&h=60&fit=crop"
+                                    alt="Course" class="rounded me-3" style="width: 80px; height: 60px;">
                                 <div>
                                     <h6 class="mb-1">Node.js Masterclass</h6>
                                     <small class="text-muted">$59</small>
@@ -451,46 +539,130 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="py-5" style="background-color: #1F8FFF;">
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <!-- Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particle particle-1"></div>
+            <div class="footer-particle particle-2"></div>
+            <div class="footer-particle particle-3"></div>
+            <div class="footer-particle particle-4"></div>
+            <div class="footer-floating-icon icon-1"><i class="bi bi-mortarboard"></i></div>
+            <div class="footer-floating-icon icon-2"><i class="bi bi-book"></i></div>
+            <div class="footer-floating-icon icon-3"><i class="bi bi-lightbulb"></i></div>
+        </div>
+
         <div class="container">
-            <div class="row g-4">
+            <!-- Main Footer Content -->
+            <div class="row g-4 footer-main">
+                <!-- Brand Section -->
                 <div class="col-lg-4">
-                    <h5 class="text-white fw-bold mb-3">
-                        <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
-                    </h5>
-                    <p class="text-white-50">
-                        Empowering learners worldwide with quality education and innovative teaching methods.
-                    </p>
+                    <div class="footer-brand">
+                        <div class="brand-logo">
+                            <img src="assets/images/logo1.jpg" alt="Edvora Tech Logo" class="footer-logo">
+                            <h4>Edvora Tech</h4>
+                        </div>
+                        <p class="brand-description">
+                            Empowering learners worldwide with quality education and innovative teaching methods.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link youtube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="col-lg-2">
-                    <h6 class="text-white fw-bold mb-3">Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li><a href="courses.html" class="text-white-50 text-decoration-none">Courses</a></li>
-                        <li><a href="teachers.html" class="text-white-50 text-decoration-none">Teachers</a></li>
-                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
-                    </ul>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="teachers.html">Teachers</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="col-lg-6">
-                    <h6 class="text-white fw-bold mb-3">Contact Info</h6>
-                    <p class="text-white-50 mb-2">
-                        <i class="bi bi-geo-alt me-2"></i>123 Education Street, Learning City
-                    </p>
-                    <p class="text-white-50 mb-2">
-                        <i class="bi bi-telephone me-2"></i>+1 (555) 123-4567
-                    </p>
-                    <p class="text-white-50">
-                        <i class="bi bi-envelope me-2"></i>info@komoja.com
-                    </p>
+
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Support</h6>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="foundation.html">Foundation</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Stay Connected</h6>
+                        <p class="newsletter-description">
+                            Get the latest updates on courses, events, and educational content.
+                        </p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="newsletter-input" placeholder="Enter your email address"
+                                    required>
+                                <button class="newsletter-btn" type="submit">
+                                    <i class="bi bi-send"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="footer-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">15K+</span>
+                                <span class="stat-label">Students</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Courses</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">Success Rate</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <hr class="my-4 text-white-50">
-            <div class="text-center text-white-50">
-                <p class="mb-0">&copy; 2024 KoMoJa. All rights reserved.</p>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright">
+                            &copy; 2026 Edvora Tech. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links">
+                            <a href="#">Privacy</a>
+                            <a href="#">Terms</a>
+                            <a href="#">Cookies</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -498,6 +670,12 @@
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/home-roadmap.js"></script>
+    <script src="assets/js/php-coding-hero.js"></script>
+    <script src="assets/js/video-guide.js"></script>
+    <script src="assets/js/modern-footer.js"></script>
     <script src="assets/js/course-detail.js"></script>
 </body>
+
 </html>
