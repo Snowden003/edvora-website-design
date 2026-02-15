@@ -1,5 +1,5 @@
 // Teachers Page JavaScript
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadTeachers();
     initializeFilters();
     initializeSearch();
@@ -195,7 +195,7 @@ function initializeSearch() {
     if (!searchInput) return;
 
     let searchTimeout;
-    searchInput.addEventListener('input', function() {
+    searchInput.addEventListener('input', function () {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
             applyFilters();
@@ -212,10 +212,10 @@ function applyFilters() {
 
     let filteredTeachers = allTeachers.filter(teacher => {
         const matchesSearch = teacher.name.toLowerCase().includes(searchTerm) ||
-                            teacher.title.toLowerCase().includes(searchTerm) ||
-                            teacher.company.toLowerCase().includes(searchTerm) ||
-                            teacher.skills.some(skill => skill.toLowerCase().includes(searchTerm));
-        
+            teacher.title.toLowerCase().includes(searchTerm) ||
+            teacher.company.toLowerCase().includes(searchTerm) ||
+            teacher.skills.some(skill => skill.toLowerCase().includes(searchTerm));
+
         const matchesCategory = !category || teacher.category === category;
         const matchesExperience = !experience || teacher.experience === experience;
         const matchesRating = !rating || teacher.rating >= parseFloat(rating);
@@ -238,10 +238,10 @@ function loadMoreTeachers() {
 
     let filteredTeachers = allTeachers.filter(teacher => {
         const matchesSearch = teacher.name.toLowerCase().includes(searchTerm) ||
-                            teacher.title.toLowerCase().includes(searchTerm) ||
-                            teacher.company.toLowerCase().includes(searchTerm) ||
-                            teacher.skills.some(skill => skill.toLowerCase().includes(searchTerm));
-        
+            teacher.title.toLowerCase().includes(searchTerm) ||
+            teacher.company.toLowerCase().includes(searchTerm) ||
+            teacher.skills.some(skill => skill.toLowerCase().includes(searchTerm));
+
         const matchesCategory = !category || teacher.category === category;
         const matchesExperience = !experience || teacher.experience === experience;
         const matchesRating = !rating || teacher.rating >= parseFloat(rating);
@@ -270,10 +270,10 @@ function updateLoadMoreButton() {
 
     let filteredTeachers = allTeachers.filter(teacher => {
         const matchesSearch = teacher.name.toLowerCase().includes(searchTerm) ||
-                            teacher.title.toLowerCase().includes(searchTerm) ||
-                            teacher.company.toLowerCase().includes(searchTerm) ||
-                            teacher.skills.some(skill => skill.toLowerCase().includes(searchTerm));
-        
+            teacher.title.toLowerCase().includes(searchTerm) ||
+            teacher.company.toLowerCase().includes(searchTerm) ||
+            teacher.skills.some(skill => skill.toLowerCase().includes(searchTerm));
+
         const matchesCategory = !category || teacher.category === category;
         const matchesExperience = !experience || teacher.experience === experience;
         const matchesRating = !rating || teacher.rating >= parseFloat(rating);
@@ -316,7 +316,7 @@ function showTeacherDetails(teacherId) {
                 </div>
             </div>
             <div class="col-md-8">
-                <h4 class="fw-bold mb-2" style="color: #1F8FFF;">${teacher.name}</h4>
+                <h4 class="fw-bold mb-2" style="color: var(--primary-blue);">${teacher.name}</h4>
                 <p class="text-muted mb-1">${teacher.title}</p>
                 <p class="text-muted mb-3">
                     <i class="bi bi-building me-1"></i>${teacher.company}
@@ -335,18 +335,18 @@ function showTeacherDetails(teacherId) {
                 <div class="mb-3">
                     <h6 class="fw-bold">Skills</h6>
                     <div>
-                        ${teacher.skills.map(skill => 
-                            `<span class="badge bg-primary me-1 mb-1" style="background-color: #1F8FFF !important;">${skill}</span>`
-                        ).join('')}
+                        ${teacher.skills.map(skill =>
+        `<span class="badge bg-primary me-1 mb-1" style="background-color: var(--primary-blue) !important;">${skill}</span>`
+    ).join('')}
                     </div>
                 </div>
                 
                 <div class="mb-3">
                     <h6 class="fw-bold">Achievements</h6>
                     <ul class="list-unstyled">
-                        ${teacher.achievements.map(achievement => 
-                            `<li><i class="bi bi-award-fill text-warning me-2"></i>${achievement}</li>`
-                        ).join('')}
+                        ${teacher.achievements.map(achievement =>
+        `<li><i class="bi bi-award-fill text-warning me-2"></i>${achievement}</li>`
+    ).join('')}
                     </ul>
                 </div>
             </div>
@@ -358,7 +358,7 @@ function showTeacherDetails(teacherId) {
 }
 
 // Add hover effects to teacher cards
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const style = document.createElement('style');
     style.textContent = `
         .teacher-card {
@@ -372,8 +372,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .teacher-card:hover .btn {
-            background-color: #1F8FFF !important;
-            border-color: #1F8FFF !important;
+            background-color: var(--primary-blue) !important;
+            border-color: var(--primary-blue) !important;
         }
     `;
     document.head.appendChild(style);
