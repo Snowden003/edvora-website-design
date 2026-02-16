@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - KoMoJa</title>
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/modern-footer.css" rel="stylesheet">
 
 </head>
+
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #1F8FFF;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-header">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
-                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+                <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
             </a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
@@ -38,31 +42,47 @@
                     <li class="nav-item">
                         <a class="nav-link" href="teachers.html">Teachers</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="events.html">Events</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Community
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="competitions.html">Competitions</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="competitions.html">Competitions</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="roadmap.html">Roadmap</a></li>
+                            <li><a class="dropdown-item" href="foundation.html">Foundation</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
                             About
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item active" href="about.html">About Us</a></li>
                             <li><a class="dropdown-item" href="story.html">Our Story</a></li>
                             <li><a class="dropdown-item" href="how-we-work.html">How We Work</a></li>
-                            <li><a class="dropdown-item" href="opportunities.html">Our Opportunities</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                 </ul>
-                
+
                 <div class="d-flex gap-2">
-                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
-                    <button class="btn btn-warning" onclick="location.href='signup.html'" style="background-color: #1F8FFF; border-color: #1F8FFF;">Sign Up</button>
+                    <button class="btn btn-outline-light btn-sm rounded-pill px-4"
+                        onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-primary btn-sm rounded-pill px-4 btn-glow"
+                        onclick="location.href='signup.html'">Sign Up</button>
+                    <button class="btn btn-outline-light btn-sm rounded-circle" id="themeToggle">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -70,44 +90,60 @@
 
     <!-- Premium Hero Section -->
     <section class="hero-premium">
-        <div class="floating-element" style="width: 150px; height: 150px; top: 10%; left: 5%; animation-duration: 25s;"></div>
-        <div class="floating-element" style="width: 80px; height: 80px; top: 20%; left: 80%; animation-duration: 18s; animation-delay: -5s;"></div>
-        <div class="floating-element" style="width: 50px; height: 50px; top: 75%; left: 15%; animation-duration: 22s; animation-delay: -10s;"></div>
-        <div class="floating-element" style="width: 120px; height: 120px; top: 80%; left: 70%; animation-duration: 28s; animation-delay: -2s;"></div>
-        <div class="floating-element" style="width: 60px; height: 60px; top: 50%; left: 50%; animation-duration: 15s; animation-delay: -8s;"></div>
+        <div class="floating-element" style="width: 150px; height: 150px; top: 10%; left: 5%; animation-duration: 25s;">
+        </div>
+        <div class="floating-element"
+            style="width: 80px; height: 80px; top: 20%; left: 80%; animation-duration: 18s; animation-delay: -5s;">
+        </div>
+        <div class="floating-element"
+            style="width: 50px; height: 50px; top: 75%; left: 15%; animation-duration: 22s; animation-delay: -10s;">
+        </div>
+        <div class="floating-element"
+            style="width: 120px; height: 120px; top: 80%; left: 70%; animation-duration: 28s; animation-delay: -2s;">
+        </div>
+        <div class="floating-element"
+            style="width: 60px; height: 60px; top: 50%; left: 50%; animation-duration: 15s; animation-delay: -8s;">
+        </div>
         <div class="container">
             <h1 class="display-3 fw-bold">The Story of KoMoJa</h1>
-            <p class="lead">Pioneering the future of education with passion, innovation, and a commitment to lifelong learning.</p>
+            <p class="lead">Pioneering the future of education with passion, innovation, and a commitment to lifelong
+                learning.</p>
         </div>
     </section>
 
     <!-- Mission & Vision -->
     <section class="py-5 section-animated">
         <div class="container">
-             <div class="text-center mb-5">
+            <div class="text-center mb-5">
                 <h2 class="fw-bold" style="color: #1F8FFF;">Our Mission & Vision</h2>
                 <p class="text-muted">The driving force behind KoMoJa's purpose.</p>
             </div>
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
-                    <div class="card border-0 shadow-lg h-100" style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div class="card border-0 shadow-lg h-100"
+                        style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <div class="card-body p-5 text-center">
                             <div class="mb-4">
                                 <i class="bi bi-bullseye fs-1" style="color: #1F8FFF;"></i>
                             </div>
                             <h3 class="fw-bold mb-3" style="color: #1F8FFF;">Our Mission</h3>
-                            <p class="text-muted">To democratize education by providing world-class learning experiences that empower individuals to achieve their personal and professional goals, regardless of their background or location.</p>
+                            <p class="text-muted">To democratize education by providing world-class learning experiences
+                                that empower individuals to achieve their personal and professional goals, regardless of
+                                their background or location.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card border-0 shadow-lg h-100" style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div class="card border-0 shadow-lg h-100"
+                        style="transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <div class="card-body p-5 text-center">
                             <div class="mb-4">
                                 <i class="bi bi-eye fs-1" style="color: #1F8FFF;"></i>
                             </div>
                             <h3 class="fw-bold mb-3" style="color: #1F8FFF;">Our Vision</h3>
-                            <p class="text-muted">To become the world's leading online education platform, creating a global community of lifelong learners who drive innovation and positive change in their industries and communities.</p>
+                            <p class="text-muted">To become the world's leading online education platform, creating a
+                                global community of lifelong learners who drive innovation and positive change in their
+                                industries and communities.</p>
                         </div>
                     </div>
                 </div>
@@ -126,25 +162,29 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h5 class="fw-bold">2020 - The Idea</h5>
-                        <p class="text-muted mb-0">KoMoJa was born from a vision to make tech education accessible to all, sparking a new era of online learning.</p>
+                        <p class="text-muted mb-0">KoMoJa was born from a vision to make tech education accessible to
+                            all, sparking a new era of online learning.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h5 class="fw-bold">2021 - First 1,000 Students</h5>
-                        <p class="text-muted mb-0">We celebrated our first major milestone, empowering a thousand learners to start their tech careers.</p>
+                        <p class="text-muted mb-0">We celebrated our first major milestone, empowering a thousand
+                            learners to start their tech careers.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h5 class="fw-bold">2022 - Global Expansion</h5>
-                        <p class="text-muted mb-0">Expanded our reach to over 50 countries, creating a diverse and vibrant global learning community.</p>
+                        <p class="text-muted mb-0">Expanded our reach to over 50 countries, creating a diverse and
+                            vibrant global learning community.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h5 class="fw-bold">2024 - Future of Learning</h5>
-                        <p class="text-muted mb-0">Continuing to innovate with AI-driven tools and immersive experiences to shape the future of education.</p>
+                        <p class="text-muted mb-0">Continuing to innovate with AI-driven tools and immersive experiences
+                            to shape the future of education.</p>
                     </div>
                 </div>
             </div>
@@ -161,11 +201,13 @@
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
                     <div class="team-card-premium text-center">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
-                             alt="CEO" class="rounded-circle mb-4" style="width: 140px; height: 140px; object-fit: cover;">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                            alt="CEO" class="rounded-circle mb-4"
+                            style="width: 140px; height: 140px; object-fit: cover;">
                         <h5 class="fw-bold">John Anderson</h5>
                         <p class="text-white-50 mb-2">Chief Executive Officer</p>
-                        <p class="small">Former VP of Education at Google, passionate about democratizing learning through technology.</p>
+                        <p class="small">Former VP of Education at Google, passionate about democratizing learning
+                            through technology.</p>
                         <div class="d-flex justify-content-center gap-3 mt-4">
                             <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
                             <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
@@ -174,11 +216,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="team-card-premium text-center">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" 
-                             alt="CTO" class="rounded-circle mb-4" style="width: 140px; height: 140px; object-fit: cover;">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+                            alt="CTO" class="rounded-circle mb-4"
+                            style="width: 140px; height: 140px; object-fit: cover;">
                         <h5 class="fw-bold">Sarah Mitchell</h5>
                         <p class="text-white-50 mb-2">Chief Technology Officer</p>
-                        <p class="small">Tech innovator with 15+ years in EdTech, leading our platform development and innovation.</p>
+                        <p class="small">Tech innovator with 15+ years in EdTech, leading our platform development and
+                            innovation.</p>
                         <div class="d-flex justify-content-center gap-3 mt-4">
                             <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
                             <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
@@ -187,11 +231,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="team-card-premium text-center">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
-                             alt="CPO" class="rounded-circle mb-4" style="width: 140px; height: 140px; object-fit: cover;">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                            alt="CPO" class="rounded-circle mb-4"
+                            style="width: 140px; height: 140px; object-fit: cover;">
                         <h5 class="fw-bold">Michael Chen</h5>
                         <p class="text-white-50 mb-2">Chief Product Officer</p>
-                        <p class="small">Product visionary focused on creating intuitive and engaging learning experiences for all users.</p>
+                        <p class="small">Product visionary focused on creating intuitive and engaging learning
+                            experiences for all users.</p>
                         <div class="d-flex justify-content-center gap-3 mt-4">
                             <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
                             <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
@@ -208,10 +254,12 @@
             <div class="row align-items-center text-white">
                 <div class="col-lg-8">
                     <h2 class="fw-bold mb-3">Ready to Start Your Learning Journey?</h2>
-                    <p class="lead mb-0">Join thousands of students who are already transforming their careers with KoMoJa.</p>
+                    <p class="lead mb-0">Join thousands of students who are already transforming their careers with
+                        KoMoJa.</p>
                 </div>
                 <div class="col-lg-4 text-center">
-                    <a href="signup.html" class="btn btn-warning btn-lg" style="background-color: #1F8FFF; border-color: #1F8FFF;">
+                    <a href="signup.html" class="btn btn-warning btn-lg"
+                        style="background-color: #1F8FFF; border-color: #1F8FFF;">
                         <i class="bi bi-rocket-takeoff me-2"></i>Get Started Today
                     </a>
                 </div>
@@ -219,61 +267,130 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-5" style="background-color: #1F8FFF;">
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <!-- Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particle particle-1"></div>
+            <div class="footer-particle particle-2"></div>
+            <div class="footer-particle particle-3"></div>
+            <div class="footer-particle particle-4"></div>
+            <div class="footer-floating-icon icon-1"><i class="bi bi-mortarboard"></i></div>
+            <div class="footer-floating-icon icon-2"><i class="bi bi-book"></i></div>
+            <div class="footer-floating-icon icon-3"><i class="bi bi-lightbulb"></i></div>
+        </div>
+
         <div class="container">
-            <div class="row g-4">
+            <!-- Main Footer Content -->
+            <div class="row g-4 footer-main">
+                <!-- Brand Section -->
                 <div class="col-lg-4">
-                    <h5 class="text-white fw-bold mb-3">
-                        <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
-                    </h5>
-                    <p class="text-white-50">
-                        Empowering learners worldwide with quality education and innovative teaching methods.
-                    </p>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-linkedin"></i></a>
+                    <div class="footer-brand">
+                        <div class="brand-logo">
+                            <img src="assets/images/logo1.jpg" alt="Edvora Tech Logo" class="footer-logo">
+                            <h4>Edvora Tech</h4>
+                        </div>
+                        <p class="brand-description">
+                            Empowering learners worldwide with quality education and innovative teaching methods.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link youtube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-2">
-                    <h6 class="text-white fw-bold mb-3">Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li><a href="courses.html" class="text-white-50 text-decoration-none">Courses</a></li>
-                        <li><a href="teachers.html" class="text-white-50 text-decoration-none">Teachers</a></li>
-                        <li><a href="events.html" class="text-white-50 text-decoration-none">Events</a></li>
-                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
-                    </ul>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="teachers.html">Teachers</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="col-lg-2">
-                    <h6 class="text-white fw-bold mb-3">Support</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="faq.html" class="text-white-50 text-decoration-none">FAQ</a></li>
-                        <li><a href="terms.html" class="text-white-50 text-decoration-none">Terms of Service</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
-                    </ul>
+
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Support</h6>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="foundation.html">Foundation</a></li>
+                        </ul>
+                    </div>
                 </div>
-                
+
+                <!-- Newsletter -->
                 <div class="col-lg-4">
-                    <h6 class="text-white fw-bold mb-3">Newsletter</h6>
-                    <p class="text-white-50 mb-3">Stay updated with our latest courses and events</p>
-                    <form class="d-flex gap-2">
-                        <input type="email" class="form-control" placeholder="Enter your email">
-                        <button class="btn btn-warning" type="submit" style="background-color: #1F8FFF; border-color: #1F8FFF;">
-                            Subscribe
-                        </button>
-                    </form>
+                    <div class="footer-section">
+                        <h6 class="footer-title">Stay Connected</h6>
+                        <p class="newsletter-description">
+                            Get the latest updates on courses, events, and educational content.
+                        </p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="newsletter-input" placeholder="Enter your email address"
+                                    required>
+                                <button class="newsletter-btn" type="submit">
+                                    <i class="bi bi-send"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="footer-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">15K+</span>
+                                <span class="stat-label">Students</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Courses</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">Success Rate</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <hr class="my-4 text-white-50">
-            <div class="text-center text-white-50">
-                <p class="mb-0">&copy; 2024 KoMoJa. All rights reserved.</p>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright">
+                            &copy; 2026 Edvora Tech. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links">
+                            <a href="#">Privacy</a>
+                            <a href="#">Terms</a>
+                            <a href="#">Cookies</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -283,5 +400,7 @@
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/about.js"></script>
+    <script src="assets/js/modern-footer.js"></script>
 </body>
+
 </html>
