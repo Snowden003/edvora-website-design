@@ -147,28 +147,7 @@ body.dark-mode .card {
     left: 15px;
 }
 
-/* Competition Cards */
-.competition-card {
-    background: linear-gradient(135deg, var(--primary-black), var(--primary-blue));
-    color: white;
-    border: none;
-}
 
-.competition-card .card-body {
-    position: relative;
-    z-index: 2;
-}
-
-.competition-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: 1;
-}
 
 /* Top Students */
 .student-card {
@@ -1651,6 +1630,8 @@ body.dark-mode .card {
     cursor: pointer;
     transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
 }
 
 .new-teacher-card:hover {
@@ -1718,6 +1699,9 @@ body.dark-mode .card {
     z-index: 3;
     color: #fff;
     transform: translateZ(50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .new-teacher-card-category {
@@ -1735,18 +1719,30 @@ body.dark-mode .card {
 }
 
 .new-teacher-card-name {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 8px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .new-teacher-card-bio {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.5;
     margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -3483,181 +3479,6 @@ body.dark-mode .card {
     }
 }
 
-.hero-title-teachers {
-    position: relative;
-    z-index: 10;
-    line-height: 1.3;
-    margin-bottom: 2rem !important;
-}
-
-.hero-title-teachers .typewriter-text {
-    background: linear-gradient(135deg, #ffffff, #1F8FFF, #1F8FFF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: #ffffff;
-    /* Fallback for browsers that don't support background-clip */
-    position: relative;
-}
-
-.hero-title-teachers .typewriter-text::after {
-    content: '|';
-    position: absolute;
-    right: -5px;
-    color: #1F8FFF;
-    animation: typewriterCursor 1s infinite;
-    font-weight: normal;
-    -webkit-text-fill-color: #1F8FFF;
-}
-
-.hero-title-teachers .typewriter-text.typing-complete::after {
-    display: none;
-}
-
-@keyframes typewriterCursor {
-
-    0%,
-    50% {
-        opacity: 1;
-    }
-
-    51%,
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes titleLineSlide {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-subtitle-teachers {
-    animation: subtitleFadeIn 1s ease-out 0.9s forwards;
-    opacity: 0;
-}
-
-@keyframes subtitleFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Hero Stats */
-.hero-stats-teachers {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 1rem 1.5rem;
-    animation: statItemSlideIn 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.stat-item.stat-1 {
-    animation-delay: 1.2s;
-}
-
-.stat-item.stat-2 {
-    animation-delay: 1.4s;
-}
-
-.stat-item.stat-3 {
-    animation-delay: 1.6s;
-}
-
-@keyframes statItemSlideIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.stat-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: white;
-    animation: iconPulse 2s ease-in-out infinite;
-}
-
-@keyframes iconPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-.stat-number {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1F8FFF;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* Hero Actions */
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    animation: actionsSlideIn 0.8s ease-out 1.8s forwards;
-    opacity: 0;
-}
-
-@keyframes actionsSlideIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .btn-premium {
     display: flex;
@@ -3695,6 +3516,27 @@ body.dark-mode .card {
 .btn-secondary-premium:hover {
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
+}
+
+/* Hero Actions */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: actionsSlideIn 0.8s ease-out 1.8s forwards;
+    opacity: 0;
+}
+
+@keyframes actionsSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(50px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }
 
 /* Teacher Avatar Showcase */
@@ -3910,7 +3752,7 @@ body.dark-mode .card {
         gap: 1rem;
     }
 
-    .stat-item {
+    .hero-stats-teachers .stat-item {
         padding: 0.8rem 1rem;
     }
 
@@ -4074,16 +3916,9 @@ body.dark-mode .card {
     animation: eventParticleFloat 12s ease-in-out infinite 3s;
 }
 
-.floating-event-icon {
-    position: absolute;
-}
 
-.icon-1 {
-    top: 15%;
-    left: 5%;
-    font-size: 1.5rem;
-    color: rgba(31, 143, 255, 0.1);
-    animation: eventIconFloat 15s ease-in-out infinite;
+.slider-nav-btn:active {
+    transform: translateY(-50%) scale(0.95) !important;
 }
 
 .icon-2 {

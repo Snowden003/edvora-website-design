@@ -1,0 +1,37 @@
+/* Competition Cards - Dark (for main page) */
+.competitions-page .competition-card {
+    background: linear-gradient(135deg, var(--primary-black), var(--primary-blue));
+    color: white;
+    border: none;
+}
+
+/* Competition Cards - Light (for Home page) */
+.competition-card:not(.competitions-page *) {
+    background: white;
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.competition-card:not(.competitions-page *):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(31, 143, 255, 0.15);
+    border-color: rgba(31, 143, 255, 0.3);
+}
+
+.competition-card .card-body {
+    position: relative;
+    z-index: 2;
+}
+
+.competitions-page .competition-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="assets/css/foundation.css" rel="stylesheet">
+    <link href="assets/css/modern-footer.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #1F8FFF;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-header">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
-                <i class="bi bi-mortarboard-fill me-2"></i>KoMoJa
+                <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
             </a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
@@ -31,23 +34,29 @@
                     <li class="nav-item">
                         <a class="nav-link" href="teachers.html">Teachers</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="events.html">Events</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Community
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="competitions.html">Competitions</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="competitions.html">Competitions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="roadmap.html">Roadmap</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="foundation.html">Foundation</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="roadmap.html">Roadmap</a></li>
+                            <li><a class="dropdown-item active" href="foundation.html">Foundation</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             About
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu glass-dropdown">
                             <li><a class="dropdown-item" href="about.html">About Us</a></li>
                             <li><a class="dropdown-item" href="story.html">Our Story</a></li>
                             <li><a class="dropdown-item" href="how-we-work.html">How We Work</a></li>
@@ -57,10 +66,13 @@
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                 </ul>
-                
+
                 <div class="d-flex gap-2">
-                    <button class="btn btn-outline-light" onclick="location.href='login.html'">Login</button>
-                    <button class="btn btn-warning" onclick="location.href='signup.html'" style="background-color: #1F8FFF; border-color: #1F8FFF;">Sign Up</button>
+                    <button class="btn btn-outline-light btn-sm rounded-pill px-4"
+                        onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-primary btn-sm rounded-pill px-4 btn-glow"
+                        onclick="location.href='signup.html'">Sign Up</button>
+                    <button class="btn btn-outline-light btn-sm rounded-circle" id="themeToggle">
                         <i class="bi bi-sun-fill"></i>
                     </button>
                 </div>
@@ -77,14 +89,14 @@
             <div class="floating-element star-1"><i class="fas fa-star"></i></div>
             <div class="floating-element gift-1"><i class="fas fa-gift"></i></div>
             <div class="floating-element donate-1"><i class="fas fa-donate"></i></div>
-            
+
             <div class="floating-particle particle-1"></div>
             <div class="floating-particle particle-2"></div>
             <div class="floating-particle particle-3"></div>
             <div class="floating-particle particle-4"></div>
             <div class="floating-particle particle-5"></div>
         </div>
-        
+
         <div class="container">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6">
@@ -93,16 +105,16 @@
                             <i class="fas fa-gem gem-icon"></i>
                             <span>KoMoJa Foundation</span>
                         </div>
-                        
+
                         <h1 class="hero-title">
                             <span class="title-line-1">Supporting the Future</span>
                             <span class="title-line-2">of Technology</span>
                         </h1>
-                        
+
                         <p class="hero-subtitle">
                             With your support, thousands of young people find their way into the world of technology
                         </p>
-                        
+
                         <div class="hero-stats">
                             <div class="stat-card">
                                 <div class="stat-icon">
@@ -113,7 +125,7 @@
                                     <div class="stat-label">Students Supported</div>
                                 </div>
                             </div>
-                            
+
                             <div class="stat-card">
                                 <div class="stat-icon">
                                     <i class="fas fa-heart"></i>
@@ -123,7 +135,7 @@
                                     <div class="stat-label">Active Supporters</div>
                                 </div>
                             </div>
-                            
+
                             <div class="stat-card">
                                 <div class="stat-icon">
                                     <i class="fas fa-coins"></i>
@@ -134,7 +146,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="hero-actions">
                             <button class="btn-donate-now">
                                 <i class="fas fa-heart"></i>
@@ -147,7 +159,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6">
                     <div class="hero-visual">
                         <div class="donation-circle">
@@ -155,7 +167,7 @@
                                 <i class="fas fa-heart main-heart"></i>
                                 <div class="circle-text">Supporting Future</div>
                             </div>
-                            
+
                             <div class="orbiting-element orbit-1">
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
@@ -187,7 +199,8 @@
                                 Total Donations Received
                             </h2>
                             <p class="donations-description">
-                                With your support, we have been able to accompany thousands of young people on their technology learning journey
+                                With your support, we have been able to accompany thousands of young people on their
+                                technology learning journey
                             </p>
                         </div>
                     </div>
@@ -241,13 +254,14 @@
                             Our biggest supporter who made the greatest impact
                         </p>
                     </div>
-                    
+
                     <div class="top-donor-card">
                         <div class="donor-crown">
                             <i class="fas fa-crown"></i>
                         </div>
                         <div class="donor-avatar">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" alt="Top Donor">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
+                                alt="Top Donor">
                             <div class="donor-badge">
                                 <i class="fas fa-star"></i>
                             </div>
@@ -296,7 +310,7 @@
                                 With your support, we can help more Iranian youth
                             </p>
                         </div>
-                        
+
                         <form class="donation-form" id="donationForm">
                             <div class="amount-selection">
                                 <label class="form-label">Select your donation amount:</label>
@@ -309,10 +323,11 @@
                                     <button type="button" class="amount-btn" data-amount="1000">$1,000</button>
                                 </div>
                                 <div class="custom-amount">
-                                    <input type="number" class="form-control" id="customAmount" placeholder="Custom amount (USD)">
+                                    <input type="number" class="form-control" id="customAmount"
+                                        placeholder="Custom amount (USD)">
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -327,17 +342,18 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="donorPhone" class="form-label">Phone Number</label>
                                 <input type="tel" class="form-control" id="donorPhone" required>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="donorMessage" class="form-label">Message (Optional)</label>
-                                <textarea class="form-control" id="donorMessage" rows="4" placeholder="Encouraging message for students..."></textarea>
+                                <textarea class="form-control" id="donorMessage" rows="4"
+                                    placeholder="Encouraging message for students..."></textarea>
                             </div>
-                            
+
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="showName">
@@ -346,7 +362,7 @@
                                     </label>
                                 </div>
                             </div>
-                            
+
                             <div class="form-actions">
                                 <button type="submit" class="btn-submit-donation">
                                     <i class="fas fa-credit-card"></i>
@@ -363,43 +379,130 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <!-- Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particle particle-1"></div>
+            <div class="footer-particle particle-2"></div>
+            <div class="footer-particle particle-3"></div>
+            <div class="footer-particle particle-4"></div>
+            <div class="footer-floating-icon icon-1"><i class="bi bi-mortarboard"></i></div>
+            <div class="footer-floating-icon icon-2"><i class="bi bi-book"></i></div>
+            <div class="footer-floating-icon icon-3"><i class="bi bi-lightbulb"></i></div>
+        </div>
+
         <div class="container">
-            <div class="row">
+            <!-- Main Footer Content -->
+            <div class="row g-4 footer-main">
+                <!-- Brand Section -->
                 <div class="col-lg-4">
                     <div class="footer-brand">
-                        <img src="assets/images/logo1.jpg" alt="KoMoJa Logo" class="footer-logo">
-                        <h5>KoMoJa Foundation</h5>
-                        <p>Supporting the Future of Iranian Technology</p>
+                        <div class="brand-logo">
+                            <img src="assets/images/logo1.jpg" alt="Edvora Tech Logo" class="footer-logo">
+                            <h4>Edvora Tech</h4>
+                        </div>
+                        <p class="brand-description">
+                            Empowering learners worldwide with quality education and innovative teaching methods.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link youtube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="footer-links">
-                        <h6>Useful Links</h6>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Quick Links</h6>
+                        <ul class="footer-links">
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="terms.html">Terms & Conditions</a></li>
+                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="teachers.html">Teachers</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Support</h6>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="foundation.html">Foundation</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
                 <div class="col-lg-4">
-                    <div class="footer-contact">
-                        <h6>Contact Us</h6>
-                        <p><i class="fas fa-envelope"></i> foundation@komoja.ir</p>
-                        <p><i class="fas fa-phone"></i> +98 21 1234 5678</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-telegram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <div class="footer-section">
+                        <h6 class="footer-title">Stay Connected</h6>
+                        <p class="newsletter-description">
+                            Get the latest updates on courses, events, and educational content.
+                        </p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="newsletter-input" placeholder="Enter your email address"
+                                    required>
+                                <button class="newsletter-btn" type="submit">
+                                    <i class="bi bi-send"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="footer-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">15K+</span>
+                                <span class="stat-label">Students</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Courses</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">Success Rate</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p>&copy; 2024 KoMoJa Foundation. All rights reserved.</p>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright">
+                            &copy; 2026 Edvora Tech. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links">
+                            <a href="#">Privacy</a>
+                            <a href="#">Terms</a>
+                            <a href="#">Cookies</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -408,7 +511,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Foundation JS -->
+    <!-- Custom JS -->
     <script src="assets/js/foundation.js"></script>
+    <script src="assets/js/modern-footer.js"></script>
 </body>
+
 </html>
