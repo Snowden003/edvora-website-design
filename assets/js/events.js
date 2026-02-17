@@ -187,7 +187,7 @@ function renderEvents() {
 
     grid.innerHTML = displayedEvents.map(event => `
         <div class="col-lg-4 col-md-6">
-            <div class="card h-100 border-0 shadow-sm event-card">
+            <div class="card h-100 border-0 shadow-sm event-card course-card">
                 ${event.featured ? '<div class="position-absolute top-0 start-0 m-3 z-3"><span class="badge bg-danger">Featured</span></div>' : ''}
                 <div class="position-relative">
                     <img src="${event.image}" class="card-img-top" alt="${event.title}" style="height: 200px; object-fit: cover;">
@@ -487,26 +487,26 @@ function formatDate(dateString) {
 }
 
 // Add hover effects to event cards
-document.addEventListener('DOMContentLoaded', function() {
-    const style = document.createElement('style');
-    style.textContent = `
-        .event-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
+// document.addEventListener('DOMContentLoaded', function() {
+//     const style = document.createElement('style');
+//     style.textContent = `
+//         .event-card {
+//             transition: transform 0.3s ease, box-shadow 0.3s ease;
+//             cursor: pointer;
+//         }
         
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
-        }
+//         .event-card:hover {
+//             transform: translateY(-5px);
+//             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+//         }
         
-        .event-card:hover .btn {
-            background-color: #1F8FFF !important;
-            border-color: #1F8FFF !important;
-        }
-    `;
-    document.head.appendChild(style);
-});
+//         .event-card:hover .btn {
+//             background-color: #1F8FFF !important;
+//             border-color: #1F8FFF !important;
+//         }
+//     `;
+//     document.head.appendChild(style);
+// });
 
 // Generate event slug for URL
 function getEventSlug(event) {
