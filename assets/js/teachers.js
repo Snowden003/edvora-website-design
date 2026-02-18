@@ -22,7 +22,7 @@ const teachersData = [
         rating: 4.9,
         students: 15420,
         courses: 8,
-        image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
+        image: "https://static.vecteezy.com/system/resources/thumbnails/035/804/736/small_2x/ai-generated-pretty-teacher-smiling-at-camera-at-back-of-classroom-at-the-elementary-school-free-photo.jpg",
         bio: "Dr. Sarah Johnson is a Senior Software Engineer at Google with over 10 years of experience in full-stack development. She specializes in JavaScript, React, and Node.js.",
         skills: ["JavaScript", "React", "Node.js", "Python", "AWS"],
         education: "PhD in Computer Science - Stanford University",
@@ -150,6 +150,7 @@ function loadTeachers() {
 }
 
 // Render teachers grid
+// Render teachers grid
 function renderTeachers() {
     const grid = document.getElementById('teachersGrid');
     if (!grid) return;
@@ -159,14 +160,46 @@ function renderTeachers() {
         const shortBio = teacher.bio.split('.')[0] + '.';
 
         return `
-        <div class="col-lg-3 col-md-4 col-sm-6" onclick="showTeacherDetails(${teacher.id})">
-            <div class="new-teacher-card">
-                <div class="new-teacher-card-bg" style="background-image: url('${teacher.image}')"></div>
-                <div class="new-teacher-card-glow"></div>
-                <div class="new-teacher-card-content">
-                    <div class="new-teacher-card-category">${teacher.category}</div>
-                    <h5 class="new-teacher-card-name">${teacher.name}</h5>
-                    <p class="new-teacher-card-bio">${shortBio}</p>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card course-card h-100" style="min-width: auto; max-width: 100%;">
+                <div class="position-relative">
+                    <img src="${teacher.image}" class="card-img-top" alt="${teacher.name}" style="height: 250px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 m-2">
+                        ${teacher.rating >= 4.9 ? '<span class="badge bg-danger">Top Rated</span>' : ''}
+                    </div>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-2">
+                        <span class="badge bg-primary">${getCategoryName(teacher.category)}</span>
+                        <span class="badge bg-secondary ms-1">${capitalizeFirstLetter(teacher.experience)}</span>
+                    </div>
+                    <h5 class="card-title">${teacher.name}</h5>
+                    <p class="text-muted mb-2">${teacher.title}</p>
+                    <p class="card-text small text-muted mb-3">${shortBio}</p>
+                    
+                    <div class="mt-auto">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rating me-2">
+                                ${generateStars(teacher.rating)}
+                            </div>
+                            <span class="text-muted small">(${teacher.rating})</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                            <div>
+                                <i class="bi bi-people-fill me-1"></i>${teacher.students.toLocaleString()}
+                            </div>
+                            <div>
+                                <i class="bi bi-book-fill me-1"></i>${teacher.courses} Courses
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-primary w-100" onclick="showTeacherDetails(${teacher.id})">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -174,6 +207,46 @@ function renderTeachers() {
 
     // Update load more button
     updateLoadMoreButton();
+}
+
+// Helper function to capitalize first letter
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// Helper function to get nice category name
+function getCategoryName(category) {
+    const categories = {
+        'programming': 'Programming',
+        'data-science': 'Data Science',
+        'design': 'Design',
+        'marketing': 'Marketing',
+        'business': 'Business',
+        'languages': 'Languages'
+    };
+    return categories[category] || category;
+}
+
+// Helper function to generate star rating HTML
+function generateStars(rating) {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0; // Check for .5
+    let stars = '';
+
+    for (let i = 0; i < fullStars; i++) {
+        stars += '<i class="bi bi-star-fill text-warning"></i>';
+    }
+
+    if (hasHalfStar) {
+        stars += '<i class="bi bi-star-half text-warning"></i>';
+    }
+
+    const emptyStars = 5 - Math.ceil(rating);
+    for (let i = 0; i < emptyStars; i++) {
+        stars += '<i class="bi bi-star text-warning"></i>';
+    }
+
+    return stars;
 }
 
 // Initialize filters
@@ -357,24 +430,4 @@ function showTeacherDetails(teacherId) {
     modal.show();
 }
 
-// Add hover effects to teacher cards
-document.addEventListener('DOMContentLoaded', function () {
-    const style = document.createElement('style');
-    style.textContent = `
-        .teacher-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .teacher-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
-        }
-        
-        .teacher-card:hover .btn {
-            background-color: var(--primary-blue) !important;
-            border-color: var(--primary-blue) !important;
-        }
-    `;
-    document.head.appendChild(style);
-});
+
