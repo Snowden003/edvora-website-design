@@ -161,14 +161,14 @@ function addProgressIndicator() {
         position: fixed;
         top: 100px;
         right: 20px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.06);
         backdrop-filter: blur(20px);
         border-radius: 15px;
         padding: 15px;
-        color: white;
+        color: black;
         font-weight: 600;
         z-index: 1000;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(0, 0, 0, 0.09)
     `;
     
     indicator.innerHTML = `
