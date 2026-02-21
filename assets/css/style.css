@@ -1160,6 +1160,8 @@ body.dark-mode .card {
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     gap: 20px;
     padding: 10px 0;
+    align-items: stretch; 
+    align-content: stretch;
 }
 
 .course-card {
@@ -1173,13 +1175,16 @@ body.dark-mode .card {
 
     display: flex;
     flex-direction: column;  
+    align-self: stretch;    
+  height: auto;           
+  min-height: 0; 
 }
 
 .course-content {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    flex: 1;  
+    flex: 1 1 auto;  
 }
 
 
