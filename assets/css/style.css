@@ -2824,6 +2824,7 @@ body.dark-mode .card {
     display: inline-block;
     position: relative;
     overflow: hidden;
+    color: #e1e1e1;
 }
 
 .typewriter-text::after {
