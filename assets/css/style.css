@@ -1160,6 +1160,8 @@ body.dark-mode .card {
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     gap: 20px;
     padding: 10px 0;
+    align-items: stretch; 
+    align-content: stretch;
 }
 
 .course-card {
@@ -1173,13 +1175,16 @@ body.dark-mode .card {
 
     display: flex;
     flex-direction: column;  
+    align-self: stretch;    
+  height: auto;           
+  min-height: 0; 
 }
 
 .course-content {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    flex: 1;  
+    flex: 1 1 auto;  
 }
 
 
@@ -2824,6 +2829,7 @@ body.dark-mode .card {
     display: inline-block;
     position: relative;
     overflow: hidden;
+    color: #e1e1e1;
 }
 
 .typewriter-text::after {
@@ -4635,7 +4641,7 @@ body.dark-mode .card {
 .course-card {
     background: rgba(255, 255, 255, 0.872);
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.306);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.306) !important;
     transition: all 0.4s ease;
     overflow: hidden;
 }

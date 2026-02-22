@@ -1,10 +1,13 @@
 /* Foundation Page Styles */
 :root {
     --primary-blue: #1F8FFF;
-    --primary-orange: #1F8FFF;
-    --primary-yellow: #1F8FFF;
-    --dark-bg: #1a1a2e;
-    --light-text: #ffffff;
+    --primary-blue-dark: #0070E0;
+    --accent-cyan: #00F0FF;
+    --accent-cyan-dark: #00F0FF;
+    --primary-black: #0D0D0D;
+    --primary-gray: #BFC0C0;
+    --light-gray: #F5F5F5;
+
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
 }
@@ -16,58 +19,63 @@
 }
 
 body {
-    font-family: 'Vazir', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--light-text);
     background: var(--dark-bg);
     overflow-x: hidden;
 }
 
+/* Sections background */
+.light {
+  background: #FFFFFF;
+}
+
+.gray {
+  background: #F8FAFD;
+}
+
 /* Navigation Styles */
-.navbar {
-    background: rgba(26, 26, 46, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--glass-border);
+.glass-header {
+    background: rgba(6, 30, 62, 0.85);
+    /* Deep Blue Glass */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    color: #F5F5F5;
 }
 
 .navbar-brand {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
     font-size: 1.5rem;
-}
-
-.navbar-brand .logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: 10px;
-    object-fit: cover;
+    color: white !important;
+    text-shadow: 0 0 10px rgba(31, 143, 255, 0.5);
 }
 
 .nav-link {
-    color: var(--light-text) !important;
     font-weight: 500;
     transition: all 0.3s ease;
+    font-size: 0.95rem;
     position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--primary-orange) !important;
+    padding: 0.5rem 1rem !important;
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 50%;
     width: 0;
     height: 2px;
-    background: linear-gradient(45deg, var(--primary-orange), var(--primary-yellow));
+    background: #00F0FF;
     transition: all 0.3s ease;
     transform: translateX(-50%);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white !important;
+    text-shadow: 0 0 8px rgba(31, 143, 255, 0.6);
 }
 
 .nav-link:hover::after,
@@ -75,10 +83,47 @@ body {
     width: 80%;
 }
 
+/* Glass Dropdown */
+.glass-dropdown {
+    background: rgba(6, 30, 62, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 0.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
+
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(31, 143, 255, 0.2);
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Header Buttons */
+.btn-glow {
+    background: linear-gradient(90deg, #1F8FFF, #00F0FF);
+    border: none;
+    box-shadow: 0 0 15px rgba(31, 143, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(31, 143, 255, 0.6);
+}
+
 /* Hero Section */
 .hero-section {
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-orange), var(--primary-yellow), var(--primary-blue), var(--primary-orange), var(--primary-yellow));
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--primary-blue) 100%);
     background-size: 400% 400%;
     animation: gradientShift 20s ease-in-out infinite;
     position: relative;
@@ -170,12 +215,14 @@ body {
     padding: 10px 20px;
     margin-bottom: 30px;
     animation: badgeGlow 3s ease-in-out infinite;
+    color: #FFFFFF;
 }
 
 .gem-icon {
     margin-left: 10px;
-    color: var(--primary-yellow);
+    color: var(--primary-blue);
     animation: gemSpin 4s linear infinite;
+    padding-right: 1rem;
 }
 
 @keyframes badgeGlow {
@@ -197,7 +244,7 @@ body {
 
 .title-line-1 {
     display: block;
-    background: linear-gradient(45deg, #ffffff, var(--primary-yellow));
+    background: linear-gradient(45deg, #ffffff, var(--primary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -206,7 +253,7 @@ body {
 
 .title-line-2 {
     display: block;
-    background: linear-gradient(45deg, var(--primary-yellow), var(--primary-orange));
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -223,6 +270,7 @@ body {
     margin-bottom: 40px;
     opacity: 0.9;
     animation: subtitleFadeIn 1s ease-out 0.6s both;
+    color: #ebebeb;
 }
 
 @keyframes subtitleFadeIn {
@@ -259,19 +307,21 @@ body {
 
 .stat-icon {
     font-size: 2rem;
-    color: var(--primary-orange);
+    color: var(--accent-cyan);
     margin-left: 15px;
+    padding-right: 1rem;
 }
 
 .stat-number {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--primary-yellow);
+    color: #f8f9fa !important;
 }
 
-.stat-label {
+.stat-label_ {
     font-size: 0.9rem;
     opacity: 0.8;
+    color: #ffffff !important;
 }
 
 .hero-actions {
@@ -281,7 +331,7 @@ body {
 }
 
 .btn-donate-now {
-    background: linear-gradient(45deg, var(--primary-orange), var(--primary-yellow));
+    background: var(--accent-cyan);
     border: none;
     border-radius: 50px;
     padding: 15px 30px;
@@ -298,7 +348,8 @@ body {
 
 .btn-donate-now:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(31, 143, 255, 0.4);
+    background: #00bbc8;
+    box-shadow: 0 10px 30px rgb(31, 143, 255);
 }
 
 @keyframes buttonPulse {
@@ -323,7 +374,7 @@ body {
 }
 
 .btn-learn-more:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #0070e0ea;
     transform: translateY(-3px);
 }
 
@@ -341,7 +392,7 @@ body {
     height: 300px;
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border: 2px solid var(--glass-border);
+    border: 2px solid var(--accent-cyan);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -361,7 +412,7 @@ body {
 
 .main-heart {
     font-size: 4rem;
-    color: var(--primary-orange);
+    color: #00bbc8;
     margin-bottom: 10px;
     animation: heartBeat 2s ease-in-out infinite;
 }
@@ -374,13 +425,14 @@ body {
 .circle-text {
     font-size: 1.2rem;
     font-weight: bold;
+    color: #FFFFFF;
 }
 
 .orbiting-element {
     position: absolute;
     width: 60px;
     height: 60px;
-    background: linear-gradient(45deg, var(--primary-blue), var(--primary-orange));
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-blue));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -440,7 +492,7 @@ body {
 /* Total Donations Section */
 .total-donations-section {
     padding: 80px 0;
-    background: #ffffff;
+    /* background: #ffffff; */
 }
 
 .total-donations-card {
@@ -461,7 +513,7 @@ body {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 15px;
-    color: var(--primary-orange);
+    color: var(--primary-blue);
 }
 
 .donations-title i {
@@ -480,7 +532,7 @@ body {
 .amount-number {
     font-size: 3rem;
     font-weight: bold;
-    background: linear-gradient(45deg, var(--primary-orange), var(--primary-yellow));
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -494,14 +546,14 @@ body {
 
 .amount-currency {
     font-size: 1.2rem;
-    color: var(--primary-yellow);
+    color: var(--primary-blue);
     margin-top: 10px;
 }
 
 /* Monthly Chart Section */
 .monthly-chart-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    /* background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); */
 }
 
 .chart-card {
@@ -532,7 +584,7 @@ body {
 }
 
 .chart-title i {
-    color: var(--primary-orange);
+    color: var(--primary-blue);
     margin-right: 10px;
 }
 
@@ -551,7 +603,7 @@ body {
 /* Top Donor Section */
 .top-donor-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #1a4fa0 100%);
+    /* background: linear-gradient(135deg, var(--primary-blue) 0%, #1a4fa0 100%); */
     position: relative;
     overflow: hidden;
 }
@@ -586,7 +638,7 @@ body {
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, var(--primary-orange), var(--accent-yellow), var(--primary-orange));
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-yellow), var(--primary-blue));
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
 }
@@ -603,7 +655,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 30px #1f8fff71;
     animation: crownFloat 3s ease-in-out infinite;
 }
 
@@ -618,7 +670,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     margin: 30px auto 20px;
-    border: 5px solid var(--primary-orange);
+    border: 5px solid var(--primary-blue);
     box-shadow: 0 15px 40px rgba(31, 143, 255, 0.4);
     position: relative;
 }
@@ -663,7 +715,7 @@ body {
 
 .donor-title {
     font-size: 1.1rem;
-    color: var(--primary-orange);
+    color: var(--primary-blue);
     font-weight: 600;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -678,7 +730,7 @@ body {
     display: block;
     font-size: 3rem;
     font-weight: 900;
-    color: var(--primary-orange);
+    color: var(--primary-blue);
     line-height: 1;
     margin-bottom: 5px;
     text-shadow: 2px 2px 4px rgba(31, 143, 255, 0.3);
@@ -704,7 +756,7 @@ body {
 }
 
 .top-donor-card .donor-message i {
-    color: var(--primary-orange);
+    color: var(--primary-blue);
     font-size: 0.8rem;
 }
 
@@ -724,7 +776,7 @@ body {
 }
 
 .stat-item i {
-    color: var(--primary-orange);
+    color: var(--primary-blue);
     font-size: 1rem;
 }
 
@@ -754,7 +806,7 @@ body {
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(45deg, var(--primary-orange), var(--primary-yellow));
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-blue));
     border-radius: 4px;
     width: 0;
     animation: progressFill 3s ease-out 1s both;
@@ -780,7 +832,7 @@ body {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 15px;
-    color: var(--primary-orange);
+    color: var(--primary-blue);
 }
 
 .section-title i {
@@ -824,7 +876,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
-    border: 3px solid var(--primary-orange);
+    border: 3px solid var(--primary-blue);
 }
 
 .donor-avatar img {
@@ -843,7 +895,7 @@ body {
 .donor-amount {
     font-size: 1.1rem;
     font-weight: bold;
-    color: var(--primary-orange);
+    color: var(--primary-blue);
     margin-bottom: 5px;
 }
 
@@ -859,7 +911,7 @@ body {
     padding: 15px;
     background: #f8f9fa;
     border-radius: 10px;
-    border-left: 3px solid var(--primary-orange);
+    border-left: 3px solid var(--primary-blue);
 }
 
 /* Donation Form Section */
@@ -891,7 +943,7 @@ body {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 15px;
-    color: var(--primary-orange);
+    color: var(--primary-blue);
 }
 
 .form-title i {
@@ -924,7 +976,7 @@ body {
 .amount-btn {
     background: #ffffff;
     border: 2px solid #e9ecef;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 15px;
     color: #333;
     font-weight: bold;
@@ -934,9 +986,10 @@ body {
 
 .amount-btn:hover,
 .amount-btn.active {
-    background: linear-gradient(45deg, var(--primary-orange), var(--primary-yellow));
-    border-color: var(--primary-orange);
+    background:  var(--primary-blue);
+    border-color: var(--primary-blue);
     transform: translateY(-2px);
+    color: white;
 }
 
 .custom-amount {
@@ -960,7 +1013,7 @@ body {
 
 .form-control:focus {
     outline: none;
-    border-color: var(--primary-orange);
+    border-color: var(--primary-blue);
     box-shadow: 0 0 20px rgba(31, 143, 255, 0.3);
 }
 
@@ -977,7 +1030,7 @@ body {
 .form-check-input {
     width: 20px;
     height: 20px;
-    accent-color: var(--primary-orange);
+    accent-color: var(--primary-blue);
 }
 
 .form-check-label {
@@ -991,7 +1044,7 @@ body {
 }
 
 .btn-submit-donation {
-    background: linear-gradient(45deg, var(--primary-orange), var(--primary-yellow));
+    background: var(--primary-blue);
     border: none;
     border-radius: 50px;
     padding: 18px 40px;
@@ -1009,6 +1062,7 @@ body {
 
 .btn-submit-donation:hover {
     transform: translateY(-3px);
+    background: var(--primary-blue-dark);
     box-shadow: 0 15px 35px rgba(31, 143, 255, 0.4);
 }
 
@@ -1055,13 +1109,13 @@ body {
 }
 
 .footer-brand h5 {
-    color: var(--primary-orange);
+    color: var(--primary-blue);
     margin-bottom: 10px;
 }
 
 .footer-links h6,
 .footer-contact h6 {
-    color: var(--primary-yellow);
+    color: var(--primary-blue);
     margin-bottom: 20px;
 }
 
@@ -1081,7 +1135,7 @@ body {
 }
 
 .footer-links ul li a:hover {
-    color: var(--primary-orange);
+    color: var(--primary-blue);
 }
 
 .footer-contact p {
@@ -1091,7 +1145,7 @@ body {
 
 .footer-contact i {
     margin-left: 10px;
-    color: var(--primary-orange);
+    color: var(--primary-blue);
 }
 
 .social-links {
@@ -1115,7 +1169,7 @@ body {
 }
 
 .social-links a:hover {
-    background: var(--primary-orange);
+    background: var(--primary-blue);
     transform: translateY(-3px);
 }
 
