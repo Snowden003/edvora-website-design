@@ -119,7 +119,7 @@ function loadCourseData(courseId = 'web-development') {
     }
     
     // Update page title
-    document.title = `${course.title} - KoMoJa`;
+    document.title = `${course.title} - Edvora`;
     
     // Update breadcrumb
     document.getElementById('courseBreadcrumb').textContent = course.title;
