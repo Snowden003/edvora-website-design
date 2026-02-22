@@ -12,6 +12,10 @@ body {
     overflow-x: hidden;
 }
 
+.navbar {
+    background: rgba(6, 30, 62, 0.85);
+}
+
 /* Hero Section */
 .hero-section {
     height: 100vh;
@@ -32,6 +36,10 @@ body {
         radial-gradient(circle at 70% 30%, rgba(31, 143, 255, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, rgba(31, 143, 255, 0.2) 0%, transparent 50%);
     animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+.roadmap-section {
+    background: #ffffff !important;
 }
 
 @keyframes backgroundPulse {
@@ -244,7 +252,7 @@ body {
     text-align: center;
     font-size: 3rem;
     font-weight: 800;
-    color: white;
+    color: #0070E0;
     margin-bottom: 3rem;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
@@ -332,6 +340,7 @@ body {
 
 /* Timeline Content Cards */
 .timeline-content {
+    color: #0D0D0D;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
     border-radius: 20px;
@@ -432,13 +441,12 @@ body {
 .stage-title {
     font-size: 2rem;
     font-weight: 800;
-    color: white;
+    color: #0D0D0D;
     margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .stage-description {
-    color: rgba(255, 255, 255, 0.9);
+    color: #0d0d0dd7;
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -452,13 +460,13 @@ body {
 }
 
 .skill-tag {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(0, 0, 0, 0.055);
+    color: #0D0D0D;
     padding: 6px 12px;
     border-radius: 15px;
     font-size: 0.9rem;
     font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .stage-duration {
@@ -484,7 +492,7 @@ body {
 .progress-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(31, 143, 255, 0.5);
-    background: linear-gradient(135deg, #1F8FFF, #1F8FFF);
+    background: linear-gradient(135deg, #1F8FFF, #0070E0);
 }
 
 /* Responsive Design */
