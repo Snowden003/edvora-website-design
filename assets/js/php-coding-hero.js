@@ -4,7 +4,7 @@ class PHPCodingAnimation {
     constructor() {
         this.codeLines = [
             '<?php',
-            '// KoMoJa Learning Platform - Main Controller',
+            '// Edvora Learning Platform - Main Controller',
             'class LearningPlatform {',
             '    private $students = [];',
             '    private $courses = [];',

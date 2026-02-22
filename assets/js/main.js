@@ -985,7 +985,7 @@ function loadTestimonials() {
             id: 1,
             name: "Emily Rodriguez",
             role: "Software Developer",
-            content: "KoMoJa transformed my career! The courses are well-structured and the instructors are incredibly knowledgeable. I landed my dream job after completing the Full Stack Development program.",
+            content: "Edvora transformed my career! The courses are well-structured and the instructors are incredibly knowledgeable. I landed my dream job after completing the Full Stack Development program.",
             avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face",
             rating: 5
         },
@@ -1001,7 +1001,7 @@ function loadTestimonials() {
             id: 3,
             name: "Sarah Kim",
             role: "UX Designer",
-            content: "As someone transitioning careers, KoMoJa provided exactly what I needed. The UI/UX courses are practical, engaging, and taught by industry experts.",
+            content: "As someone transitioning careers, Edvora provided exactly what I needed. The UI/UX courses are practical, engaging, and taught by industry experts.",
             avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
             rating: 5
         }

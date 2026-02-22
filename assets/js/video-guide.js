@@ -154,7 +154,7 @@ function showVideoModal() {
         <div class="video-modal-backdrop">
             <div class="video-modal-content">
                 <div class="video-modal-header">
-                    <h4>How to Use KoMoJa Platform</h4>
+                    <h4>How to Use Edvora Platform</h4>
                     <button class="video-modal-close">&times;</button>
                 </div>
                 <div class="video-modal-body">
@@ -163,7 +163,7 @@ function showVideoModal() {
                             <i class="bi bi-camera-video"></i>
                         </div>
                         <h3>Video Coming Soon!</h3>
-                        <p>We're preparing an amazing tutorial video to help you get the most out of KoMoJa platform.</p>
+                        <p>We're preparing an amazing tutorial video to help you get the most out of Edvora platform.</p>
                         <div class="coming-soon-features">
                             <div class="feature-item">
                                 <i class="bi bi-check-circle"></i>
