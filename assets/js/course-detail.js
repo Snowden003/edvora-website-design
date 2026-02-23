@@ -130,7 +130,6 @@ function loadCourseData(courseId = 'web-development') {
     document.getElementById('courseTitle').textContent = course.title;
     document.getElementById('courseDescription').textContent = course.description;
     document.getElementById('courseOverview').textContent = course.overview;
-    document.getElementById('coursePrice').textContent = course.price;
     document.getElementById('courseRating').textContent = course.rating;
     document.getElementById('enrolledStudents').textContent = course.students;
     document.getElementById('courseDuration').textContent = course.duration;
