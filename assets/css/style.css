@@ -260,6 +260,7 @@ body.dark-mode .card {
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #020811;
 }
 
 .btn-primary {
@@ -4836,4 +4837,39 @@ section.gray form .form-control {
 }
 .btn-primary:hover {
     background-color: var(--primary-blue-dark);
+}
+
+/* Log in page */
+.togglePass {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgba(31, 143, 255, 0.7);
+    transition: color 0.3s ease;
+    border: none;
+    background-color: inherit;
+    font-size: 1.2rem;
+}
+.togglePass:hover {
+    color: rgba(31, 143, 255, 1);
+    font-size: 1.22rem;
+}
+
+.link{
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.link:hover {
+    color: var(--primary-blue-dark);
+    text-decoration: underline ;
+}
+
+.btnLink:hover {
+    color: white;
+}
+.custom-shadow {
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.208);
 }
