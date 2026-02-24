@@ -4839,7 +4839,7 @@ section.gray form .form-control {
     background-color: var(--primary-blue-dark);
 }
 
-/* Log in page */
+/* Log in page, Sign in page and forgot password page */
 .togglePass {
     position: absolute;
     top: 50%;
@@ -4852,6 +4852,7 @@ section.gray form .form-control {
     background-color: inherit;
     font-size: 1.2rem;
 }
+
 .togglePass:hover {
     color: rgba(31, 143, 255, 1);
     font-size: 1.22rem;
@@ -4862,6 +4863,7 @@ section.gray form .form-control {
     text-decoration: none;
     transition: all 0.3s ease;
 }
+
 .link:hover {
     color: var(--primary-blue-dark) !important;
     text-decoration: underline !important;
@@ -4870,6 +4872,7 @@ section.gray form .form-control {
 .btnLink:hover {
     color: white;
 }
+
 .custom-shadow {
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.208);
 }
