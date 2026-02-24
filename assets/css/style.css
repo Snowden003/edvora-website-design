@@ -4863,8 +4863,8 @@ section.gray form .form-control {
     transition: all 0.3s ease;
 }
 .link:hover {
-    color: var(--primary-blue-dark);
-    text-decoration: underline ;
+    color: var(--primary-blue-dark) !important;
+    text-decoration: underline !important;
 }
 
 .btnLink:hover {
