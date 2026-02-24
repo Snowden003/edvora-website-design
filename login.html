@@ -14,9 +14,9 @@
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column vh-100">
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1F8FFF;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #0D0D0D 0%, #1F8FFF 100%);">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
                 <i class="bi bi-mortarboard-fill me-2"></i>Edvora
@@ -28,12 +28,12 @@
     </nav>
 
     <!-- Login Section -->
-    <section class="min-vh-100 d-flex align-items-center" style="background: linear-gradient(135deg, #1F8FFF 0%, #1F8FFF 100%);">
+    <section class="flex-grow-1 d-flex align-items-center py-4" style="background: linear-gradient(135deg, #0D0D0D 0%, #1F8FFF 100%);">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-7">
-                    <div class="card border-0 shadow-lg">
-                        <div class="card-body p-5">
+                    <div class="card border-0 custom-shadow">
+                        <div class="card-body p-5 ">
                             <div class="text-center mb-4">
                                 <h2 class="fw-bold" style="color: #1F8FFF;">Welcome Back!</h2>
                                 <p class="text-muted">Sign in to your account to continue learning</p>
@@ -57,7 +57,7 @@
                                             <i class="bi bi-lock"></i>
                                         </span>
                                         <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <button class="togglePass" type="button" id="togglePassword">
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
@@ -80,8 +80,8 @@
                                             Remember me
                                         </label>
                                     </div>
-                                    <a href="#" class="text-decoration-none" style="color: #1F8FFF;">Forgot Password?</a>
-                                </div>
+                                    <a href="forgot-password.html" class="link" style="color: #1F8FFF;">Forgot Password?</a>
+                                </div>  
 
                                 <button type="submit" class="btn btn-primary w-100 mb-3" style="background-color: #1F8FFF; border-color: #1F8FFF;">
                                     <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
@@ -93,12 +93,12 @@
 
                                 <div class="row g-2 mb-4">
                                     <div class="col-6">
-                                        <button type="button" class="btn btn-outline-danger w-100">
+                                        <button type="button" class="btn btnLink btn-outline-danger w-100">
                                             <i class="bi bi-google me-2"></i>Google
                                         </button>
                                     </div>
                                     <div class="col-6">
-                                        <button type="button" class="btn btn-outline-primary w-100">
+                                        <button type="button" class="btn btnLink btn-outline-primary w-100">
                                             <i class="bi bi-facebook me-2"></i>Facebook
                                         </button>
                                     </div>
@@ -107,7 +107,7 @@
                                 <div class="text-center">
                                     <p class="text-muted mb-0">
                                         Don't have an account? 
-                                        <a href="signup.html" class="text-decoration-none fw-medium" style="color: #1F8FFF;">Sign up here</a>
+                                        <a href="signup.html" class="link fw-medium" style="color: #1F8FFF;">Sign up here</a>
                                     </p>
                                 </div>
                             </form>
