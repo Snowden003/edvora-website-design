@@ -144,7 +144,7 @@ function loadEventData(eventId) {
     }
 
     // Update page title and breadcrumb
-    document.title = `${event.title} - KoMoJa`;
+    document.title = `${event.title} - Edvora`;
     document.getElementById('breadcrumbTitle').textContent = event.title;
 
     // Update hero section

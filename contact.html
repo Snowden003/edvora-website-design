@@ -19,24 +19,10 @@
     <link href="assets/css/modern-footer.css" rel="stylesheet">
 
     <style>
-        @keyframes animated-gradient-background {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .premium-contact-hero {
-            background: linear-gradient(135deg, #1F8FFF 0%, #1F8FFF 50%, #1F8FFF 100%);
+        .hero-animated {
+            background: linear-gradient(135deg, #1F8FFF 0%, #0D0D0D 50%, #1F8FFF 100%);
             background-size: 300% 300%;
-            animation: animated-gradient-background 15s ease infinite;
+            animation: edvoraGradientFlow 14s ease-in-out infinite;
         }
     </style>
 </head>
@@ -110,110 +96,45 @@
         </div>
     </nav>
 
-    <!-- Premium 3D Hero Section -->
-    <section class="premium-contact-hero"
-        style="min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; perspective: 1000px;">
-        <!-- Floating Background Elements -->
-        <div class="hero-bg-elements">
-            <div class="floating-sphere sphere-1" data-speed="0.2"></div>
-            <div class="floating-sphere sphere-2" data-speed="0.3"></div>
-            <div class="floating-sphere sphere-3" data-speed="0.15"></div>
-            <div class="floating-cube cube-1" data-speed="0.25"></div>
-            <div class="floating-cube cube-2" data-speed="0.35"></div>
-            <div class="floating-pyramid pyramid-1" data-speed="0.2"></div>
-            <div class="floating-pyramid pyramid-2" data-speed="0.3"></div>
-            <div class="contact-particle particle-1"></div>
-            <div class="contact-particle particle-2"></div>
-            <div class="contact-particle particle-3"></div>
-            <div class="contact-particle particle-4"></div>
-            <div class="contact-particle particle-5"></div>
-        </div>
+    <!-- Hero Section -->
+    <section class="hero-animated py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="hero-content">
+                        <!-- Badge -->
+                        <div class="premium-badge mx-auto mb-4"
+                            style="width: fit-content; animation: badgeFloat 3s ease-in-out infinite;">
+                            <i class="bi bi-headset text-brand-yellow me-2"></i>
+                            <span class="text-white fw-semibold">Premium Support</span>
+                        </div>
 
-        <div class="container" style="position: relative; z-index: 10;">
-            <div class="row align-items-center text-white">
-                <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
-                    <div class="premium-3d-orb-container">
-                        <div class="central-orb">
-                            <div class="orb-glow"></div>
-                            <i class="bi bi-headset"></i>
-                        </div>
-                        <div class="orb-ring ring-outer">
-                            <div class="orb-icon icon-1"><i class="bi bi-envelope-fill"></i></div>
-                            <div class="orb-icon icon-2"><i class="bi bi-telephone-fill"></i></div>
-                        </div>
-                        <div class="orb-ring ring-inner">
-                            <div class="orb-icon icon-3"><i class="bi bi-geo-alt-fill"></i></div>
-                            <div class="orb-icon icon-4"><i class="bi bi-chat-dots-fill"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-content" style="animation: heroSlideIn 1.5s ease-out forwards;">
-                        <div class="premium-badge" style="animation: badgeFloat 3s ease-in-out infinite;">
-                            <i class="bi bi-headset"></i>
-                            <span>Premium Support</span>
-                        </div>
-                        <h1 class="hero-title gradient-text-animated"
-                            style="font-size: 4rem; font-weight: 800; margin: 2rem 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.7), -1px -1px 2px rgba(0,0,0,0.7), 1px -1px 2px rgba(0,0,0,0.7), -1px 1px 2px rgba(0,0,0,0.7);">
-                            <span class="hero-title-word"
-                                style="animation: titleReveal 1s ease-out 0.5s forwards;">Get</span>
-                            <span class="hero-title-word"
-                                style="animation: titleReveal 1s ease-out 0.7s forwards;">In</span>
-                            <span class="hero-title-word"
-                                style="animation: titleReveal 1s ease-out 0.9s forwards;">Touch</span>
+                        <!-- Title -->
+                        <h1 class="story-title text-white fw-bold mb-4" style="font-size: 4.5rem; line-height: 1.1;">
+                            Get In <span style="color: var(--brand-orange);">Touch</span>
                         </h1>
-                        <p class="hero-description gradient-text-animated"
-                            style="animation: fadeIn 1s ease-out 1.2s forwards; opacity: 0; text-shadow: none;">
+
+                        <!-- Subtitle -->
+                        <p class="para-lg text-white mx-auto mb-5" style="max-width: 700px; opacity: 0.9;">
                             We're here to help you with any questions you may have. Reach out to us and we'll get back
                             to you as soon as possible.
                         </p>
-                        <div class="hero-stats" style="animation: statsSlide 1s ease-out 1.5s forwards; opacity: 0;">
-                            <div class="stat-item-hero">
-                                <div class="stat-icon-hero">
-                                    <i class="bi bi-clock-fill"></i>
-                                </div>
-                                <div class="stat-content-hero">
-                                    <span class="stat-number-hero">24/7</span>
-                                    <span class="stat-label-hero">Support</span>
-                                </div>
+
+                        <!-- Stats -->
+                        <div class="hero-stats justify-content-center gap-4 mt-4">
+                            <div class="hero-stat">
+                                <div class="value">24/7</div>
+                                <div class="label">Support Available</div>
                             </div>
-                            <div class="stat-item-hero">
-                                <div class="stat-icon-hero">
-                                    <i class="bi bi-lightning-fill"></i>
-                                </div>
-                                <div class="stat-content-hero">
-                                    <span class="stat-number-hero">
-                                        < 1hr</span>
-                                            <span class="stat-label-hero">Response</span>
-                                </div>
+                            <div class="hero-stat">
+                                <div class="value">&lt; 1hr</div>
+                                <div class="label">Response Time</div>
                             </div>
-                            <div class="stat-item-hero">
-                                <div class="stat-icon-hero">
-                                    <i class="bi bi-people-fill"></i>
-                                </div>
-                                <div class="stat-content-hero">
-                                    <span class="stat-number-hero">50K+</span>
-                                    <span class="stat-label-hero">Happy Users</span>
-                                </div>
+                            <div class="hero-stat">
+                                <div class="value">50K+</div>
+                                <div class="label">Happy Users</div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                    <div class="premium-3d-orb-container">
-                        <div class="central-orb">
-                            <div class="orb-glow"></div>
-                            <i class="bi bi-headset"></i>
-                        </div>
-                        <div class="orb-ring ring-outer">
-                            <div class="orb-icon icon-1"><i class="bi bi-envelope-fill"></i></div>
-                            <div class="orb-icon icon-2"><i class="bi bi-telephone-fill"></i></div>
-                        </div>
-                        <div class="orb-ring ring-inner">
-                            <div class="orb-icon icon-3"><i class="bi bi-chat-dots-fill"></i></div>
-                            <div class="orb-icon icon-4"><i class="bi bi-geo-alt-fill"></i></div>
-                        </div>
-                        <div class="connection-lines"></div>
                     </div>
                 </div>
             </div>
@@ -347,15 +268,15 @@
 
                 <!-- Contact Information -->
                 <div class="col-lg-4">
-                    <div class="card border-0 shadow-sm h-100">
+                    <div class="premium-info-card h-100">
                         <div class="card-body p-4">
                             <h4 class="fw-bold mb-4" style="color: #1F8FFF;">Contact Information</h4>
 
                             <div class="contact-item mb-4">
                                 <div class="d-flex align-items-start">
                                     <div class="flex-shrink-0 me-3">
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
-                                            style="width: 50px; height: 50px;">
+                                        <div class="contact-icon-box text-white"
+                                            style="background: var(--brand-blue, #1F8FFF);">
                                             <i class="bi bi-geo-alt-fill"></i>
                                         </div>
                                     </div>
@@ -370,8 +291,7 @@
                             <div class="contact-item mb-4">
                                 <div class="d-flex align-items-start">
                                     <div class="flex-shrink-0 me-3">
-                                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
-                                            style="width: 50px; height: 50px;">
+                                        <div class="contact-icon-box text-white" style="background: #28a745;">
                                             <i class="bi bi-telephone-fill"></i>
                                         </div>
                                     </div>
@@ -385,14 +305,14 @@
                             <div class="contact-item mb-4">
                                 <div class="d-flex align-items-start">
                                     <div class="flex-shrink-0 me-3">
-                                        <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center"
-                                            style="width: 50px; height: 50px;">
+                                        <div class="contact-icon-box text-white"
+                                            style="background: var(--brand-orange, #FF9800);">
                                             <i class="bi bi-envelope-fill"></i>
                                         </div>
                                     </div>
                                     <div>
                                         <h6 class="fw-bold mb-1">Email</h6>
-                                        <p class="text-muted mb-0">info@komoja.com<br>support@komoja.com</p>
+                                        <p class="text-muted mb-0">info@edvora.com<br>support@edvora.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -400,8 +320,7 @@
                             <div class="contact-item mb-4">
                                 <div class="d-flex align-items-start">
                                     <div class="flex-shrink-0 me-3">
-                                        <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center"
-                                            style="width: 50px; height: 50px;">
+                                        <div class="contact-icon-box text-white" style="background: #17a2b8;">
                                             <i class="bi bi-chat-dots-fill"></i>
                                         </div>
                                     </div>
@@ -431,7 +350,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-5" style="background-color: #EEEEEE;">
+    <section class="py-5 bg-white">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="fw-bold" style="color: #1F8FFF;">Frequently Asked Questions</h2>
@@ -523,34 +442,6 @@
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold" style="color: #1F8FFF;">Find Us</h2>
-                <p class="text-muted">Visit our campus or attend our events</p>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-0">
-                            <!-- Placeholder for map - in a real application, you'd integrate with Google Maps or similar -->
-                            <div class="bg-light d-flex align-items-center justify-content-center"
-                                style="height: 400px;">
-                                <div class="text-center">
-                                    <i class="bi bi-geo-alt-fill fs-1 text-primary mb-3"></i>
-                                    <h5>Interactive Map</h5>
-                                    <p class="text-muted">123 Education Street, Learning City, LC 12345</p>
-                                    <button class="btn btn-primary">Get Directions</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Modern Footer -->
     <footer class="modern-footer">
