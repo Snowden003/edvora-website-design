@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Edvora Tech</title>
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
@@ -21,7 +23,10 @@
             <a class="navbar-brand fw-bold" href="index.html">
                 <i class="bi bi-mortarboard-fill me-2"></i>Edvora
             </a>
-            <div class="d-flex">
+            <div class="d-flex align-items-center gap-3">
+                <a href="terms.html" class="text-white text-decoration-none small">Terms</a>
+                <span class="text-white-50 small">|</span>
+                <a href="privacy.html" class="text-white text-decoration-none small">Privacy</a>
                 <a href="login.html" class="btn btn-outline-light">Sign In</a>
             </div>
         </div>
@@ -47,7 +52,8 @@
                                             <span class="input-group-text">
                                                 <i class="bi bi-person"></i>
                                             </span>
-                                            <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                                            <input type="text" class="form-control" id="firstName"
+                                                placeholder="First name" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -56,7 +62,8 @@
                                             <span class="input-group-text">
                                                 <i class="bi bi-person"></i>
                                             </span>
-                                            <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+                                            <input type="text" class="form-control" id="lastName"
+                                                placeholder="Last name" required>
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +74,8 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-envelope"></i>
                                         </span>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                        <input type="email" class="form-control" id="email"
+                                            placeholder="Enter your email" required>
                                     </div>
                                 </div>
 
@@ -117,37 +125,43 @@
                                     <div class="row g-2">
                                         <div class="col-6 col-md-4">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="programming" value="programming">
+                                                <input class="form-check-input" type="checkbox" id="programming"
+                                                    value="programming">
                                                 <label class="form-check-label" for="programming">Programming</label>
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-4">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="datascience" value="datascience">
+                                                <input class="form-check-input" type="checkbox" id="datascience"
+                                                    value="datascience">
                                                 <label class="form-check-label" for="datascience">Data Science</label>
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-4">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="design" value="design">
+                                                <input class="form-check-input" type="checkbox" id="design"
+                                                    value="design">
                                                 <label class="form-check-label" for="design">Design</label>
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-4">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="marketing" value="marketing">
+                                                <input class="form-check-input" type="checkbox" id="marketing"
+                                                    value="marketing">
                                                 <label class="form-check-label" for="marketing">Marketing</label>
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-4">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="business" value="business">
+                                                <input class="form-check-input" type="checkbox" id="business"
+                                                    value="business">
                                                 <label class="form-check-label" for="business">Business</label>
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-4">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="other" value="other">
+                                                <input class="form-check-input" type="checkbox" id="other"
+                                                    value="other">
                                                 <label class="form-check-label" for="other">Other</label>
                                             </div>
                                         </div>
@@ -170,7 +184,8 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary w-100 mb-3" style="background-color: #1F8FFF; border-color: #1F8FFF;">
+                                <button type="submit" class="btn btn-primary w-100 mb-3"
+                                    style="background-color: #1F8FFF; border-color: #1F8FFF;">
                                     <i class="bi bi-person-plus me-2"></i>Create Account
                                 </button>
 
@@ -211,19 +226,19 @@
     <script src="assets/js/auth.js"></script>
     <script>
         // Password strength indicator
-        document.getElementById('password').addEventListener('input', function() {
+        document.getElementById('password').addEventListener('input', function () {
             const password = this.value;
             const strengthDiv = document.getElementById('passwordStrength');
             const strengthBar = document.getElementById('strengthBar');
             const strengthText = document.getElementById('strengthText');
-            
+
             if (password.length > 0) {
                 strengthDiv.style.display = 'block';
                 const strength = checkPasswordStrength(password);
-                
+
                 let strengthClass = '';
                 let strengthLabel = '';
-                
+
                 if (strength.score <= 2) {
                     strengthClass = 'bg-danger';
                     strengthLabel = 'Weak';
@@ -234,7 +249,7 @@
                     strengthClass = 'bg-success';
                     strengthLabel = 'Strong';
                 }
-                
+
                 strengthBar.className = `progress-bar ${strengthClass}`;
                 strengthBar.style.width = `${(strength.score / 5) * 100}%`;
                 strengthText.textContent = `${strengthLabel} - ${strength.feedback.join(', ')}`;
@@ -244,4 +259,5 @@
         });
     </script>
 </body>
+
 </html>
