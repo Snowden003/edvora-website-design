@@ -159,7 +159,34 @@
   <div class="container-fluid py-4" style="min-height:100vh;">
     <div class="row gx-4">
 
-      <!-- Sidebar: Stats (now vertical and sticky) -->
+      <!-- Welcome / Hero-->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card hero-card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="row align-items-center">
+                  <div class="col-md-8">
+                    <h2 class="fw-bold mb-2">Welcome back, John! 👋</h2>
+                    <p class="mb-3 muted-small">Ready to continue your learning journey? You have 3 active courses and 2 upcoming events.</p>
+                    <button class="btn btn-outline-light btn-continue">
+                      <i class="bi bi-play-circle me-2"></i>Continue Learning
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <div class="position-relative">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                           alt="Profile" class="rounded-circle border border-3 border-white" style="width: 120px; height: 120px; object-fit: cover;">
+                      <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white"
+                            style="width: 30px; height: 30px;"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Sidebar -->
       <aside class="col-lg-3 mb-4 stats-sidebar">
         <div class="sticky-wrap">
           <div class="stats-card">
@@ -206,35 +233,7 @@
 
       <!-- Main content area -->
       <main class="col-lg-9">
-
-        <!-- Welcome / Hero (keeps exact text) -->
-        <div class="row mb-4">
-          <div class="col-12">
-            <div class="card hero-card border-0 shadow-sm">
-              <div class="card-body p-4">
-                <div class="row align-items-center">
-                  <div class="col-md-8">
-                    <h2 class="fw-bold mb-2">Welcome back, John! 👋</h2>
-                    <p class="mb-3 muted-small">Ready to continue your learning journey? You have 3 active courses and 2 upcoming events.</p>
-                    <button class="btn btn-outline-light btn-continue">
-                      <i class="bi bi-play-circle me-2"></i>Continue Learning
-                    </button>
-                  </div>
-                  <div class="col-md-4 text-center">
-                    <div class="position-relative">
-                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-                           alt="Profile" class="rounded-circle border border-3 border-white" style="width: 120px; height: 120px; object-fit: cover;">
-                      <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white"
-                            style="width: 30px; height: 30px;"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- My Courses (unchanged content, placed in main column) -->
+        <!-- My Courses  -->
         <div class="row mb-4">
           <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -322,7 +321,7 @@
     </div>
   </div>
 
-  <!-- Modals: kept unchanged (content unchanged) -->
+  <!-- Modals -->
   <div class="modal fade" id="courseProgressModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
