@@ -55,7 +55,7 @@ function loadMyCourses() {
 
     coursesContainer.innerHTML = myCourses.map(course => `
         <div class="col-lg-4 col-md-6">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 custom-shadow h-100">
                 <div class="position-relative">
                     <img src="${course.image}" class="card-img-top" alt="${course.title}" style="height: 200px; object-fit: cover;">
                     <span class="badge bg-primary position-absolute top-0 start-0 m-2">${course.category}</span>

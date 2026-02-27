@@ -1,385 +1,599 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Student Dashboard - Edvora Tech (Redesign)</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Dashboard - Edvora Tech (Redesign)</title>
 
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
 
-  <style>
-    :root{
-      --primary-black: #071022; /* you can tweak this */
-      --primary-blue: #1F8FFF; /* original blue kept */
-      --gradient: linear-gradient(135deg, var(--primary-black) 0%, var(--primary-blue) 100%);
-      --page-bg: #EEEEEE;
-      --card-radius: 12px;
-      --muted: #6c757d;
+    <style>
+      :root {
+        --primary-black: #0D0D0D; 
+        --primary-blue: #1F8FFF;
+        --gradient: linear-gradient(
+          135deg,
+          var(--primary-black) 5%,
+          var(--primary-blue) 100%
+        );
+        --page-bg: #eeeeee;
+        --card-radius: 12px;
+        --muted: #6c757d;
+      }
+
+      /* Global */
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family:
+          "Poppins",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial;
+        background: var(--page-bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding-top: 60px;
+      }
+
+      /* Navbar uses requested gradient */
+      .navbar-custom {
+        background: var(--gradient) !important;
+        box-shadow: 0 6px 18px rgba(7, 16, 34, 0.12);
+      }
+      .navbar-custom .navbar-brand,
+      .navbar-custom .nav-link,
+      .navbar-custom .btn-outline-light {
+        color: #fff !important;
+      }
+      .navbar-custom .nav-link.active {
+        font-weight: 600;
+      }
+
+      /* Navbar toggler custom style */
+    .navbar-custom .navbar-toggler{
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .navbar-custom .navbar-toggler:focus,
+    .navbar-custom .navbar-toggler:active{
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    /* Make toggler icon white */
+    .navbar-custom .navbar-toggler-icon{
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
-    /* Global */
-    html,body{height:100%;}
-    body{
-      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: var(--page-bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* Navbar uses requested gradient */
-    .navbar-custom{
-      background: var(--gradient) !important;
-      box-shadow: 0 6px 18px rgba(7,16,34,0.12);
-    }
     .navbar-custom .navbar-brand, .navbar-custom .nav-link, .navbar-custom .btn-outline-light{
       color: #fff !important;
     }
     .navbar-custom .nav-link.active{font-weight:600;}
 
-    /* Layout: sticky sidebar for stats */
-    .stats-sidebar{
-      padding-top: 0.5rem;
-    }
-    .stats-sidebar .sticky-wrap{
-      position:sticky;
-      top:78px; /* stays below navbar */
-    }
-    .stats-card{
-      border-radius: var(--card-radius);
-      padding: 1.25rem;
-      text-align:center;
-      box-shadow: 0 6px 18px rgba(25,40,70,0.06);
-      background: #fff;
-      margin-bottom:1rem;
-    }
-    .stats-card .icon{font-size:1.9rem; display:block; margin-bottom:.6rem;}
-    .stats-card h3{margin:0; font-size:1.6rem;}
-    .stats-card p{margin:0; color:var(--muted);}
-
-    /* Hero: use requested gradient (keeps text exactly as in original) */
-    .hero-card{
-      border-radius: var(--card-radius);
-      color: #fff;
-      background: var(--gradient);
-      overflow:hidden;
-      box-shadow: 0 10px 30px rgba(7,16,34,0.12);
-    }
-    .hero-card .btn-continue{
+    /* Fix dropdown white background on click */
+    .navbar-custom .btn-outline-light{
+      border-color: rgba(255,255,255,0.5);
       background: transparent;
-      border-color: rgba(255,255,255,0.18);
-      color: #fff;
+    }
+    .navbar-custom .btn-outline-light:hover,
+    .navbar-custom .btn-outline-light:focus,
+    .navbar-custom .btn-outline-light:active,
+    .navbar-custom .btn-outline-light.show{
+      background: rgba(255,255,255,0.15) !important;
+      color: #fff !important;
+      border-color: rgba(255,255,255,0.7) !important;
+      box-shadow: none !important;
     }
 
-    /* Keep the same blue color used before for headings throughout */
-    .primary-blue-text{color: var(--primary-blue) !important;}
-
-    /* Cards and spacing tweaks for a neater look */
-    .card.border-0{border-radius: var(--card-radius);}    
-    .card-header{background:#fff}
-
-    /* Make sure small screens show stats horizontally above content */
-    @media (max-width: 991.98px){
-      .stats-sidebar{order: -1;}
-      .stats-sidebar .sticky-wrap{position:relative; top:0}
-      .stats-card{display:flex; align-items:center; gap:.75rem; text-align:left}
-      .stats-card .icon{font-size:1.5rem}
-      .hero-card .col-md-8{padding-bottom:0.5rem}
+    .navbar-custom .dropdown-menu{
+      background: #ffffff;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .navbar-custom .dropdown-item{
+      color: #212529;
+      font-weight: 500;
+    }
+    .navbar-custom .dropdown-item:hover{
+      background-color: rgba(31,143,255,0.08);
+      color: var(--primary-blue);
     }
 
-    /* Minor utility */
-    .muted-small{color: rgba(255,255,255,0.85); opacity:.9}
-  </style>
+      /* Layout: sticky sidebar for stats */
+      .stats-sidebar {
+        padding-top: 0.5rem;
+      }
+      .stats-sidebar .sticky-wrap {
+        position: sticky;
+        top: 78px; /* stays below navbar */
+      }
+      .stats-card {
+        border-radius: var(--card-radius);
+        padding: 1.25rem;
+        text-align: center;
+        box-shadow: 0 6px 18px rgba(25, 40, 70, 0.06);
+        background: #fff;
+        margin-bottom: 1rem;
+      }
+      .stats-card .icon {
+        font-size: 1.9rem;
+        display: block;
+        margin-bottom: 0.6rem;
+      }
+      .stats-card h3 {
+        margin: 0;
+        font-size: 1.6rem;
+      }
+      .stats-card p {
+        margin: 0;
+        color: var(--muted);
+      }
 
-</head>
-<body>
+      /* Hero */
+      .hero-card {
+        border-radius: var(--card-radius);
+        color: #fff;
+        background: var(--gradient);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(7, 16, 34, 0.12);
+      }
+      .hero-card .btn-continue {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.18);
+        color: #fff;
+      }
+      .hero-card .btn-continue:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: #fff;
+      }
 
-  <!-- Header (uses navbar-custom class) -->
-  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
-      </a>
+      /* Keep the same blue color used before for headings throughout */
+      .primary-blue-text {
+        color: var(--primary-blue) !important;
+      }
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      /* Cards and spacing tweaks for a neater look */
+      .card.border-0 {
+        border-radius: var(--card-radius);
+      }
+      .card-header {
+        background: #fff;
+      }
+      .card_:hover {
+        transform: none;
+      }
+
+      /* Make sure small screens show stats horizontally above content */
+      @media (max-width: 991.98px) {
+        .stats-sidebar {
+          order: -1;
+        }
+        .stats-sidebar .sticky-wrap {
+          position: relative;
+          top: 0;
+        }
+        .stats-card {
+          display: flex;
+          gap: 1.5rem;
+          text-align: left;
+        }
+        .stats-card .icon {
+          font-size: 1.5rem;
+        }
+        .hero-card .col-md-8 {
+          padding-bottom: 0.5rem;
+        }
+      }
+
+      /* Minor utility */
+      .muted-small {
+        color: rgba(255, 255, 255, 0.85);
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="student-dashboard.html">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="courses.html">Courses</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="teachers.html">Teachers</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="events.html">Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="competitions.html">Competitions</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="about.html">About Us</a></li>
-              <li><a class="dropdown-item" href="contact.html">Contact</a></li>
-              <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-              <li><a class="dropdown-item" href="terms.html">Terms</a></li>
-            </ul>
-          </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="student-dashboard.html"
+                >Dashboard</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="courses.html">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="teachers.html">Teachers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="events.html">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="competitions.html">Competitions</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                >About</a
+              >
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                <li>
+                  <a class="dropdown-item" href="contact.html">Contact</a>
+                </li>
+                <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                <li><a class="dropdown-item" href="terms.html">Terms</a></li>
+              </ul>
+            </li>
+          </ul>
 
-        <div class="d-flex align-items-center gap-3">
-          <div class="dropdown">
-            <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
-              <i class="bi bi-person-circle me-1"></i>John Doe
+          <div class="d-flex align-items-center gap-3">
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-light dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-person-circle me-1"></i>John Doe
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#profile"
+                    ><i class="bi bi-person me-2"></i>Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#settings"
+                    ><i class="bi bi-gear me-2"></i>Settings</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="login.html"
+                    ><i class="bi bi-box-arrow-right me-2"></i>Logout</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main area -->
+    <div class="container-fluid py-4" style="min-height: 100vh">
+
+    <!-- Welcome / Hero -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card card_ hero-card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <h2 class="fw-bold mb-2">Welcome back, John! 👋</h2>
+                <p class="mb-3 muted-small">
+                  Ready to continue your learning journey? You have 3 active
+                  courses and 2 upcoming events.
+                </p>
+                <button class="btn btn-outline-light btn-continue">
+                  <i class="bi bi-play-circle me-2"></i>Continue Learning
+                </button>
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="position-relative">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                    alt="Profile"
+                    class="rounded-circle border border-3 border-white"
+                    style="width: 120px; height: 120px; object-fit: cover"
+                  />
+                  <span
+                    class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white"
+                    style="width: 30px; height: 30px"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="row gx-4">
+        <!-- Sidebar: Stats -->
+        <aside class="col-lg-2 mb-4 stats-sidebar">
+          <div class="sticky-wrap">
+            <div class="stats-card">
+              <div>
+                <i class="bi bi-book-fill icon primary-blue-text"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold primary-blue-text">3</h3>
+                <p class="mb-0">Active Courses</p>
+              </div>
+            </div>
+
+            <div class="stats-card">
+              <div>
+                <i class="bi bi-trophy-fill icon primary-blue-text"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold primary-blue-text">12</h3>
+                <p class="mb-0">Certificates Earned</p>
+              </div>
+            </div>
+
+            <div class="stats-card">
+              <div>
+                <i class="bi bi-clock-fill icon primary-blue-text"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold primary-blue-text">45</h3>
+                <p class="mb-0">Hours Learned</p>
+              </div>
+            </div>
+
+            <div class="stats-card">
+              <div>
+                <i class="bi bi-award-fill icon primary-blue-text"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold primary-blue-text">#15</h3>
+                <p class="mb-0">Global Ranking</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="col-lg-9">
+          <!-- My Courses (unchanged content, placed in main column) -->
+          <div class="row mb-4">
+            <div class="col-12">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h3 class="fw-bold primary-blue-text">My Courses</h3>
+                <a href="courses.html" class="btn btn-outline-primary"
+                  >Browse All Courses</a
+                >
+              </div>
+              <div class="row g-4" id="myCourses">
+                <!-- Courses will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Upcoming Events & Competitions -->
+          <div class="row g-4 mb-4">
+            <div class="col-lg-6">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 pb-0">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h5 class="fw-bold mb-0 primary-blue-text">
+                      Upcoming Events
+                    </h5>
+                    <a href="events.html" class="btn btn-sm btn-outline-primary"
+                      >View All</a
+                    >
+                  </div>
+                </div>
+                <div class="card-body" id="upcomingEvents">
+                  <!-- Events will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 pb-0">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h5 class="fw-bold mb-0 primary-blue-text">
+                      Active Competitions
+                    </h5>
+                    <a
+                      href="competitions.html"
+                      class="btn btn-sm btn-outline-primary"
+                      >View All</a
+                    >
+                  </div>
+                </div>
+                <div class="card-body" id="activeCompetitions">
+                  <!-- Competitions will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements & Leaderboard -->
+          <div class="row g-4 mb-4">
+            <div class="col-lg-8">
+              <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0">
+                  <h5 class="fw-bold mb-0 primary-blue-text">
+                    My Achievements
+                  </h5>
+                </div>
+                <div class="card-body">
+                  <div class="row g-3" id="achievements">
+                    <!-- Achievements will be populated by JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0">
+                  <h5 class="fw-bold mb-0 primary-blue-text">Leaderboard</h5>
+                </div>
+                <div class="card-body" id="leaderboard">
+                  <!-- Leaderboard will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0">
+                  <h5 class="fw-bold mb-0 primary-blue-text">
+                    Recent Activity
+                  </h5>
+                </div>
+                <div class="card-body" id="recentActivity">
+                  <!-- Activity will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Modals: kept unchanged (content unchanged) -->
+    <div class="modal fade" id="courseProgressModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Course Progress</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body" id="courseProgressContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="profileModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Profile Settings</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="profileForm">
+              <div class="text-center mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                  alt="Profile"
+                  class="rounded-circle"
+                  style="width: 100px; height: 100px; object-fit: cover"
+                />
+                <div class="mt-2">
+                  <button type="button" class="btn btn-sm btn-outline-primary">
+                    Change Photo
+                  </button>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  value="John Doe"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  value="john.doe@email.com"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  value="+1 (555) 123-4567"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="bio" class="form-label">Bio</label>
+                <textarea class="form-control" id="bio" rows="3">
+Passionate learner exploring web development and data science.</textarea
+                >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
             </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#profile"><i class="bi bi-person me-2"></i>Profile</a></li>
-              <li><a class="dropdown-item" href="#settings"><i class="bi bi-gear me-2"></i>Settings</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
-            </ul>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="saveProfile()"
+            >
+              Save Changes
+            </button>
           </div>
-        </div>
-
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main area with sticky left stats sidebar and main content on right -->
-  <div class="container-fluid py-4" style="min-height:100vh;">
-    <div class="row gx-4">
-
-      <!-- Welcome / Hero-->
-        <div class="row mb-4">
-          <div class="col-12">
-            <div class="card hero-card border-0 shadow-sm">
-              <div class="card-body p-4">
-                <div class="row align-items-center">
-                  <div class="col-md-8">
-                    <h2 class="fw-bold mb-2">Welcome back, John! 👋</h2>
-                    <p class="mb-3 muted-small">Ready to continue your learning journey? You have 3 active courses and 2 upcoming events.</p>
-                    <button class="btn btn-outline-light btn-continue">
-                      <i class="bi bi-play-circle me-2"></i>Continue Learning
-                    </button>
-                  </div>
-                  <div class="col-md-4 text-center">
-                    <div class="position-relative">
-                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-                           alt="Profile" class="rounded-circle border border-3 border-white" style="width: 120px; height: 120px; object-fit: cover;">
-                      <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white"
-                            style="width: 30px; height: 30px;"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <!-- Sidebar -->
-      <aside class="col-lg-3 mb-4 stats-sidebar">
-        <div class="sticky-wrap">
-          <div class="stats-card">
-            <div>
-              <i class="bi bi-book-fill icon primary-blue-text"></i>
-            </div>
-            <div>
-              <h3 class="fw-bold primary-blue-text">3</h3>
-              <p class="mb-0">Active Courses</p>
-            </div>
-          </div>
-
-          <div class="stats-card">
-            <div>
-              <i class="bi bi-trophy-fill icon primary-blue-text"></i>
-            </div>
-            <div>
-              <h3 class="fw-bold primary-blue-text">12</h3>
-              <p class="mb-0">Certificates Earned</p>
-            </div>
-          </div>
-
-          <div class="stats-card">
-            <div>
-              <i class="bi bi-clock-fill icon primary-blue-text"></i>
-            </div>
-            <div>
-              <h3 class="fw-bold primary-blue-text">45</h3>
-              <p class="mb-0">Hours Learned</p>
-            </div>
-          </div>
-
-          <div class="stats-card">
-            <div>
-              <i class="bi bi-award-fill icon primary-blue-text"></i>
-            </div>
-            <div>
-              <h3 class="fw-bold primary-blue-text">#15</h3>
-              <p class="mb-0">Global Ranking</p>
-            </div>
-          </div>
-        </div>
-      </aside>
-
-      <!-- Main content area -->
-      <main class="col-lg-9">
-        <!-- My Courses  -->
-        <div class="row mb-4">
-          <div class="col-12">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h3 class="fw-bold primary-blue-text">My Courses</h3>
-              <a href="courses.html" class="btn btn-outline-primary">Browse All Courses</a>
-            </div>
-            <div class="row g-4" id="myCourses">
-              <!-- Courses will be populated by JavaScript -->
-            </div>
-          </div>
-        </div>
-
-        <!-- Upcoming Events & Competitions -->
-        <div class="row g-4 mb-4">
-          <div class="col-lg-6">
-            <div class="card border-0 shadow-sm h-100">
-              <div class="card-header bg-white border-0 pb-0">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h5 class="fw-bold mb-0 primary-blue-text">Upcoming Events</h5>
-                  <a href="events.html" class="btn btn-sm btn-outline-primary">View All</a>
-                </div>
-              </div>
-              <div class="card-body" id="upcomingEvents">
-                <!-- Events will be populated by JavaScript -->
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="card border-0 shadow-sm h-100">
-              <div class="card-header bg-white border-0 pb-0">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h5 class="fw-bold mb-0 primary-blue-text">Active Competitions</h5>
-                  <a href="competitions.html" class="btn btn-sm btn-outline-primary">View All</a>
-                </div>
-              </div>
-              <div class="card-body" id="activeCompetitions">
-                <!-- Competitions will be populated by JavaScript -->
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Achievements & Leaderboard -->
-        <div class="row g-4 mb-4">
-          <div class="col-lg-8">
-            <div class="card border-0 shadow-sm">
-              <div class="card-header bg-white border-0">
-                <h5 class="fw-bold mb-0 primary-blue-text">My Achievements</h5>
-              </div>
-              <div class="card-body">
-                <div class="row g-3" id="achievements">
-                  <!-- Achievements will be populated by JavaScript -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card border-0 shadow-sm">
-              <div class="card-header bg-white border-0">
-                <h5 class="fw-bold mb-0 primary-blue-text">Leaderboard</h5>
-              </div>
-              <div class="card-body" id="leaderboard">
-                <!-- Leaderboard will be populated by JavaScript -->
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Recent Activity -->
-        <div class="row">
-          <div class="col-12">
-            <div class="card border-0 shadow-sm">
-              <div class="card-header bg-white border-0">
-                <h5 class="fw-bold mb-0 primary-blue-text">Recent Activity</h5>
-              </div>
-              <div class="card-body" id="recentActivity">
-                <!-- Activity will be populated by JavaScript -->
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </main>
-    </div>
-  </div>
-
-  <!-- Modals -->
-  <div class="modal fade" id="courseProgressModal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Course Progress</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body" id="courseProgressContent"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="profileModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Profile Settings</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <form id="profileForm">
-            <div class="text-center mb-4">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-                   alt="Profile" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover;">
-              <div class="mt-2">
-                <button type="button" class="btn btn-sm btn-outline-primary">Change Photo</button>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="fullName" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="fullName" value="John Doe">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" value="john.doe@email.com">
-            </div>
-            <div class="mb-3">
-              <label for="phone" class="form-label">Phone</label>
-              <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567">
-            </div>
-            <div class="mb-3">
-              <label for="bio" class="form-label">Bio</label>
-              <textarea class="form-control" id="bio" rows="3">Passionate learner exploring web development and data science.</textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" onclick="saveProfile()">Save Changes</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Bootstrap 5 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Keep original custom JS file link unchanged -->
-  <script src="assets/js/student-dashboard.js"></script>
-
-</body>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Keep original custom JS file link unchanged -->
+    <script src="assets/js/student-dashboard.js"></script>
+  </body>
 </html>
