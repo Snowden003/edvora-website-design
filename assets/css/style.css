@@ -4876,3 +4876,16 @@ section.gray form .form-control {
 .custom-shadow {
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.208);
 }
+
+.white-hover:hover {
+    color: white;
+}
+
+.custom-hover {
+    color: var(--accent-cyan);
+    font-size: 1.2rem;
+}
+.custom-hover:hover {
+    background-color: var(--accent-cyan);
+    color: white;
+}
