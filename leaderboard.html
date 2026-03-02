@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Edvora Tech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/leaderboard.css" rel="stylesheet">
+    <link href="assets/css/modern-footer.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-header">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teachers.html">Teachers</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                            Community
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="competitions.html">Competitions</a></li>
+                            <li><a class="dropdown-item active" href="leaderboard.html">Leaderboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="roadmap.html">Roadmap</a></li>
+                            <li><a class="dropdown-item" href="foundation.html">Foundation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            About
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="story.html">Our Story</a></li>
+                            <li><a class="dropdown-item" href="how-we-work.html">How We Work</a></li>
+                            <li><a class="dropdown-item" href="terms.html">Terms</a></li>
+                            <li><a class="dropdown-item" href="privacy.html">Privacy</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-light btn-sm rounded-pill px-4"
+                        onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-primary btn-sm rounded-pill px-4 btn-glow"
+                        onclick="location.href='signup.html'">Sign Up</button>
+                    <button class="btn btn-outline-light btn-sm rounded-circle" id="themeToggle">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Leaderboard Hero -->
+    <header class="leaderboard-hero">
+        <div class="leaderboard-bg-animation">
+            <!-- Particles -->
+            <div class="particle p1"
+                style="position:absolute; top:20%; left:10%; width:5px; height:5px; background:white; border-radius:50%; opacity:0.3;">
+            </div>
+            <div class="particle p2"
+                style="position:absolute; top:60%; left:85%; width:7px; height:7px; background:white; border-radius:50%; opacity:0.2;">
+            </div>
+            <div class="particle p3"
+                style="position:absolute; top:30%; left:70%; width:4px; height:4px; background:white; border-radius:50%; opacity:0.4;">
+            </div>
+        </div>
+
+        <div class="container position-relative z-top" style="z-index: 10;">
+            <h1 class="hero-title">February Wall of Records</h1>
+            <p class="hero-subtitle">Celebrating the brilliance and hard work of our top performing students in February
+                2026</p>
+
+            <!-- Top 3 Podium -->
+            <div class="podium-container">
+                <!-- Rank 2 -->
+                <div class="podium-item rank-2">
+                    <div class="podium-rank">2</div>
+                    <div class="student-img-container">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop"
+                            class="student-img" alt="Student">
+                    </div>
+                    <h3 class="student-name">Sarah Jenkins</h3>
+                    <p class="student-dept">Cyber Security</p>
+                    <div class="student-score">2,850 <span class="xp-label">XP</span></div>
+                </div>
+
+                <!-- Rank 1 -->
+                <div class="podium-item rank-1">
+                    <div class="podium-rank"><i class="bi bi-trophy-fill"></i></div>
+                    <div class="student-img-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+                            class="student-img" alt="Student">
+                    </div>
+                    <h3 class="student-name">Alex Rivera</h3>
+                    <p class="student-dept">Programming & Cyber Security</p>
+                    <div class="student-score">3,120 <span class="xp-label">XP</span></div>
+                </div>
+
+                <!-- Rank 3 -->
+                <div class="podium-item rank-3">
+                    <div class="podium-rank">3</div>
+                    <div class="student-img-container">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop"
+                            class="student-img" alt="Student">
+                    </div>
+                    <h3 class="student-name">Marcus Chen</h3>
+                    <p class="student-dept">Web Development</p>
+                    <div class="student-score">2,720 <span class="xp-label">XP</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Rankings Section -->
+    <main class="leaderboard-list-section">
+        <div class="container">
+            <div class="leaderboard-table-container">
+                <!-- Table Header -->
+                <div class="header-row"
+                    style="background:rgba(31, 143, 255, 0.05); border-bottom:2px solid rgba(31, 143, 255, 0.1);">
+                    <div class="row-rank text-primary">#</div>
+                    <div class="card-info header-info text-primary">
+                        <div class="card-name pb-0 mb-0">Student Name</div>
+                        <div class="card-dept mt-0 pt-0">Department</div>
+                    </div>
+                    <div class="card-score text-primary text-end">February XP Score</div>
+                </div>
+
+                <!-- Rank 4-10 -->
+                <div class="ranking-card">
+                    <div class="card-rank">4</div>
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop"
+                        class="card-avatar" alt="Student">
+                    <div class="card-info">
+                        <div class="card-name">Elena Rodriguez</div>
+                        <div class="card-dept">Data Science</div>
+                    </div>
+                    <div class="card-score">2,450 <span class="xp-symbol">XP</span></div>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="card-rank">5</div>
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop"
+                        class="card-avatar" alt="Student">
+                    <div class="card-info">
+                        <div class="card-name">James Wilson</div>
+                        <div class="card-dept">Cloud Computing</div>
+                    </div>
+                    <div class="card-score">2,380 <span class="xp-symbol">XP</span></div>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="card-rank">6</div>
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop"
+                        class="card-avatar" alt="Student">
+                    <div class="card-info">
+                        <div class="card-name">Maya Patel</div>
+                        <div class="card-dept">Programming & Cyber Security</div>
+                    </div>
+                    <div class="card-score">2,210 <span class="xp-symbol">XP</span></div>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="card-rank">7</div>
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop"
+                        class="card-avatar" alt="Student">
+                    <div class="card-info">
+                        <div class="card-name">David Kim</div>
+                        <div class="card-dept">UI/UX Design</div>
+                    </div>
+                    <div class="card-score">2,150 <span class="xp-symbol">XP</span></div>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="card-rank">8</div>
+                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=200&h=200&fit=crop"
+                        class="card-avatar" alt="Student">
+                    <div class="card-info">
+                        <div class="card-name">Sofia Garcia</div>
+                        <div class="card-dept">AI & Machine Learning</div>
+                    </div>
+                    <div class="card-score">2,090 <span class="xp-symbol">XP</span></div>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="card-rank">9</div>
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&h=200&fit=crop"
+                        class="card-avatar" alt="Student">
+                    <div class="card-info">
+                        <div class="card-name">Lucas Brown</div>
+                        <div class="card-dept">Network Security</div>
+                    </div>
+                    <div class="card-score">1,980 <span class="xp-symbol">XP</span></div>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="card-rank">10</div>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop"
+                        class="card-avatar" alt="Student">
+                    <div class="card-info">
+                        <div class="card-name">Olivia White</div>
+                        <div class="card-dept">Software Engineering</div>
+                    </div>
+                    <div class="card-score">1,850 <span class="xp-symbol">XP</span></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <div class="footer-bg-effects">
+            <div class="footer-particle particle-1"></div>
+            <div class="footer-particle particle-2"></div>
+            <div class="footer-particle particle-3"></div>
+            <div class="footer-particle particle-4"></div>
+            <div class="footer-floating-icon icon-1"><i class="bi bi-mortarboard"></i></div>
+            <div class="footer-floating-icon icon-2"><i class="bi bi-book"></i></div>
+            <div class="footer-floating-icon icon-3"><i class="bi bi-lightbulb"></i></div>
+        </div>
+
+        <div class="container">
+            <div class="row g-4 footer-main">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <div class="brand-logo">
+                            <img src="assets/images/logo1.jpg" alt="Edvora Tech Logo" class="footer-logo">
+                            <h4>Edvora Tech</h4>
+                        </div>
+                        <p class="brand-description">
+                            Empowering learners worldwide with quality education and innovative teaching methods.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-link twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-link instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-link linkedin"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link youtube"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="teachers.html">Teachers</a></li>
+                            <li><a href="leaderboard.html">Leaderboard</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Support</h6>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="foundation.html">Foundation</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Stay Connected</h6>
+                        <p class="newsletter-description">Get the latest updates on courses and events.</p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                                <button class="newsletter-btn" type="submit"><i class="bi bi-send"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright">&copy; 2026 Edvora Tech. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links">
+                            <a href="privacy.html">Privacy</a>
+                            <a href="terms.html">Terms</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/modern-footer.js"></script>
+</body>
+
+</html>
