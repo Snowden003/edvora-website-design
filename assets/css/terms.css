@@ -105,7 +105,9 @@
 
 /* Bento Grid Layout */
 .terms-content-section {
-    background: #ffffff;
+    background: #fdfdfd;
+    background-image: radial-gradient(rgba(31, 143, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
     padding: 120px 0;
     position: relative;
     overflow: hidden;
@@ -119,10 +121,10 @@
 }
 
 .bento-card {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 32px;
     padding: 2.5rem;
     position: relative;
@@ -130,16 +132,73 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
-    /* Deep Black Shadow */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
 .bento-card:hover {
-    transform: translateY(-12px);
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
-    /* Elite Hover Shadow */
+    transform: translateY(-12px) scale(1.01);
+    background: #ffffff;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
     border-color: var(--primary-blue);
+}
+
+/* Section Colors & Icons */
+.accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.line-blue {
+    background: var(--primary-blue);
+}
+
+.line-teal {
+    background: var(--accent-teal);
+}
+
+.line-violet {
+    background: var(--accent-violet);
+}
+
+.line-amber {
+    background: var(--accent-amber);
+}
+
+.module-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.bg-blue-glass {
+    background: rgba(31, 143, 255, 0.1);
+    color: var(--primary-blue);
+}
+
+.bg-teal-glass {
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--accent-teal);
+}
+
+.bg-violet-glass {
+    background: rgba(138, 43, 226, 0.1);
+    color: var(--accent-violet);
+}
+
+.bg-amber-glass {
+    background: rgba(255, 191, 0, 0.1);
+    color: var(--accent-amber);
 }
 
 /* Bento Sizes */
@@ -184,6 +243,7 @@
     display: block;
     background: linear-gradient(135deg, var(--primary-blue), #00F0FF);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -212,8 +272,35 @@
 
 .module-text {
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #555;
+    margin-bottom: 0;
+}
+
+.plain-english-min {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 10px;
+}
+
+.tldr-pill {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    background: rgba(31, 143, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    height: fit-content;
+}
+
+.tldr-text {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--primary-blue);
+    opacity: 0.8;
 }
 
 /* Decorative Circles in Bento */
