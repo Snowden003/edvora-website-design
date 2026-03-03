@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -7,9 +7,15 @@
     <title>Student Dashboard - Edvora Tech</title>
 
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -87,7 +93,9 @@
                     </div>
                 </div>
             </div>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Main Content -->
@@ -120,157 +128,187 @@
                         </div>
                     </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+    
+      <div class="row gx-4">
+        <!-- Sidebar: Stats -->
+        <aside class="col-lg-2 mb-4 stats-sidebar">
+          <div class="sticky-wrap">
+            <div class="stats-card">
+              <div>
+                <i class="bi bi-book-fill icon primary-blue-text"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold primary-blue-text">3</h3>
+                <p class="mb-0"><a href="active-courses.html">Active Courses</a></p>
+              </div>
+            </div>
 
-        <!-- Stats Cards -->
-        <div class="row g-4 mb-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <div class="mb-3">
-                            <i class="bi bi-book-fill fs-1" style="color: #1F8FFF;"></i>
-                        </div>
-                        <h3 class="fw-bold" style="color: #1F8FFF;">3</h3>
-                        <p class="text-muted mb-0">Active Courses</p>
-                    </div>
-                </div>
+            <div class="stats-card">
+              <div>
+                <i class="bi bi-trophy-fill icon primary-blue-text"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold primary-blue-text">12</h3>
+                <p class="mb-0">Certificates Earned</p>
+              </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <div class="mb-3">
-                            <i class="bi bi-trophy-fill fs-1" style="color: #1F8FFF;"></i>
-                        </div>
-                        <h3 class="fw-bold" style="color: #1F8FFF;">12</h3>
-                        <p class="text-muted mb-0">Certificates Earned</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <div class="mb-3">
-                            <i class="bi bi-clock-fill fs-1" style="color: #1F8FFF;"></i>
-                        </div>
-                        <h3 class="fw-bold" style="color: #1F8FFF;">45</h3>
-                        <p class="text-muted mb-0">Hours Learned</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <div class="mb-3">
-                            <i class="bi bi-award-fill fs-1" style="color: #1F8FFF;"></i>
-                        </div>
-                        <h3 class="fw-bold" style="color: #1F8FFF;">#15</h3>
-                        <p class="text-muted mb-0">Global Ranking</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- My Courses Section -->
-        <div class="row mb-4">
+            <div class="stats-card">
+              <div>
+                <i class="bi bi-clock-fill icon primary-blue-text"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold primary-blue-text">45</h3>
+                <p class="mb-0">Hours Learned</p>
+              </div>
+            </div>
+
+            <div class="stats-card">
+              <div>
+                <i class="bi bi-award-fill icon primary-blue-text"></i>
+              </div>
+              <div>
+                <h3 class="fw-bold primary-blue-text">#15</h3>
+                <p class="mb-0">Global Ranking</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="col-lg-10">
+          <!-- My Courses (unchanged content, placed in main column) -->
+          <div class="row mb-4">
             <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h3 class="fw-bold" style="color: #1F8FFF;">My Courses</h3>
-                    <a href="courses.html" class="btn btn-outline-primary">Browse All Courses</a>
-                </div>
-                <div class="row g-4" id="myCourses">
-                    <!-- Courses will be populated by JavaScript -->
-                </div>
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h3 class="fw-bold primary-blue-text">My Courses</h3>
+                <a href="courses.html" class="btn btn-outline-primary white-hover"
+                  >Browse All Courses</a
+                >
+              </div>
+              <div class="row g-4" id="myCourses">
+                <!-- Courses will be populated by JavaScript -->
+              </div>
             </div>
-        </div>
+          </div>
 
-        <!-- Upcoming Events & Competitions -->
-        <div class="row g-4 mb-4">
+          <!-- Upcoming Events & Competitions -->
+          <div class="row g-4 mb-4">
             <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-header bg-white border-0 pb-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="fw-bold mb-0" style="color: #1F8FFF;">Upcoming Events</h5>
-                            <a href="events.html" class="btn btn-sm btn-outline-primary">View All</a>
-                        </div>
-                    </div>
-                    <div class="card-body" id="upcomingEvents">
-                        <!-- Events will be populated by JavaScript -->
-                    </div>
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 pb-0">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h4 class="fw-bold mb-0 primary-blue-text">
+                      Upcoming Events
+                    </h4>
+                    <a href="events.html" class="btn btn-sm btn-outline-primary white-hover"
+                      >View All</a
+                    >
+                  </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-header bg-white border-0 pb-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="fw-bold mb-0" style="color: #1F8FFF;">Active Competitions</h5>
-                            <a href="competitions.html" class="btn btn-sm btn-outline-primary">View All</a>
-                        </div>
-                    </div>
-                    <div class="card-body" id="activeCompetitions">
-                        <!-- Competitions will be populated by JavaScript -->
-                    </div>
+                <div class="card-body" id="upcomingEvents">
+                  <!-- Events will be populated by JavaScript -->
                 </div>
+              </div>
             </div>
-        </div>
 
-        <!-- Ranking & Achievements -->
-        <div class="row g-4 mb-4">
+            <div class="col-lg-6">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 pb-0">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h4 class="fw-bold mb-0 primary-blue-text">
+                      Active Competitions
+                    </h4>
+                    <a
+                      href="competitions.html"
+                      class="btn btn-sm btn-outline-primary white-hover"
+                      >View All</a
+                    >
+                  </div>
+                </div>
+                <div class="card-body" id="activeCompetitions">
+                  <!-- Competitions will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements & Leaderboard -->
+          <div class="row g-4 mb-4">
             <div class="col-lg-8">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-white border-0">
-                        <h5 class="fw-bold mb-0" style="color: #1F8FFF;">My Achievements</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row g-3" id="achievements">
-                            <!-- Achievements will be populated by JavaScript -->
-                        </div>
-                    </div>
+              <div class="card border-0 shadow-sm p-2">
+                <div class="card-header bg-white border-0">
+                  <h4 class="fw-bold mb-0 primary-blue-text">
+                    My Achievements
+                  </h4>
                 </div>
+                <div class="card-body">
+                  <div class="row g-3" id="achievements">
+                    <!-- Achievements will be populated by JavaScript -->
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="col-lg-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-white border-0">
-                        <h5 class="fw-bold mb-0" style="color: #1F8FFF;">Leaderboard</h5>
-                    </div>
-                    <div class="card-body" id="leaderboard">
-                        <!-- Leaderboard will be populated by JavaScript -->
-                    </div>
+              <div class="card border-0 shadow-sm p-2">
+                <div class="card-header bg-white border-0">
+                  <h5 class="fw-bold mb-0 primary-blue-text">Leaderboard</h5>
                 </div>
+                <div class="card-body" id="leaderboard">
+                  <!-- Leaderboard will be populated by JavaScript -->
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
 
-        <!-- Recent Activity -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-white border-0">
-                        <h5 class="fw-bold mb-0" style="color: #1F8FFF;">Recent Activity</h5>
-                    </div>
-                    <div class="card-body" id="recentActivity">
-                        <!-- Activity will be populated by JavaScript -->
-                    </div>
+          <!-- Recent Activity -->
+          <div class="row">
+            <div class="col-8">
+              <div class="card border-0 shadow-sm p-2">
+                <div class="card-header bg-white border-0">
+                  <h5 class="fw-bold mb-0 primary-blue-text">
+                    Recent Activity
+                  </h5>
                 </div>
+                <div class="card-body" id="recentActivity">
+                  <!-- Activity will be populated by JavaScript -->
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+        </main>
+      </div>
     </div>
 
-    <!-- Course Progress Modal -->
+    <!-- Modals: kept unchanged (content unchanged) -->
     <div class="modal fade" id="courseProgressModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Course Progress</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body" id="courseProgressContent">
-                    <!-- Course progress details will be loaded here -->
-                </div>
-            </div>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Course Progress</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body" id="courseProgressContent"></div>
         </div>
+      </div>
     </div>
 
-    <!-- Profile Settings Modal -->
     <div class="modal fade" id="profileModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -311,13 +349,65 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-primary" onclick="saveProfile()">Save Changes</button>
                 </div>
-            </div>
+              </div>
+              <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  value="John Doe"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  value="john.doe@email.com"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  value="+1 (555) 123-4567"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="bio" class="form-label">Bio</label>
+                <textarea class="form-control" id="bio" rows="3">
+Passionate learner exploring web development and data science.</textarea
+                >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="saveProfile()"
+            >
+              Save Changes
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
+    <!-- Keep original custom JS file link unchanged -->
     <script src="assets/js/student-dashboard.js"></script>
 </body>
 

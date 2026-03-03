@@ -55,9 +55,9 @@ function loadMyCourses() {
 
     coursesContainer.innerHTML = myCourses.map(course => `
         <div class="col-lg-4 col-md-6">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 custom-shadow h-100">
                 <div class="position-relative">
-                    <img src="${course.image}" class="card-img-top" alt="${course.title}" style="height: 200px; object-fit: cover;">
+                    <img src="${course.image}" class="card-img-top" alt="${course.title}" style="height: 2۲0px; object-fit: cover;">
                     <span class="badge bg-primary position-absolute top-0 start-0 m-2">${course.category}</span>
                     <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">${course.timeLeft}</span>
                 </div>
@@ -80,10 +80,10 @@ function loadMyCourses() {
                             <i class="bi bi-play-circle me-1"></i>Next: ${course.nextLesson}
                         </p>
                         <div class="d-flex gap-2">
-                            <button class="btn btn-primary btn-sm flex-grow-1" onclick="continueCourse(${course.id})">
+                            <button class="btn btn-primary btn-sm flex-grow-1 white-hover" onclick="continueCourse(${course.id})">
                                 Continue
                             </button>
-                            <button class="btn btn-outline-primary btn-sm" onclick="viewCourseProgress(${course.id})">
+                            <button class="btn btn-sm custom-hover" onclick="viewCourseProgress(${course.id})">
                                 <i class="bi bi-bar-chart"></i>
                             </button>
                         </div>
@@ -141,7 +141,7 @@ function loadUpcomingEvents() {
                 <span class="badge ${event.type === 'Virtual' ? 'bg-info' : 'bg-success'} me-2">${event.type}</span>
                 ${event.registered ? 
                     '<span class="badge bg-success">Registered</span>' : 
-                    '<button class="btn btn-outline-primary btn-sm" onclick="registerEvent(' + event.id + ')">Register</button>'
+                    '<button class="btn btn-outline-primary btn-sm white-hover" onclick="registerEvent(' + event.id + ')">Register</button>'
                 }
             </div>
         </div>
@@ -200,7 +200,7 @@ function loadActiveCompetitions() {
                 ${comp.joined ? 
                     `<span class="badge bg-success me-2">Joined</span>
                      ${comp.myRank ? `<span class="badge bg-primary">Rank #${comp.myRank}</span>` : ''}` :
-                    `<button class="btn btn-outline-warning btn-sm" onclick="joinCompetition(${comp.id})">Join Now</button>`
+                    `<button class="btn btn-outline-warning btn-sm white-hover" onclick="joinCompetition(${comp.id})">Join Now</button>`
                 }
             </div>
         </div>
@@ -298,7 +298,7 @@ function loadLeaderboard() {
             rank: 1,
             name: 'Alice Johnson',
             score: 2850,
-            avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face',
+            avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=50&h=50&fit=crop&crop=face',
             isMe: false
         },
         {
