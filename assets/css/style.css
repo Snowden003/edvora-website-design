@@ -260,7 +260,7 @@ body.dark-mode .card {
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: #020811;
+    color: #ffffff;
 }
 
 .btn-primary {
@@ -4218,7 +4218,7 @@ body.dark-mode .card {
 
 .event-register-btn {
     width: 100%;
-    background: linear-gradient(45deg, var(--primary-blue), var(--primary-orange));
+    background: var(--primary-blue);
     border: none;
     color: white;
     padding: 12px 20px;
@@ -4248,7 +4248,7 @@ body.dark-mode .card {
 }
 
 .event-register-btn:hover {
-    background: var(--primary-blue);
+    background: var(--primary-blue-dark);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(31, 143, 255, 0.3);
 }
