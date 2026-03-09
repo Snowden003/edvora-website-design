@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Courses - Edvora Tech</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/modern-footer.css">
+    <link rel="stylesheet" href="assets/css/teacher-dashboard.css">
+    <link rel="stylesheet" href="assets/css/your-courses.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-header">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Sidebar Toggle (Mobile) -->
+            <button class="btn btn-link text-white d-lg-none ms-2" id="sidebarToggle">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="teacher-dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="position-relative" style="cursor: pointer;">
+                        <i class="bi bi-bell text-white fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="font-size: 0.6rem;">3</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" alt="Profile"
+                        class="rounded-circle border border-2 border-white"
+                        style="width: 35px; height: 35px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar-premium">
+            <div class="sidebar-collapse-toggle d-none d-lg-flex" id="sidebarCollapse">
+                <i class="bi bi-chevron-left"></i>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="teacher-dashboard.html" class="sidebar-link">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="your-courses.html" class="sidebar-link active">
+                        <i class="bi bi-journal-bookmark"></i>
+                        <span>Your Courses</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="request-courses.html" class="sidebar-link">
+                        <i class="bi bi-plus-circle-dotted"></i>
+                        <span>Request Courses</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="profile.html" class="sidebar-link">
+                        <i class="bi bi-person-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="exams.html" class="sidebar-link">
+                        <i class="bi bi-file-earmark-check"></i>
+                        <span>Exams</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="reviews.html" class="sidebar-link">
+                        <i class="bi bi-star"></i>
+                        <span>Reviews</span>
+                    </a>
+                </li>
+                <li class="sidebar-item mt-4">
+                    <hr class="mx-3 opacity-10">
+                </li>
+                <li class="sidebar-item">
+                    <a href="login.html" class="sidebar-link text-danger">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container-fluid py-5 px-xl-5">
+                <!-- Hub Banner -->
+                <div class="courses-hub-banner">
+                    <div class="hub-bg-animation">
+                        <div class="floating-hub-icon hub-icon-1"><i class="bi bi-mortarboard"></i></div>
+                        <div class="floating-hub-icon hub-icon-2"><i class="bi bi-book"></i></div>
+                        <div class="floating-hub-icon hub-icon-3"><i class="bi bi-lightbulb"></i></div>
+                    </div>
+                    <div class="hub-content">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8">
+                                <h1 class="display-5 fw-bold mb-3">Your Course Hub</h1>
+                                <p class="lead text-white-50 mb-4">Manage, organize, and expand your educational impact.
+                                    You're currently mentoring <span class="text-white fw-bold">513 students</span>
+                                    across all your programs.</p>
+                                <a href="request-courses.html"
+                                    class="btn btn-light btn-premium-glow rounded-pill px-5 py-3 fw-bold text-primary">
+                                    <i class="bi bi-plus-lg me-2"></i> REQUEST NEW COURSE
+                                </a>
+                            </div>
+                            <div class="col-lg-4 d-none d-lg-block text-center">
+                                <i class="bi bi-mortarboard" style="font-size: 8rem; color: rgba(255,255,255,0.2);"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="row g-4 mb-5">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="quick-stat-card">
+                            <div class="stat-icon-box bg-primary text-white"><i class="bi bi-journal-text"></i></div>
+                            <div>
+                                <small class="text-muted d-block">Total Courses</small>
+                                <h4 class="fw-bold mb-0">12</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="quick-stat-card">
+                            <div class="stat-icon-box bg-success text-white"><i class="bi bi-people"></i></div>
+                            <div>
+                                <small class="text-muted d-block">Active Students</small>
+                                <h4 class="fw-bold mb-0">513</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="quick-stat-card">
+                            <div class="stat-icon-box bg-warning text-dark"><i class="bi bi-star"></i></div>
+                            <div>
+                                <small class="text-muted d-block">Avg. Rating</small>
+                                <h4 class="fw-bold mb-0">4.8</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="quick-stat-card">
+                            <div class="stat-icon-box bg-info text-white"><i class="bi bi-graph-up"></i></div>
+                            <div>
+                                <small class="text-muted d-block">Completion</small>
+                                <h4 class="fw-bold mb-0">92%</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Bar -->
+                <div class="glass-control-bar mb-5">
+                    <div class="row align-items-center g-3">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-search text-muted fs-5"></i>
+                                <input type="text" id="searchCourses" class="form-control search-input-premium"
+                                    placeholder="Find your course by title...">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <select id="categoryFilter" class="form-select filter-select-premium">
+                                <option value="">All Categories</option>
+                                <option value="Programming">Programming</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Design">Design</option>
+                                <option value="Marketing">Marketing</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 text-end d-none d-md-block">
+                            <span class="text-muted small">Showing all your published courses</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Courses Grid -->
+                <div class="row" id="coursesGrid">
+                    <!-- Loaded via JavaScript -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <!-- Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particle particle-1"></div>
+            <div class="footer-particle particle-2"></div>
+            <div class="footer-particle particle-3"></div>
+            <div class="footer-particle particle-4"></div>
+            <div class="footer-floating-icon icon-1"><i class="bi bi-mortarboard"></i></div>
+            <div class="footer-floating-icon icon-2"><i class="bi bi-book"></i></div>
+            <div class="footer-floating-icon icon-3"><i class="bi bi-lightbulb"></i></div>
+        </div>
+
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="row g-4 footer-main">
+                <!-- Brand Section -->
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <div class="brand-logo">
+                            <img src="assets/images/logo1.jpg" alt="Edvora Tech Logo" class="footer-logo">
+                            <h4>Edvora Tech</h4>
+                        </div>
+                        <p class="brand-description">
+                            Empowering learners worldwide with quality education and innovative teaching
+                            methods.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-link twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-link instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-link linkedin"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link youtube"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="teachers.html">Teachers</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="leaderboard.html">Leaderboard</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Support</h6>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="terms.html">Terms</a></li>
+                            <li><a href="privacy.html">Privacy</a></li>
+                            <li><a href="#">Help Center</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Stay Connected</h6>
+                        <p class="newsletter-description">
+                            Get information about the latest courses and events.
+                        </p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="newsletter-input" placeholder="Your email">
+                                <button class="newsletter-btn" type="submit"><i class="bi bi-send"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom text-center">
+                <p class="copyright">&copy; 2026 Edvora Tech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (Reused from Dashboard) -->
+    <div class="modal fade" id="createCourseModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content glass-card-premium border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-primary">Create Your New Course</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="createCourseForm">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label class="form-label fw-bold">Course Title</label>
+                                <input type="text" class="form-control rounded-pill px-4"
+                                    placeholder="e.g. Master React & Redux">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Category</label>
+                                <select class="form-select rounded-pill px-4">
+                                    <option>Programming</option>
+                                    <option>Design</option>
+                                    <option>Data Science</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Price ($)</label>
+                                <input type="number" class="form-control rounded-pill px-4" placeholder="99.99">
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="button" class="btn btn-primary-gradient rounded-pill px-5 py-2">Create
+                                    Course</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/your-courses.js"></script>
+    <script src="assets/js/modern-footer.js"></script>
+</body>
+
+</html>

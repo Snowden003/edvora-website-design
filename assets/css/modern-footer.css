@@ -4,6 +4,8 @@
     position: relative;
     overflow: hidden;
     padding: 4rem 0 2rem;
+    z-index: 1001;
+    width: 100%;
 }
 
 /* Background Effects */
