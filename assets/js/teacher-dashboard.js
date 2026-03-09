@@ -1,5 +1,5 @@
 // Teacher Dashboard JavaScript
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initCharts();
     loadMyCourses();
     loadPendingReviews();
@@ -11,43 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
  
 // Initialize Charts
 function initCharts() {
-    // Earnings Chart
-    const earningsCtx = document.getElementById('earningsChart').getContext('2d');
-    new Chart(earningsCtx, {
-        type: 'line',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            datasets: [{
-                label: 'Earnings ($)',
-                data: [5200, 5800, 6200, 6800, 7200, 7600, 8000, 8200, 8100, 8300, 8400, 8450],
-                borderColor: '#1F8FFF',
-                backgroundColor: 'rgba(31, 143, 255, 0.1)',
-                borderWidth: 3,
-                fill: true,
-                tension: 0.4
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            return '$' + value.toLocaleString();
-                        }
-                    }
-                }
-            }
-        }
-    });
-
     // Engagement Chart
     const engagementCtx = document.getElementById('engagementChart').getContext('2d');
     new Chart(engagementCtx, {
@@ -213,22 +176,25 @@ function loadPendingReviews() {
         }
     ];
 
+    reviewsContainer.classList.add('d-flex', 'flex-column', 'gap-3');
     reviewsContainer.innerHTML = reviews.map(review => `
-        <div class="d-flex align-items-start p-2 border-bottom">
-            <div class="flex-shrink-0 me-3">
-                <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                    <i class="bi bi-file-text"></i>
-                </div>
+        <div class="review-item-premium">
+            <div class="review-icon-box me-3">
+                <i class="bi ${review.type === 'assignment' ? 'bi-file-earmark-text' : 'bi-journal-code'}"></i>
             </div>
-            <div class="flex-grow-1">
-                <h6 class="mb-1">${review.assignment}</h6>
-                <p class="small text-muted mb-1">by ${review.student}</p>
-                <p class="small text-muted mb-2">${review.course}</p>
-                <div class="d-flex gap-2">
-                    <button class="btn btn-sm btn-outline-primary" onclick="reviewAssignment(${review.id})">
-                        Review
+            <div class="flex-grow-1 min-w-0">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h6 class="mb-0 fw-bold text-premium text-truncate">${review.assignment}</h6>
+                        <small class="text-muted">by ${review.student}</small>
+                    </div>
+                    <span class="badge bg-light text-dark border fw-normal" style="font-size: 0.7rem;">${review.course}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <button class="btn btn-sm btn-primary-gradient rounded-pill px-4 py-2" onclick="reviewAssignment(${review.id})">
+                        Review Now
                     </button>
-                    <small class="text-muted align-self-center">${review.submitted}</small>
+                    <small class="text-muted small"><i class="bi bi-clock me-1"></i>${review.submitted}</small>
                 </div>
             </div>
         </div>
@@ -287,14 +253,14 @@ function loadTodaySchedule() {
                         <i class="bi bi-people me-1"></i>${item.students} students
                     </p>
                     <div class="d-flex gap-2">
-                        ${item.status === 'upcoming' ? 
-                            `<button class="btn btn-primary btn-sm" onclick="startClass(${item.id})">
+                        ${item.status === 'upcoming' ?
+            `<button class="btn btn-primary btn-sm" onclick="startClass(${item.id})">
                                 <i class="bi bi-play-circle me-1"></i>Start
                             </button>` :
-                            `<button class="btn btn-outline-secondary btn-sm" disabled>
+            `<button class="btn btn-outline-secondary btn-sm" disabled>
                                 <i class="bi bi-check-circle me-1"></i>Completed
                             </button>`
-                        }
+        }
                         <button class="btn btn-outline-primary btn-sm" onclick="viewClassDetails(${item.id})">
                             <i class="bi bi-info-circle"></i>
                         </button>
@@ -403,8 +369,9 @@ function loadNotifications() {
         }
     ];
 
+    notificationsContent.classList.add('d-flex', 'flex-column');
     notificationsContent.innerHTML = notifications.map(notification => `
-        <div class="d-flex align-items-start p-3 border-bottom ${!notification.read ? 'bg-light' : ''}">
+        <div class="notification-item-premium d-flex align-items-start p-3 border-bottom ${!notification.read ? 'bg-light' : ''}">
             <div class="flex-shrink-0 me-3">
                 <div class="bg-${getNotificationColor(notification.type)} text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
                     <i class="bi ${getNotificationIcon(notification.type)}"></i>
@@ -423,18 +390,18 @@ function loadNotifications() {
 // Navigation
 function initNavigation() {
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
+
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             if (this.getAttribute('href').startsWith('#')) {
                 e.preventDefault();
-                
+
                 // Remove active class from all links
                 navLinks.forEach(l => l.classList.remove('active'));
-                
+
                 // Add active class to clicked link
                 this.classList.add('active');
-                
+
                 // Scroll to section
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
@@ -450,14 +417,14 @@ function initNavigation() {
 function createCourse() {
     const form = document.getElementById('createCourseForm');
     const formData = new FormData(form);
-    
+
     console.log('Creating course:', Object.fromEntries(formData));
-    
+
     const modal = bootstrap.Modal.getInstance(document.getElementById('createCourseModal'));
     modal.hide();
-    
+
     showToast('Course created successfully!', 'success');
-    
+
     setTimeout(() => {
         loadMyCourses();
     }, 500);
@@ -487,14 +454,14 @@ function duplicateCourse(courseId) {
 function scheduleClass() {
     const form = document.getElementById('scheduleClassForm');
     const formData = new FormData(form);
-    
+
     console.log('Scheduling class:', Object.fromEntries(formData));
-    
+
     const modal = bootstrap.Modal.getInstance(document.getElementById('scheduleClassModal'));
     modal.hide();
-    
+
     showToast('Class scheduled successfully!', 'success');
-    
+
     setTimeout(() => {
         loadTodaySchedule();
     }, 500);
@@ -530,25 +497,25 @@ function generateStars(rating) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
     let stars = '';
-    
+
     for (let i = 0; i < fullStars; i++) {
         stars += '<i class="bi bi-star-fill"></i>';
     }
-    
+
     if (hasHalfStar) {
         stars += '<i class="bi bi-star-half"></i>';
     }
-    
+
     const emptyStars = 5 - Math.ceil(rating);
     for (let i = 0; i < emptyStars; i++) {
         stars += '<i class="bi bi-star"></i>';
     }
-    
+
     return stars;
 }
 
 function getStatusBadgeClass(status) {
-    switch(status) {
+    switch (status) {
         case 'Active': return 'bg-success';
         case 'Draft': return 'bg-warning text-dark';
         case 'Completed': return 'bg-secondary';
@@ -557,7 +524,7 @@ function getStatusBadgeClass(status) {
 }
 
 function getClassTypeBadge(type) {
-    switch(type) {
+    switch (type) {
         case 'live': return 'bg-danger';
         case 'qa': return 'bg-info';
         case 'review': return 'bg-warning text-dark';
@@ -566,7 +533,7 @@ function getClassTypeBadge(type) {
 }
 
 function getNotificationColor(type) {
-    switch(type) {
+    switch (type) {
         case 'assignment': return 'info';
         case 'rating': return 'warning';
         case 'reminder': return 'primary';
@@ -576,7 +543,7 @@ function getNotificationColor(type) {
 }
 
 function getNotificationIcon(type) {
-    switch(type) {
+    switch (type) {
         case 'assignment': return 'bi-file-text';
         case 'rating': return 'bi-star';
         case 'reminder': return 'bi-bell';
@@ -595,7 +562,7 @@ function showToast(message, type = 'info') {
         toastContainer.style.zIndex = '1055';
         document.body.appendChild(toastContainer);
     }
-    
+
     const toastId = 'toast-' + Date.now();
     const toast = document.createElement('div');
     toast.id = toastId;
@@ -607,12 +574,12 @@ function showToast(message, type = 'info') {
             <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
         </div>
     `;
-    
+
     toastContainer.appendChild(toast);
-    
+
     const bsToast = new bootstrap.Toast(toast);
     bsToast.show();
-    
+
     // Remove toast element after it's hidden
     toast.addEventListener('hidden.bs.toast', () => {
         toast.remove();

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details - Edvora Tech</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/modern-footer.css">
+    <link rel="stylesheet" href="assets/css/teacher-dashboard.css">
+    <link rel="stylesheet" href="assets/css/teacher-courses-detail.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-header">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Sidebar Toggle (Mobile) -->
+            <button class="btn btn-link text-white d-lg-none ms-2" id="sidebarToggle">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="teacher-dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="position-relative" style="cursor: pointer;">
+                        <i class="bi bi-bell text-white fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="font-size: 0.6rem;">3</span>
+                    </div>
+                    <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" alt="Profile"
+                        class="rounded-circle border border-2 border-white"
+                        style="width: 35px; height: 35px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar-premium">
+            <div class="sidebar-collapse-toggle d-none d-lg-flex" id="sidebarCollapse">
+                <i class="bi bi-chevron-left"></i>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="teacher-dashboard.html" class="sidebar-link">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="your-courses.html" class="sidebar-link active">
+                        <i class="bi bi-journal-bookmark"></i>
+                        <span>Your Courses</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="request-courses.html" class="sidebar-link">
+                        <i class="bi bi-plus-circle-dotted"></i>
+                        <span>Request Courses</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="profile.html" class="sidebar-link">
+                        <i class="bi bi-person-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="exams.html" class="sidebar-link">
+                        <i class="bi bi-file-earmark-check"></i>
+                        <span>Exams</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="reviews.html" class="sidebar-link">
+                        <i class="bi bi-star"></i>
+                        <span>Reviews</span>
+                    </a>
+                </li>
+                <li class="sidebar-item mt-4">
+                    <hr class="mx-3 opacity-10">
+                </li>
+                <li class="sidebar-item">
+                    <a href="login.html" class="sidebar-link text-danger">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container-fluid py-4 px-xl-5">
+                <!-- Breadcrumbs -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="your-courses.html"
+                                class="text-decoration-none text-muted">Your Courses</a></li>
+                        <li class="breadcrumb-item active fw-bold text-primary" aria-current="page">Course Details</li>
+                    </ol>
+                </nav>
+
+                <!-- Course Header Card -->
+                <div class="detail-header-card">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-8">
+                            <span class="course-badge-detailed"><i class="bi bi-code-slash"></i> Programming</span>
+                            <h1 class="display-6 fw-bold mb-3">Advanced JavaScript & React</h1>
+                            <p class="text-muted mb-4 lead">Master the latest features of React 18, Server-Side
+                                Rendering with Next.js, and advanced state management patterns.</p>
+
+                            <div class="d-flex flex-wrap gap-4">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-calendar-check text-primary fs-5"></i>
+                                    <div>
+                                        <small class="text-muted d-block">Started On</small>
+                                        <span class="fw-semibold">March 15, 2026</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-hourglass-split text-warning fs-5"></i>
+                                    <div>
+                                        <small class="text-muted d-block">Est. Completion</small>
+                                        <span class="fw-semibold">June 20, 2026</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-people text-success fs-5"></i>
+                                    <div>
+                                        <small class="text-muted d-block">Students</small>
+                                        <span class="fw-semibold">124 Enrolled</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <div class="d-flex gap-2 justify-content-lg-end align-items-center">
+                                <button class="btn btn-premium-action" onclick="startLiveClass()">
+                                    <i class="bi bi-camera-video-fill me-2"></i> START CLASS
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-5">
+                    <!-- Progress Sidebar -->
+                    <div class="col-xl-4">
+                        <div class="glass-progress-card mb-4">
+                            <h5 class="fw-bold mb-4">Overall Progress</h5>
+                            <div class="progress-info">
+                                <span class="fw-bold text-primary fs-4" id="progressPercentage">0%</span>
+                                <span class="text-muted">16 of 24 Lessons</span>
+                            </div>
+                            <div class="custom-progress-bin">
+                                <div class="custom-progress-bar" id="courseProgressBar"></div>
+                            </div>
+                            <p class="mt-3 small text-muted">You are ahead of schedule by 4 days compared to the average
+                                completion rate.</p>
+                        </div>
+
+                        <!-- Mini Stats -->
+                        <div class="glass-card-premium border-0 overflow-hidden">
+                            <div class="row g-0">
+                                <div class="col-6 mini-stat-box">
+                                    <span class="mini-stat-val">4.9</span>
+                                    <span class="mini-stat-label">Rating</span>
+                                </div>
+                                <div class="col-6 mini-stat-box">
+                                    <span class="mini-stat-val">92%</span>
+                                    <span class="mini-stat-label">Completion</span>
+                                </div>
+                                <div class="col-6 mini-stat-box" style="border-bottom: none;">
+                                    <span class="mini-stat-val">12</span>
+                                    <span class="mini-stat-label">Assignments</span>
+                                </div>
+                                <div class="col-6 mini-stat-box" style="border-bottom: none;">
+                                    <span class="mini-stat-val">5</span>
+                                    <span class="mini-stat-label">Resources</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Content Tabs -->
+                    <div class="col-xl-8">
+                        <ul class="nav nav-pills course-detail-tabs" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-syllabus-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-syllabus" type="button" role="tab">Syllabus</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-docs-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-docs" type="button" role="tab">Documents</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-students-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-students" type="button" role="tab">Students</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-attendance-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-attendance" type="button" role="tab">Attendance</button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="pills-tabContent">
+                            <!-- Syllabus Tab -->
+                            <div class="tab-pane fade show active" id="pills-syllabus" role="tabpanel">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 class="fw-bold mb-0">Units & Lessons</h5>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill"><i
+                                            class="bi bi-plus"></i> Add Lesson</button>
+                                </div>
+                                <div id="syllabusList">
+                                    <!-- Loaded via JS -->
+                                </div>
+                            </div>
+
+                            <!-- Documents Tab -->
+                            <div class="tab-pane fade" id="pills-docs" role="tabpanel">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 class="fw-bold mb-0">Uploaded Materials</h5>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill"><i
+                                            class="bi bi-upload pe-1"></i> Upload</button>
+                                </div>
+                                <div id="documentList">
+                                    <!-- Loaded via JS -->
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-students" role="tabpanel">
+                                <!-- Student Summary Bar -->
+                                <div class="student-summary-bar mb-4">
+                                    <div class="summary-item">
+                                        <div class="summary-icon bg-soft-primary"><i class="bi bi-people"></i></div>
+                                        <div>
+                                            <small class="text-muted d-block">Total Enrolled</small>
+                                            <span class="fw-bold" id="totalEnrolled">124 Students</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon bg-soft-success"><i class="bi bi-graph-up-arrow"></i>
+                                        </div>
+                                        <div>
+                                            <small class="text-muted d-block">Avg. Performance</small>
+                                            <span class="fw-bold" id="avgPerformance">88.5%</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon bg-soft-warning"><i
+                                                class="bi bi-exclamation-octagon"></i></div>
+                                        <div>
+                                            <small class="text-muted d-block">At Risk</small>
+                                            <span class="fw-bold" id="atRiskCount">3 Students</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-4 student-tab-header">
+                                    <h5 class="fw-bold mb-0">Elite Student Network</h5>
+                                    <div class="search-box-premium">
+                                        <i class="bi bi-search"></i>
+                                        <input type="text" id="searchStudents" class="form-control rounded-pill"
+                                            placeholder="Search by name or ID...">
+                                    </div>
+                                </div>
+
+                                <div id="studentList" class="elite-student-grid">
+                                    <!-- Loaded via JS -->
+                                </div>
+                            </div>
+
+                            <!-- Attendance Tab -->
+                            <div class="tab-pane fade" id="pills-attendance" role="tabpanel">
+                                <!-- Attendance View Switcher -->
+                                <div class="attendance-tabs-mini mb-4">
+                                    <button class="att-view-btn active" onclick="switchAttView('record')">
+                                        <i class="bi bi-calendar-check me-2"></i> Record Today
+                                    </button>
+                                    <button class="att-view-btn" onclick="switchAttView('history')">
+                                        <i class="bi bi-bar-chart-line me-2"></i> Full History
+                                    </button>
+                                </div>
+
+                                <!-- Record View -->
+                                <div id="attRecordView">
+                                    <div class="attendance-control-header mb-4">
+                                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                                            <div>
+                                                <h5 class="fw-bold mb-1">Daily Attendance Log</h5>
+                                                <p class="text-muted small mb-0">Record and track student participation
+                                                    for
+                                                    today's session.</p>
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <div class="date-picker-wrapper">
+                                                    <input type="date" id="attendanceDate"
+                                                        class="form-control rounded-pill" value="2026-03-07">
+                                                </div>
+                                                <button class="btn btn-outline-success btn-sm rounded-pill px-3"
+                                                    onclick="markAllPresent()">
+                                                    <i class="bi bi-check-all me-1"></i> Mark All
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="attendanceList" class="attendance-grid mb-4">
+                                        <!-- Loaded via JS -->
+                                    </div>
+
+                                    <div class="attendance-footer d-flex justify-content-end gap-2">
+                                        <button class="btn btn-light rounded-pill px-4"
+                                            onclick="resetAttendance()">Reset</button>
+                                        <button class="btn btn-premium-action px-5" onclick="submitAttendance()">Submit
+                                            Session</button>
+                                    </div>
+                                </div>
+
+                                <!-- History View -->
+                                <div id="attHistoryView" style="display: none;">
+                                    <div class="attendance-control-header mb-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h5 class="fw-bold mb-0">Attendance Analytics</h5>
+                                            <div class="attendance-stats-mini">
+                                                <span class="stat-p">P: Present</span>
+                                                <span class="stat-l">L: Late</span>
+                                                <span class="stat-a">A: Absent</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive glass-table-container">
+                                        <table class="table table-hover glass-table mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Student</th>
+                                                    <th class="text-center">Present</th>
+                                                    <th class="text-center">Late</th>
+                                                    <th class="text-center">Absent</th>
+                                                    <th class="text-center">Rate</th>
+                                                    <th class="text-center">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="attendanceHistoryList">
+                                                <!-- Loaded via JS -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <!-- XP Scoring Modal -->
+    <div class="modal fade premium-modal" id="xpModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Adjust Student XP</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="student-target-info mb-4">
+                        <img id="xpModalAvatar" src="" class="avatar-lg rounded-circle mb-2" alt="">
+                        <h6 id="xpModalName" class="fw-bold mb-0"></h6>
+                        <small class="text-muted">Current: <span id="xpModalCurrent"
+                                class="fw-bold text-primary"></span> XP</small>
+                    </div>
+                    <div class="xp-input-wrapper">
+                        <label class="form-label d-block text-start mb-2">Amount to Add/Subtract</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0 text-primary">⚡</span>
+                            <input type="number" id="xpAmountInput" class="form-control border-start-0 ps-0"
+                                placeholder="e.g. 50 or -20">
+                        </div>
+                        <small class="text-muted d-block text-start mt-2">Use positive numbers to add, negative to
+                            subtract.</small>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4"
+                        data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-premium-action px-5" onclick="saveXP()">Update XP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Warning Modal -->
+    <div class="modal fade premium-modal" id="warnModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Send Formal Warning</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-md-4 text-center border-end border-light">
+                            <img id="warnModalAvatar" src="" class="avatar-lg rounded-circle mb-2" alt="">
+                            <h6 id="warnModalName" class="fw-bold mb-0"></h6>
+                            <small class="text-muted">Student ID: #<span id="warnModalId"></span></small>
+                        </div>
+                        <div class="col-md-8">
+                            <label class="form-label fw-bold">Warning Message</label>
+                            <textarea id="warningMessageInput" class="form-control glass-input" rows="6"
+                                placeholder="Write your message here..."></textarea>
+                            <div class="mt-3">
+                                <small class="text-muted">Quick Drafts:</small>
+                                <div class="d-flex gap-2 mt-2">
+                                    <button class="btn btn-sm btn-soft-warning"
+                                        onclick="loadDraft('attendance')">Attendance</button>
+                                    <button class="btn btn-sm btn-soft-warning"
+                                        onclick="loadDraft('performance')">Performance</button>
+                                    <button class="btn btn-sm btn-soft-warning"
+                                        onclick="loadDraft('behavior')">Behavior</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4"
+                        data-bs-dismiss="modal">Dismiss</button>
+                    <button type="button" class="btn btn-warning-action px-5" onclick="sendWarning()">Send
+                        Warning</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attendance Log Modal -->
+    <div class="modal fade premium-modal" id="attLogModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">Attendance History</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <img id="attLogAvatar" src="" class="avatar-lg rounded-circle mb-2" alt="">
+                        <h6 id="attLogName" class="fw-bold mb-0"></h6>
+                        <span id="attLogStats" class="badge bg-soft-primary rounded-pill mt-2"></span>
+                    </div>
+                    <div id="attLogList" class="att-log-vertical-list">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-premium-action w-100" data-bs-dismiss="modal">Close
+                        Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <!-- Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particle particle-1"></div>
+            <div class="footer-particle particle-2"></div>
+            <div class="footer-particle particle-3"></div>
+            <div class="footer-particle particle-4"></div>
+            <div class="footer-floating-icon icon-1"><i class="bi bi-mortarboard"></i></div>
+            <div class="footer-floating-icon icon-2"><i class="bi bi-book"></i></div>
+            <div class="footer-floating-icon icon-3"><i class="bi bi-lightbulb"></i></div>
+        </div>
+
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="row g-4 footer-main">
+                <!-- Brand Section -->
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <div class="brand-logo">
+                            <img src="assets/images/logo1.jpg" alt="Edvora Tech Logo" class="footer-logo">
+                            <h4>Edvora Tech</h4>
+                        </div>
+                        <p class="brand-description">
+                            Empowering learners worldwide with quality education and innovative teaching
+                            methods.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-link twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-link instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-link linkedin"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link youtube"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="teachers.html">Teachers</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="leaderboard.html">Leaderboard</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Support</h6>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="terms.html">Terms</a></li>
+                            <li><a href="privacy.html">Privacy</a></li>
+                            <li><a href="#">Help Center</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Stay Connected</h6>
+                        <p class="newsletter-description">
+                            Get information about the latest courses and events.
+                        </p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="newsletter-input" placeholder="Your email">
+                                <button class="newsletter-btn" type="submit"><i class="bi bi-send"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom text-center">
+                <p class="copyright">&copy; 2026 Edvora Tech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/teacher-courses-detail.js"></script>
+</body>
+
+</html>
