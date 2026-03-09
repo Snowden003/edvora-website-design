@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadNotifications();
     initNavigation();
 });
-
+ 
 // Initialize Charts
 function initCharts() {
     // Earnings Chart

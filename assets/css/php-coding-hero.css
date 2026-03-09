@@ -170,7 +170,7 @@
 }
 
 .btn-hero-primary {
-    background: linear-gradient(45deg, #0D0D0D, #1F8FFF);
+    background: linear-gradient(45deg, #00F0FF, #1F8FFF);
     border: none;
     color: white;
     padding: 18px 35px;
@@ -196,6 +196,7 @@
 }
 
 .btn-hero-primary:hover {
+    background: linear-gradient(100deg, #00F0FF, #1F8FFF);
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(31, 143, 255, 0.6);
 }
