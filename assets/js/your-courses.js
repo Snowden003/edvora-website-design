@@ -88,9 +88,7 @@ function loadYourCourses(filteredData = coursesData) {
                     <div class="status-badge-overlay ${getStatusColor(course.status)}">${course.status}</div>
                 </div>
                 <div class="card-body-premium">
-                    <h5 class="course-title-premium">
-                        <a href="teacher-courses-detail.html" class="text-decoration-none text-dark">${course.title}</a>
-                    </h5>
+                    <h5 class="course-title-premium">${course.title}</h5>
                     <div class="student-count-mini">
                         <i class="bi bi-people-fill text-primary"></i>
                         <span>${course.students} Students Enrolled</span>
@@ -101,11 +99,14 @@ function loadYourCourses(filteredData = coursesData) {
                             <span class="rating-value">${course.rating}</span>
                         </div>
                         <div class="d-flex gap-2">
-                            <a href="teacher-courses-detail.html" class="action-btn-circle" title="View Details">
-                                <i class="bi bi-eye-fill"></i>
-                            </a>
                             <button class="action-btn-circle" title="Edit Course" onclick="editCourse(${course.id})">
                                 <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button class="action-btn-circle" title="View Students" onclick="viewStudents(${course.id})">
+                                <i class="bi bi-person-lines-fill"></i>
+                            </button>
+                            <button class="action-btn-circle" title="Course Settings" onclick="courseSettings(${course.id})">
+                                <i class="bi bi-gear-fill"></i>
                             </button>
                         </div>
                     </div>
@@ -129,13 +130,8 @@ function initFilters() {
 }
 
 function applyFilters() {
-    const searchTermInput = document.getElementById('searchCourses');
-    const categoryFilterInput = document.getElementById('categoryFilter');
-
-    if (!searchTermInput || !categoryFilterInput) return;
-
-    const searchTerm = searchTermInput.value.toLowerCase();
-    const category = categoryFilterInput.value;
+    const searchTerm = document.getElementById('searchCourses').value.toLowerCase();
+    const category = document.getElementById('categoryFilter').value;
 
     const filtered = coursesData.filter(course => {
         const matchesSearch = course.title.toLowerCase().includes(searchTerm);
@@ -147,11 +143,8 @@ function applyFilters() {
 }
 
 function resetFilters() {
-    const searchInput = document.getElementById('searchCourses');
-    const categoryFilter = document.getElementById('categoryFilter');
-
-    if (searchInput) searchInput.value = '';
-    if (categoryFilter) categoryFilter.value = '';
+    document.getElementById('searchCourses').value = '';
+    document.getElementById('categoryFilter').value = '';
     loadYourCourses();
 }
 
@@ -203,9 +196,6 @@ function editCourse(id) { console.log('Editing course:', id); }
 function viewStudents(id) { console.log('Viewing students for:', id); }
 function courseSettings(id) { console.log('Settings for:', id); }
 function createNewCourse() {
-    const modalElement = document.getElementById('createCourseModal');
-    if (modalElement) {
-        const modal = new bootstrap.Modal(modalElement);
-        modal.show();
-    }
+    const modal = new bootstrap.Modal(document.getElementById('createCourseModal'));
+    modal.show();
 }

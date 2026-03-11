@@ -25,7 +25,7 @@ const availableCourses = [
         complexity: "Advanced",
         duration: "8 Weeks",
         icon: "bi-palette2",
-        image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800",
         description: "Master Figma, design systems, and user psychology for modern applications.",
         roadmap: [
             "Advanced Prototyping in Figma",
@@ -59,7 +59,7 @@ const availableCourses = [
         complexity: "Expert",
         duration: "16 Weeks",
         icon: "bi-box-seam",
-        image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
         description: "Build high-performance web applications using Rust and WebAssembly.",
         roadmap: [],
         tools: "Rust, Actix-web, Diesel, PostgreSQL, React"
@@ -115,22 +115,25 @@ function renderMarketplace(filter = 'all') {
         : availableCourses.filter(c => c.category === filter);
 
     grid.innerHTML = filtered.map(course => `
-        <div class="col-md-6 col-lg-4 animate-fadeIn">
-            <div class="request-card-premium h-100">
-                <div class="card-img-wrapper position-relative">
-                    <img src="${course.image}" class="img-fluid" alt="${course.title}">
-                    <div class="category-tag-premium">${course.category}</div>
+        <div class="col-md-6 col-lg-4 animate-fadeIn mb-4">
+            <div class="course-request-card h-100">
+                <div class="card-img-wrapper">
+                    <img src="${course.image}" alt="${course.title}">
                 </div>
-                <div class="p-4 d-flex flex-column h-100">
-                    <h5 class="fw-bold mb-2">${course.title}</h5>
-                    <div class="d-flex gap-2 mb-3">
-                        <span class="badge bg-soft-primary text-primary rounded-pill small">${course.complexity}</span>
-                        <span class="badge bg-soft-info text-info rounded-pill small"><i class="bi bi-clock me-1"></i>${course.duration}</span>
+                <div class="card-content-premium">
+                    <div class="mb-3">
+                        <h5 class="fw-bold mb-2">${course.title}</h5>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-soft-primary text-primary rounded-pill small">${course.complexity}</span>
+                            <span class="badge bg-soft-info text-info rounded-pill small"><i class="bi bi-clock me-1"></i>${course.duration}</span>
+                        </div>
                     </div>
-                    <p class="text-muted small mb-4">${course.description}</p>
-                    <button class="btn btn-request-premium w-100 mt-auto" onclick="openRequestModal(${course.id})">
-                        Apply to Teach
-                    </button>
+                    <p class="text-muted small description-text">${course.description}</p>
+                    <div class="mt-auto">
+                        <button class="btn btn-apply-premium w-100" onclick="openRequestModal(${course.id})">
+                            <i class="bi bi-plus-circle me-2"></i>Request This Course
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -189,18 +192,39 @@ function openRequestModal(id) {
     const course = availableCourses.find(c => c.id === id);
     if (!course) return;
 
+    // Populate Left Pane (Info)
     document.getElementById('modalCourseTitle').innerText = course.title;
-    document.getElementById('modalCourseTools').value = course.tools || '';
+    document.getElementById('modalCourseCategory').innerText = course.category;
+    document.getElementById('modalCourseDescription').innerText = course.description || 'Join us in teaching this high-impact course to our global community.';
+    document.getElementById('modalCourseDuration').innerText = course.duration || 'Flexible';
+    document.getElementById('modalCourseComplexity').innerText = course.complexity || 'All Levels';
 
-    const roadmapContainer = document.getElementById('roadmapEditorContainer');
-    const roadmapInput = document.getElementById('courseRoadmapInput');
-
+    // Populate Roadmap Preview (Left Pane)
+    const roadmapPreview = document.getElementById('modalRoadmapPreview');
     if (course.roadmap && course.roadmap.length > 0) {
-        // Pre-fill as bullet points in textarea for easy editing
-        roadmapInput.value = course.roadmap.map(item => `• ${item}`).join('\n');
+        roadmapPreview.innerHTML = course.roadmap.map(item => `
+            <li class="roadmap-preview-item">${item}</li>
+        `).join('');
+    } else {
+        roadmapPreview.innerHTML = '<li class="text-muted small">No roadmap suggested by admin yet.</li>';
+    }
+
+    // Populate Right Pane (Form) - Reset to defaults
+    document.getElementById('modalTeachingFormat').value = 'recorded';
+    document.getElementById('modalTeacherDuration').value = course.duration ? parseInt(course.duration) : '';
+    document.getElementById('modalDurationUnit').value = 'weeks';
+    document.getElementById('modalTargetAudience').value = '';
+    document.getElementById('modalCourseTools').value = course.tools || '';
+    document.getElementById('modalPrerequisites').value = '';
+    document.getElementById('modalOutcomes').value = '';
+    document.getElementById('modalPersonalNote').value = '';
+
+    const roadmapInput = document.getElementById('courseRoadmapInput');
+    if (course.roadmap && course.roadmap.length > 0) {
+        roadmapInput.value = course.roadmap.join('\n');
     } else {
         roadmapInput.value = '';
-        roadmapInput.placeholder = "Enter your proposed roadmap here (one item per line)...";
+        roadmapInput.placeholder = "Enter your proposed roadmap (one item per line)...";
     }
 
     const modal = new bootstrap.Modal(document.getElementById('applicationModal'));
