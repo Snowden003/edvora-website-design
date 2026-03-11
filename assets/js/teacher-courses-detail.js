@@ -61,7 +61,7 @@ function loadSyllabus() {
                 <small class="text-muted"><i class="bi bi-clock me-1"></i> ${lesson.duration}</small>
             </div>
             <div>
-                ${lesson.completed ? '<span class="badge bg-success-soft text-success rounded-pill px-3">Done</span>' : '<button class="btn btn-sm btn-outline-primary rounded-pill px-3">Start</button>'}
+                ${lesson.completed ? '<span class="badge bg-success-soft text-success rounded-pill px-3">Done</span>' : '<button class="btn-premium-outline btn-premium-sm rounded-pill px-3">Start</button>'}
             </div>
         </div>
     `).join('');
@@ -83,9 +83,9 @@ function loadDocuments() {
                     <small class="text-muted">${doc.size} • ${doc.type}</small>
                 </div>
             </div>
-            <div class="d-flex gap-2">
-                <button class="btn btn-sm btn-light rounded-circle" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn btn-sm btn-light rounded-circle text-danger" title="Delete"><i class="bi bi-trash"></i></button>
+            <div class="actions-wrapper">
+                <button class="btn-action-premium btn-action-view" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-action-premium btn-action-delete" title="Delete"><i class="bi bi-trash"></i></button>
             </div>
         </div>
     `).join('');
@@ -140,13 +140,15 @@ function renderStudents(filteredData = studentsData) {
             </div>
 
             <div class="management-actions">
-                <button class="btn-score-adjust me-2" onclick="openXPModal(${student.id})" title="Manage XP">
-                    <i class="bi bi-lightning-charge-fill"></i>
-                </button>
-                <button class="btn-tactical btn-warn-tactical" onclick="openWarnModal(${student.id})">
+                <div class="actions-wrapper me-2">
+                    <button class="btn-action-premium btn-action-view" onclick="openXPModal(${student.id})" title="Manage XP">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </button>
+                </div>
+                <button class="btn-premium-outline btn-premium-sm" onclick="openWarnModal(${student.id})">
                     <i class="bi bi-megaphone me-1"></i> WARN
                 </button>
-                <button class="btn-tactical btn-kick-tactical" onclick="kickStudent(${student.id})">
+                <button class="btn-premium-danger btn-premium-sm" onclick="kickStudent(${student.id})">
                     <i class="bi bi-person-x me-1"></i> KICK
                 </button>
             </div>
@@ -396,7 +398,7 @@ function renderAttendanceHistory() {
                     <span class="attendance-rate-badge ${rateClass}">${rate}%</span>
                 </td>
                 <td class="text-center">
-                    <button class="btn btn-sm btn-light rounded-pill px-3" onclick="viewIndividualLog(${student.id})">
+                    <button class="btn-premium-secondary btn-premium-sm rounded-pill px-3" onclick="viewIndividualLog(${student.id})">
                         View Log
                     </button>
                 </td>
@@ -450,11 +452,18 @@ function initSidebar() {
     }
 
     if (sidebarCollapse && sidebar) {
+        const wrapper = document.querySelector('.dashboard-wrapper');
         const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
-        if (isCollapsed) sidebar.classList.add('collapsed');
+        if (isCollapsed) {
+            sidebar.classList.add('collapsed');
+            if (wrapper) wrapper.classList.add('sidebar-collapsed');
+        } else {
+            if (wrapper) wrapper.classList.remove('sidebar-collapsed');
+        }
 
         sidebarCollapse.addEventListener('click', () => {
             sidebar.classList.toggle('collapsed');
+            if (wrapper) wrapper.classList.toggle('sidebar-collapsed');
             localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
         });
     }

@@ -89,14 +89,20 @@ let myRequests = [
         title: "Advanced React Patterns",
         category: "Tech",
         status: "approved",
-        date: "2026-03-01"
+        date: "2026-03-01",
+        adminResponseDate: "2026-03-03",
+        feedback: "Your proposal is excellent and perfectly aligns with our roadmap. We've added this course to your curriculum.",
+        associatedCourseId: 1
     },
     {
         id: 102,
         title: "Data Science with Python",
         category: "Tech",
         status: "pending",
-        date: "2026-03-05"
+        date: "2026-03-05",
+        adminResponseDate: null,
+        feedback: null,
+        associatedCourseId: null
     }
 ];
 
@@ -130,7 +136,7 @@ function renderMarketplace(filter = 'all') {
                     </div>
                     <p class="text-muted small description-text">${course.description}</p>
                     <div class="mt-auto">
-                        <button class="btn btn-apply-premium w-100" onclick="openRequestModal(${course.id})">
+                        <button class="btn-premium-primary w-100" onclick="openRequestModal(${course.id})">
                             <i class="bi bi-plus-circle me-2"></i>Request This Course
                         </button>
                     </div>
@@ -144,22 +150,97 @@ function renderMyRequests() {
     const list = document.getElementById('myRequestsList');
     if (!list) return;
 
-    list.innerHTML = myRequests.map(req => `
-        <div class="request-card-premium p-3 mb-3">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+    list.innerHTML = myRequests.map(req => {
+        const isApproved = req.status === 'approved';
+        return `
+        <div class="request-card-premium mb-4">
+            <div class="d-flex justify-content-between align-items-center flex-wrap flex-md-nowrap gap-3 mb-3">
                 <div class="d-flex align-items-center gap-3">
-                    <div class="icon-sm bg-primary-soft rounded-circle p-2 text-primary">
+                    <div class="icon-sm bg-primary-soft rounded-circle text-primary">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-0">${req.title}</h6>
-                        <small class="text-muted">${req.category} • Requested on ${req.date}</small>
+                        <h5 class="fw-bold mb-1">${req.title}</h5>
+                        <p class="text-muted small mb-0">${req.category} • Submitted on ${req.date}</p>
                     </div>
                 </div>
-                <span class="status-badge bg-status-${req.status}">${req.status}</span>
+                <div class="ms-md-auto">
+                    <span class="status-badge bg-status-${req.status}">${req.status}</span>
+                </div>
+            </div>
+
+            ${req.adminResponseDate ? `
+                <div class="request-details-grid mb-3">
+                    <div class="detail-item">
+                        <label>Admin Response</label>
+                        <span>${req.adminResponseDate}</span>
+                    </div>
+                    ${req.feedback ? `
+                        <div class="detail-item full-width">
+                            <label>Feedback</label>
+                            <div class="request-feedback-box">
+                                <i class="bi bi-chat-quote-fill me-2 opacity-50"></i>
+                                ${req.feedback}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            ` : ''}
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-3 pt-3 border-top border-light">
+                <div class="request-support-info">
+                    ${isApproved ? `
+                        <div class="text-success small fw-600 mb-1">
+                            <i class="bi bi-check-circle-fill me-1"></i> Saved to your "Your Courses" dashboard
+                        </div>
+                    ` : `
+                        <div class="text-muted small mb-1">
+                            A response usually takes 2-3 business days.
+                        </div>
+                    `}
+                    <a href="mailto:support@edvora.com" class="request-support-link small">
+                        <i class="bi bi-envelope me-1"></i> Contact Support
+                    </a>
+                </div>
+                
+                ${isApproved ? `
+                    <button class="btn-premium-primary btn-premium-sm" onclick="location.href='teacher-courses-detail.html'">
+                        View Course <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                ` : ''}
             </div>
         </div>
-    `).join('');
+    `}).join('');
+}
+
+// Sidebar Logic
+function initSidebar() {
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.querySelector('.sidebar-premium');
+    const sidebarCollapse = document.getElementById('sidebarCollapse');
+
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    }
+
+    if (sidebarCollapse && sidebar) {
+        const wrapper = document.querySelector('.dashboard-wrapper');
+        const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+        if (isCollapsed) {
+            sidebar.classList.add('collapsed');
+            if (wrapper) wrapper.classList.add('sidebar-collapsed');
+        } else {
+            if (wrapper) wrapper.classList.remove('sidebar-collapsed');
+        }
+
+        sidebarCollapse.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            if (wrapper) wrapper.classList.toggle('sidebar-collapsed');
+            localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+        });
+    }
 }
 
 function initFilters() {
@@ -240,7 +321,7 @@ function submitApplication() {
 
     setTimeout(() => {
         btn.innerText = 'Application Sent!';
-        btn.classList.replace('btn-primary', 'btn-success');
+        btn.classList.replace('btn-premium-primary', 'btn-premium-success');
 
         setTimeout(() => {
             const modal = bootstrap.Modal.getInstance(document.getElementById('applicationModal'));
@@ -248,7 +329,7 @@ function submitApplication() {
 
             // Revert button for next time
             btn.innerText = originalText;
-            btn.classList.replace('btn-success', 'btn-primary');
+            btn.classList.replace('btn-premium-success', 'btn-premium-primary');
             btn.disabled = false;
 
             // Mock adding to requests

@@ -223,45 +223,18 @@
 .card-footer-premium {
     margin-top: auto;
     padding-top: 1.25rem;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
-.rating-box {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+/* Ensure actions-wrapper from teacher-dashboard.css works well here */
+.card-footer-premium .actions-wrapper {
+    margin-left: auto;
 }
 
-.rating-box i {
-    color: #FFC107;
-    font-size: 0.9rem;
-}
-
-.rating-value {
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-
-.action-btn-circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #f8f9fa;
-    color: var(--primary-blue);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.course-card-premium:hover .action-btn-circle {
-    background: var(--primary-blue);
-    color: white;
-}
 
 /* Animations */
 @keyframes fadeInUp {

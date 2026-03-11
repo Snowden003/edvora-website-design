@@ -5,59 +5,520 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Edvora Tech</title>
+
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/modern-footer.css">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <style>
-        .page-placeholder {
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
-        }
 
-        .glass-header {
-            background: rgba(6, 30, 62, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/modern-footer.css">
+    <link rel="stylesheet" href="assets/css/teacher-dashboard.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-header">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
                 <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
             </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Sidebar Toggle Button (Mobile Only) -->
+            <button class="btn btn-link text-white d-lg-none ms-2" id="sidebarToggle">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="teacher-dashboard.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teacher-dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teachers.html">Teachers</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Community
+                        </a>
+                        <ul class="dropdown-menu glass-dropdown">
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="competitions.html">Competitions</a></li>
+                            <li><a class="dropdown-item" href="leaderboard.html">Leaderboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
                 </ul>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div class="position-relative" data-bs-toggle="modal" data-bs-target="#notificationsModal"
+                        style="cursor: pointer;">
+                        <i class="bi bi-bell text-white fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="font-size: 0.6rem;">
+                            3
+                        </span>
+                    </div>
+
+                    <div class="dropdown">
+                        <div class="d-flex align-items-center gap-2" data-bs-toggle="dropdown" style="cursor: pointer;">
+                            <img src="https://imgs.search.brave.com/FMCoASK9gQS4Df8M3u7f0vJYoqVAO87krrHEO5t1g3Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL3ByZW1p/dW0vcG5nLTI1Ni10/aHVtYi9hdmF0YXIt/aWNvbi1zdmctZG93/bmxvYWQtcG5nLTc3/NjAwOTMucG5nP2Y9/d2VicCZ3PTEyOA"
+                                alt="Profile" class="rounded-circle border border-2 border-white"
+                                style="width: 35px; height: 35px; object-fit: cover;">
+                            <i class="bi bi-chevron-down text-white small"></i>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end glass-dropdown">
+                            <li><a class="dropdown-item active" href="profile.html"><i
+                                        class="bi bi-person me-2"></i>Profile</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#settings"><i class="bi bi-gear me-2"></i>Settings</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider border-secondary">
+                            </li>
+                            <li><a class="dropdown-item" href="login.html text-danger"><i
+                                        class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="page-placeholder text-center">
-        <h1 class="display-4 fw-bold text-primary mb-4">Profile</h1>
-        <p class="lead text-muted">This page is currently under development.</p>
-        <a href="teacher-dashboard.html" class="btn btn-primary rounded-pill px-4 mt-3">Back to Dashboard</a>
+    <!-- Dashboard Layout Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar-premium">
+            <div class="sidebar-collapse-toggle d-none d-lg-flex" id="sidebarCollapse">
+                <i class="bi bi-chevron-left"></i>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="teacher-dashboard.html" class="sidebar-link">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="your-courses.html" class="sidebar-link">
+                        <i class="bi bi-journal-bookmark"></i>
+                        <span>Your Courses</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="request-courses.html" class="sidebar-link">
+                        <i class="bi bi-plus-circle-dotted"></i>
+                        <span>Request Courses</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="profile.html" class="sidebar-link active">
+                        <i class="bi bi-person-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="exams.html" class="sidebar-link">
+                        <i class="bi bi-file-earmark-check"></i>
+                        <span>Exams</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="reviews.html" class="sidebar-link">
+                        <i class="bi bi-star"></i>
+                        <span>Reviews</span>
+                    </a>
+                </li>
+                <li class="sidebar-item mt-4">
+                    <hr class="mx-3 opacity-10">
+                </li>
+                <li class="sidebar-item">
+                    <a href="#settings" class="sidebar-link">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="login.html" class="sidebar-link text-danger">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <main class="main-content">
+            <div class="container-fluid py-5">
+
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+
+                        <!-- Header for Profile -->
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div>
+                                <h2 class="fw-bold mb-1 text-premium">Instructor Profile</h2>
+                                <p class="text-muted">Manage your personal information and professional details.</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-premium-solid">
+                                    <i class="bi bi-check2-circle me-2"></i>Save Changes
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Main Profile Card -->
+                        <div class="glass-card-premium mb-5">
+                            <!-- Cover Image -->
+                            <div class="profile-cover">
+                                <div class="profile-cover-edit" title="Update Cover Photo">
+                                    <i class="bi bi-camera me-1"></i> Change Cover
+                                </div>
+                            </div>
+
+                            <!-- Avatar and Title -->
+                            <div class="profile-avatar-container">
+                                <div class="profile-avatar-wrapper">
+                                    <img src="https://imgs.search.brave.com/FMCoASK9gQS4Df8M3u7f0vJYoqVAO87krrHEO5t1g3Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL3ByZW1p/dW0vcG5nLTI1Ni10/aHVtYi9hdmF0YXIt/aWNvbi1zdmctZG93/bmxvYWQtcG5nLTc3/NjAwOTMucG5nP2Y9/d2VicCZ3PTEyOA"
+                                        alt="Instructor Avatar" class="profile-avatar">
+                                    <div class="avatar-edit-btn" title="Upload New Photo">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </div>
+                                </div>
+                                <div class="profile-user-info">
+                                    <h3 class="profile-user-name">Dr. Sarah Johnson</h3>
+                                    <div class="profile-user-role"><i class="bi bi-award me-1"></i> Senior Data
+                                        Scientist & Educator</div>
+                                </div>
+                            </div>
+
+                            <form class="p-4 pt-1">
+                                <!-- Personal Information Section -->
+                                <div class="mb-5">
+                                    <h4 class="section-title">Personal Information</h4>
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label-premium">First Name <span class="required-asterisk"
+                                                    title="Required">*</span></label>
+                                            <input type="text" class="form-control form-control-premium" value="Sarah"
+                                                placeholder="Enter your first name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label-premium">Last Name <span class="required-asterisk"
+                                                    title="Required">*</span></label>
+                                            <input type="text" class="form-control form-control-premium" value="Johnson"
+                                                placeholder="Enter your last name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label-premium">Email Address <span
+                                                    class="required-asterisk" title="Required">*</span></label>
+                                            <input type="email" class="form-control form-control-premium"
+                                                value="sarah.johnson@example.com"
+                                                placeholder="Email for student contact">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label-premium">Phone Number</label>
+                                            <input type="tel" class="form-control form-control-premium"
+                                                value="+1 (555) 123-4567" placeholder="Optional phone number">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Professional Details Section -->
+                                <div class="mb-5">
+                                    <h4 class="section-title">Professional Details</h4>
+                                    <div class="row g-4">
+                                        <div class="col-12">
+                                            <label class="form-label-premium">Professional Headline <span
+                                                    class="required-asterisk" title="Required">*</span></label>
+                                            <input type="text" class="form-control form-control-premium"
+                                                value="Senior Data Scientist & Educator"
+                                                placeholder="e.g. Lead UI/UX Designer at TechCorp">
+                                            <small class="text-muted d-block mt-1">This will be displayed right under
+                                                your name on your profile.</small>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label-premium">About Me (Bio) <span
+                                                    class="required-asterisk" title="Required">*</span></label>
+                                            <textarea class="form-control form-control-premium" rows="5"
+                                                placeholder="Write a short biography... ">Passionate educator and Data Scientist with over 10 years of industry experience. I love bringing complex machine learning concepts into clear, accessible lessons for students of all backgrounds.</textarea>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label-premium">Specializations / Skills <span
+                                                    class="required-asterisk" title="Required">*</span></label>
+                                            <input type="text" class="form-control form-control-premium"
+                                                placeholder="e.g. Python, React, Data Analysis (Press Enter)">
+                                            <div class="tag-container mt-2">
+                                                <span class="premium-tag">Python <i
+                                                        class="bi bi-x-circle-fill ms-1"></i></span>
+                                                <span class="premium-tag">Machine Learning <i
+                                                        class="bi bi-x-circle-fill ms-1"></i></span>
+                                                <span class="premium-tag">Data Visualization <i
+                                                        class="bi bi-x-circle-fill ms-1"></i></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label-premium">Years of Experience <span
+                                                    class="required-asterisk" title="Required">*</span></label>
+                                            <select class="form-select form-control-premium">
+                                                <option value="">Select experience</option>
+                                                <option value="1-3">1 - 3 Years</option>
+                                                <option value="3-5">3 - 5 Years</option>
+                                                <option value="5-10">5 - 10 Years</option>
+                                                <option value="10+" selected>10+ Years</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Social Links Section -->
+                                <div class="mb-5">
+                                    <h4 class="section-title">Social Links</h4>
+                                    <p class="text-muted mb-4 small">Add your social media to help students connect with
+                                        you better.</p>
+
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <div class="social-input-group">
+                                                <div class="social-icon-wrapper text-primary">
+                                                    <i class="bi bi-linkedin"></i>
+                                                </div>
+                                                <input type="url" placeholder="LinkedIn Profile URL"
+                                                    value="https://linkedin.com/in/sarahjohnson">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="social-input-group">
+                                                <div class="social-icon-wrapper text-info">
+                                                    <i class="bi bi-twitter"></i>
+                                                </div>
+                                                <input type="url" placeholder="Twitter Profile URL"
+                                                    value="https://twitter.com/sarahcodes">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="social-input-group">
+                                                <div class="social-icon-wrapper text-dark">
+                                                    <i class="bi bi-github"></i>
+                                                </div>
+                                                <input type="url" placeholder="GitHub Profile URL"
+                                                    value="https://github.com/sjohnson">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="social-input-group">
+                                                <div class="social-icon-wrapper text-danger">
+                                                    <i class="bi bi-globe"></i>
+                                                </div>
+                                                <input type="url" placeholder="Personal Website or Portfolio">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="my-5 opacity-10">
+
+                                <!-- Security / Password Section -->
+                                <div class="mb-4">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="bg-light rounded-circle p-3 me-3 text-secondary">
+                                            <i class="bi bi-shield-lock fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="mb-1 text-premium" style="font-size: 1.1rem; font-weight: 700;">
+                                                Password & Security</h4>
+                                            <p class="text-muted small mb-0">Update your password to keep your account
+                                                secure.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-4">
+                                        <div class="col-md-4">
+                                            <label class="form-label-premium">Current Password</label>
+                                            <input type="password" class="form-control form-control-premium"
+                                                placeholder="Enter current password">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label-premium">New Password</label>
+                                            <input type="password" class="form-control form-control-premium"
+                                                placeholder="Enter new password">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label-premium">Confirm New Password</label>
+                                            <input type="password" class="form-control form-control-premium"
+                                                placeholder="Confirm new password">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-end mt-5 gap-3">
+                                    <button type="button" class="btn btn-premium-outline-alt">Cancel</button>
+                                    <button type="button" class="btn btn-premium-solid">Save Profile Settings</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
     </div>
 
-    <!-- Footer placeholder -->
-    <footer class="footer-modern py-5 bg-dark text-white">
-        <div class="container text-center">
-            <p>&copy; 2026 Edvora Tech. All rights reserved.</p>
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <!-- Background Effects -->
+        <div class="footer-bg-effects">
+            <div class="footer-particle particle-1"></div>
+            <div class="footer-particle particle-2"></div>
+            <div class="footer-particle particle-3"></div>
+            <div class="footer-particle particle-4"></div>
+            <div class="footer-floating-icon icon-1"><i class="bi bi-mortarboard"></i></div>
+            <div class="footer-floating-icon icon-2"><i class="bi bi-book"></i></div>
+            <div class="footer-floating-icon icon-3"><i class="bi bi-lightbulb"></i></div>
+        </div>
+
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="row g-4 footer-main">
+                <!-- Brand Section -->
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <div class="brand-logo">
+                            <img src="assets/images/logo1.jpg" alt="Edvora Tech Logo" class="footer-logo">
+                            <h4>Edvora Tech</h4>
+                        </div>
+                        <p class="brand-description">
+                            Empowering learners worldwide with quality education and innovative teaching
+                            methods.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-link twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-link instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-link linkedin"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link youtube"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="teachers.html">Teachers</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="leaderboard.html">Leaderboard</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Support</h6>
+                        <ul class="footer-links">
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="terms.html">Terms</a></li>
+                            <li><a href="privacy.html">Privacy</a></li>
+                            <li><a href="#">Help Center</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4">
+                    <div class="footer-section">
+                        <h6 class="footer-title">Stay Connected</h6>
+                        <p class="newsletter-description">
+                            Get information about the latest courses and events.
+                        </p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="newsletter-input" placeholder="Your email">
+                                <button class="newsletter-btn" type="submit"><i class="bi bi-send"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom text-center">
+                <p class="copyright">&copy; 2026 Edvora Tech. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/teacher-dashboard.js"></script>
+    <script src="assets/js/modern-footer.js"></script>
+    <script>
+        // Sidebar Toggle for Mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('sidebarToggle');
+            const sidebar = document.querySelector('.sidebar-premium');
+
+            if (toggleBtn && sidebar) {
+                toggleBtn.addEventListener('click', function () {
+                    sidebar.classList.toggle('active');
+                });
+            }
+
+            // Desktop Sidebar Collapse
+            const sidebarCollapse = document.getElementById('sidebarCollapse');
+            const wrapper = document.querySelector('.dashboard-wrapper');
+            if (sidebarCollapse && sidebar && wrapper) {
+                // Load saved state
+                const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+                if (isCollapsed) {
+                    sidebar.classList.add('collapsed');
+                    wrapper.classList.add('sidebar-collapsed');
+                }
+
+                sidebarCollapse.addEventListener('click', function () {
+                    sidebar.classList.toggle('collapsed');
+                    wrapper.classList.toggle('sidebar-collapsed');
+                    localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+                });
+            }
+
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', function (event) {
+                if (!sidebar || !toggleBtn) return;
+                const isClickInsideSidebar = sidebar.contains(event.target);
+                const isClickInsideToggle = toggleBtn.contains(event.target);
+
+                if (!isClickInsideSidebar && !isClickInsideToggle && sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

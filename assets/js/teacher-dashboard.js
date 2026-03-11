@@ -119,25 +119,19 @@ function loadMyCourses() {
                 </div>
             </td>
             <td>
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
-                        Actions
+                <div class="actions-wrapper">
+                    <button class="btn-action-premium btn-action-view" data-tooltip="View Course" onclick="viewCourse(${course.id})">
+                        <i class="bi bi-eye"></i>
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" onclick="viewCourse(${course.id})">
-                            <i class="bi bi-eye me-2"></i>View
-                        </a></li>
-                        <li><a class="dropdown-item" href="#" onclick="editCourse(${course.id})">
-                            <i class="bi bi-pencil me-2"></i>Edit
-                        </a></li>
-                        <li><a class="dropdown-item" href="#" onclick="viewStudents(${course.id})">
-                            <i class="bi bi-people me-2"></i>Students
-                        </a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#" onclick="duplicateCourse(${course.id})">
-                            <i class="bi bi-files me-2"></i>Duplicate
-                        </a></li>
-                    </ul>
+                    <button class="btn-action-premium btn-action-edit" data-tooltip="Edit Course" onclick="editCourse(${course.id})">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn-action-premium btn-action-students" data-tooltip="Manage Students" onclick="viewStudents(${course.id})">
+                        <i class="bi bi-people"></i>
+                    </button>
+                    <button class="btn-action-premium btn-action-more" data-tooltip="Duplicate" onclick="duplicateCourse(${course.id})">
+                        <i class="bi bi-files"></i>
+                    </button>
                 </div>
             </td>
         </tr>
@@ -190,8 +184,8 @@ function loadPendingReviews() {
                     </div>
                     <span class="badge bg-light text-dark border fw-normal" style="font-size: 0.7rem;">${review.course}</span>
                 </div>
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <button class="btn btn-sm btn-primary-gradient rounded-pill px-4 py-2" onclick="reviewAssignment(${review.id})">
+                <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+                    <button class="btn-review-premium" onclick="reviewAssignment(${review.id})">
                         Review Now
                     </button>
                     <small class="text-muted small"><i class="bi bi-clock me-1"></i>${review.submitted}</small>
@@ -254,14 +248,14 @@ function loadTodaySchedule() {
                     </p>
                     <div class="d-flex gap-2">
                         ${item.status === 'upcoming' ?
-            `<button class="btn btn-primary btn-sm" onclick="startClass(${item.id})">
+            `<button class="btn-premium-primary btn-premium-sm" onclick="startClass(${item.id})">
                                 <i class="bi bi-play-circle me-1"></i>Start
                             </button>` :
-            `<button class="btn btn-outline-secondary btn-sm" disabled>
+            `<button class="btn-premium-secondary btn-premium-sm" disabled>
                                 <i class="bi bi-check-circle me-1"></i>Completed
                             </button>`
         }
-                        <button class="btn btn-outline-primary btn-sm" onclick="viewClassDetails(${item.id})">
+                        <button class="btn-premium-outline btn-premium-sm" onclick="viewClassDetails(${item.id})">
                             <i class="bi bi-info-circle"></i>
                         </button>
                     </div>

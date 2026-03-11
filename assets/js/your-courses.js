@@ -94,19 +94,18 @@ function loadYourCourses(filteredData = coursesData) {
                         <span>${course.students} Students Enrolled</span>
                     </div>
                     <div class="card-footer-premium">
-                        <div class="rating-box">
-                            <i class="bi bi-star-fill"></i>
-                            <span class="rating-value">${course.rating}</span>
-                        </div>
-                        <div class="d-flex gap-2">
-                            <button class="action-btn-circle" title="Edit Course" onclick="editCourse(${course.id})">
-                                <i class="bi bi-pencil-square"></i>
+                        <button class="btn-premium-primary btn-premium-sm" onclick="viewCourseDetails(${course.id})">
+                            View Details
+                        </button>
+                        <div class="actions-wrapper">
+                            <button class="btn-action-premium btn-action-edit" data-tooltip="Edit Course" onclick="editCourse(${course.id})">
+                                <i class="bi bi-pencil"></i>
                             </button>
-                            <button class="action-btn-circle" title="View Students" onclick="viewStudents(${course.id})">
-                                <i class="bi bi-person-lines-fill"></i>
+                            <button class="btn-action-premium btn-action-students" data-tooltip="Manage Students" onclick="viewStudents(${course.id})">
+                                <i class="bi bi-people"></i>
                             </button>
-                            <button class="action-btn-circle" title="Course Settings" onclick="courseSettings(${course.id})">
-                                <i class="bi bi-gear-fill"></i>
+                            <button class="btn-action-premium btn-action-more" data-tooltip="Settings" onclick="courseSettings(${course.id})">
+                                <i class="bi bi-gear"></i>
                             </button>
                         </div>
                     </div>
@@ -114,6 +113,10 @@ function loadYourCourses(filteredData = coursesData) {
             </div>
         </div>
     `).join('');
+}
+
+function viewCourseDetails(id) {
+    window.location.href = 'teacher-courses-detail.html';
 }
 
 // Filter Logic
@@ -161,11 +164,18 @@ function initSidebar() {
     }
 
     if (sidebarCollapse && sidebar) {
+        const wrapper = document.querySelector('.dashboard-wrapper');
         const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
-        if (isCollapsed) sidebar.classList.add('collapsed');
+        if (isCollapsed) {
+            sidebar.classList.add('collapsed');
+            if (wrapper) wrapper.classList.add('sidebar-collapsed');
+        } else {
+            if (wrapper) wrapper.classList.remove('sidebar-collapsed');
+        }
 
         sidebarCollapse.addEventListener('click', () => {
             sidebar.classList.toggle('collapsed');
+            if (wrapper) wrapper.classList.toggle('sidebar-collapsed');
             localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
         });
     }
