@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Professional Leaderboard — Edvora Tech</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <style>
+      :root{
+        --bg:#f4f6f9;
+        --card:#ffffff;
+        --muted:#6b7280;
+        --accent:#1f8fff;
+        --radius:14px;
+        --glass: rgba(255,255,255,0.6);
+      }
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        background:var(--bg);
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+      }
+      .navbar-hero{
+        background: linear-gradient(135deg,#0d0d0d 6%, var(--accent) 100%);
+        box-shadow:0 8px 30px rgba(2,6,23,0.12);
+      }
+      .navbar-hero .navbar-brand, .navbar-hero .nav-link, .navbar-hero .btn-outline-light{ color: #fff; }
+      .container-page{max-width:1200px;margin:70px auto;padding:0 16px}
+      .page-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+      .page-title{display:flex;align-items:center;gap:12px}
+      .muted{color:var(--muted)}
+      .card-plain{background:var(--card);border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.06);padding:18px}
+
+      /* podium */
+      .podium-wrap{display:flex;gap:18px;align-items:flex-end;justify-content:center;padding:18px 12px; padding-bottom: 6rem;}
+      .podium {
+        width:220px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        border-radius:12px 12px 8px 8px;
+        overflow:visible;
+        background:linear-gradient(180deg,rgba(255,255,255,0.85),var(--card));
+        transition:transform .28s ease;
+      }
+      .podium .avatar { width:84px;height:84px;border-radius:50%;margin-top:12px;border:4px solid #fff;object-fit:cover;box-shadow:0 6px 20px rgba(2,6,23,0.12);}
+      .podium .meta { text-align:center;padding:10px 12px; }
+      .podium .name { font-weight:600; margin:2px 0 }
+      .podium .score { font-size:1.1rem; color:var(--accent); font-weight:700 }
+
+      .podium-1{height:220px;transform:translateY(-8px)}
+      .podium-2{height:180px}
+      .podium-3{height:150px}
+
+      .podium-base{width:100%;display:flex;align-items:center;justify-content:center;padding:6px 0 14px 0; gap:8px}
+      .podium-base .rank { font-weight:700; color:#fff; padding:6px 10px;border-radius:8px}
+
+      .rank-1{background:linear-gradient(90deg,#ffd700,#ffcf3a); color:#0b1220}
+      .rank-2{background:linear-gradient(90deg,#c0c0c0,#d6d6d6); color:#0b1220}
+      .rank-3{background:linear-gradient(90deg,#cd7f32,#e6a36b); color:#0b1220}
+
+      /* chart + controls */
+      .controls { display:flex; gap:8px; flex-wrap:wrap; align-items:center }
+      .controls .btn { border-radius:10px }
+
+      /* table */
+      .table-card { overflow:auto; border-radius:12px; }
+      table.leaderboard-table tbody tr:hover { background: rgba(31,143,255,0.03); cursor:default; }
+      .highlight { background: linear-gradient(90deg, rgba(31,143,255,0.06), transparent); }
+
+      /* responsive */
+      @media (max-width:991.98px){
+        .podium-wrap{flex-direction:row;gap:12px;overflow:auto;padding-bottom:8px}
+        .podium{min-width:160px}
+      }
+
+      /* small utilities */
+      .small-muted{font-size:0.85rem;color:var(--muted)}
+      .chip{border-radius:999px;padding:6px 10px;background:var(--glass);font-weight:600}
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-hero fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#"><i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech</a>
+      </div>
+    </nav>
+
+    <main class="container-page">
+      <header class="page-head mb-3">
+        <div class="page-title">
+          <div>
+            <h1 class="h4 mb-0">Leaderboard — Top Performers</h1>
+            <div class="small-muted">Real-time rankings, badges, and trends</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="btn-group btn-group-sm" role="group" aria-label="time range">
+            <button class="btn btn-outline-primary active" data-range="today">Today</button>
+            <button class="btn btn-outline-primary" data-range="week">This Week</button>
+            <button class="btn btn-outline-primary" data-range="month">This Month</button>
+            <button class="btn btn-outline-primary" data-range="all">All Time</button>
+          </div>
+
+          <div class="input-group input-group-sm" style="width:220px">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input id="searchInput" class="form-control form-control-sm" placeholder="Search name or tag" aria-label="Search">
+          </div>
+
+          <select id="filterCategory" class="form-select form-select-sm" style="width:160px">
+            <option value="">All Categories</option>
+          </select>
+
+          <button id="exportCsv" class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i> Export</button>
+        </div>
+      </header>
+
+      <!-- PODIUM -->
+      <section class="card-plain mb-4">
+        <div class="podium-wrap" role="region" aria-label="Top 3">
+          <!-- podium populated by JS -->
+        </div>
+      </section>
+
+      <div class="row g-3">
+        <!-- LEFT: chart + summary -->
+        <div class="col-lg-7">
+          <div class="card-plain mb-3">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h5 class="mb-0">Score Distribution</h5>
+                <div class="small-muted">Trends for selected range</div>
+              </div>
+              <div class="small-muted">Showing <span id="resultCount">0</span> users</div>
+            </div>
+            <canvas id="scoreChart" height="160" aria-label="Score distribution chart"></canvas>
+          </div>
+
+          <div class="card-plain">
+            <h6 class="mb-2">Badges & Highlights</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <div class="chip">🔥 Streak Master</div>
+              <div class="chip">🎯 Goal Hunter</div>
+              <div class="chip">🚀 Fast Achiever</div>
+              <div class="chip">🤝 Team Player</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: table -->
+        <div class="col-lg-5">
+          <div class="card-plain table-card">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h6 class="mb-0">Leaderboard Table</h6>
+              <div class="small-muted">Sort by: 
+                <select id="sortSelect" class="form-select form-select-sm" style="width:160px;display:inline-block;margin-left:8px">
+                  <option value="rank">Rank</option>
+                  <option value="score_desc">Score (high → low)</option>
+                  <option value="score_asc">Score (low → high)</option>
+                  <option value="goals_desc">Goals (high → low)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="max-height:520px; overflow:auto;">
+              <table class="table leaderboard-table mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Goals</th>
+                  </tr>
+                </thead>
+                <tbody id="leaderTableBody">
+                  <!-- populated by JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <div class="small-muted">Page size:
+                <select id="perPage" class="form-select form-select-sm" style="width:80px;display:inline-block;margin-left:8px">
+                  <option>10</option><option selected>20</option><option>50</option>
+                </select>
+              </div>
+              <nav><ul id="pagination" class="pagination pagination-sm mb-0"></ul></nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="mt-4 text-center small-muted">© 2026 Edvora Tech</footer>
+    </main>
+
+    <!-- modal for user detail -->
+    <div class="modal fade" id="userModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header"><h5 class="modal-title" id="userModalTitle">User</h5><button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body" id="userModalBody"></div>
+          <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" id="viewProfileBtn">View Profile</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+      // ---------- SAMPLE DATA ----------
+      // This array can be replaced by API data (id must be unique).
+      const SAMPLE_USERS = [
+        {id:1, name:"Fatima Rahmani", score:1250, goals:32, avatar:"https://i.pravatar.cc/120?img=12", category:"Web"},
+        {id:2, name:"Ali Karimi", score:1150, goals:28, avatar:"https://i.pravatar.cc/120?img=5", category:"Programming"},
+        {id:3, name:"Sara Ahmadi", score:1075, goals:25, avatar:"https://i.pravatar.cc/120?img=8", category:"Data"},
+        {id:4, name:"Reza Hosseini", score:980, goals:20, avatar:"https://i.pravatar.cc/120?img=3", category:"Web"},
+        {id:5, name:"Mina Rezai", score:940, goals:19, avatar:"https://i.pravatar.cc/120?img=7", category:"Design"},
+        {id:6, name:"Neda Soleimani", score:920, goals:18, avatar:"https://i.pravatar.cc/120?img=4", category:"Programming"},
+        {id:7, name:"Omid Kazemi", score:880, goals:17, avatar:"https://i.pravatar.cc/120?img=11", category:"Data"},
+        {id:8, name:"Maryam K.", score:830, goals:16, avatar:"https://i.pravatar.cc/120?img=2", category:"Business"},
+        {id:9, name:"Ahmad Pouya", score:790, goals:15, avatar:"https://i.pravatar.cc/120?img=15", category:"Mobile"},
+        {id:10, name:"Laila Noor", score:760, goals:14, avatar:"https://i.pravatar.cc/120?img=9", category:"Data"},
+        {id:11, name:"Hassan Mehr", score:720, goals:13, avatar:"https://i.pravatar.cc/120?img=1", category:"Cloud"},
+        {id:12, name:"Zahra M.", score:680, goals:12, avatar:"https://i.pravatar.cc/120?img=6", category:"Design"},
+        {id:13, name:"Negar F.", score:640, goals:10, avatar:"https://i.pravatar.cc/120?img=10", category:"Tools"},
+        {id:14, name:"Bahram N.", score:600, goals:9, avatar:"https://i.pravatar.cc/120?img=13", category:"Cloud"},
+        {id:15, name:"Saeed R.", score:580, goals:8, avatar:"https://i.pravatar.cc/120?img=14", category:"Programming"},
+        {id:16, name:"Nina Taheri", score:540, goals:7, avatar:"https://i.pravatar.cc/120?img=16", category:"Design"},
+        {id:17, name:"Amir Z.", score:510, goals:6, avatar:"https://i.pravatar.cc/120?img=17", category:"Mobile"},
+        {id:18, name:"Laleh F.", score:480, goals:5, avatar:"https://i.pravatar.cc/120?img=18", category:"Business"},
+        {id:19, name:"Reyhaneh S.", score:460, goals:4, avatar:"https://i.pravatar.cc/120?img=19", category:"Tools"},
+        {id:20, name:"Kaveh P.", score:430, goals:3, avatar:"https://i.pravatar.cc/120?img=20", category:"Cloud"},
+        // add more to test pagination
+      ];
+
+      // ---------- STATE ----------
+      let users = [...SAMPLE_USERS]; // working copy
+      let state = {
+        range: 'all',
+        query: '',
+        category: '',
+        sort: 'rank',
+        perPage: 20,
+        page: 1,
+        currentUser: 'Fatima Rahmani' // highlight this user by name — change to your logged-in name
+      };
+
+      // DOM refs
+      const podiumWrap = document.querySelector('.podium-wrap');
+      const filterCategory = document.getElementById('filterCategory');
+      const searchInput = document.getElementById('searchInput');
+      const resultCount = document.getElementById('resultCount');
+      const leaderTableBody = document.getElementById('leaderTableBody');
+      const paginationEl = document.getElementById('pagination');
+      const perPageSelect = document.getElementById('perPage');
+      const sortSelect = document.getElementById('sortSelect');
+      const exportCsv = document.getElementById('exportCsv');
+      const scoreChartCtx = document.getElementById('scoreChart').getContext('2d');
+
+      // Chart placeholder
+      let scoreChart;
+
+      // ---------- HELPERS ----------
+      function sortUsers(arr){
+        if(state.sort === 'rank') return arr.sort((a,b)=>b.score - a.score);
+        if(state.sort === 'score_desc') return arr.sort((a,b)=>b.score - a.score);
+        if(state.sort === 'score_asc') return arr.sort((a,b)=>a.score - b.score);
+        if(state.sort === 'goals_desc') return arr.sort((a,b)=>b.goals - a.goals);
+        return arr;
+      }
+
+      function getFilteredUsers(){
+        let out = users.slice();
+
+        // search
+        const q = state.query.trim().toLowerCase();
+        if(q) out = out.filter(u => (u.name + ' ' + (u.category||'')).toLowerCase().includes(q));
+
+        // category
+        if(state.category) out = out.filter(u => u.category === state.category);
+
+        // NOTE: range currently illustrative — in real app, you'd fetch data per range.
+        // for demo, treat "today" as score > 1000 (just to show range switching)
+        if(state.range === 'today') out = out.filter(u => u.score >= 900);
+        if(state.range === 'week') out = out.filter(u => u.score >= 700 && u.score < 900);
+        if(state.range === 'month') out = out.filter(u => u.score >= 500 && u.score < 700);
+
+        // sort
+        out = sortUsers(out);
+
+        return out;
+      }
+
+      function paginate(arr){
+        const per = parseInt(state.perPage,10) || 20;
+        const page = parseInt(state.page,10) || 1;
+        const start = (page-1)*per;
+        const end = start+per;
+        return { items: arr.slice(start,end), total: arr.length, totalPages: Math.ceil(arr.length/per) };
+      }
+
+      // ---------- RENDER ----------
+
+      function renderPodium(top3){
+        podiumWrap.innerHTML = '';
+        // order: 2,1,3 for better visual center
+        const order = [top3[1], top3[0], top3[2]];
+        const classes = ['podium-2','podium-1','podium-3'];
+        for(let i=0;i<3;i++){
+          const u = order[i];
+          if(!u) {
+            // placeholder card
+            const empty = document.createElement('div');
+            empty.className = 'podium ' + classes[i];
+            empty.innerHTML = `<div class="meta"><div class="name muted">—</div><div class="small-muted">—</div></div><div class="podium-base"><div class="rank rank-${i+1}">#${i+1}</div></div>`;
+            podiumWrap.appendChild(empty);
+            continue;
+          }
+          const el = document.createElement('div');
+          el.className = 'podium ' + classes[i];
+          el.innerHTML = `
+            <img class="avatar" src="${u.avatar}" alt="${escapeHtml(u.name)}">
+            <div class="meta">
+              <div class="name">${escapeHtml(u.name)}</div>
+              <div class="small-muted">${escapeHtml(u.category)} • ${u.goals} goals</div>
+              <div class="score">${u.score} pts</div>
+            </div>
+            <div class="podium-base">
+              <div class="rank rank-${(i===1?1:i===0?2:3)}">#${(i===1?1:i===0?2:3)}</div>
+            </div>
+          `;
+          // click -> open detail
+          el.addEventListener('click', ()=>openUserModal(u));
+          podiumWrap.appendChild(el);
+        }
+      }
+
+      function renderTable(paginated){
+        leaderTableBody.innerHTML = '';
+        paginated.items.forEach((u, idx)=>{
+          const rank = (state.page-1)*state.perPage + idx + 1;
+          const tr = document.createElement('tr');
+          if(u.name === state.currentUser) tr.classList.add('highlight');
+          tr.innerHTML = `
+            <td class="align-middle">${rank}</td>
+            <td class="align-middle">
+              <div class="d-flex align-items-center gap-2">
+                <img src="${u.avatar}" alt="${escapeHtml(u.name)}" style="width:38px;height:38px;border-radius:50%;object-fit:cover;box-shadow:0 4px 12px rgba(2,6,23,0.08)">
+                <div>
+                  <div style="font-weight:600">${escapeHtml(u.name)}</div>
+                  <div class="small-muted">${escapeHtml(u.category)}</div>
+                </div>
+              </div>
+            </td>
+            <td class="align-middle">${u.score.toLocaleString()}</td>
+            <td class="align-middle">${u.goals}</td>
+          `;
+          tr.addEventListener('click', ()=>openUserModal(u));
+          leaderTableBody.appendChild(tr);
+        });
+      }
+
+      function renderPagination(totalPages){
+        paginationEl.innerHTML = '';
+        const current = state.page;
+        if(totalPages <= 1) return;
+        // prev
+        const prev = document.createElement('li'); prev.className = 'page-item ' + (current === 1 ? 'disabled':'');
+        prev.innerHTML = `<a class="page-link" href="#" data-page="${current-1}" aria-label="Previous">&laquo;</a>`; paginationEl.appendChild(prev);
+        // pages show window
+        const maxShow = 5;
+        let start = Math.max(1, current - Math.floor(maxShow/2));
+        let end = Math.min(totalPages, start + maxShow - 1);
+        if(end - start < maxShow - 1) start = Math.max(1, end - maxShow + 1);
+        for(let p=start;p<=end;p++){
+          const li = document.createElement('li'); li.className = 'page-item ' + (p===current ? 'active':'');
+          li.innerHTML = `<a class="page-link" href="#" data-page="${p}">${p}</a>`;
+          paginationEl.appendChild(li);
+        }
+        const next = document.createElement('li'); next.className = 'page-item ' + (current === totalPages ? 'disabled':'');
+        next.innerHTML = `<a class="page-link" href="#" data-page="${current+1}" aria-label="Next">&raquo;</a>`; paginationEl.appendChild(next);
+      }
+
+      // update chart
+      function updateChart(filtered){
+        // show top 10 bars
+        const labels = filtered.slice(0,10).map(u => u.name.split(' ')[0]);
+        const data = filtered.slice(0,10).map(u => u.score);
+        if(scoreChart) {
+          scoreChart.data.labels = labels;
+          scoreChart.data.datasets[0].data = data;
+          scoreChart.update();
+        } else {
+          scoreChart = new Chart(scoreChartCtx, {
+            type: 'bar',
+            data: {
+              labels,
+              datasets: [{
+                label: 'Score',
+                data,
+                backgroundColor: labels.map((_,i)=>`rgba(31,143,255,${0.15 + (i*0.05)})`),
+                borderRadius: 8,
+                barThickness: 18
+              }]
+            },
+            options: {
+              responsive:true,
+              plugins:{legend:{display:false}, tooltip:{mode:'index',intersect:false}},
+              scales:{x:{grid:{display:false}}, y:{grid:{color:'rgba(0,0,0,0.04)'}}}
+            }
+          });
+        }
+      }
+
+      // ---------- INTERACTIONS ----------
+      // populate category filter
+      function populateCategories() {
+        const cats = Array.from(new Set(users.map(u=>u.category))).sort();
+        cats.forEach(c => {
+          const opt = document.createElement('option'); opt.value = c; opt.textContent = c; filterCategory.appendChild(opt);
+        });
+      }
+
+      // main render pipeline
+      function renderAll(){
+        const filtered = getFilteredUsers();
+        const paginated = paginate(filtered);
+        resultCount.textContent = filtered.length;
+        // podium
+        const top3 = filtered.slice(0,3);
+        renderPodium(top3);
+        // table
+        renderTable(paginated);
+        renderPagination(paginated.totalPages);
+        // chart
+        updateChart(filtered);
+      }
+
+      // events
+      document.querySelectorAll('[data-range]').forEach(btn=>{
+        btn.addEventListener('click', (e)=>{
+          document.querySelectorAll('[data-range]').forEach(b=>b.classList.remove('active'));
+          e.currentTarget.classList.add('active');
+          state.range = e.currentTarget.getAttribute('data-range');
+          state.page = 1;
+          renderAll();
+        });
+      });
+
+      searchInput.addEventListener('input', (e)=>{
+        state.query = e.target.value;
+        state.page = 1;
+        renderAll();
+      });
+
+      filterCategory.addEventListener('change', (e)=>{
+        state.category = e.target.value;
+        state.page = 1;
+        renderAll();
+      });
+
+      sortSelect.addEventListener('change', (e)=>{
+        state.sort = e.target.value;
+        state.page = 1;
+        renderAll();
+      });
+
+      perPageSelect.addEventListener('change', (e)=>{
+        state.perPage = parseInt(e.target.value,10) || 20;
+        state.page = 1;
+        renderAll();
+      });
+
+      paginationEl.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const a = e.target.closest('a');
+        if(!a) return;
+        const p = Number(a.dataset.page);
+        if(!p || p < 1) return;
+        state.page = p;
+        renderAll();
+        window.scrollTo({top:160, behavior:'smooth'});
+      });
+
+      exportCsv.addEventListener('click', ()=>{
+        const filtered = getFilteredUsers();
+        const rows = [['rank','id','name','score','goals','category']];
+        filtered.forEach((u, idx) => rows.push([idx+1,u.id,u.name,u.score,u.goals,u.category]));
+        const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+        const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+        const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'leaderboard.csv'; a.click(); URL.revokeObjectURL(url);
+      });
+
+      // modal open
+      function openUserModal(u){
+        document.getElementById('userModalTitle').textContent = u.name;
+        document.getElementById('userModalBody').innerHTML = `
+          <div class="d-flex gap-3 align-items-center">
+            <img src="${u.avatar}" alt="${escapeHtml(u.name)}" style="width:88px;height:88px;border-radius:50%;object-fit:cover">
+            <div>
+              <div style="font-weight:700">${escapeHtml(u.name)}</div>
+              <div class="small-muted">${escapeHtml(u.category)}</div>
+              <div style="margin-top:8px"><strong>${u.score.toLocaleString()} pts</strong> • ${u.goals} goals</div>
+            </div>
+          </div>
+          <hr>
+          <p class="small-muted">Recent achievements and activity feed would show here (connect to your API).</p>
+        `;
+        const m = new bootstrap.Modal(document.getElementById('userModal'));
+        m.show();
+      }
+
+      // escape html
+      function escapeHtml(s){ return String(s).replace(/[&<>"]/g, t=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[t])); }
+
+      // ---------- INIT ----------
+      function init(){
+        populateCategories();
+        renderAll();
+      }
+      init();
+
+      // Accessibility: keyboard support (Enter on selected row)
+      leaderTableBody.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter') {
+          const tr = e.target.closest('tr');
+          if(tr) {
+            const idx = Array.from(tr.parentNode.children).indexOf(tr);
+            const filtered = getFilteredUsers();
+            const item = paginate(filtered).items[idx];
+            if(item) openUserModal(item);
+          }
+        }
+      });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
