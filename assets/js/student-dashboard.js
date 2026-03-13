@@ -53,45 +53,7 @@ function loadMyCourses() {
         }
     ];
 
-    coursesContainer.innerHTML = myCourses.map(course => `
-        <div class="col-lg-4 col-md-6">
-            <div class="card border-0 custom-shadow h-100">
-                <div class="position-relative">
-                    <img src="${course.image}" class="card-img-top" alt="${course.title}" style="height: 2۲0px; object-fit: cover;">
-                    <span class="badge bg-primary position-absolute top-0 start-0 m-2">${course.category}</span>
-                    <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">${course.timeLeft}</span>
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h6 class="card-title fw-bold">${course.title}</h6>
-                    <p class="text-muted small mb-2">by ${course.instructor}</p>
-                    
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span class="small">Progress</span>
-                            <span class="small">${course.progress}% (${course.completedLessons}/${course.totalLessons})</span>
-                        </div>
-                        <div class="progress" style="height: 8px;">
-                            <div class="progress-bar" style="width: ${course.progress}%; background: linear-gradient(90deg, #1F8FFF, #1F8FFF);"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-auto">
-                        <p class="small text-muted mb-2">
-                            <i class="bi bi-play-circle me-1"></i>Next: ${course.nextLesson}
-                        </p>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary btn-sm flex-grow-1 white-hover" onclick="continueCourse(${course.id})">
-                                Continue
-                            </button>
-                            <button class="btn btn-sm custom-hover" onclick="viewCourseProgress(${course.id})">
-                                <i class="bi bi-bar-chart"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
+   
 }
 
 // Load Upcoming Events
@@ -568,3 +530,54 @@ function showToast(message, type = 'info') {
         toast.remove();
     });
 }
+
+
+// --- notifications rendering & actions ---
+        const notifBadge = document.getElementById('notifBadge');
+        const notifCountText = document.getElementById('notifCountText');
+        function renderNotifications(){
+          const list = document.getElementById('notificationsList');
+          list.innerHTML = '';
+          notifications.slice().sort((a,b)=> (b.unread - a.unread) || (new Date(b.date)-new Date(a.date))).forEach(n=>{
+            const item = document.createElement('div');
+            item.className = 'list-group-item d-flex justify-content-between align-items-start';
+            item.innerHTML = `
+              <div class="ms-2 me-auto">
+                <div class="${n.unread ? 'fw-semibold' : ''}">${escapeHtml(n.title)}</div>
+                <div class="small-muted">${escapeHtml(n.body)}</div>
+                <div class="small-muted mt-1" style="font-size:0.78rem">${escapeHtml(n.date)}</div>
+              </div>
+              <div class="d-flex flex-column align-items-end gap-2">
+                ${n.unread ? '<span class="badge bg-primary">New</span>' : ''}
+                <div>
+                  <button class="btn btn-sm btn-outline-secondary" data-action="toggle" data-id="${n.id}" aria-label="Mark read/unread">${n.unread ? 'Mark read' : 'Mark unread'}</button>
+                </div>
+              </div>
+            `;
+            list.appendChild(item);
+          });
+
+          const unread = notifications.filter(n=>n.unread).length;
+          notifBadge.textContent = unread > 0 ? unread : '';
+          notifBadge.style.display = unread > 0 ? 'inline-flex' : 'none';
+          notifCountText.textContent = unread === 0 ? 'No unread' : unread + (unread === 1 ? ' unread' : ' unread');
+        }
+
+        // toggle single notification read/unread
+        document.getElementById('notificationsList').addEventListener('click', function(e){
+          const btn = e.target.closest('button[data-action="toggle"]');
+          if(!btn) return;
+          const id = Number(btn.getAttribute('data-id'));
+          notifications = notifications.map(n => n.id === id ? {...n, unread: !n.unread} : n);
+          renderNotifications();
+        });
+
+        // mark all read
+        document.getElementById('btnMarkAllRead').addEventListener('click', function(){
+          notifications = notifications.map(n => ({...n, unread:false}));
+          renderNotifications();
+        });
+
+        // update unread when modal opens/closes: (optional behavior) when opened we do nothing; user can mark read
+        const notifModalEl = document.getElementById('notificationsModal');
+        notifModalEl.addEventListener('shown.bs.modal', function(){ /* focus first actionable */ });
