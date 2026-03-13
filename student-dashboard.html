@@ -25,8 +25,8 @@
 
     <style>
       :root {
-        --primary-black: #0D0D0D; 
-        --primary-blue: #1F8FFF;
+        --primary-black: #0d0d0d;
+        --primary-blue: #1f8fff;
         --gradient: linear-gradient(
           135deg,
           var(--primary-black) 5%,
@@ -38,23 +38,39 @@
       }
 
       /* Global */
-      html,
       body {
-        height: 100%;
-      }
-      body {
-        font-family:
-          "Poppins",
-          system-ui,
-          -apple-system,
-          "Segoe UI",
-          Roboto,
-          "Helvetica Neue",
-          Arial;
+        font-family: "Poppins", system-ui;
         background: var(--page-bg);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        padding-top: 60px;
+        padding-top: 70px;
+        overflow-x: hidden;
+      }
+
+      .main-content {
+        margin-left: 260px;
+        padding: 20px 30px;
+        transition: 0.3s;
+        min-height: 100vh;
+      }
+
+      .sidebar-premium.collapsed + .main-content {
+        margin-left: 80px;
+      }
+
+      @media (max-width: 991px) {
+        .main-content {
+          margin-left: 0;
+          padding: 20px 15px;
+        }
+
+        .sidebar-premium {
+          left: -260px;
+          top: 0;
+          height: 100vh;
+        }
+
+        .sidebar-premium.active {
+          left: 0;
+        }
       }
 
       /* Navbar uses requested gradient */
@@ -72,54 +88,58 @@
       }
 
       /* Navbar toggler custom style */
-    .navbar-custom .navbar-toggler{
-      border: none !important;
-      box-shadow: none !important;
-    }
-    .navbar-custom .navbar-toggler:focus,
-    .navbar-custom .navbar-toggler:active{
-      outline: none !important;
-      box-shadow: none !important;
-    }
-    /* Make toggler icon white */
-    .navbar-custom .navbar-toggler-icon{
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
+      .navbar-custom .navbar-toggler {
+        border: none !important;
+        box-shadow: none !important;
+      }
+      .navbar-custom .navbar-toggler:focus,
+      .navbar-custom .navbar-toggler:active {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+      /* Make toggler icon white */
+      .navbar-custom .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
 
-    .navbar-custom .navbar-brand, .navbar-custom .nav-link, .navbar-custom .btn-outline-light{
-      color: #fff !important;
-    }
-    .navbar-custom .nav-link.active{font-weight:600;}
+      .navbar-custom .navbar-brand,
+      .navbar-custom .nav-link,
+      .navbar-custom .btn-outline-light {
+        color: #fff !important;
+      }
+      .navbar-custom .nav-link.active {
+        font-weight: 600;
+      }
 
-    /* Fix dropdown white background on click */
-    .navbar-custom .btn-outline-light{
-      border-color: rgba(255,255,255,0.5);
-      background: transparent;
-    }
-    .navbar-custom .btn-outline-light:hover,
-    .navbar-custom .btn-outline-light:focus,
-    .navbar-custom .btn-outline-light:active,
-    .navbar-custom .btn-outline-light.show{
-      background: rgba(255,255,255,0.15) !important;
-      color: #fff !important;
-      border-color: rgba(255,255,255,0.7) !important;
-      box-shadow: none !important;
-    }
+      /* Fix dropdown white background on click */
+      .navbar-custom .btn-outline-light {
+        border-color: rgba(255, 255, 255, 0.5);
+        background: transparent;
+      }
+      .navbar-custom .btn-outline-light:hover,
+      .navbar-custom .btn-outline-light:focus,
+      .navbar-custom .btn-outline-light:active,
+      .navbar-custom .btn-outline-light.show {
+        background: rgba(255, 255, 255, 0.15) !important;
+        color: #fff !important;
+        border-color: rgba(255, 255, 255, 0.7) !important;
+        box-shadow: none !important;
+      }
 
-    .navbar-custom .dropdown-menu{
-      background: #ffffff;
-      border-radius: 10px;
-      border: none;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    .navbar-custom .dropdown-item{
-      color: #212529;
-      font-weight: 500;
-    }
-    .navbar-custom .dropdown-item:hover{
-      background-color: rgba(31,143,255,0.08);
-      color: var(--primary-blue);
-    }
+      .navbar-custom .dropdown-menu {
+        background: #ffffff;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-custom .dropdown-item {
+        color: #212529;
+        font-weight: 500;
+      }
+      .navbar-custom .dropdown-item:hover {
+        background-color: rgba(31, 143, 255, 0.08);
+        color: var(--primary-blue);
+      }
 
       /* Layout: sticky sidebar for stats */
       .stats-sidebar {
@@ -213,19 +233,168 @@
         color: rgba(255, 255, 255, 0.85);
         opacity: 0.9;
       }
+      /* Sidebar */
+
+      .sidebar-premium {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 260px;
+        height: calc(100vh - 70px);
+        background: #fff;
+        padding: 2rem 1rem;
+        overflow-y: auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+        z-index: 1000;
+      }
+      /* Collapse */
+
+      .sidebar-premium.collapsed {
+        width: 80px;
+      }
+
+      .sidebar-premium.collapsed span {
+        display: none;
+      }
+
+      .sidebar-premium.collapsed .sidebar-link {
+        justify-content: center;
+      }
+
+      /* Toggle Button */
+
+      .sidebar-collapse-toggle {
+        position: absolute;
+        top: 20px;
+        right: -15px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .sidebar-collapse-toggle i {
+        transition: 0.3s;
+      }
+
+      .sidebar-premium.collapsed .sidebar-collapse-toggle i {
+        transform: rotate(180deg);
+      }
+
+      /* Navigation */
+
+      .sidebar-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sidebar-item {
+        margin-bottom: 6px;
+      }
+
+      .sidebar-link {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px 18px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #555;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .sidebar-link i {
+        font-size: 1.2rem;
+        color: #1f8fff;
+      }
+
+      .sidebar-link:hover {
+        background: rgba(31, 143, 255, 0.08);
+        color: #1f8fff;
+        transform: translateX(4px);
+      }
+
+      .sidebar-link.active {
+        background: #1f8fff;
+        color: #fff;
+      }
+
+      .sidebar-link.active i {
+        color: #fff;
+      }
+
+      /* Mobile */
+
+      .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+        z-index: 900;
+      }
+
+      .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      @media (max-width: 991px) {
+        .sidebar-premium {
+          position: fixed;
+          left: -260px;
+          top: 0;
+          height: 100vh;
+          z-index: 1000;
+          border-radius: 0;
+        }
+
+        .sidebar-premium.active {
+          left: 0;
+        }
+      }
+
+      .sidebar-premium.collapsed {
+        width: 80px;
+      }
+
+      .sidebar-premium.collapsed + .main-content {
+        margin-left: 80px;
+      }
     </style>
   </head>
   <body style="width: 95%; margin: auto">
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
       <div class="container">
+        <button
+          class="btn btn-outline-light d-lg-none me-2"
+          onclick="openSidebar()"
+        >
+          <i class="bi bi-list"></i>
+        </button>
         <a class="navbar-brand fw-bold" href="index.html">
           <i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
@@ -298,92 +467,121 @@
     </nav>
 
     <!-- Main area -->
-    <div class="container-fluid py-4" style="min-height: 100vh">
+    <div class="container-fluid py-4 dashboard-wrapper">
+      <div class="row">
+        <!-- Sidebar Overlay (for mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-    <!-- Welcome / Hero -->
-    <div class="row mb-4">
-      <div class="col-12">
-        <div class="card card_ hero-card border-0 shadow-sm">
-          <div class="card-body p-4">
-            <div class="row align-items-center">
-              <div class="col-md-8">
-                <h2 class="fw-bold mb-2">Welcome back, John! 👋</h2>
-                <p class="mb-3 muted-small">
-                  Ready to continue your learning journey? You have 3 active
-                  courses and 2 upcoming events.
-                </p>
-                <button class="btn btn-outline-light btn-continue">
-                  <i class="bi bi-play-circle me-2"></i>Continue Learning
-                </button>
-              </div>
-              <div class="col-md-4 text-center">
-                <div class="position-relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-                    alt="Profile"
-                    class="rounded-circle border border-3 border-white"
-                    style="width: 120px; height: 120px; object-fit: cover"
-                  />
-                  <span
-                    class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white"
-                    style="width: 30px; height: 30px"
-                  ></span>
+        <!-- Sidebar -->
+        <aside class="sidebar-premium" id="sidebar">
+          <!-- Collapse Button -->
+          <div
+            class="sidebar-collapse-toggle d-none d-lg-flex"
+            id="sidebarCollapse"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </div>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link active">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-journal-bookmark"></i>
+                <span>Your Courses</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-plus-circle-dotted"></i>
+                <span>Request Courses</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-person-circle"></i>
+                <span>Profile</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-file-earmark-check"></i>
+                <span>Exams</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-star"></i>
+                <span>Reviews</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item mt-3">
+              <hr />
+            </li>
+
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-gear"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link text-danger">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="main-content">
+          <!-- Welcome / Hero -->
+          <div class="row mb-4">
+            <div class="col-12">
+              <div class="card card_ hero-card border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <div class="row align-items-center">
+                    <div class="col-md-8">
+                      <h2 class="fw-bold mb-2">Welcome back, John! 👋</h2>
+                      <p class="mb-3 muted-small">
+                        Ready to continue your learning journey? You have 3
+                        active courses and 2 upcoming events.
+                      </p>
+                      <button class="btn btn-outline-light btn-continue">
+                        <i class="bi bi-play-circle me-2"></i>Continue Learning
+                      </button>
+                    </div>
+                    <div class="col-md-4 text-center">
+                      <div class="position-relative">
+                        <img
+                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                          alt="Profile"
+                          class="rounded-circle border border-3 border-white"
+                          style="width: 120px; height: 120px; object-fit: cover"
+                        />
+                        <span
+                          class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white"
+                          style="width: 30px; height: 30px"
+                        ></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    
-      <div class="row gx-4">
-        <!-- Sidebar: Stats -->
-        <aside class="col-lg-2 mb-4 stats-sidebar">
-          <div class="sticky-wrap">
-            <div class="stats-card">
-              <div>
-                <i class="bi bi-book-fill icon primary-blue-text"></i>
-              </div>
-              <div>
-                <h3 class="fw-bold primary-blue-text">3</h3>
-                <p class="mb-0"><a href="active-courses.html">Active Courses</a></p>
-              </div>
-            </div>
-
-            <div class="stats-card">
-              <div>
-                <i class="bi bi-trophy-fill icon primary-blue-text"></i>
-              </div>
-              <div>
-                <h3 class="fw-bold primary-blue-text">12</h3>
-                <p class="mb-0">Certificates Earned</p>
-              </div>
-            </div>
-
-            <div class="stats-card">
-              <div>
-                <i class="bi bi-clock-fill icon primary-blue-text"></i>
-              </div>
-              <div>
-                <h3 class="fw-bold primary-blue-text">45</h3>
-                <p class="mb-0">Hours Learned</p>
-              </div>
-            </div>
-
-            <div class="stats-card">
-              <div>
-                <i class="bi bi-award-fill icon primary-blue-text"></i>
-              </div>
-              <div>
-                <h3 class="fw-bold primary-blue-text">#15</h3>
-                <p class="mb-0">Global Ranking</p>
-              </div>
-            </div>
-          </div>
-        </aside>
-
-        <!-- Main content area -->
-        <main class="col-lg-10">
           <!-- My Courses (unchanged content, placed in main column) -->
           <div class="row mb-4">
             <div class="col-12">
@@ -391,7 +589,9 @@
                 class="d-flex justify-content-between align-items-center mb-3"
               >
                 <h3 class="fw-bold primary-blue-text">My Courses</h3>
-                <a href="courses.html" class="btn btn-outline-primary white-hover"
+                <a
+                  href="courses.html"
+                  class="btn btn-outline-primary white-hover"
                   >Browse All Courses</a
                 >
               </div>
@@ -412,7 +612,9 @@
                     <h4 class="fw-bold mb-0 primary-blue-text">
                       Upcoming Events
                     </h4>
-                    <a href="events.html" class="btn btn-sm btn-outline-primary white-hover"
+                    <a
+                      href="events.html"
+                      class="btn btn-sm btn-outline-primary white-hover"
                       >View All</a
                     >
                   </div>
@@ -448,7 +650,7 @@
 
           <!-- Achievements & Leaderboard -->
           <div class="row g-4 mb-4">
-            <div class="col-lg-8">
+            <div class="col-lg-8 col-12">
               <div class="card border-0 shadow-sm p-2">
                 <div class="card-header bg-white border-0">
                   <h4 class="fw-bold mb-0 primary-blue-text">
@@ -462,7 +664,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-12">
               <div class="card border-0 shadow-sm p-2">
                 <div class="card-header bg-white border-0">
                   <h5 class="fw-bold mb-0 primary-blue-text">Leaderboard</h5>
@@ -476,7 +678,7 @@
 
           <!-- Recent Activity -->
           <div class="row">
-            <div class="col-8">
+            <div class="col-lg-8 col-12">
               <div class="card border-0 shadow-sm p-2">
                 <div class="card-header bg-white border-0">
                   <h5 class="fw-bold mb-0 primary-blue-text">
@@ -595,5 +797,30 @@ Passionate learner exploring web development and data science.</textarea
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Keep original custom JS file link unchanged -->
     <script src="assets/js/student-dashboard.js"></script>
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const collapseBtn = document.getElementById("sidebarCollapse");
+      const overlay = document.getElementById("sidebarOverlay");
+
+      /* collapse desktop */
+
+      collapseBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+      });
+
+      /* open mobile */
+
+      function openSidebar() {
+        sidebar.classList.add("active");
+        overlay.classList.add("active");
+      }
+
+      /* close mobile */
+
+      overlay.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+    </script>
   </body>
 </html>
