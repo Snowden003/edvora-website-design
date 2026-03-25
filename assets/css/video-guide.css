@@ -17,46 +17,6 @@
 }
 
 /* Secondary icons made static for performance */
-.video-float-icon {
-    position: absolute;
-    font-size: 2rem;
-    color: rgba(31, 143, 255, 0.1);
-}
-
-.video-float-icon.icon-1 {
-    top: 10%;
-    left: 10%;
-    animation-delay: 0s;
-    color: rgba(31, 143, 255, 0.15);
-}
-
-.video-float-icon.icon-2 {
-    top: 20%;
-    right: 15%;
-    animation-delay: 1s;
-    color: rgba(31, 143, 255, 0.15);
-}
-
-.video-float-icon.icon-3 {
-    bottom: 30%;
-    left: 5%;
-    animation-delay: 2s;
-    color: rgba(31, 143, 255, 0.15);
-}
-
-.video-float-icon.icon-4 {
-    bottom: 15%;
-    right: 10%;
-    animation-delay: 3s;
-    color: rgba(31, 143, 255, 0.12);
-}
-
-.video-float-icon.icon-5 {
-    top: 50%;
-    left: 3%;
-    animation-delay: 4s;
-    color: rgba(31, 143, 255, 0.12);
-}
 
 /* Simplified Floating Particles */
 .video-particle {
@@ -155,7 +115,7 @@
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 40px  rgba(0, 0, 0, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.5);
     /* Float animation removed for stability */
 }
@@ -200,7 +160,7 @@
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     /* animation: videoPlayPulse 2s ease-in-out infinite; */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 40px  rgba(0, 0, 0, 0.09);
 }
 
 .video-play-button:hover {
@@ -225,11 +185,6 @@
     /* animation: videoRipple 3s ease-out infinite; */
     display: none;
     /* Hidden for performance */
-}
-
-.video-play-ripple.ripple-2,
-.video-play-ripple.ripple-3 {
-    display: none;
 }
 
 /* Video Info */
@@ -437,7 +392,7 @@
     0%,
     100% {
         transform: scale(1);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 15px 40px  rgba(0, 0, 0, 0.09);
     }
 
     50% {
@@ -512,10 +467,6 @@
     .video-info-icon {
         width: 60px;
         height: 60px;
-        font-size: 1.5rem;
-    }
-
-    .video-float-icon {
         font-size: 1.5rem;
     }
 }

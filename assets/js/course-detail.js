@@ -114,7 +114,7 @@ function loadCourseData(courseId = 'web-development') {
     const course = courseDatabase[courseId];
     
     if (!course) {
-        console.error('Course not found:', courseId);
+
         return;
     }
     

@@ -370,18 +370,6 @@ body.dark-mode .leaderboard-table-container {
     color: white;
 }
 
-body.dark-mode .leaderboard-row {
-    border-color: #404040;
-}
-
-body.dark-mode .leaderboard-row:hover {
-    background: #353535;
-}
-
-body.dark-mode .row-dept {
-    color: #bbb;
-}
-
 /* Responsive Staggered Grid Layout for Mobile */
 @media (max-width: 991px) {
     .podium-container {
@@ -490,9 +478,6 @@ body.dark-mode .row-dept {
     }
 
     /* Hide table header on mobile */
-    .leaderboard-table-container>.leaderboard-row:first-child {
-        display: none !important;
-    }
 
     .ranking-card {
         display: flex;

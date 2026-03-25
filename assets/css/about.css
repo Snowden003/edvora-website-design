@@ -256,9 +256,6 @@
 }
 
 /* Navbar */
-.navbar-komoja {
-  background-color: rgba(6, 30, 62, 0.9) !important
-}
 
 /* Buttons */
 .btn-signup-custom {
@@ -291,29 +288,6 @@
 
 
 /* Simple delay utilities */
-.delay-0 {
-  animation-delay: 0s
-}
-
-.delay-1 {
-  animation-delay: 1s
-}
-
-.delay-2 {
-  animation-delay: 2s
-}
-
-.delay-3 {
-  animation-delay: 3s
-}
-
-.delay-4 {
-  animation-delay: 4s
-}
-
-.delay-5 {
-  animation-delay: 5s
-}
 
 /* Animation utility classes */
 .anim-slide-in-left {
@@ -330,14 +304,6 @@
 
 .anim-delay-03 {
   animation-delay: .3s
-}
-
-.anim-rocket {
-  animation: rocketFloat 4s ease-in-out infinite
-}
-
-.anim-globe {
-  animation: globeRotate 8s linear infinite
 }
 
 /* Badge / Titles */
@@ -657,10 +623,6 @@
 }
 
 /* Footer */
-.footer-komoja {
-  background-color: var(--brand-blue);
-  color: #fff
-}
 
 /* Animations */
 @keyframes techFloat {
@@ -838,30 +800,6 @@
 }
 
 /* Particles */
-.story-particle {
-  position: absolute;
-  bottom: 0;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .5);
-  animation: storyParticleFloat 6s ease-in-out infinite
-}
-
-.story-particle.orange {
-  background: rgba(255, 172, 30, .6);
-  animation-duration: 7s
-}
-
-.story-particle.deep-orange {
-  background: rgba(255, 109, 0, .6);
-  animation-duration: 8s
-}
-
-.story-particle.light {
-  background: rgba(255, 255, 255, .4);
-  animation-duration: 5s
-}
 
 /* Decorative bubbles in visual */
 .float1 {

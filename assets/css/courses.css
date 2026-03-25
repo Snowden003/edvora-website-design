@@ -1,11 +1,3 @@
-درست/* Courses Slider Container */
-.courses-slider-container {
-    padding: 2.5rem 0;
-    position: relative;
-    max-width: 1320px;
-    margin: 0 auto;
-}
-
 .courses-slider-wrapper {
     overflow: hidden;
     position: relative;
@@ -30,11 +22,11 @@
     min-width: 340px;
     max-width: 340px;
     background: #ffffff;
-    border-radius: 24px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 12px  rgba(0, 0, 0, 0.03);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     position: relative;
     flex-shrink: 0;
     user-select: none;
@@ -43,31 +35,10 @@
     flex-direction: column;
 }
 
-.course-card .card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-.course-card .price-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--accent-yellow);
-    color: #333;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.course-card .rating {
-    color: var(--accent-yellow);
-}
-
 .course-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(31, 143, 255, 0.15);
-    border-color: rgba(31, 143, 255, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(31, 143, 255, 0.12);
+    border-color: rgba(31, 143, 255, 0.25);
 }
 
 .course-image {
@@ -104,7 +75,7 @@
     font-size: 0.85rem;
     font-weight: 700;
     color: #1F8FFF;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px  rgba(0, 0, 0, 0.05);
     z-index: 2;
     display: flex;
     align-items: center;
@@ -188,20 +159,6 @@
     border-top: 1px solid #f0f0f0;
 }
 
-.course-meta-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #666;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.course-meta-item i {
-    color: #1F8FFF;
-    font-size: 1.1rem;
-}
-
 .course-enroll-btn {
     width: 48px;
     height: 48px;
@@ -244,15 +201,18 @@
 }
 
 .courses-slider-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 150px;
-    background: linear-gradient(90deg, transparent, #F5F7FA);
-    pointer-events: none;
-    z-index: 2;
+    display: none;
+}
+
+/* Courses slider container - show exactly 3 full cards: 3×340 + 2×32 = 1084px */
+.courses-slider-container {
+    position: relative;
+    max-width: 1084px;
+    margin: 0 auto;
+}
+
+.courses-slider-wrapper {
+    overflow: hidden;
 }
 
 /* Hero Section */
@@ -316,14 +276,14 @@
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     height: 100%;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px  rgba(0, 0, 0, 0.09);
 }
 
 .course-card-enhanced:hover {
     transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(31, 143, 255, 0.4);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 40px  rgba(0, 0, 0, 0.1);
 }
 
 .course-card-enhanced .card-body {

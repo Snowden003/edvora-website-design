@@ -412,8 +412,6 @@ function createCourse() {
     const form = document.getElementById('createCourseForm');
     const formData = new FormData(form);
 
-    console.log('Creating course:', Object.fromEntries(formData));
-
     const modal = bootstrap.Modal.getInstance(document.getElementById('createCourseModal'));
     modal.hide();
 
@@ -425,22 +423,22 @@ function createCourse() {
 }
 
 function viewCourse(courseId) {
-    console.log('Viewing course:', courseId);
+
     showToast(`Viewing course ${courseId}`, 'info');
 }
 
 function editCourse(courseId) {
-    console.log('Editing course:', courseId);
+
     showToast(`Editing course ${courseId}`, 'info');
 }
 
 function viewStudents(courseId) {
-    console.log('Viewing students for course:', courseId);
+
     showToast(`Viewing students for course ${courseId}`, 'info');
 }
 
 function duplicateCourse(courseId) {
-    console.log('Duplicating course:', courseId);
+
     showToast('Course duplicated successfully!', 'success');
 }
 
@@ -448,8 +446,6 @@ function duplicateCourse(courseId) {
 function scheduleClass() {
     const form = document.getElementById('scheduleClassForm');
     const formData = new FormData(form);
-
-    console.log('Scheduling class:', Object.fromEntries(formData));
 
     const modal = bootstrap.Modal.getInstance(document.getElementById('scheduleClassModal'));
     modal.hide();
@@ -462,26 +458,26 @@ function scheduleClass() {
 }
 
 function startClass(classId) {
-    console.log('Starting class:', classId);
+
     showToast('Starting live class...', 'info');
     // In a real app, this would open the live class interface
 }
 
 function viewClassDetails(classId) {
-    console.log('Viewing class details:', classId);
+
     showToast(`Viewing details for class ${classId}`, 'info');
 }
 
 // Review Functions
 function reviewAssignment(reviewId) {
-    console.log('Reviewing assignment:', reviewId);
+
     showToast('Opening assignment for review...', 'info');
     // In a real app, this would open the assignment review interface
 }
 
 // Notification Functions
 function markAllRead() {
-    console.log('Marking all notifications as read');
+
     showToast('All notifications marked as read', 'success');
     loadNotifications();
 }

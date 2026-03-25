@@ -169,11 +169,6 @@ body.privacy-page {
     width: 60%;
 }
 
-.prism-pane.pane-dark {
-    background: rgba(13, 13, 13, 0.8);
-    border-color: var(--prism-inner-glow);
-}
-
 /* Typography Inside Panes */
 .pane-index {
     position: absolute;

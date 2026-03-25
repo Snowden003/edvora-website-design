@@ -169,55 +169,11 @@
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.welcome-banner {
-    background: linear-gradient(135deg, rgba(31, 143, 255, 0.9), rgba(0, 240, 255, 0.8)), url('https://www.transparenttextures.com/patterns/cubes.png');
-    color: white;
-}
-
 .text-gradient {
     background: linear-gradient(45deg, #1F8FFF, #00F0FF);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.welcome-banner .text-gradient {
-    background: #ffffff;
-    -webkit-text-fill-color: white;
-}
-
-.stat-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    background: rgba(31, 143, 255, 0.1);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    color: #1F8FFF;
-    transition: all 0.3s ease;
-}
-
-.stat-hover:hover .stat-icon-wrapper {
-    transform: scale(1.1) rotate(5deg);
-    background: #1F8FFF;
-    color: white;
-}
-
-.icon-blue {
-    color: #00F0FF;
-    background: rgba(0, 240, 255, 0.1);
-}
-
-.icon-green {
-    color: #28a745;
-    background: rgba(40, 167, 69, 0.1);
-}
-
-.icon-yellow {
-    color: #ffc107;
-    background: rgba(255, 193, 7, 0.1);
 }
 
 .bg-success-soft {
@@ -375,11 +331,6 @@
 .accent-cyan {
     background: rgba(0, 240, 255, 0.1);
     color: #0088cc;
-}
-
-.accent-green {
-    background: rgba(40, 167, 69, 0.1);
-    color: #28a745;
 }
 
 .accent-yellow {
@@ -614,12 +565,6 @@
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 15px 35px rgba(0, 240, 255, 0.3);
     background: #ffffff;
-}
-
-.glass-pill-group {
-    background: rgba(0, 0, 0, 0.03);
-    padding: 4px;
-    border-radius: 50px;
 }
 
 /* Premium Review Button - Unified with System */

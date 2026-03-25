@@ -370,8 +370,7 @@ function addStudent() {
     const formData = new FormData(form);
     
     // Here you would typically send data to server
-    console.log('Adding student:', Object.fromEntries(formData));
-    
+
     // Close modal and refresh table
     const modal = bootstrap.Modal.getInstance(document.getElementById('addStudentModal'));
     modal.hide();
@@ -390,8 +389,7 @@ function addTeacher() {
     const formData = new FormData(form);
     
     // Here you would typically send data to server
-    console.log('Adding teacher:', Object.fromEntries(formData));
-    
+
     // Close modal and refresh table
     const modal = bootstrap.Modal.getInstance(document.getElementById('addTeacherModal'));
     modal.hide();
@@ -407,36 +405,36 @@ function addTeacher() {
 
 // CRUD Operations
 function viewStudent(id) {
-    console.log('Viewing student:', id);
+
     showToast(`Viewing student ${id}`, 'info');
 }
 
 function editStudent(id) {
-    console.log('Editing student:', id);
+
     showToast(`Editing student ${id}`, 'info');
 }
 
 function deleteStudent(id) {
     if (confirm('Are you sure you want to delete this student?')) {
-        console.log('Deleting student:', id);
+
         showToast('Student deleted successfully!', 'success');
         loadStudentsTable();
     }
 }
 
 function viewTeacher(id) {
-    console.log('Viewing teacher:', id);
+
     showToast(`Viewing teacher ${id}`, 'info');
 }
 
 function editTeacher(id) {
-    console.log('Editing teacher:', id);
+
     showToast(`Editing teacher ${id}`, 'info');
 }
 
 function deleteTeacher(id) {
     if (confirm('Are you sure you want to delete this teacher?')) {
-        console.log('Deleting teacher:', id);
+
         showToast('Teacher deleted successfully!', 'success');
         loadTeachersTable();
     }
@@ -503,31 +501,31 @@ function createToastContainer() {
 // Search and Filter Functions
 function searchStudents(query) {
     // Implement student search logic
-    console.log('Searching students:', query);
+
 }
 
 function searchTeachers(query) {
     // Implement teacher search logic
-    console.log('Searching teachers:', query);
+
 }
 
 function filterByStatus(status) {
     // Implement status filter logic
-    console.log('Filtering by status:', status);
+
 }
 
 // Export Functions (for reports)
 function exportStudentData() {
-    console.log('Exporting student data...');
+
     showToast('Student data exported successfully!', 'success');
 }
 
 function exportTeacherData() {
-    console.log('Exporting teacher data...');
+
     showToast('Teacher data exported successfully!', 'success');
 }
 
 function exportRevenueReport() {
-    console.log('Exporting revenue report...');
+
     showToast('Revenue report exported successfully!', 'success');
 }

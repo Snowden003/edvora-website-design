@@ -241,7 +241,6 @@ function sendWarning() {
     bootstrap.Modal.getInstance(document.getElementById('warnModal')).hide();
 }
 
-
 function kickStudent(id) {
     const student = studentsData.find(s => s.id === id);
     if (confirm(`Are you sure you want to remove ${student.name} from this course?`)) {

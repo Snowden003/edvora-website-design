@@ -48,7 +48,7 @@ function initContactForm() {
             submitBtn.disabled = false;
             
             // Log the form data (in real app, this would be sent to server)
-            console.log('Contact form submitted:', formData);
+
         }, 2000);
     });
 }

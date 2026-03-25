@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Add click tracking for analytics (placeholder)
 function trackFAQClick(question) {
-    console.log('FAQ clicked:', question);
+
     // In a real application, you would send this to your analytics service
 }
 

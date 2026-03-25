@@ -4,17 +4,6 @@
     flex-shrink: 0;
 }
 
-.event-card .date-badge {
-    background: var(--accent-yellow);
-    color: #333;
-    padding: 8px 15px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-}
-
 /* Event Particles */
 .event-particles {
     position: absolute;
@@ -46,7 +35,7 @@
     font-size: 0.9rem;
     margin-bottom: 2rem;
     backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px  rgba(0, 0, 0, 0.09);
     animation: badgePulse 3s infinite;
 }
 
@@ -433,7 +422,7 @@
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px  rgba(0, 0, 0, 0.02);
     opacity: 0;
     animation: eventCardEntrance 0.8s ease forwards;
 }
@@ -442,7 +431,7 @@
     background: #1a1a1a;
     /* Dark card for main Events page */
     border-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px  rgba(0, 0, 0, 0.1);
 }
 
 .event-card-enhanced::before {
@@ -465,7 +454,7 @@
 
 .event-card-enhanced:hover {
     transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 40px  rgba(0, 0, 0, 0.1);
     border-color: rgba(31, 143, 255, 0.3);
 }
 
@@ -514,7 +503,7 @@
     font-weight: 700;
     z-index: 2;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px  rgba(0, 0, 0, 0.09);
 }
 
 .event-date-badge span {
