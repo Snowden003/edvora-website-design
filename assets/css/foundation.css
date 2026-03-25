@@ -818,10 +818,6 @@ body {
 }
 
 /* Recent Donors Section */
-.recent-donors-section {
-    padding: 80px 0;
-    background: #f8f9fa;
-}
 
 .section-header {
     text-align: center;
@@ -842,12 +838,6 @@ body {
 .section-subtitle {
     font-size: 1.1rem;
     color: #6c757d;
-}
-
-.donors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
 }
 
 .donor-card {
@@ -897,12 +887,6 @@ body {
     font-weight: bold;
     color: var(--primary-blue);
     margin-bottom: 5px;
-}
-
-.donor-date {
-    font-size: 0.9rem;
-    color: #6c757d;
-    margin-bottom: 15px;
 }
 
 .donor-message {
@@ -1113,8 +1097,7 @@ body {
     margin-bottom: 10px;
 }
 
-.footer-links h6,
-.footer-contact h6 {
+.footer-links h6 {
     color: var(--primary-blue);
     margin-bottom: 20px;
 }
@@ -1135,16 +1118,6 @@ body {
 }
 
 .footer-links ul li a:hover {
-    color: var(--primary-blue);
-}
-
-.footer-contact p {
-    margin-bottom: 10px;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.footer-contact i {
-    margin-left: 10px;
     color: var(--primary-blue);
 }
 
@@ -1215,10 +1188,6 @@ body {
         width: 40px;
         height: 40px;
         font-size: 1rem;
-    }
-    
-    .donors-grid {
-        grid-template-columns: 1fr;
     }
     
     .amount-buttons {

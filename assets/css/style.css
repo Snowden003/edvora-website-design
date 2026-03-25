@@ -35,14 +35,15 @@ p {
 h6 {
     color: #abafb3;
 }
+
 /* Sections background */
 .light {
-  background: #FFFFFF;
+    background: #FFFFFF;
 }
 
 .gray {
-  background: #F8FAFD;
-  /* background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%); */
+    background: #F8FAFD;
+    /* background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%); */
 }
 
 /* Dark mode styles */
@@ -114,18 +115,6 @@ body.dark-mode .card {
     object-fit: cover;
 }
 
-.course-card .price-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--accent-yellow);
-    color: #333;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
 .course-card .rating {
     color: var(--accent-yellow);
 }
@@ -136,24 +125,9 @@ body.dark-mode .card {
     flex-shrink: 0;
 }
 
-.event-card .date-badge {
-    background: var(--accent-yellow);
-    color: #333;
-    padding: 8px 15px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-}
-
 
 
 /* Top Students */
-.student-card {
-    text-align: center;
-    position: relative;
-}
 
 .student-avatar {
     width: 120px;
@@ -162,38 +136,6 @@ body.dark-mode .card {
     border: 4px solid var(--accent-yellow);
     object-fit: cover;
     margin: 0 auto 15px;
-}
-
-.rank-badge {
-    position: absolute;
-    top: -10px;
-    right: 50%;
-    transform: translateX(50%);
-    background: var(--primary-blue);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.rank-badge.gold {
-    background: #1F8FFF;
-    color: #333;
-}
-
-.rank-badge.silver {
-    background: #BFC0C0;
-    color: #333;
-}
-
-.rank-badge.bronze {
-    background: #CD7F32;
-    color: white;
 }
 
 /* Progress Bars */
@@ -209,24 +151,6 @@ body.dark-mode .card {
 }
 
 /* Horizontal Scroll */
-.horizontal-scroll {
-    overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-blue) transparent;
-}
-
-.horizontal-scroll::-webkit-scrollbar {
-    height: 6px;
-}
-
-.horizontal-scroll::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.horizontal-scroll::-webkit-scrollbar-thumb {
-    background: var(--primary-blue);
-    border-radius: 3px;
-}
 
 /* Testimonial Cards */
 .testimonial-card {
@@ -403,12 +327,6 @@ body.dark-mode .card {
         width: 80px;
         height: 80px;
     }
-
-    .rank-badge {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-    }
 }
 
 @media (max-width: 576px) {
@@ -439,28 +357,6 @@ body.dark-mode .card {
 }
 
 /* Animated Logo Hero Section */
-.logo-hero-section {
-    background: linear-gradient(135deg, var(--primary-black) 0%, var(--primary-blue) 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.logo-hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(31, 143, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
-    animation: backgroundPulse 8s ease-in-out infinite;
-}
 
 .logo-container {
     position: relative;
@@ -514,35 +410,7 @@ body.dark-mode .card {
     z-index: -2;
 }
 
-.logo-title {
-    color: white;
-    font-size: 4rem;
-    font-weight: 800;
-    margin-top: 2rem;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    animation: titleSlideUp 2s ease-out 0.5s both;
-    letter-spacing: 2px;
-}
-
-.logo-subtitle {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-top: 1rem;
-    animation: titleSlideUp 2s ease-out 1s both;
-    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
 /* Floating Particles */
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
 
 .particle {
     position: absolute;
@@ -719,28 +587,12 @@ body.dark-mode .card {
         width: 200px;
         height: 200px;
     }
-
-    .logo-title {
-        font-size: 2.5rem;
-    }
-
-    .logo-subtitle {
-        font-size: 1.2rem;
-    }
 }
 
 @media (max-width: 576px) {
     .animated-logo {
         width: 150px;
         height: 150px;
-    }
-
-    .logo-title {
-        font-size: 2rem;
-    }
-
-    .logo-subtitle {
-        font-size: 1rem;
     }
 }
 
@@ -1162,7 +1014,7 @@ body.dark-mode .card {
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     gap: 20px;
     padding: 10px 0;
-    align-items: stretch; 
+    align-items: stretch;
     align-content: stretch;
 }
 
@@ -1176,17 +1028,17 @@ body.dark-mode .card {
     position: relative;
 
     display: flex;
-    flex-direction: column;  
-    align-self: stretch;    
-  height: auto;           
-  min-height: 0; 
+    flex-direction: column;
+    align-self: stretch;
+    height: auto;
+    min-height: 0;
 }
 
 .course-content {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;  
+    flex: 1 1 auto;
 }
 
 
@@ -1304,7 +1156,7 @@ body.dark-mode .card {
     font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    margin-top: auto; 
+    margin-top: auto;
 }
 
 .course-card:hover .course-enroll-btn {
@@ -1629,128 +1481,6 @@ body.dark-mode .card {
 }
 
 /* New Teacher Card Design */
-.new-teacher-card {
-    position: relative;
-    height: 380px;
-    border-radius: 20px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transform-style: preserve-3d;
-    display: flex;
-    flex-direction: column;
-}
-
-.new-teacher-card:hover {
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale3d(1.05, 1.05, 1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(31, 143, 255, 0.5);
-}
-
-.new-teacher-card-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.5s ease;
-    border-radius: 20px;
-}
-
-.new-teacher-card:hover .new-teacher-card-bg {
-    transform: scale(1.1);
-}
-
-.new-teacher-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(31, 143, 255, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
-    z-index: 1;
-    opacity: 0.9;
-    transition: opacity 0.5s ease;
-}
-
-.new-teacher-card:hover::before {
-    opacity: 1;
-}
-
-.new-teacher-card-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(31, 143, 255, 0.3) 0%, rgba(31, 143, 255, 0) 60%);
-    transform: translate(-50%, -50%);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-    opacity: 0;
-    z-index: 2;
-}
-
-.new-teacher-card:hover .new-teacher-card-glow {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.2);
-}
-
-.new-teacher-card-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 25px;
-    z-index: 3;
-    color: #fff;
-    transform: translateZ(50px);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.new-teacher-card-category {
-    background-color: rgba(31, 143, 255, 0.8);
-    color: #1F8FFF;
-    padding: 4px 12px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(5px);
-}
-
-.new-teacher-card-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.new-teacher-card-bio {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.5;
-    margin-bottom: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
 
 /* Background Effects */
@@ -2146,30 +1876,6 @@ body.dark-mode .card {
 }
 
 /* Floating Icons */
-.floating-student-icon {
-    position: absolute;
-    font-size: 24px;
-    color: rgba(31, 143, 255, 0.1);
-    animation: studentIconFloat 12s ease-in-out infinite;
-}
-
-.floating-student-icon.icon-1 {
-    top: 15%;
-    right: 20%;
-    animation-delay: 0s;
-}
-
-.floating-student-icon.icon-2 {
-    top: 70%;
-    right: 10%;
-    animation-delay: 4s;
-}
-
-.floating-student-icon.icon-3 {
-    top: 40%;
-    left: 5%;
-    animation-delay: 8s;
-}
 
 @keyframes studentIconFloat {
 
@@ -2247,12 +1953,12 @@ body.dark-mode .card {
 /* Student Card */
 .student-card-enhanced {
     flex: 0 0 350px;
-    background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
+    background: #ffffff;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 15px 40px rgba(31, 143, 255, 0.1);
-    border: 1px solid rgba(31, 143, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     animation: studentCardEntrance 0.8s ease-out forwards;
@@ -2288,9 +1994,9 @@ body.dark-mode .card {
 }
 
 .student-card-enhanced:hover {
-    transform: translateY(-15px) rotateX(5deg) rotateY(5deg) scale(1.02);
-    box-shadow: 0 25px 60px rgba(31, 143, 255, 0.2);
-    border-color: rgba(31, 143, 255, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(31, 143, 255, 0.12);
+    border-color: rgba(31, 143, 255, 0.25);
 }
 
 .student-card-enhanced::before {
@@ -3064,11 +2770,6 @@ body.dark-mode .card {
 
     .animated-line {
         display: none;
-    }
-
-    .title-word {
-        display: block;
-        margin-bottom: 0.2rem;
     }
 }
 
@@ -4173,7 +3874,7 @@ body.dark-mode .card {
 
     display: flex;
     flex-direction: column;
-    flex: 1;  
+    flex: 1;
 }
 
 .event-title {
@@ -4617,25 +4318,29 @@ body.dark-mode .card {
 }
 
 /* Contact Form */
-#contactForm input, #contactForm textarea {
-  border: 1px solid #ccc;      
-  border-radius: 8px;          
-  padding: 10px 14px;
-  outline: none;               
-  transition: border-color 0.3s, box-shadow 0.3s;
+#contactForm input,
+#contactForm textarea {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#contactForm input:hover, #contactForm textarea:hover {
-  border-color: var(--primary-blue);         
+#contactForm input:hover,
+#contactForm textarea:hover {
+    border-color: var(--primary-blue);
 }
 
-#contactForm input:focus, #contactForm textarea:focus {
-  border: none;      
-  box-shadow: 0 0 0 2px #0070e0c1; 
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border: none;
+    box-shadow: 0 0 0 2px #0070e0c1;
 }
 
-#contactForm input:active, #contactForm textarea:active {
-  border-color: var(--primary-blue-dark);       
+#contactForm input:active,
+#contactForm textarea:active {
+    border-color: var(--primary-blue-dark);
 }
 
 
@@ -4650,23 +4355,24 @@ body.dark-mode .card {
 
 .course-card:hover {
     transform: translateY(-10px);
-    box-shadow:10px 10px 30px rgba(0, 238, 255, 0.114) !important;
+    box-shadow: 10px 10px 30px rgba(0, 238, 255, 0.114) !important;
 }
+
 .course-card .position-relative::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.2),
-        transparent 50%
-    );
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.2),
+            transparent 50%);
 }
+
 .card-img-top {
     height: 250px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
+
 .course-card .btn-primary {
     background: linear-gradient(135deg, #1f8fff, #00f0ff);
     border: none;
@@ -4692,12 +4398,12 @@ body.dark-mode .card {
     border-radius: 14px;
     padding: 10px 16px;
 
-    transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+    transition: all 0.35s cubic-bezier(.2, .8, .2, 1);
     overflow: hidden;
 }
 
 .course-card .btn-outline-primary:hover {
-    color: white ;
+    color: white;
     background-color: var(--primary-blue);
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(31, 143, 255, 0.35);
@@ -4747,12 +4453,13 @@ body.dark-mode .card {
 }
 
 /* ===== Focus Effect ===== */
-.form-control:focus{
+.form-control:focus {
     border-color: #0070e053 !important;
     box-shadow:
         0 0 0 1px #0070e05f !important;
     background: rgba(255, 255, 255, 0.75) !important;
 }
+
 .form-select:focus {
     border: none;
     box-shadow:
@@ -4806,11 +4513,9 @@ section.gray form .form-control {
 }
 
 #loadMoreBtn:hover {
-    background: linear-gradient(
-        135deg,
-        var(--primary-blue),
-        var(--accent-cyan)
-    );
+    background: linear-gradient(135deg,
+            var(--primary-blue),
+            var(--accent-cyan));
     color: white;
     transform: translateY(-3px);
     box-shadow:
@@ -4825,9 +4530,11 @@ section.gray form .form-control {
     transition: all 0.4s ease;
     overflow: hidden;
 }
-.event-newsletter:hover{
-    box-shadow:10px 10px 30px rgba(0, 0, 0, 0.18) !important;
+
+.event-newsletter:hover {
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.18) !important;
 }
+
 .btn-primary {
     background-color: var(--primary-blue);
     border: none;
@@ -4836,6 +4543,7 @@ section.gray form .form-control {
     border-radius: 16px;
     font-weight: 600;
 }
+
 .btn-primary:hover {
     background-color: var(--primary-blue-dark);
 }
@@ -4859,7 +4567,7 @@ section.gray form .form-control {
     font-size: 1.22rem;
 }
 
-.link{
+.link {
     color: var(--primary-blue);
     text-decoration: none;
     transition: all 0.3s ease;
@@ -4875,7 +4583,7 @@ section.gray form .form-control {
 }
 
 .custom-shadow {
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.208);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.208);
 }
 
 .white-hover:hover {

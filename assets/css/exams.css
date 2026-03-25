@@ -249,13 +249,6 @@
     z-index: 5;
 }
 
-.student-count-text {
-    font-size: 0.8rem;
-    color: #64748b;
-    margin-left: 10px;
-    font-weight: 500;
-}
-
 /* Results mini-chart/progress */
 .result-progress-container {
     margin-top: 15px;

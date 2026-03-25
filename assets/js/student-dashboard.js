@@ -391,14 +391,13 @@ function initNavigation() {
 
 // Course Functions
 function continueCourse(courseId) {
-    console.log('Continuing course:', courseId);
+
     // In a real app, this would redirect to the course learning page
     showToast('Redirecting to course...', 'info');
 }
 
 function viewCourseProgress(courseId) {
-    console.log('Viewing progress for course:', courseId);
-    
+
     // Load course progress details
     const progressContent = document.getElementById('courseProgressContent');
     progressContent.innerHTML = `
@@ -460,7 +459,7 @@ function viewCourseProgress(courseId) {
 
 // Event Functions
 function registerEvent(eventId) {
-    console.log('Registering for event:', eventId);
+
     showToast('Successfully registered for event!', 'success');
     setTimeout(() => {
         loadUpcomingEvents();
@@ -469,7 +468,7 @@ function registerEvent(eventId) {
 
 // Competition Functions
 function joinCompetition(competitionId) {
-    console.log('Joining competition:', competitionId);
+
     showToast('Successfully joined competition!', 'success');
     setTimeout(() => {
         loadActiveCompetitions();
@@ -480,9 +479,7 @@ function joinCompetition(competitionId) {
 function saveProfile() {
     const form = document.getElementById('profileForm');
     const formData = new FormData(form);
-    
-    console.log('Saving profile:', Object.fromEntries(formData));
-    
+
     const modal = bootstrap.Modal.getInstance(document.getElementById('profileModal'));
     modal.hide();
     

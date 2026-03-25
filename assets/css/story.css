@@ -69,9 +69,6 @@
 }
 
 /* Navbar */
-.navbar-komoja {
-    background-color: var(--brand-blue) !important
-}
 
 /* Buttons */
 .btn-signup-custom {
@@ -99,29 +96,6 @@
 
 
 /* Simple delay utilities */
-.delay-0 {
-    animation-delay: 0s
-}
-
-.delay-1 {
-    animation-delay: 1s
-}
-
-.delay-2 {
-    animation-delay: 2s
-}
-
-.delay-3 {
-    animation-delay: 3s
-}
-
-.delay-4 {
-    animation-delay: 4s
-}
-
-.delay-5 {
-    animation-delay: 5s
-}
 
 /* Animation utility classes */
 .anim-slide-in-left {
@@ -138,14 +112,6 @@
 
 .anim-delay-03 {
     animation-delay: .3s
-}
-
-.anim-rocket {
-    animation: rocketFloat 4s ease-in-out infinite
-}
-
-.anim-globe {
-    animation: globeRotate 8s linear infinite
 }
 
 /* Badge / Titles */
@@ -416,10 +382,6 @@
 }
 
 /* Footer */
-.footer-komoja {
-    background-color: var(--brand-blue);
-    color: #fff
-}
 
 /* Animations */
 @keyframes techFloat {
@@ -643,24 +605,6 @@
     50% {
         transform: scale(1.1)
     }
-}
-
-
-
-.hero-orb.orb3 {
-    left: 20%;
-    bottom: -60px;
-    background: radial-gradient(circle at 40% 40%, #1F8FFF, transparent 60%);
-    animation-delay: 1.2s;
-}
-
-.hero-orb.orb4 {
-    right: 22%;
-    bottom: 0;
-    width: 160px;
-    height: 160px;
-    background: radial-gradient(circle at 50% 50%, #1F8FFF, transparent 60%);
-    animation-delay: 1.8s;
 }
 
 

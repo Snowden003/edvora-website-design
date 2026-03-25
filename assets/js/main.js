@@ -64,7 +64,7 @@ function initCoursesSlider() {
         sliderTrack.appendChild(card.cloneNode(true));
     });
 
-    const cardWidth = 340; // 320px card + 20px gap
+    const cardWidth = 372; // 340px card + 32px gap
     let currentIndex = 0;
     let isTransitioning = false;
 
@@ -1139,7 +1139,7 @@ function initSearch() {
     searchInput.addEventListener('input', function (e) {
         const query = e.target.value.toLowerCase();
         // Implement search logic here
-        console.log('Searching for:', query);
+
     });
 }
 

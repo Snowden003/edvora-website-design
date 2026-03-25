@@ -139,7 +139,7 @@ function loadEventData(eventId) {
     const event = eventsData[eventId];
     
     if (!event) {
-        console.error('Event not found:', eventId);
+
         return;
     }
 
@@ -214,7 +214,7 @@ function updateFeatures(features) {
 
 function initEventListeners() {
     // Add any additional event listeners here
-    console.log('Event detail page initialized');
+
 }
 
 // Event registration function

@@ -1,10 +1,6 @@
 /* PHP Coding Hero Section Styles */
 
 /* Hero Container Styles */
-.hero-content-container {
-    position: relative;
-    z-index: 10;
-}
 
 .hero-logo-column {
     animation: slideInLeft 2s ease-out;
@@ -41,17 +37,6 @@
     justify-content: center;
     overflow: hidden;
     margin: 0 auto;
-}
-
-.video-hero-section .animated-logo {
-    width: 260px !important;
-    height: 260px !important;
-    object-fit: contain !important;
-    border-radius: 50%;
-    border: none !important;
-    box-shadow: none !important;
-    animation: none !important;
-    backdrop-filter: none !important;
 }
 
 
@@ -207,24 +192,6 @@
     transform: translateY(-3px);
 }
 
-.video-hero-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
 .coding-simulator {
     width: 100%;
     height: 100%;
@@ -232,46 +199,6 @@
     position: relative;
     overflow: hidden;
     font-size: 18px;
-}
-
-.editor-header {
-    background: #2d2d30;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    border-bottom: 1px solid #3e3e42;
-}
-
-.editor-controls {
-    display: flex;
-    gap: 10px;
-}
-
-.editor-control {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-}
-
-.editor-control.close {
-    background: #ff5f57;
-}
-
-.editor-control.minimize {
-    background: #ffbd2e;
-}
-
-.editor-control.maximize {
-    background: #28ca42;
-}
-
-.editor-title {
-    color: #cccccc;
-    font-size: 16px;
-    margin-left: 20px;
-    font-family: 'Courier New', monospace;
-    font-weight: 500;
 }
 
 .code-content {
@@ -353,16 +280,6 @@
     font-family: 'Courier New', monospace;
     font-weight: bold;
     pointer-events: none;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(31, 143, 255, 0.7) 0%, rgba(31, 143, 255, 0.6) 100%);
-    z-index: 2;
 }
 
 /* Animations */
@@ -568,20 +485,6 @@
         padding: 20px;
         font-size: 14px;
         line-height: 1.6;
-    }
-
-    .editor-header {
-        height: 40px;
-        padding: 0 15px;
-    }
-
-    .editor-title {
-        font-size: 14px;
-    }
-
-    .editor-control {
-        width: 12px;
-        height: 12px;
     }
 
     .floating-code {

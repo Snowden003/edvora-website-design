@@ -430,4 +430,3 @@ function showTeacherDetails(teacherId) {
     modal.show();
 }
 
-
