@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Explore Courses — Edvora Tech</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      :root{
+        --primary-black:#0d0d0d;
+        --primary-blue:#1f8fff;
+        --gradient: linear-gradient(135deg,var(--primary-black) 5%, var(--primary-blue) 100%);
+        --card-radius:12px;
+        --page-bg:#f4f6f9;
+      }
+      html,body{height:100%}
+      body{
+        font-family:"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+        background:var(--page-bg);
+        padding-top:70px;
+        direction:ltr;
+        color:#111;
+      }
+
+      /* Navbar */
+      .navbar-custom { background:var(--gradient) !important; box-shadow:0 6px 18px rgba(7,16,34,0.12); }
+      .navbar-custom .navbar-brand, .navbar-custom .nav-link, .navbar-custom .btn-outline-light { color:#fff !important; }
+      .navbar-custom .nav-link.active { font-weight:600; }
+
+      .container-page { max-width:1400px; margin:auto; }
+      .page-title { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+      .page-title h1 { font-size:1.35rem; margin:0; color:var(--primary-blue); }
+      .muted { color:#6b7280; }
+
+      /* Dashboard layout */
+      .dashboard { display:flex; gap:24px; align-items:flex-start; margin-top:18px; }
+      .sidebar { flex:0 0 260px; max-width:260px; align-self:flex-start; position:sticky; top:90px; }
+      .sidebar .card { position:static; border-radius:12px; }
+
+      .main { flex:1; min-width:0; }
+
+      .controls .form-control { min-width:140px; }
+
+      /* Course card */
+      .course-card {
+        border-radius: var(--card-radius);
+        overflow:hidden;
+        box-shadow:0 6px 16px rgba(0,0,0,0.12);
+        transition: transform .18s ease, box-shadow .18s ease;
+      }
+      .course-card:hover { transform: translateY(-6px); box-shadow:0 14px 36px rgba(7,16,34,0.16); }
+      .course-card .card-img-top { height:200px; object-fit:cover; }
+      .course-card .card-body { display:flex; flex-direction:column; height:100%; }
+      .course-card .meta { font-size:0.85rem; color:#6b6f76; }
+      .course-card .progress { height:8px; border-radius:8px; overflow:hidden; }
+
+      /* list view support */
+      .list-view .course-card { display:flex; }
+      .list-view .course-card .card-img-top { width:220px; height:140px; }
+      .list-view .course-card .card-body { padding:18px; }
+
+      /* responsive */
+      @media (max-width:991.98px){
+        body { padding-top:64px; }
+        .dashboard { flex-direction:column-reverse; }
+        .sidebar { width:100%; max-width:100%; flex:100%; position:relative; top:0; }
+        .course-card .card-img-top { height:auto; width:100%; aspect-ratio:16/9; }
+      }
+
+      /* focus outlines */
+      .btn:focus, .form-control:focus { outline:3px solid rgba(31,143,255,0.16); outline-offset:2px; }
+
+      /* small utility */
+      .badge-time { background: rgba(255, 235, 59, 0.95); color: #0d0d0d; }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-mortarboard-fill me-2"></i>Edvora Tech</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="student-dashboard.html">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link active" href="explore-courses.html">Explore</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3">
+            <div class="dropdown">
+              <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-person-circle me-1"></i>John Doe</button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#profile"><i class="bi bi-person me-2"></i>Profile</a></li>
+                <li><a class="dropdown-item" href="#settings"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container-page">
+      <!-- Header / Title -->
+      <section class="page-title mt-2">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-outline-secondary btn-sm" onclick="history.back()" aria-label="Back"><i class="bi bi-arrow-left"></i></button>
+          <div>
+            <h1>Explore Courses</h1>
+            <div class="page-sub muted">Find new courses to learn — filter, sort, and enroll.</div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <button id="btnExport" class="btn btn-outline-secondary btn-sm" title="Export CSV"><i class="bi bi-download"></i> Export CSV</button>
+          <button id="btnPrint" class="btn btn-outline-secondary btn-sm" title="Print"><i class="bi bi-printer"></i> Print</button>
+          <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add Course</a>
+        </div>
+      </section>
+
+      <div class="dashboard">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <div class="card p-3 mb-3">
+            <h6 class="mb-3">Summary</h6>
+
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div>
+                <div class="muted">Total courses</div>
+                <div class="h5 mb-0" id="summaryTotal">0</div>
+              </div>
+              <i class="bi bi-journal-bookmark fs-3 text-primary"></i>
+            </div>
+
+            <hr />
+
+            <div class="mb-2">
+              <small class="muted">Featured</small>
+              <div class="h6 mb-0" id="summaryFeatured">0</div>
+            </div>
+
+            <div class="mb-2">
+              <small class="muted">Free courses</small>
+              <div class="h6 mb-0" id="summaryFree">0</div>
+            </div>
+
+            <div class="mb-3">
+              <small class="muted">Overall Progress (example)</small>
+              <div class="progress" style="height:8px">
+                <div id="summaryProgress" class="progress-bar" style="width:0%; background:linear-gradient(90deg,#1f8fff,#1f8fff);"></div>
+              </div>
+            </div>
+
+            <div class="mt-3 d-grid gap-2">
+              <button class="btn btn-outline-primary btn-sm" id="btnFilterShort">Quick Filter</button>
+              <button class="btn btn-light btn-sm" id="btnHelp">Help</button>
+            </div>
+          </div>
+
+          <div class="card p-3">
+            <h6 class="mb-2">Filters</h6>
+            <div class="mb-2">
+              <label class="form-label small">Search</label>
+              <input id="searchInput" class="form-control form-control-sm" placeholder="Title, instructor or keyword..." />
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small">Category</label>
+              <select id="filterCategory" class="form-select form-select-sm">
+                <option value="">All</option>
+              </select>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small">Level</label>
+              <select id="filterLevel" class="form-select form-select-sm">
+                <option value="">All</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+
+            <div class="d-grid">
+              <button id="btnApplyFilters" class="btn btn-primary btn-sm">Apply Filters</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN -->
+        <section class="main">
+          <!-- Controls -->
+          <div class="card p-3 mb-3">
+            <div class="row g-2 align-items-center">
+              <div class="col-auto">
+                <div class="input-group input-group-sm controls">
+                  <select id="sortSelect" class="form-select form-select-sm">
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="popular">Most Popular</option>
+                  </select>
+                  <div id="toggleView" style="display:none" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="text-muted small">Showing <span id="resultCount">0</span> courses</div>
+              </div>
+
+              <div class="col-auto">
+                <input id="perPage" type="number" class="form-control form-control-sm" value="12" min="6" max="48" title="Per page" style="width:90px" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Courses grid -->
+          <div id="coursesContainer" class="row g-4"></div>
+
+          <!-- Pagination -->
+          <nav class="mt-4" aria-label="Courses page">
+            <ul class="pagination justify-content-center" id="pagination"></ul>
+          </nav>
+        </section>
+      </div>
+    </main>
+
+    <!-- Help Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header"><h5 class="modal-title">Help</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+          <div class="modal-body">
+            <p>Use filters to narrow courses. Click a card's details to see full info and enroll.</p>
+          </div>
+          <div class="modal-footer"><button class="btn btn-primary" data-bs-dismiss="modal">Close</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course Detail Modal -->
+    <div class="modal fade" id="courseModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header"><h5 class="modal-title" id="courseModalTitle">Course Details</h5><button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body" id="courseModalBody"></div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary" id="openCourseBtn">Enroll / Open</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+      // ----- sample dataset: 18+ courses (more cards) -----
+      const courses = [
+        { id:1, title:"Intro to Python", instructor:"Ahmed R.", category:"Programming", level:"beginner", status:"active", progress:0, completedLessons:0, totalLessons:20, duration:"8h", nextLesson:"Variables", image:"https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=700&fit=crop", timeLeft:"1w" },
+        { id:2, title:"HTML & CSS Fundamentals", instructor:"Sara Ali", category:"Web", level:"beginner", status:"active", progress:34, completedLessons:6, totalLessons:18, duration:"6h", nextLesson:"Flexbox", image:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&h=700&fit=crop", timeLeft:"3d" },
+        { id:3, title:"JavaScript Essentials", instructor:"Ali Karimi", category:"Programming", level:"intermediate", status:"active", progress:72, completedLessons:18, totalLessons:25, duration:"12h", nextLesson:"Promises", image:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&h=700&fit=crop", timeLeft:"6d" },
+        { id:4, title:"React from Scratch", instructor:"Mohammad Y.", category:"Web", level:"intermediate", status:"active", progress:58, completedLessons:14, totalLessons:24, duration:"10h", nextLesson:"Hooks", image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=700&fit=crop", timeLeft:"2d" },
+        { id:5, title:"Intro to Data Science", instructor:"Laila Noor", category:"Data", level:"beginner", status:"paused", progress:20, completedLessons:4, totalLessons:20, duration:"8h", nextLesson:"Data Preprocessing", image:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1200&h=700&fit=crop", timeLeft:"—" },
+        { id:6, title:"Practical SQL", instructor:"Sara A.", category:"Data", level:"intermediate", status:"active", progress:33, completedLessons:5, totalLessons:15, duration:"5h", nextLesson:"Joins", image:"https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=1200&h=700&fit=crop", timeLeft:"1w" },
+        { id:7, title:"UI Design Basics", instructor:"Zahra M.", category:"Design", level:"beginner", status:"active", progress:12, completedLessons:2, totalLessons:10, duration:"7h", nextLesson:"Color Theory", image:"https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&h=700&fit=crop", timeLeft:"5d" },
+        { id:8, title:"Advanced CSS Animations", instructor:"Reza H.", category:"Web", level:"advanced", status:"active", progress:5, completedLessons:1, totalLessons:12, duration:"4h", nextLesson:"Keyframes", image:"https://images.unsplash.com/photo-1505685296765-3a2736de412f?w=1200&h=700&fit=crop", timeLeft:"10d" },
+        { id:9, title:"Node.js & Express", instructor:"Neda S.", category:"Programming", level:"intermediate", status:"active", progress:40, completedLessons:8, totalLessons:20, duration:"9h", nextLesson:"Routing", image:"https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&h=700&fit=crop", timeLeft:"4d" },
+        { id:10, title:"Machine Learning Intro", instructor:"Omid K.", category:"Data", level:"advanced", status:"archived", progress:100, completedLessons:30, totalLessons:30, duration:"20h", nextLesson:"—", image:"https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=1200&h=700&fit=crop", timeLeft:"—" },
+        { id:11, title:"Django for Web", instructor:"Mina R.", category:"Web", level:"intermediate", status:"active", progress:22, completedLessons:3, totalLessons:14, duration:"11h", nextLesson:"Models", image:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=700&fit=crop", timeLeft:"2w" },
+        { id:12, title:"Data Visualization with D3", instructor:"Sara K.", category:"Data", level:"advanced", status:"active", progress:8, completedLessons:1, totalLessons:10, duration:"6h", nextLesson:"Scales", image:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=700&fit=crop", timeLeft:"9d" },
+        { id:13, title:"Git & Collaboration", instructor:"Hassan M.", category:"Tools", level:"beginner", status:"active", progress:60, completedLessons:12, totalLessons:20, duration:"3h", nextLesson:"Merging", image:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&h=700&fit=crop", timeLeft:"1d" },
+        { id:14, title:"Effective Testing", instructor:"Niloofar P.", category:"Programming", level:"intermediate", status:"active", progress:28, completedLessons:4, totalLessons:15, duration:"7h", nextLesson:"Unit Tests", image:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=700&fit=crop", timeLeft:"6d" },
+        { id:15, title:"Kotlin for Android", instructor:"Amir Z.", category:"Mobile", level:"intermediate", status:"active", progress:18, completedLessons:3, totalLessons:16, duration:"14h", nextLesson:"Layouts", image:"https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1200&h=700&fit=crop", timeLeft:"11d" },
+        { id:16, title:"Product Management 101", instructor:"Laleh F.", category:"Business", level:"beginner", status:"active", progress:50, completedLessons:10, totalLessons:20, duration:"9h", nextLesson:"Roadmaps", image:"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=700&fit=crop", timeLeft:"4w" },
+        { id:17, title:"AWS Cloud Fundamentals", instructor:"Bahram N.", category:"Cloud", level:"beginner", status:"active", progress:38, completedLessons:7, totalLessons:18, duration:"12h", nextLesson:"EC2", image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=700&fit=crop", timeLeft:"7d" },
+        { id:18, title:"Photoshop for Designers", instructor:"Nina T.", category:"Design", level:"beginner", status:"active", progress:15, completedLessons:2, totalLessons:12, duration:"5h", nextLesson:"Layers", image:"https://images.unsplash.com/photo-1499744937866-dc31c0b3fbec?w=1200&h=700&fit=crop", timeLeft:"8d" }
+      ];
+
+      // state
+      let state = { query:"", category:"", level:"",sort:"newest", perPage:12, page:1, view:"grid" };
+
+      // DOM refs
+      const coursesContainer = document.getElementById("coursesContainer");
+      const searchInput = document.getElementById("searchInput");
+      const filterCategory = document.getElementById("filterCategory");
+      const filterLevel = document.getElementById("filterLevel");
+      const btnApply = document.getElementById("btnApplyFilters");
+      const sortSelect = document.getElementById("sortSelect");
+      const perPageInput = document.getElementById("perPage");
+      const paginationEl = document.getElementById("pagination");
+      const resultCount = document.getElementById("resultCount");
+      const summaryTotal = document.getElementById("summaryTotal");
+      const summaryFeatured = document.getElementById("summaryFeatured");
+      const summaryFree = document.getElementById("summaryFree");
+      const btnExport = document.getElementById("btnExport");
+      const btnPrint = document.getElementById("btnPrint");
+
+      function populateCategories(){
+        const cats = Array.from(new Set(courses.map(c=>c.category))).sort();
+        cats.forEach(c=>{
+          const opt = document.createElement("option");
+          opt.value = c; opt.textContent = c; filterCategory.appendChild(opt);
+        });
+      }
+
+      function getFiltered(){
+        let out = courses.slice();
+        const q = state.query.trim().toLowerCase();
+        if(q) out = out.filter(c => (c.title + c.instructor + (c.category||"")).toLowerCase().includes(q));
+        if(state.category) out = out.filter(c => c.category === state.category);
+        if(state.level) out = out.filter(c => c.level === state.level);
+
+        // sort
+        if(state.sort === "popular") out.sort((a,b) => (b.progress || 0) - (a.progress || 0));
+        // newest / oldest not timestamped — leave as-is
+
+        return out;
+      }
+
+      function render(){
+        const filtered = getFiltered();
+        resultCount.textContent = filtered.length;
+        summaryTotal.textContent = courses.length;
+
+
+        const per = parseInt(state.perPage,10) || 12;
+        const page = parseInt(state.page,10) || 1;
+        const start = (page-1) * per;
+        const end = start + per;
+        const pageItems = filtered.slice(start,end);
+
+        coursesContainer.classList.toggle("list-view", state.view === "list");
+        coursesContainer.innerHTML = pageItems.map(c => renderCourseCard(c)).join("");
+        renderPagination(Math.ceil(filtered.length / per), page);
+      }
+
+      function escapeHtml(text){
+        return String(text).replace(/[&<>"]+/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[s]));
+      }
+
+      function renderCourseCard(c){
+        return `
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="card course-card h-100" data-id="${c.id}" role="article">
+              <div class="position-relative">
+                <img src="${c.image}" alt="${escapeHtml(c.title)}" class="card-img-top" loading="lazy">
+                <span class="badge bg-primary position-absolute top-0 end-0 m-2">${escapeHtml(c.category)}</span>
+                <span class="badge badge-time position-absolute top-0 start-0 m-2">${escapeHtml(c.timeLeft)}</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h6 class="card-title fw-bold">${escapeHtml(c.title)}</h6>
+                <div class="meta mb-2">By ${escapeHtml(c.instructor)} • ${escapeHtml(c.duration)} • ${escapeHtml(c.level)}</div>
+
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <small class="muted">Progress</small>
+                    <small class="muted">${c.progress}% (${c.completedLessons}/${c.totalLessons})</small>
+                  </div>
+                  <div class="progress" role="progressbar" aria-valuenow="${c.progress}" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width:${c.progress}%;background:linear-gradient(90deg,var(--primary-blue),var(--primary-blue));"></div>
+                  </div>
+                </div>
+
+                <div class="mt-auto d-flex gap-2 align-items-center">
+                  <button class="btn btn-primary btn-sm flex-grow-1" onclick="enrollCourse(${c.id})">Enroll</button>
+                  <button class="btn btn-outline-secondary btn-sm" onclick="showCourse(${c.id})" aria-label="Details ${escapeHtml(c.title)}"><i class="bi bi-info-circle"></i></button>
+                </div>
+              </div>
+            </article>
+          </div>
+        `;
+      }
+
+      function renderPagination(totalPages, currentPage){
+        paginationEl.innerHTML = "";
+        if(totalPages <= 1) return;
+        const maxShow = 7;
+        let start = Math.max(1, currentPage - Math.floor(maxShow/2));
+        let end = Math.min(totalPages, start + maxShow - 1);
+        if(end - start < maxShow - 1) start = Math.max(1, end - maxShow + 1);
+
+        // prev
+        const prevLi = document.createElement("li"); prevLi.className = "page-item " + (currentPage === 1 ? "disabled" : "");
+        prevLi.innerHTML = `<a class='page-link' href='#' data-page='${currentPage-1}' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a>`; paginationEl.appendChild(prevLi);
+
+        for(let p=start; p<=end; p++){
+          const li = document.createElement("li");
+          li.className = "page-item " + (p === currentPage ? "active" : "");
+          li.innerHTML = `<a class='page-link' href='#' data-page='${p}'>${p}</a>`;
+          paginationEl.appendChild(li);
+        }
+
+        const nextLi = document.createElement("li"); nextLi.className = "page-item " + (currentPage === totalPages ? "disabled" : "");
+        nextLi.innerHTML = `<a class='page-link' href='#' data-page='${currentPage+1}' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a>`; paginationEl.appendChild(nextLi);
+      }
+
+      // events
+      searchInput.addEventListener("input", e => { state.query = e.target.value; state.page = 1; render(); });
+      filterCategory.addEventListener("change", e => { state.category = e.target.value; state.page = 1; });
+      filterLevel.addEventListener("change", e => { state.level = e.target.value; state.page = 1; });
+      btnApply.addEventListener("click", () => { state.page = 1; state.perPage = parseInt(perPageInput.value,10) || 12; state.sort = sortSelect.value; render(); });
+      sortSelect.addEventListener("change", () => { state.sort = sortSelect.value; render(); });
+      perPageInput.addEventListener("change", () => { state.perPage = parseInt(perPageInput.value,10) || 12; state.page = 1; render(); });
+
+      paginationEl.addEventListener("click", e => {
+        e.preventDefault();
+        const a = e.target.closest("a"); if(!a) return;
+        const p = Number(a.dataset.page); if(!p || p < 1) return;
+        state.page = p; render(); window.scrollTo({ top: 140, behavior: "smooth" });
+      });
+
+      document.getElementById("btnHelp").addEventListener("click", () => {
+        const helpModal = new bootstrap.Modal(document.getElementById("helpModal")); helpModal.show();
+      });
+
+      // details/enroll
+      function showCourse(id){
+        const c = courses.find(x => x.id === id); if(!c) return;
+        document.getElementById("courseModalTitle").textContent = c.title;
+        document.getElementById("courseModalBody").innerHTML = `
+          <div class="row g-3">
+            <div class="col-md-5"><img src="${c.image}" alt="" class="img-fluid rounded" style="width:100%;height:220px;object-fit:cover"></div>
+            <div class="col-md-7">
+              <p class="mb-1"><strong>Instructor:</strong> ${escapeHtml(c.instructor)}</p>
+              <p class="mb-1"><strong>Category:</strong> ${escapeHtml(c.category)}</p>
+              <p class="mb-1"><strong>Level:</strong> ${escapeHtml(c.level)}</p>
+              <p class="mb-1"><strong>Duration:</strong> ${escapeHtml(c.duration)}</p>
+              <p class="mb-1"><strong>Next Lesson:</strong> ${escapeHtml(c.nextLesson)}</p>
+              <hr />
+              <div><strong>Progress:</strong></div>
+              <div class="progress my-2"><div class="progress-bar" style="width:${c.progress}%">${c.progress}%</div></div>
+            </div>
+          </div>
+          <div class="mt-3"><p class="small text-muted">Detailed description and learning objectives go here. Replace this with real course description.</p></div>
+        `;
+        const modal = new bootstrap.Modal(document.getElementById("courseModal")); modal.show();
+      }
+
+      function enrollCourse(id){
+        // placeholder: connect to your enrollment API
+        alert("Enroll / Open course " + id);
+      }
+
+      // CSV export
+      btnExport.addEventListener("click", () => {
+        const filtered = getFiltered();
+        const rows = [["id","title","instructor","category","level","status","progress"]];
+        filtered.forEach(c => rows.push([c.id,c.title,c.instructor,c.category,c.level,c.status,c.progress]));
+        const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob); const a = document.createElement("a"); a.href = url; a.download = "explore-courses.csv"; a.click(); URL.revokeObjectURL(url);
+      });
+
+      // print
+      btnPrint.addEventListener("click", () => window.print());
+
+      // init
+      function init(){
+        populateCategories();
+        render();
+        // initial summary example
+        document.getElementById("summaryProgress").style.width = "34%";
+      }
+      init();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

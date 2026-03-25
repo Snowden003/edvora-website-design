@@ -643,7 +643,7 @@ function loadTopStudents() {
             name: "Sarah Williams",
             rank: 2,
             score: 96.8,
-            avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+            avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
             field: "UI/UX Design",
             coursesCompleted: 10,
             totalHours: 195,

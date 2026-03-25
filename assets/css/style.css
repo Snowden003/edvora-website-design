@@ -184,7 +184,7 @@ body.dark-mode .card {
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: #020811;
+    color: #ffffff !important;
 }
 
 .btn-primary {
@@ -195,6 +195,7 @@ body.dark-mode .card {
 .btn-primary:hover {
     background-color: #0229a3;
     border-color: #0229a3;
+    color: #ffffff !important;
 }
 
 .btn-warning {
@@ -3919,7 +3920,7 @@ body.dark-mode .card {
 
 .event-register-btn {
     width: 100%;
-    background: linear-gradient(45deg, var(--primary-blue), var(--primary-orange));
+    background: var(--primary-blue);
     border: none;
     color: white;
     padding: 12px 20px;
@@ -3949,7 +3950,7 @@ body.dark-mode .card {
 }
 
 .event-register-btn:hover {
-    background: var(--primary-blue);
+    background: var(--primary-blue-dark);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(31, 143, 255, 0.3);
 }
@@ -4583,4 +4584,17 @@ section.gray form .form-control {
 
 .custom-shadow {
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.208);
+}
+
+.white-hover:hover {
+    color: white;
+}
+
+.custom-hover {
+    color: var(--accent-cyan);
+    font-size: 1.2rem;
+}
+.custom-hover:hover {
+    background-color: var(--accent-cyan);
+    color: white;
 }
