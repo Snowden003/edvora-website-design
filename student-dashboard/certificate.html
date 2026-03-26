@@ -1,41 +1,618 @@
 <!doctype html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Certificates — Edvora Tech</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <style>body{font-family:Poppins,system-ui;background:#f4f6f9;padding-top:70px}.container-page{max-width:1000px;margin:auto}.navbar-custom{background:linear-gradient(135deg,#0d0d0d 5%,#1f8fff 100%)!important}.card{border-radius:12px}</style>
-  </head>
-  <body>
-    <nav class="navbar navbar-custom fixed-top"><div class="container"><a class="navbar-brand text-white" href="student-dashboard.html">Edvora Tech</a></div></nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certificates — Edvora Tech</title>
 
-    <main class="container-page py-3">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <div class="d-flex gap-3 align-items-center">
-          <button class="btn btn-outline-secondary btn-sm" onclick="history.back()"><i class="bi bi-arrow-left"></i></button>
-          <div><h1 class="h5 mb-0">Certificates</h1><div class="muted small">Your earned certificates</div></div>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --primary: #3b82f6;
+      --primary-soft: #eaf2ff;
+      --dark: #0f172a;
+      --muted: #64748b;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: Poppins, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--dark);
+    }
+
+    .page-shell {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .back-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card,
+    .stat-card,
+    .certificate-card,
+    .panel-card,
+    .modal-content {
+      border: none;
+      border-radius: 22px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 55%, #38bdf8 100%);
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      filter: blur(2px);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      font-size: 0.9rem;
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 1.15rem;
+      flex: 0 0 auto;
+    }
+
+    .certificate-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .certificate-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    .certificate-ribbon {
+      position: absolute;
+      top: 18px;
+      right: -36px;
+      transform: rotate(35deg);
+      padding: 0.35rem 2.6rem;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .certificate-preview {
+      min-height: 180px;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.35), transparent 36%),
+        linear-gradient(135deg, #eff6ff, #ffffff 55%, #f8fafc);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      position: relative;
+    }
+
+    .cert-seal {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 35% 35%, #fde68a, #f59e0b 70%);
+      color: #7c2d12;
+      box-shadow: inset 0 0 0 8px rgba(255,255,255,0.35);
+    }
+
+    .soft-input {
+      border: 1px solid rgba(100, 116, 139, 0.18);
+      border-radius: 14px;
+      padding: 0.8rem 1rem;
+      box-shadow: none !important;
+    }
+
+    .soft-input:focus {
+      border-color: rgba(59, 130, 246, 0.55);
+      box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.12) !important;
+    }
+
+    .tab-pill {
+      border: 1px solid rgba(100, 116, 139, 0.18);
+      border-radius: 999px;
+      background: #fff;
+      color: #334155;
+      padding: 0.6rem 1rem;
+      transition: 0.2s ease;
+    }
+
+    .tab-pill.active,
+    .tab-pill:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
+    .muted-text {
+      color: var(--muted);
+    }
+
+    .mini-divider {
+      width: 72px;
+      height: 4px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--primary), #22c55e);
+    }
+
+    .btn-primary {
+      border-radius: 14px;
+      background: var(--primary);
+      border: none;
+    }
+
+    .btn-outline-primary,
+    .btn-outline-secondary {
+      border-radius: 14px;
+    }
+
+    .dropdown-menu {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .empty-state {
+      border: 1px dashed rgba(100, 116, 139, 0.25);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.7);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page-shell py-4 py-lg-5 px-3 px-lg-4">
+    <!-- Header -->
+    <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-outline-primary btn-light back-btn shadow-sm" onclick="history.back()" aria-label="Go back">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <div>
+          <h1 class="h4 fw-bold mb-1">Certificates</h1>
+          <div class="muted-text">Your earned certificates and achievements</div>
         </div>
-        <a class="btn btn-outline-secondary btn-sm" href="certificate-request.html"><i class="bi bi-award me-1"></i>Request Certificate</a>
       </div>
 
-      <div class="row g-3">
-        <div class="col-md-6">
-          <div class="card p-3">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h6 class="mb-1">Completion — JavaScript for Beginners</h6>
-                <small class="muted">Issued: 2026-02-05</small>
-              </div>
-              <div class="text-end"><a class="btn btn-sm btn-outline-primary" href="certificate-view.html">View / Download</a></div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#certificateGuideModal">
+          <i class="bi bi-info-circle me-1"></i> How it works
+        </button>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-card p-4 p-lg-5 mb-4">
+      <div class="row align-items-center g-4 position-relative">
+        <div class="col-lg-8">
+          <div class="hero-badge mb-3">
+            <i class="bi bi-patch-check-fill"></i>
+            Verified completion records
+          </div>
+          <h2 class="fw-bold mb-3">Celebrate your progress with official certificates.</h2>
+          <p class="mb-4 opacity-75" style="max-width: 58ch;">
+            View, download, and share your certificates after completing courses, quizzes, and training paths.
+            Keep track of everything you have earned in one polished dashboard.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#certificatePreviewModal">
+              <i class="bi bi-eye me-1"></i> Preview Certificate
+            </button>
+            <a href="#certificatesList" class="btn btn-outline-light btn-lg">
+              <i class="bi bi-arrow-down-circle me-1"></i> View My Certificates
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 text-lg-end text-center">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width:140px;height:140px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);">
+            <div class="cert-seal">
+              <i class="bi bi-award fs-1"></i>
+            </div>
+          </div>
+          <div class="fw-semibold fs-5">Edvora Tech</div>
+          <div class="opacity-75 small">Learning recognition made beautiful</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="stat-card bg-white p-4 h-100">
+          <div class="d-flex align-items-center gap-3">
+            <div class="stat-icon"><i class="bi bi-award"></i></div>
+            <div>
+              <div class="muted-text small">Total Certificates</div>
+              <div class="h4 fw-bold mb-0" id="totalCertificates">0</div>
             </div>
           </div>
         </div>
       </div>
+      <div class="col-md-4">
+        <div class="stat-card bg-white p-4 h-100">
+          <div class="d-flex align-items-center gap-3">
+            <div class="stat-icon"><i class="bi bi-download"></i></div>
+            <div>
+              <div class="muted-text small">Downloaded</div>
+              <div class="h4 fw-bold mb-0" id="downloadedCertificates">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card bg-white p-4 h-100">
+          <div class="d-flex align-items-center gap-3">
+            <div class="stat-icon"><i class="bi bi-share"></i></div>
+            <div>
+              <div class="muted-text small">Shared</div>
+              <div class="h4 fw-bold mb-0" id="sharedCertificates">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <footer class="mt-4 text-center muted small">© 2026 Edvora Tech</footer>
-    </main>
+    <!-- Search + Filters -->
+    <section class="panel-card bg-white p-3 p-lg-4 mb-4">
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-5">
+          <label class="form-label small text-muted mb-1">Search certificates</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0 rounded-start-4"><i class="bi bi-search"></i></span>
+            <input id="searchInput" type="search" class="form-control soft-input border-start-0" placeholder="Search by course or certificate title..." />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <label class="form-label small text-muted mb-1">Filter</label>
+          <div class="d-flex flex-wrap gap-2" id="filterTabs">
+            <button class="btn tab-pill active" data-filter="all">All</button>
+            <button class="btn tab-pill" data-filter="recent">Recent</button>
+            <button class="btn tab-pill" data-filter="downloaded">Downloaded</button>
+            <button class="btn tab-pill" data-filter="shared">Shared</button>
+          </div>
+        </div>
+        <div class="col-lg-3 text-lg-end">
+          <label class="form-label small text-muted mb-1 d-block">Sort by</label>
+          <select id="sortSelect" class="form-select soft-input">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="title">Title A–Z</option>
+          </select>
+        </div>
+      </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    <!-- Certificates -->
+    <section id="certificatesList" class="row g-4"></section>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="empty-state text-center p-5 mt-3 d-none">
+      <div class="display-6 mb-3"><i class="bi bi-inbox"></i></div>
+      <h5 class="fw-bold mb-2">No certificates found</h5>
+      <p class="muted-text mb-0">Try a different search term or choose another filter.</p>
+    </div>
+  </main>
+
+  <!-- Certificate Preview Modal -->
+  <div class="modal fade" id="certificatePreviewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-0">
+          <div>
+            <h5 class="modal-title fw-bold">Certificate Preview</h5>
+            <small class="text-muted">A polished example of your completion certificate</small>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-3">
+          <div class="certificate-preview rounded-4 p-4 p-lg-5 position-relative">
+            <div class="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-3">
+              <div>
+                <div class="text-uppercase small fw-semibold text-primary">Certificate of Completion</div>
+                <h4 class="fw-bold mb-1">JavaScript for Beginners</h4>
+                <div class="text-muted">Issued to <strong>John Doe</strong></div>
+              </div>
+              <div class="text-end">
+                <div class="cert-seal mb-2 mx-auto mx-lg-0"><i class="bi bi-award fs-3"></i></div>
+                <div class="small text-muted">Verified by Edvora Tech</div>
+              </div>
+            </div>
+
+            <div class="row g-4 align-items-end">
+              <div class="col-md-8">
+                <p class="mb-0 text-muted">
+                  This certificate confirms successful completion of the course, including assessments and project work.
+                </p>
+              </div>
+              <div class="col-md-4 text-md-end">
+                <small class="text-muted d-block">Issued on</small>
+                <div class="fw-semibold">February 5, 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button class="btn btn-primary" onclick="downloadCertificate('JavaScript for Beginners')">
+            <i class="bi bi-download me-1"></i> Download
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guide Modal -->
+  <div class="modal fade" id="certificateGuideModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold">How certificates work</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-3">
+          <div class="d-flex gap-3 mb-3">
+            <div class="stat-icon"><i class="bi bi-check2-circle"></i></div>
+            <div>
+              <div class="fw-semibold">Complete the course or exam</div>
+              <div class="text-muted small">Certificates are issued after successful completion.</div>
+            </div>
+          </div>
+          <div class="d-flex gap-3 mb-3">
+            <div class="stat-icon"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <div class="fw-semibold">Verified and trackable</div>
+              <div class="text-muted small">Each certificate can be reviewed, downloaded, and shared.</div>
+            </div>
+          </div>
+          <div class="d-flex gap-3">
+            <div class="stat-icon"><i class="bi bi-share"></i></div>
+            <div>
+              <div class="fw-semibold">Share your achievement</div>
+              <div class="text-muted small">Use your certificate to showcase progress on your profile.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const certificates = [
+      {
+        title: "JavaScript for Beginners",
+        type: "Completion",
+        course: "Frontend Development",
+        issued: "2026-02-05",
+        status: "downloaded",
+        shared: true,
+        recent: true,
+        grade: "A",
+      },
+      {
+        title: "HTML & CSS Fundamentals",
+        type: "Achievement",
+        course: "Web Design",
+        issued: "2026-01-18",
+        status: "downloaded",
+        shared: false,
+        recent: false,
+        grade: "A+",
+      },
+      {
+        title: "React Essentials",
+        type: "Completion",
+        course: "Modern Frontend",
+        issued: "2026-03-10",
+        status: "shared",
+        shared: true,
+        recent: true,
+        grade: "A",
+      },
+      {
+        title: "Database Basics",
+        type: "Achievement",
+        course: "Backend Development",
+        issued: "2025-12-22",
+        status: "downloaded",
+        shared: false,
+        recent: false,
+        grade: "B+",
+      },
+    ];
+
+    let activeFilter = 'all';
+    let searchTerm = '';
+    let sortMode = 'newest';
+
+    function formatDate(dateStr) {
+      return new Date(dateStr).toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric'
+      });
+    }
+
+    function getBadgeClass(status) {
+      if (status === 'shared') return 'bg-info';
+      if (status === 'downloaded') return 'bg-success';
+      return 'bg-primary';
+    }
+
+    function applyFilters() {
+      let data = [...certificates];
+
+      if (activeFilter !== 'all') {
+        if (activeFilter === 'recent') data = data.filter(c => c.recent);
+        if (activeFilter === 'downloaded') data = data.filter(c => c.status === 'downloaded');
+        if (activeFilter === 'shared') data = data.filter(c => c.shared);
+      }
+
+      if (searchTerm.trim()) {
+        const q = searchTerm.trim().toLowerCase();
+        data = data.filter(c =>
+          c.title.toLowerCase().includes(q) ||
+          c.course.toLowerCase().includes(q) ||
+          c.type.toLowerCase().includes(q)
+        );
+      }
+
+      if (sortMode === 'newest') {
+        data.sort((a, b) => new Date(b.issued) - new Date(a.issued));
+      } else if (sortMode === 'oldest') {
+        data.sort((a, b) => new Date(a.issued) - new Date(b.issued));
+      } else if (sortMode === 'title') {
+        data.sort((a, b) => a.title.localeCompare(b.title));
+      }
+
+      renderCertificates(data);
+      renderStats();
+    }
+
+    function renderCertificates(data) {
+      const list = document.getElementById('certificatesList');
+      const empty = document.getElementById('emptyState');
+      list.innerHTML = '';
+
+      if (!data.length) {
+        empty.classList.remove('d-none');
+        return;
+      }
+      empty.classList.add('d-none');
+
+      data.forEach((cert, index) => {
+        const col = document.createElement('div');
+        col.className = 'col-md-6 col-xl-4';
+        col.innerHTML = `
+          <div class="certificate-card h-100 position-relative">
+            <div class="certificate-ribbon">${cert.type}</div>
+            <div class="certificate-preview p-4">
+              <div class="d-flex justify-content-between align-items-start mb-4 gap-3">
+                <div>
+                  <div class="small text-primary fw-semibold text-uppercase">${cert.course}</div>
+                  <h5 class="fw-bold mb-1">${cert.title}</h5>
+                  <div class="text-muted small">Issued: ${formatDate(cert.issued)}</div>
+                </div>
+                <span class="badge ${getBadgeClass(cert.status)} rounded-pill">${cert.status}</span>
+              </div>
+
+              <div class="d-flex align-items-end justify-content-between gap-3">
+                <div>
+                  <div class="text-muted small">Grade</div>
+                  <div class="fw-bold fs-5">${cert.grade}</div>
+                </div>
+                <div class="cert-seal">
+                  <i class="bi bi-award fs-3"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3 p-lg-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="text-muted small">
+                  <i class="bi bi-calendar-event me-1"></i>${formatDate(cert.issued)}
+                </div>
+                <div class="text-muted small">
+                  <i class="bi bi-people me-1"></i>${cert.shared ? 'Shared on profile' : 'Private'}
+                </div>
+              </div>
+              <div class="d-grid gap-2 d-sm-flex">
+                <button class="btn btn-outline-primary flex-fill" onclick="previewCertificate('${cert.title.replace(/'/g, "\\'")}')">
+                  <i class="bi bi-eye me-1"></i> View
+                </button>
+                <button class="btn btn-primary flex-fill" onclick="downloadCertificate('${cert.title.replace(/'/g, "\\'")}')">
+                  <i class="bi bi-download me-1"></i> Download
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        list.appendChild(col);
+      });
+    }
+
+    function renderStats() {
+      document.getElementById('totalCertificates').textContent = certificates.length;
+      document.getElementById('downloadedCertificates').textContent = certificates.filter(c => c.status === 'downloaded').length;
+      document.getElementById('sharedCertificates').textContent = certificates.filter(c => c.shared).length;
+    }
+
+    function previewCertificate(title) {
+      const modal = new bootstrap.Modal(document.getElementById('certificatePreviewModal'));
+      modal.show();
+      document.querySelector('#certificatePreviewModal .modal-title').textContent = `${title} — Preview`;
+    }
+
+    function downloadCertificate(title) {
+      alert(`Preparing download for: ${title}`);
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      searchTerm = e.target.value;
+      applyFilters();
+    });
+
+    document.getElementById('sortSelect').addEventListener('change', (e) => {
+      sortMode = e.target.value;
+      applyFilters();
+    });
+
+    document.querySelectorAll('#filterTabs [data-filter]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#filterTabs [data-filter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    applyFilters();
+  </script>
+</body>
 </html>

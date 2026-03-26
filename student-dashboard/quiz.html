@@ -1,45 +1,272 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Quizzes — Edvora Tech</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <style>body{font-family:Poppins,system-ui;background:#f4f6f9;padding-top:70px}.container-page{max-width:1000px;margin:auto}.navbar-custom{background:linear-gradient(135deg,#0d0d0d 5%,#1f8fff 100%)!important}.card{border-radius:12px}</style>
+    <title>Quizzes & Exams — Edvora Tech</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-blue: #1f8fff;
+        --primary-blue-dark: #0070e0;
+        --primary-black: #0d0d0d;
+        --primary: #3b82f6;
+        --primary-soft: #e8f0ff;
+        --bg: #f5f7fb;
+      }
+
+      body {
+        background: var(--bg);
+        font-family: Poppins, system-ui;
+      }
+
+      .card {
+        border: none;
+        border-radius: 18px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--primary-black) 0%,
+          var(--primary-blue) 100%
+        );
+        color: #fff;
+        border-radius: 20px;
+      }
+
+      .quiz-card {
+        transition: 0.25s ease;
+        cursor: pointer;
+      }
+
+      .quiz-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .badge {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+        border-radius: 50px;
+      }
+
+      .stat-box {
+        background: #fff;
+        border-radius: 16px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .stat-icon {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        margin: auto;
+        margin-bottom: 10px;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        border: none;
+        border-radius: 10px;
+      }
+
+      .btn-outline-primary {
+        border-radius: 10px;
+      }
+    </style>
   </head>
+
   <body>
-    <nav class="navbar navbar-custom fixed-top"><div class="container"><a class="navbar-brand text-white" href="student-dashboard.html">Edvora Tech</a></div></nav>
-
-    <main class="container-page py-3">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <div class="d-flex gap-3 align-items-center">
-          <button class="btn btn-outline-secondary btn-sm" onclick="history.back()"><i class="bi bi-arrow-left"></i></button>
-          <div><h1 class="h5 mb-0">Quizzes & Exams</h1><div class="muted small">Take quizzes and review results</div></div>
-        </div>
-        <a class="btn btn-primary btn-sm" href="start-quiz.html"><i class="bi bi-play-fill me-1"></i>Start New Quiz</a>
-      </div>
-
-      <div class="row g-3">
-        <div class="col-md-6">
-          <div class="card p-3">
-            <h6 class="mb-1">HTML Basics Quiz</h6>
-            <p class="muted small mb-2">10 questions • 15 minutes</p>
-            <div class="d-flex justify-content-between"><small class="muted">Due: 2026-03-25</small><a class="btn btn-sm btn-primary" href="start-quiz.html">Start</a></div>
-          </div>
-        </div>
-
-        <div class="col-12">
-          <div class="card p-3">
-            <h6>Recent Scores</h6>
-            <table class="table mt-2 mb-0"><thead><tr><th>Quiz</th><th>Score</th><th>Date</th></tr></thead><tbody><tr><td>HTML Basics</td><td>9/10</td><td>2026-02-28</td></tr></tbody></table>
+    <div class="container py-4">
+      <!-- Header -->
+      <div
+        class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3"
+      >
+        <div class="d-flex align-items-center gap-3">
+          <button
+            class="btn btn-outline-primary btn-light back-btn shadow-sm"
+            onclick="history.back()"
+            aria-label="Go back"
+          >
+            <i class="bi bi-arrow-left"></i>
+          </button>
+          <div>
+            <h4 class="fw-bold mb-0">Quizzes & Exams</h4>
           </div>
         </div>
       </div>
 
-      <footer class="mt-4 text-center muted small">© 2026 Edvora Tech</footer>
-    </main>
+      <!-- Hero -->
+      <div class="hero p-4 mb-4">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+        >
+          <div>
+            <h5 class="fw-bold">Keep learning</h5>
+            <p class="mb-0 small">
+              Complete quizzes to improve your skills and earn points.
+            </p>
+          </div>
+          <div class="text-end">
+            <h3 class="fw-bold mb-0" id="avgScore">0%</h3>
+            <small>Average Score</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="stat-box">
+            <div class="stat-icon"><i class="bi bi-list-task"></i></div>
+            <h6 class="text-muted">Total Quizzes</h6>
+            <h4 id="totalQuizzes">0</h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stat-box">
+            <div class="stat-icon"><i class="bi bi-check-circle"></i></div>
+            <h6 class="text-muted">Completed</h6>
+            <h4 id="completedQuizzes">0</h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stat-box">
+            <div class="stat-icon"><i class="bi bi-clock"></i></div>
+            <h6 class="text-muted">Pending</h6>
+            <h4 id="pendingQuizzes">0</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz List -->
+      <div class="row g-3" id="quizList"></div>
+
+      <!-- Results -->
+      <div class="card p-3 mt-4">
+        <h6 class="mb-3">Recent Results</h6>
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th>Quiz</th>
+                <th>Score</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="resultsTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const quizzes = [
+        {
+          title: "HTML Basics",
+          questions: 10,
+          time: 15,
+          due: "2026-03-25",
+          status: "pending",
+        },
+        {
+          title: "CSS Advanced",
+          questions: 15,
+          time: 20,
+          due: "2026-03-28",
+          status: "completed",
+        },
+        {
+          title: "JavaScript",
+          questions: 20,
+          time: 30,
+          due: "2026-04-01",
+          status: "pending",
+        },
+      ];
+
+      const results = [
+        { title: "HTML Basics", score: "9/10", date: "2026-02-28" },
+        { title: "CSS Advanced", score: "13/15", date: "2026-03-10" },
+      ];
+
+      function renderQuizzes() {
+        const container = document.getElementById("quizList");
+        container.innerHTML = "";
+
+        quizzes.forEach((q, i) => {
+          container.innerHTML += `
+      <div class="col-md-6">
+        <div class="card p-3 quiz-card">
+          <div class="d-flex justify-content-between">
+            <h6 class="fw-semibold">${q.title}</h6>
+            <span class="badge bg-${q.status === "completed" ? "success" : "warning"}">${q.status}</span>
+          </div>
+          <p class="text-muted small mb-2">${q.questions} questions • ${q.time} min</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">Due: ${q.due}</small>
+            <button class="btn btn-sm ${q.status === "completed" ? "btn-outline-primary" : "btn-primary"}" onclick="startQuiz(${i})">
+              ${q.status === "completed" ? "Review" : "Start"}
+            </button>
+          </div>
+        </div>
+      </div>`;
+        });
+      }
+
+      function renderResults() {
+        const tbody = document.getElementById("resultsTable");
+        tbody.innerHTML = "";
+        results.forEach((r) => {
+          tbody.innerHTML += `<tr><td>${r.title}</td><td>${r.score}</td><td>${r.date}</td></tr>`;
+        });
+      }
+
+      function renderStats() {
+        document.getElementById("totalQuizzes").textContent = quizzes.length;
+        document.getElementById("completedQuizzes").textContent =
+          quizzes.filter((q) => q.status === "completed").length;
+        document.getElementById("pendingQuizzes").textContent = quizzes.filter(
+          (q) => q.status === "pending",
+        ).length;
+
+        const avg = Math.round(
+          results.reduce((acc, r) => {
+            const [s, t] = r.score.split("/");
+            return acc + (s / t) * 100;
+          }, 0) / results.length,
+        );
+
+        document.getElementById("avgScore").textContent = avg + "%";
+      }
+
+      function startQuiz(i) {
+        alert("Starting: " + (quizzes[i]?.title || "New Quiz"));
+      }
+
+      renderQuizzes();
+      renderResults();
+      renderStats();
+    </script>
   </body>
 </html>
