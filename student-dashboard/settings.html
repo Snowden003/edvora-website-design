@@ -1,46 +1,174 @@
 <!doctype html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Settings — Edvora Tech</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <style>body{font-family:Poppins,system-ui;background:#f4f6f9;padding-top:70px}.container-page{max-width:900px;margin:auto}.navbar-custom{background:linear-gradient(135deg,#0d0d0d 5%,#1f8fff 100%)!important}.card{border-radius:12px}</style>
-  </head>
-  <body>
-    <nav class="navbar navbar-custom fixed-top"><div class="container"><a class="navbar-brand text-white" href="student-dashboard.html">Edvora Tech</a></div></nav>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings — Edvora Tech</title>
 
-    <main class="container-page py-3">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <div class="d-flex gap-3 align-items-center">
-          <button class="btn btn-outline-secondary btn-sm" onclick="history.back()"><i class="bi bi-arrow-left"></i></button>
-          <div><h1 class="h5 mb-0">Settings</h1><div class="muted small">Account & preferences</div></div>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="alert('Saved (sample)')">Save</button>
-      </div>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
 
-      <div class="card p-3">
-        <h6>Preferences</h6>
-        <div class="form-check form-switch my-2">
-          <input class="form-check-input" id="emailNotif" type="checkbox" checked>
-          <label class="form-check-label" for="emailNotif">Email notifications</label>
-        </div>
-        <div class="form-check form-switch my-2">
-          <input class="form-check-input" id="darkMode" type="checkbox">
-          <label class="form-check-label" for="darkMode">Dark mode (sample)</label>
-        </div>
+  <style>
+    body { background:#f5f7fb; font-family:Poppins,system-ui; }
+    .page{max-width:1000px;margin:auto}
 
-        <hr />
+    .card{
+      border:none;
+      border-radius:20px;
+      box-shadow:0 15px 35px rgba(0,0,0,0.08)
+    }
 
-        <h6>Language</h6>
-        <select class="form-select w-auto mt-2"><option value="en" selected>English</option><option value="fa">فارسی</option></select>
-      </div>
+    .section-title{font-weight:600;margin-bottom:15px}
 
-      <footer class="mt-4 text-center muted small">© 2026 Edvora Tech</footer>
-    </main>
+    .setting-item{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 0;
+      border-bottom:1px solid #eee;
+    }
 
-    <script>
-      document.getElementById('darkMode')?.addEventListener('change',function(){document.documentElement.style.filter=this.checked?'invert(0.98)':''});
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    .setting-item:last-child{border-bottom:none}
+
+    .btn{border-radius:12px}
+  </style>
+</head>
+
+<body>
+<main class="page py-4 px-3">
+
+<!-- Header -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div class="d-flex align-items-center gap-3">
+    <button class="btn btn-outline-primary btn-light back-btn shadow-sm" type="button" onclick="history.back()" aria-label="Go back">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+    <div>
+      <h3 class="text-primary mb-0">Settings</h3>
+    </div>
+  </div>
+  <button class="btn btn-primary" onclick="saveSettings()">Save Changes</button>
+</div>
+
+<!-- Settings Card -->
+<div class="card p-4 mb-4">
+  <div class="section-title">Notifications</div>
+
+  <div class="setting-item">
+    <div>
+      <div class="fw-semibold">Email Notifications</div>
+      <small class="text-muted">Receive updates via email</small>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" id="emailNotif" type="checkbox" checked>
+    </div>
+  </div>
+
+  <div class="setting-item">
+    <div>
+      <div class="fw-semibold">Push Notifications</div>
+      <small class="text-muted">Get alerts in browser</small>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" id="pushNotif" type="checkbox">
+    </div>
+  </div>
+</div>
+
+<div class="card p-4 mb-4">
+  <div class="section-title">Appearance</div>
+
+  <div class="setting-item">
+    <div>
+      <div class="fw-semibold">Dark Mode</div>
+      <small class="text-muted">Switch theme</small>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" id="darkMode" type="checkbox">
+    </div>
+  </div>
+</div>
+
+<div class="card p-4 mb-4">
+  <div class="section-title">Language</div>
+
+  <select id="language" class="form-select w-auto">
+    <option value="en">English</option>
+    <option value="fa">فارسی</option>
+  </select>
+</div>
+
+<div class="card p-4">
+  <div class="section-title text-danger">Danger Zone</div>
+
+  <div class="setting-item">
+    <div>
+      <div class="fw-semibold">Delete Account</div>
+      <small class="text-muted">This action cannot be undone</small>
+    </div>
+    <button class="btn btn-outline-danger btn-sm" onclick="deleteAccount()">
+      Delete
+    </button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+  <div id="toast" class="toast text-bg-success border-0">
+    <div class="d-flex">
+      <div class="toast-body">Settings saved successfully ✅</div>
+      <button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center mt-4 text-muted small">© 2026 Edvora Tech</footer>
+
+</main>
+
+<script>
+function saveSettings(){
+  const settings={
+    email:emailNotif.checked,
+    push:pushNotif.checked,
+    dark:darkMode.checked,
+    lang:language.value
+  };
+
+  localStorage.setItem('settings',JSON.stringify(settings));
+
+  const toast=new bootstrap.Toast(document.getElementById('toast'));
+  toast.show();
+}
+
+function loadSettings(){
+  const data=JSON.parse(localStorage.getItem('settings'));
+  if(!data) return;
+
+  emailNotif.checked=data.email;
+  pushNotif.checked=data.push;
+  darkMode.checked=data.dark;
+  language.value=data.lang;
+
+  applyDarkMode(data.dark);
+}
+
+function applyDarkMode(enabled){
+  document.body.style.background=enabled?'#0f172a':'#f5f7fb';
+  document.body.style.color=enabled?'white':'black';
+}
+
+darkMode.addEventListener('change',e=>applyDarkMode(e.target.checked));
+
+function deleteAccount(){
+  if(confirm('Are you sure? This cannot be undone')){
+    alert('Account deleted (demo)');
+  }
+}
+
+loadSettings();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
