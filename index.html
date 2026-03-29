@@ -7,25 +7,28 @@
     <title>Edvora Tech - Learn, Grow, Excel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/home-roadmap.css">
-    <link rel="stylesheet" href="assets/css/video-guide.css">
-    <link rel="stylesheet" href="assets/css/modern-footer.css">
-    <link rel="stylesheet" href="assets/css/php-coding-hero.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- Custom CSS -->
+    <!-- Custom CSS - Base Styles -->
+    <link href="assets/css/variables.css" rel="stylesheet">
+    <link href="assets/css/global.css" rel="stylesheet">
+    <link href="assets/css/animations.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/events.css">
     <link rel="stylesheet" href="assets/css/courses.css">
     <link rel="stylesheet" href="assets/css/teachers.css">
     <link rel="stylesheet" href="assets/css/competitions.css">
-    <link href="assets/css/global.css" rel="stylesheet"/>
-<link href="assets/css/animations.css" rel="stylesheet"/>
-<link href="assets/css/dashboard.css" rel="stylesheet"/>
-<link href="assets/css/events-pages.css" rel="stylesheet"/>
-<link href="assets/css/courses-pages.css" rel="stylesheet"/>
-<link href="assets/css/auth-pages.css" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/beta-notice.css"/>
+    <link href="assets/css/events-pages.css" rel="stylesheet">
+    <link href="assets/css/courses-pages.css" rel="stylesheet">
+    <!-- Page Specific Styles - Override Base -->
+    <link rel="stylesheet" href="assets/css/home-hero.css">
+    <link rel="stylesheet" href="assets/css/popular-courses.css">
+    <link rel="stylesheet" href="assets/css/home-roadmap.css">
+    <link rel="stylesheet" href="assets/css/video-guide.css">
+    <link rel="stylesheet" href="assets/css/modern-footer.css">
+    <link rel="stylesheet" href="assets/css/beta-notice.css" />
 </head>
 
 <body class="edvora-theme">
@@ -100,7 +103,7 @@
         </div>
     </nav>
     <!-- Hero Section with Special Animation -->
-    <section class="py-5 courses-hero-section">
+    <section class="py-5 courses-hero-section hero-animated">
         <!-- Animated Background -->
         <div class="courses-bg-animation">
             <!-- Floating Learning Icons -->
@@ -212,7 +215,7 @@
                 <div class="courses-slider-wrapper">
                     <div class="courses-slider-track" id="coursesSliderTrack">
                         <!-- Course Cards -->
-                        <div class="course-card">
+                        <div class="course-card course-card-enhanced">
                             <div class="course-image web-dev">
                                 <i class="bi bi-code-slash"></i>
                                 <div class="course-category-badge" style="color: #1F8FFF;">
@@ -229,21 +232,23 @@
                                         <span class="course-rating-score">4.8</span>
                                         <span class="course-rating-count">(2,341)</span>
                                     </div>
-                                                                    </div>
-                                <div class="course-meta">
-                                    <i class="bi bi-clock"></i>
-                                    <span>12 weeks</span>
-                                    <i class="bi bi-people"></i>
-                                    <span>15,234 students</span>
                                 </div>
-                                <button class="course-enroll-btn">
-                                    Enroll Now
-                                </button>
+                                <div class="course-meta">
+                                    <div>
+                                        <i class="bi bi-clock"></i>
+                                        <span>12 weeks</span>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-people"></i>
+                                        <span>15,234</span>
+                                    </div>
+                                    <button class="course-enroll-btn"></button>
+                                </div>
                             </div>
                         </div>
 
 
-                        <div class="course-card">
+                        <div class="course-card course-card-enhanced">
                             <div class="course-image design">
                                 <i class="bi bi-palette"></i>
                                 <div class="course-category-badge" style="color: #0D0D0D;">
@@ -260,21 +265,23 @@
                                         <span class="course-rating-score">4.9</span>
                                         <span class="course-rating-count">(1,892)</span>
                                     </div>
-                                                                    </div>
-                                <div class="course-meta">
-                                    <i class="bi bi-clock"></i>
-                                    <span>8 weeks</span>
-                                    <i class="bi bi-people"></i>
-                                    <span>9,876 students</span>
                                 </div>
-                                <button class="course-enroll-btn">
-                                    Enroll Now
-                                </button>
+                                <div class="course-meta">
+                                    <div>
+                                        <i class="bi bi-clock"></i>
+                                        <span>8 weeks</span>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-people"></i>
+                                        <span>9,876</span>
+                                    </div>
+                                    <button class="course-enroll-btn"></button>
+                                </div>
                             </div>
                         </div>
 
 
-                        <div class="course-card">
+                        <div class="course-card course-card-enhanced">
                             <div class="course-image ai-ml">
                                 <i class="bi bi-robot"></i>
                                 <div class="course-category-badge" style="color: #1F8FFF;">
@@ -291,16 +298,18 @@
                                         <span class="course-rating-score">4.7</span>
                                         <span class="course-rating-count">(3,156)</span>
                                     </div>
-                                                                    </div>
-                                <div class="course-meta">
-                                    <i class="bi bi-clock"></i>
-                                    <span>16 weeks</span>
-                                    <i class="bi bi-people"></i>
-                                    <span>7,543 students</span>
                                 </div>
-                                <button class="course-enroll-btn">
-                                    Enroll Now
-                                </button>
+                                <div class="course-meta">
+                                    <div>
+                                        <i class="bi bi-clock"></i>
+                                        <span>16 weeks</span>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-people"></i>
+                                        <span>7,543</span>
+                                    </div>
+                                    <button class="course-enroll-btn"></button>
+                                </div>
                             </div>
                         </div>
 
@@ -322,16 +331,18 @@
                                         <span class="course-rating-score">4.6</span>
                                         <span class="course-rating-count">(2,789)</span>
                                     </div>
-                                                                    </div>
-                                <div class="course-meta">
-                                    <i class="bi bi-clock"></i>
-                                    <span>14 weeks</span>
-                                    <i class="bi bi-people"></i>
-                                    <span>11,432 students</span>
                                 </div>
-                                <button class="course-enroll-btn">
-                                    Enroll Now
-                                </button>
+                                <div class="course-meta">
+                                    <div>
+                                        <i class="bi bi-clock"></i>
+                                        <span>14 weeks</span>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-people"></i>
+                                        <span>11,432</span>
+                                    </div>
+                                    <button class="course-enroll-btn"></button>
+                                </div>
                             </div>
                         </div>
 
@@ -353,16 +364,18 @@
                                         <span class="course-rating-score">4.8</span>
                                         <span class="course-rating-count">(1,654)</span>
                                     </div>
-                                                                    </div>
-                                <div class="course-meta">
-                                    <i class="bi bi-clock"></i>
-                                    <span>10 weeks</span>
-                                    <i class="bi bi-people"></i>
-                                    <span>6,789 students</span>
                                 </div>
-                                <button class="course-enroll-btn">
-                                    Enroll Now
-                                </button>
+                                <div class="course-meta">
+                                    <div>
+                                        <i class="bi bi-clock"></i>
+                                        <span>10 weeks</span>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-people"></i>
+                                        <span>6,789</span>
+                                    </div>
+                                    <button class="course-enroll-btn"></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -992,7 +1005,7 @@
     <script src="assets/js/php-coding-hero.js"></script>
     <script src="assets/js/video-guide.js"></script>
     <script src="assets/js/modern-footer.js"></script>
-<script src="assets/js/beta-notice.js" defer></script>
+    <script src="assets/js/beta-notice.js" defer></script>
 </body>
 
 </html>

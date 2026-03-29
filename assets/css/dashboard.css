@@ -1618,14 +1618,7 @@
 }
 
 /* ===== COURSES PAGE HERO ANIMATION STYLES ===== */
-.courses-hero-section {
-    background: linear-gradient(135deg, var(--primary-black) 0%, var(--primary-blue) 100%);
-    position: relative;
-    overflow: hidden;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-}
+/* Moved to home-hero.css */
 
 /* Animated Background */
 .courses-bg-animation {

@@ -1,4 +1,6 @@
 /* Animation Classes */
+@import "variables.css";
+
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -264,5 +266,26 @@
 @keyframes spin {
     to {
         transform: rotate(360deg);
+    }
+}
+
+/* Premium Hero Animation */
+.hero-animated {
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--primary-blue) 30%, var(--accent-cyan) 70%, var(--primary-blue) 100%) !important;
+    background-size: 400% 400%;
+    animation: edvoraGradientFlow 12s ease-in-out infinite !important;
+}
+
+@keyframes edvoraGradientFlow {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
     }
 }
