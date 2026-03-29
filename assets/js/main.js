@@ -191,21 +191,25 @@ function initCoursesSlider() {
 
         if (Math.abs(diffX) > 50) {
             if (diffX > 0) {
-                currentSlide++;
+                currentIndex++;
                 updateSlider();
-                if (currentSlide > totalSlides) {
+                if (currentIndex >= totalCards) {
+                    isTransitioning = true;
                     setTimeout(() => {
-                        currentSlide = 1;
+                        currentIndex = 0;
                         updateSlider(false);
+                        isTransitioning = false;
                     }, 500);
                 }
             } else {
-                currentSlide--;
+                currentIndex--;
                 updateSlider();
-                if (currentSlide <= 0) {
+                if (currentIndex < 0) {
+                    isTransitioning = true;
                     setTimeout(() => {
-                        currentSlide = totalSlides;
+                        currentIndex = totalCards - 1;
                         updateSlider(false);
+                        isTransitioning = false;
                     }, 500);
                 }
             }
@@ -213,16 +217,19 @@ function initCoursesSlider() {
 
         // Restart auto-play
         autoPlayInterval = setInterval(() => {
-            currentSlide++;
+            if (isTransitioning) return;
+            currentIndex++;
             updateSlider();
 
-            if (currentSlide > totalSlides) {
+            if (currentIndex >= totalCards) {
+                isTransitioning = true;
                 setTimeout(() => {
-                    currentSlide = 1;
+                    currentIndex = 0;
                     updateSlider(false);
+                    isTransitioning = false;
                 }, 500);
             }
-        }, 5000);
+        }, 6000);
     });
 
     // Add hover effects to navigation buttons

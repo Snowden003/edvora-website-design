@@ -161,7 +161,7 @@ function renderTeachers() {
 
         return `
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card course-card h-100" style="min-width: auto; max-width: 100%;">
+            <div class="card course-card-enhanced h-100" style="min-width: auto; max-width: 100%;">
                 <div class="position-relative">
                     <img src="${teacher.image}" class="card-img-top" alt="${teacher.name}" style="height: 250px; object-fit: cover;">
                     <div class="position-absolute top-0 start-0 m-2">

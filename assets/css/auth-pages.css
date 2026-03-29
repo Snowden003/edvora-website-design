@@ -1,4 +1,8 @@
 /* Log in page, Sign in page and forgot password page */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
 .togglePass {
     position: absolute;
     top: 50%;
@@ -17,7 +21,7 @@
     font-size: 1.22rem;
 }
 
-.link{
+.link {
     color: var(--primary-blue);
     text-decoration: none;
     transition: all 0.3s ease;
@@ -33,5 +37,5 @@
 }
 
 .custom-shadow {
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.208);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.208);
 }
