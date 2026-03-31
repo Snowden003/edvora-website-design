@@ -265,7 +265,7 @@ function loadUpcomingEvents() {
             description: "Join industry leaders and explore the latest advances in artificial intelligence and machine learning technologies.",
             image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop",
             attendees: 500,
-            price: "Free"
+            // price: "Free"
         },
         {
             id: 2,
@@ -277,7 +277,7 @@ function loadUpcomingEvents() {
             description: "Intensive hands-on workshop covering modern web development frameworks and best practices.",
             image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop",
             attendees: 150,
-            price: "$49"
+            // price: "$49"
         },
         {
             id: 3,
@@ -289,7 +289,7 @@ function loadUpcomingEvents() {
             description: "Network with top companies and discover exciting career opportunities in data science and analytics.",
             image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
             attendees: 800,
-            price: "Free"
+            // price: "Free"
         },
         {
             id: 4,
@@ -301,7 +301,7 @@ function loadUpcomingEvents() {
             description: "Learn cutting-edge digital marketing strategies and tools from industry experts.",
             image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
             attendees: 300,
-            price: "$29"
+            // price: "$29"
         },
         {
             id: 5,
@@ -313,7 +313,7 @@ function loadUpcomingEvents() {
             description: "Master the principles of user interface and user experience design with practical projects.",
             image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop",
             attendees: 120,
-            price: "$39"
+            // price: "$39"
         },
         {
             id: 6,
@@ -325,7 +325,7 @@ function loadUpcomingEvents() {
             description: "Essential cybersecurity concepts and hands-on experience with security tools and techniques.",
             image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
             attendees: 200,
-            price: "$59"
+            // price: "$59"
         }
     ];
 
