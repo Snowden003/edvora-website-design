@@ -2690,10 +2690,8 @@ body.dark-mode .card {
   min-height: 100vh;
   background: linear-gradient(
     135deg,
-    #1f8fff 0%,
-    #1a4ed8 25%,
-    #1f8fff 75%,
-    #00f0ff 100%
+    var(--primary-black) 0%,
+    var(--primary-blue) 100%
   );
   overflow: hidden;
   display: flex;
@@ -2775,17 +2773,17 @@ body.dark-mode .card {
   }
 
   25% {
-    transform: translateY(-20px) rotate(90deg);
+    transform: translateY(-20px) rotate(10deg);
     opacity: 0.3;
   }
 
   50% {
-    transform: translateY(-40px) rotate(180deg);
+    transform: translateY(-40px) rotate(20deg);
     opacity: 0.1;
   }
 
   75% {
-    transform: translateY(-20px) rotate(270deg);
+    transform: translateY(-20px) rotate(40deg);
     opacity: 0.3;
   }
 }
