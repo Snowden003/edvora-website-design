@@ -23,7 +23,7 @@
     <link href="assets/css/animations.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- <link href="assets/css/dashboard.css" rel="stylesheet" /> -->
-    <link rel="stylesheet" href="assets/css/events.css" />
+    <!-- <link rel="stylesheet" href="assets/css/events.css" /> -->
     <link rel="stylesheet" href="assets/css/courses.css" />
     <link rel="stylesheet" href="assets/css/teachers.css" />
     <link rel="stylesheet" href="assets/css/competitions.css" />
@@ -614,57 +614,58 @@
     </section>
 
     <!-- Upcoming Events -->
-    <section class="py-5 gray events-section">
-      <!-- Background Effects -->
-      <div class="events-bg-effects">
-        <!-- Reduced decorative elements -->
-        <div class="event-particle particle-1"></div>
-        <div class="event-particle particle-2"></div>
+    <section class="events-section py-5">
+      <div class="events-bg-effects" aria-hidden="true">
+        <span class="event-particle particle-1"></span>
+        <span class="event-particle particle-2"></span>
       </div>
 
-      <div class="container">
+      <div class="container position-relative">
         <!-- Section Header -->
         <div class="text-center mb-5 events-header">
           <h2 class="fw-bold mb-3 events-title">
             <i class="bi bi-calendar-event me-3 events-icon"></i>
             Upcoming Events
           </h2>
+
           <p class="text-muted fs-5 events-subtitle">
             Join our exciting events and expand your knowledge
           </p>
+
           <div class="events-title-decoration"></div>
         </div>
 
-        <!-- Events Slider Container -->
+        <!-- Events Slider -->
         <div class="events-slider-container">
-          <!-- Navigation Buttons -->
-          <button class="events-nav-btn events-prev">
+          <button
+            type="button"
+            class="events-nav-btn events-prev"
+            aria-label="Previous event"
+          >
             <i class="bi bi-chevron-left"></i>
           </button>
 
-          <button class="events-nav-btn events-next">
+          <div class="events-slider-wrapper">
+            <div class="events-slider-track" id="eventsSliderTrack"></div>
+          </div>
+
+          <button
+            type="button"
+            class="events-nav-btn events-next"
+            aria-label="Next event"
+          >
             <i class="bi bi-chevron-right"></i>
           </button>
-
-          <!-- Slider Wrapper -->
-          <div class="events-slider-wrapper">
-            <div class="events-slider-track" id="eventsSliderTrack">
-              <!-- Event cards will be populated by JavaScript -->
-            </div>
-          </div>
-
-          <!-- Slider Indicators -->
-          <div class="events-indicators">
-            <div class="events-indicator active"></div>
-            <div class="events-indicator"></div>
-            <div class="events-indicator"></div>
-          </div>
         </div>
+
+        <!-- Indicators -->
+        <div class="events-indicators" id="eventsIndicators"></div>
 
         <!-- View All Button -->
         <div class="text-center mt-5 events-view-all">
           <a href="events.html" class="btn btn-lg events-view-btn">
-            <i class="bi bi-calendar-check me-2"></i>View All Events
+            <i class="bi bi-calendar-check me-2"></i>
+            View All Events
           </a>
         </div>
       </div>

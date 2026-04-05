@@ -182,10 +182,12 @@ function loadPopularCourses() {
   return;
 }
 
-// Load Enhanced Upcoming Events
+// Load Upcoming Events with Enhanced Design
 function loadUpcomingEvents() {
   const eventsContainer = document.getElementById("eventsSliderTrack");
-  if (!eventsContainer) return;
+  const indicatorsContainer = document.getElementById("eventsIndicators");
+
+  if (!eventsContainer || !indicatorsContainer) return;
 
   const events = [
     {
@@ -274,257 +276,211 @@ function loadUpcomingEvents() {
     },
   ];
 
-  // Create enhanced event cards with animations
   eventsContainer.innerHTML = events
     .map(
-      (event, index) => `
-        <div class="event-card-enhanced" style="animation: eventCardEntrance 0.8s ease-out ${index * 0.1}s both;">
-            <div class="event-image-container">
-                <img src="${event.image}" alt="${event.title}" class="event-image">
-                <div class="event-date-badge">${event.date}</div>
-                <div class="event-category-badge">${event.category}</div>
+      (event) => `
+        <article class="event-card-enhanced">
+          <div class="event-image-container">
+            <img src="${event.image}" alt="${event.title}" class="event-image" loading="lazy">
+            <div class="event-date-badge">${event.date}</div>
+            <div class="event-category-badge">${event.category}</div>
+          </div>
+
+          <div class="event-content">
+            <h5 class="event-title">${event.title}</h5>
+            <p class="event-description">${event.description}</p>
+
+            <div class="event-meta">
+              <div class="event-meta-item">
+                <i class="bi bi-clock-fill"></i>
+                <span>${event.time}</span>
+              </div>
+
+              <div class="event-meta-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>${event.location}</span>
+              </div>
+
+              <div class="event-meta-item">
+                <i class="bi bi-people-fill"></i>
+                <span>${event.attendees} attendees</span>
+              </div>
+
+              <div class="event-meta-item">
+                <i class="bi bi-tag-fill"></i>
+                <span class="fw-bold" style="color: #ff8a00;">${event.price}</span>
+              </div>
             </div>
-            <div class="event-content">
-                <h5 class="event-title">${event.title}</h5>
-                <p class="event-description">${event.description}</p>
-                <div class="event-meta">
-                    <div class="event-meta-item">
-                        <i class="bi bi-clock-fill"></i>
-                        <span>${event.time}</span>
-                    </div>
-                    <div class="event-meta-item">
-                        <i class="bi bi-geo-alt-fill"></i>
-                        <span>${event.location}</span>
-                    </div>
-                    <div class="event-meta-item">
-                        <i class="bi bi-people-fill"></i>
-                        <span>${event.attendees} attendees</span>
-                    </div>
-                    <div class="event-meta-item">
-                        <i class="bi bi-tag-fill"></i>
-                        <span class="fw-bold" style="color: var(--primary-orange);">${event.price}</span>
-                    </div>
-                </div>
-                <button class="event-register-btn" onclick="registerEvent(${event.id})">
-                    <i class="bi bi-calendar-plus me-2"></i>Register Now
-                </button>
-            </div>
-        </div>
-    `,
+
+            <button type="button" class="event-register-btn" onclick="registerEvent(${event.id})">
+              <i class="bi bi-calendar-plus me-2"></i>
+              Register Now
+            </button>
+          </div>
+        </article>
+      `,
     )
     .join("");
 
-  // Initialize events slider after loading content
-  setTimeout(() => {
-    initEventsSlider();
-  }, 100);
+  indicatorsContainer.innerHTML = events
+    .map(
+      (_, index) => `
+        <span class="events-indicator ${index === 0 ? "active" : ""}" data-index="${index}" role="button" tabindex="0" aria-label="Go to event ${index + 1}"></span>
+      `,
+    )
+    .join("");
+
+  initEventsSlider();
 }
 
-// Initialize Enhanced Events Slider (similar to courses slider)
+// Initialize Events Slider with Infinite Loop and Autoplay
 function initEventsSlider() {
-  const sliderTrack = document.getElementById("eventsSliderTrack");
+  const track = document.getElementById("eventsSliderTrack");
+  const container = document.querySelector(".events-slider-container");
   const prevBtn = document.querySelector(".events-prev");
   const nextBtn = document.querySelector(".events-next");
-  const indicators = document.querySelectorAll(".events-indicator");
+  const indicators = Array.from(document.querySelectorAll(".events-indicator"));
 
-  if (!sliderTrack || !prevBtn || !nextBtn) return;
+  if (!track || !container || !prevBtn || !nextBtn) return;
+  if (track.dataset.initialized === "true") return;
 
-  const originalCards = Array.from(
-    sliderTrack.querySelectorAll(".event-card-enhanced"),
-  );
-  const totalCards = originalCards.length;
+  const originals = Array.from(track.querySelectorAll(".event-card-enhanced"));
+  const totalCards = originals.length;
+  if (!totalCards) return;
 
-  // Create seamless infinite scroll by duplicating cards
-  sliderTrack.innerHTML = "";
+  track.dataset.initialized = "true";
 
-  // Add original cards first
-  originalCards.forEach((card) => {
-    sliderTrack.appendChild(card.cloneNode(true));
-  });
+  // Infinite loop setup
+  track.innerHTML = "";
+  originals.forEach((card) => track.appendChild(card.cloneNode(true)));
+  originals.forEach((card) => track.appendChild(card.cloneNode(true)));
 
-  // Add duplicate cards for seamless loop
-  originalCards.forEach((card) => {
-    sliderTrack.appendChild(card.cloneNode(true));
-  });
-
-  const cardWidth = 380; // 350px card + 30px gap
   let currentIndex = 0;
-  let isTransitioning = false;
+  let isLocked = false;
+  let autoplayId = null;
+  let startX = 0;
 
-  // Update slider position
-  function updateSlider(smooth = true) {
-    sliderTrack.style.transition = smooth
-      ? "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
-      : "none";
-    sliderTrack.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+  function getStep() {
+    const firstCard = track.querySelector(".event-card-enhanced");
+    if (!firstCard) return 0;
 
-    // Update indicators based on position within original set
-    const indicatorIndex = currentIndex % totalCards;
-    indicators.forEach((indicator, index) => {
-      indicator.classList.toggle("active", index === indicatorIndex);
+    const cardWidth = firstCard.getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(track).gap || "0");
+    return cardWidth + gap;
+  }
+
+  function updateIndicators() {
+    const activeIndex = ((currentIndex % totalCards) + totalCards) % totalCards;
+    indicators.forEach((dot, index) => {
+      dot.classList.toggle("active", index === activeIndex);
     });
   }
 
-  // Previous slide
-  prevBtn.addEventListener("click", () => {
-    if (isTransitioning) return;
+  function render(animate = true) {
+    const step = getStep();
 
-    currentIndex--;
-    updateSlider();
+    track.style.transition = animate ? "transform 0.5s ease" : "none";
+    track.style.transform = `translate3d(${-currentIndex * step}px, 0, 0)`;
 
-    // Reset to end when reaching beginning
+    updateIndicators();
+  }
+
+  function goNext() {
+    if (isLocked) return;
+
+    currentIndex += 1;
+    render(true);
+
+    if (currentIndex >= totalCards) {
+      isLocked = true;
+      setTimeout(() => {
+        currentIndex = 0;
+        render(false);
+        isLocked = false;
+      }, 500);
+    }
+  }
+
+  function goPrev() {
+    if (isLocked) return;
+
+    currentIndex -= 1;
+    render(true);
+
     if (currentIndex < 0) {
-      isTransitioning = true;
+      isLocked = true;
       setTimeout(() => {
         currentIndex = totalCards - 1;
-        updateSlider(false);
-        isTransitioning = false;
+        render(false);
+        isLocked = false;
       }, 500);
     }
-  });
+  }
 
-  // Next slide
-  nextBtn.addEventListener("click", () => {
-    if (isTransitioning) return;
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayId = setInterval(goNext, 4000);
+  }
 
-    currentIndex++;
-    updateSlider();
-
-    // Reset to beginning when reaching end of first set
-    if (currentIndex >= totalCards) {
-      isTransitioning = true;
-      setTimeout(() => {
-        currentIndex = 0;
-        updateSlider(false);
-        isTransitioning = false;
-      }, 500);
+  function stopAutoplay() {
+    if (autoplayId) {
+      clearInterval(autoplayId);
+      autoplayId = null;
     }
-  });
+  }
 
-  // Indicator clicks
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener("click", () => {
-      if (isTransitioning) return;
-      currentIndex = index;
-      updateSlider();
+  function goToIndex(index) {
+    if (isLocked) return;
+    currentIndex = index;
+    render(true);
+  }
+
+  prevBtn.addEventListener("click", goPrev);
+  nextBtn.addEventListener("click", goNext);
+
+  indicators.forEach((dot) => {
+    const index = Number(dot.dataset.index);
+
+    dot.addEventListener("click", () => goToIndex(index));
+    dot.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        goToIndex(index);
+      }
     });
   });
 
-  // Auto-play functionality
-  let autoPlayInterval = setInterval(() => {
-    if (isTransitioning) return;
+  container.addEventListener("mouseenter", stopAutoplay);
+  container.addEventListener("mouseleave", startAutoplay);
 
-    currentIndex++;
-    updateSlider();
+  window.addEventListener("resize", () => render(false));
 
-    // Reset to beginning when reaching end of first set
-    if (currentIndex >= totalCards) {
-      isTransitioning = true;
-      setTimeout(() => {
-        currentIndex = 0;
-        updateSlider(false);
-        isTransitioning = false;
-      }, 500);
-    }
-  }, 4000);
+  track.addEventListener(
+    "touchstart",
+    (e) => {
+      startX = e.touches[0].clientX;
+      stopAutoplay();
+    },
+    { passive: true },
+  );
 
-  // Pause auto-play on hover
-  const sliderContainer = document.querySelector(".events-slider-container");
-  sliderContainer.addEventListener("mouseenter", () => {
-    clearInterval(autoPlayInterval);
-  });
+  track.addEventListener(
+    "touchend",
+    (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
 
-  sliderContainer.addEventListener("mouseleave", () => {
-    autoPlayInterval = setInterval(() => {
-      if (isTransitioning) return;
-
-      currentIndex++;
-      updateSlider();
-
-      if (currentIndex >= totalCards) {
-        isTransitioning = true;
-        setTimeout(() => {
-          currentIndex = 0;
-          updateSlider(false);
-          isTransitioning = false;
-        }, 500);
+      if (Math.abs(diff) > 50) {
+        diff > 0 ? goNext() : goPrev();
       }
-    }, 4000);
-  });
 
-  // Touch/swipe support for mobile
-  let startX = 0;
-  let isDragging = false;
+      startAutoplay();
+    },
+    { passive: true },
+  );
 
-  sliderTrack.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-    clearInterval(autoPlayInterval);
-  });
-
-  sliderTrack.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-  });
-
-  sliderTrack.addEventListener("touchend", (e) => {
-    if (!isDragging) return;
-    isDragging = false;
-
-    const endX = e.changedTouches[0].clientX;
-    const diffX = startX - endX;
-
-    if (Math.abs(diffX) > 50) {
-      if (diffX > 0) {
-        currentIndex++;
-        updateSlider();
-        if (currentIndex >= totalCards) {
-          setTimeout(() => {
-            currentIndex = 0;
-            updateSlider(false);
-          }, 500);
-        }
-      } else {
-        currentIndex--;
-        updateSlider();
-        if (currentIndex < 0) {
-          setTimeout(() => {
-            currentIndex = totalCards - 1;
-            updateSlider(false);
-          }, 500);
-        }
-      }
-    }
-
-    // Restart auto-play
-    autoPlayInterval = setInterval(() => {
-      currentIndex++;
-      updateSlider();
-
-      if (currentIndex >= totalCards) {
-        setTimeout(() => {
-          currentIndex = 0;
-          updateSlider(false);
-        }, 500);
-      }
-    }, 4000);
-  });
-
-  // Add hover effects to navigation buttons
-  [prevBtn, nextBtn].forEach((btn) => {
-    btn.addEventListener("mouseenter", () => {
-      btn.style.transform = "translateY(-50%) scale(1.1)";
-      btn.style.boxShadow = "0 8px 25px rgba(31, 143, 255, 0.5)";
-    });
-
-    btn.addEventListener("mouseleave", () => {
-      btn.style.transform = "translateY(-50%) scale(1)";
-      btn.style.boxShadow = "0 4px 15px rgba(31, 143, 255, 0.3)";
-    });
-  });
-
-  // Initialize
-  updateSlider(false);
+  render(false);
+  startAutoplay();
 }
 
 // Load Upcoming Competitions
@@ -708,7 +664,7 @@ function initStudentsSlider() {
     sliderTrack.appendChild(card.cloneNode(true));
   });
 
-  const cardWidth = 380; // 350px card + 30px gap
+  const cardWidth = 400; // 350px card + 30px gap
   let currentIndex = 0;
   let isTransitioning = false;
 
