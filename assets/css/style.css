@@ -4505,3 +4505,100 @@ section.gray form .form-control {
   background-color: var(--accent-cyan);
   color: white;
 }
+/* ===== COURSES PAGE HERO ANIMATION STYLES ===== */
+.courses-hero-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-black) 0%,
+    var(--primary-blue) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Animated Background */
+.courses-bg-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Floating Learning Icons */
+.floating-learning-icon {
+  position: absolute;
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.1);
+  animation: floatLearning 15s ease-in-out infinite;
+}
+
+.floating-learning-icon.icon-1 {
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.floating-learning-icon.icon-2 {
+  top: 20%;
+  right: 10%;
+  animation-delay: 2s;
+  animation-duration: 14s;
+}
+
+.floating-learning-icon.icon-3 {
+  top: 60%;
+  left: 8%;
+  animation-delay: 4s;
+  animation-duration: 16s;
+}
+
+.floating-learning-icon.icon-4 {
+  top: 70%;
+  right: 15%;
+  animation-delay: 6s;
+  animation-duration: 13s;
+}
+
+.floating-learning-icon.icon-5 {
+  top: 40%;
+  left: 85%;
+  animation-delay: 8s;
+  animation-duration: 15s;
+}
+
+.floating-learning-icon.icon-6 {
+  top: 85%;
+  left: 50%;
+  animation-delay: 10s;
+  animation-duration: 11s;
+}
+
+@keyframes floatLearning {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    opacity: 0.1;
+  }
+
+  25% {
+    transform: translateY(-30px) rotate(90deg) scale(1.2);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateY(-60px) rotate(180deg) scale(0.8);
+    opacity: 0.2;
+  }
+
+  75% {
+    transform: translateY(-30px) rotate(270deg) scale(1.1);
+    opacity: 0.25;
+  }
+}
