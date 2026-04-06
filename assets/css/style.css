@@ -3255,7 +3255,6 @@ body.dark-mode .card {
 }
 
 .events-slider-track {
-  width: max-content;
   display: flex;
   align-items: stretch;
   gap: 24px;
@@ -3335,6 +3334,7 @@ body.dark-mode .card {
    Event Card
 ========================= */
 .events-slider-track .event-card-enhanced {
+  min-width: 0;
   flex: 0 0 413px;
   background: #fff;
   border-radius: 22px;
@@ -4180,9 +4180,20 @@ section.gray form .form-control {
 
 /* ========= 992px ========= */
 @media (max-width: 998px) {
-  .event-card-enhanced {
-    flex-basis: calc((100% - 24px) / 2);
+  /* Courses slider */
+  .courses-slider-track .course-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+    max-width: calc((100% - 20px) / 2);
+  }
+
+  .events-slider-track .event-card-enhanced {
+    flex: 0 0 calc((100% - 24px) / 2);
     max-width: calc((100% - 24px) / 2);
+  }
+
+  .students-slider-track .student-card-enhanced {
+    flex: 0 0 calc((100% - 30px) / 2);
+    max-width: calc((100% - 30px) / 2);
   }
 
   .hero-image-container {
@@ -4427,6 +4438,30 @@ section.gray form .form-control {
   }
   .slider-next {
     right: -15px !important;
+  }
+
+  .courses-slider-track .course-card {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .events-slider-track {
+    gap: 15px !important;
+  }
+
+  .events-slider-track .event-card-enhanced {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .students-slider-track {
+    gap: 0;
+    padding: 10px;
+  }
+
+  .students-slider-track .student-card-enhanced {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
