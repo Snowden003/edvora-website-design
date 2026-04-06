@@ -33,39 +33,45 @@
 
 /* Hero generic animated gradient */
 .hero-animated {
-  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-orange) 50%, var(--brand-yellow) 100%);
+  background: linear-gradient(135deg, #0D0D0D 0%, #1F8FFF 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
+}
+
+/* About page hero ONLY - dark gradient matching Home */
+body .hero-section.hero-animated {
+  background: linear-gradient(135deg, #0D0D0D 0%, #1F8FFF 50%, #0D0D0D 100%) !important;
+  background-size: 300% 300% !important;
+  animation: heroGradientFlow 12s ease-in-out infinite !important;
+}
+
+/* How-we-work page hero - dark animated gradient matching Home */
+/* More specific selector to override animations.css */
+body section.hero-animated:not(.hero-section) {
+  background: linear-gradient(135deg, #0D0D0D 0%, #1F8FFF 50%, #0D0D0D 100%) !important;
+  background-size: 300% 300% !important;
+  animation: heroGradientFlow 12s ease-in-out infinite !important;
+}
+
+@keyframes heroGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-animated .container {
   position: relative;
-  z-index: 10
-}
-
-/* Enhance hero with animated gradient flow */
-.hero-animated {
-  background: linear-gradient(135deg, #1F8FFF 0%, #0D0D0D 50%, #1F8FFF 100%);
-  background-size: 300% 300%;
-  animation: edvoraGradientFlow 14s ease-in-out infinite;
-}
-
-@keyframes edvoraGradientFlow {
-  0% {
-    background-position: 0% 50%
-  }
-
-  50% {
-    background-position: 100% 50%
-  }
-
-  100% {
-    background-position: 0% 50%
-  }
+  z-index: 10;
 }
 
 
@@ -93,16 +99,16 @@
   border-radius: 14px;
   border: none;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--brand-yellow), #ffd24d);
+  background: linear-gradient(135deg, #00F0FF, #00d4e6);
   color: #1b1b1b;
-  box-shadow: 0 10px 30px rgba(255, 172, 30, .35);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, .35);
   transition: transform .25s ease, box-shadow .25s ease, filter .25s ease
 }
 
 .btn-hero-primary:hover {
   transform: translateY(-2px);
   filter: brightness(.97);
-  box-shadow: 0 14px 36px rgba(255, 172, 30, .45)
+  box-shadow: 0 14px 36px rgba(0, 240, 255, .45)
 }
 
 .btn-hero-secondary {
@@ -147,7 +153,7 @@
 .hero-stat .value {
   font-size: 1.8rem;
   font-weight: 900;
-  color: var(--brand-yellow)
+  color: #00F0FF
 }
 
 .hero-stat .label {
@@ -235,7 +241,7 @@
 }
 
 .impact-value {
-  color: var(--brand-orange);
+  color: #1F8FFF;
   font-size: 3rem;
   font-weight: 850;
   margin-bottom: 1rem;
@@ -340,7 +346,7 @@
 }
 
 .story-title .highlight {
-  color: var(--brand-yellow);
+  color: #00F0FF;
   text-shadow: 0 5px 20px rgba(0, 0, 0, .8)
 }
 
@@ -432,7 +438,7 @@
 }
 
 .story-icon.orange i {
-  color: var(--brand-orange);
+  color: #FF6D00;
 }
 
 /* Visual block */
@@ -456,7 +462,7 @@
 }
 
 .visual-alt-1 i {
-  color: var(--brand-orange);
+  color: #1F8FFF;
   filter: drop-shadow(0 15px 30px rgba(31, 143, 255, 0.4));
   animation: visualIconFloat 4s ease-in-out infinite;
 }
@@ -493,7 +499,7 @@
   left: 0;
   top: 0;
   font-size: 1.2rem;
-  color: var(--brand-orange);
+  color: #1F8FFF;
   background: rgba(31, 143, 255, 0.1);
   width: 30px;
   height: 30px;
@@ -510,7 +516,7 @@
 }
 
 .operate-list li:hover::before {
-  background: var(--brand-orange);
+  background: #1F8FFF;
   color: #fff;
   transform: scale(1.1);
 }
@@ -522,7 +528,7 @@
 }
 
 .visual-alt-1 {
-  background: linear-gradient(135deg, var(--brand-orange), var(--brand-yellow), var(--brand-blue), var(--brand-orange));
+  background: #ffffff;
   animation-direction: reverse;
   animation-duration: 12s
 }
@@ -569,13 +575,13 @@
 .mission-icon {
   width: 120px;
   height: 120px;
-  background: linear-gradient(45deg, var(--brand-blue), var(--brand-orange), var(--brand-yellow));
+  background: linear-gradient(45deg, #061E3E, #1F8FFF, #00F0FF);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 3rem;
-  box-shadow: 0 20px 50px rgba(3, 55, 205, .3);
+  box-shadow: 0 20px 50px rgba(31, 143, 255, .3);
   animation: missionPulse 4s ease-in-out infinite
 }
 
@@ -878,7 +884,7 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background: linear-gradient(180deg, var(--brand-orange) 0%, var(--brand-yellow) 50%, var(--brand-orange) 100%);
+  background: linear-gradient(180deg, #1F8FFF 0%, #00F0FF 50%, #1F8FFF 100%);
   transform: translateX(-50%);
   border-radius: 4px;
   box-shadow: 0 0 20px rgba(31, 143, 255, 0.4);
@@ -934,12 +940,12 @@
 .timeline-item-premium:hover .timeline-icon-premium {
   transform: translateX(-50%) scale(1.15) rotate(15deg);
   box-shadow: 0 0 35px rgba(31, 143, 255, 0.6);
-  border-color: var(--brand-yellow);
+  border-color: #00F0FF;
 }
 
 .timeline-icon-premium i {
   font-size: 1.8rem;
-  background: linear-gradient(45deg, var(--brand-blue), var(--brand-orange));
+  background: linear-gradient(45deg, #061E3E, #1F8FFF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -978,7 +984,7 @@
 .timeline-year {
   font-size: 1rem;
   font-weight: 800;
-  color: var(--brand-orange);
+  color: #1F8FFF;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 10px;
@@ -1084,7 +1090,7 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background: linear-gradient(90deg, var(--brand-orange), var(--brand-yellow));
+  background: linear-gradient(90deg, #1F8FFF, #00F0FF);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -1117,7 +1123,7 @@
 
 .team-card-v2:hover .team-profile-placeholder {
   transform: scale(1.05) rotate(5deg);
-  background: linear-gradient(135deg, var(--brand-orange), var(--brand-yellow));
+  background: linear-gradient(135deg, #1F8FFF, #00F0FF);
 }
 
 .team-profile-placeholder i {
@@ -1140,7 +1146,7 @@
 .team-role-v2 {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--brand-orange);
+  color: #1F8FFF;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 15px;
@@ -1180,7 +1186,7 @@
 }
 
 .team-social-v2 a:hover {
-  background: var(--brand-orange);
+  background: #1F8FFF;
   color: white;
   transform: translateY(-3px);
 }

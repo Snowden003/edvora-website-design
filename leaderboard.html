@@ -92,160 +92,234 @@
         </div>
     </nav>
 
-    <!-- Leaderboard Hero -->
+    <!-- Leaderboard Hero Section -->
     <header class="leaderboard-hero">
         <div class="leaderboard-bg-animation">
-            <!-- Particles -->
-            <div class="particle p1"
-                style="position:absolute; top:20%; left:10%; width:5px; height:5px; background:white; border-radius:50%; opacity:0.3;">
-            </div>
-            <div class="particle p2"
-                style="position:absolute; top:60%; left:85%; width:7px; height:7px; background:white; border-radius:50%; opacity:0.2;">
-            </div>
-            <div class="particle p3"
-                style="position:absolute; top:30%; left:70%; width:4px; height:4px; background:white; border-radius:50%; opacity:0.4;">
-            </div>
+            <div class="particle p1" style="position:absolute; top:20%; left:10%; width:5px; height:5px; background:white; border-radius:50%; opacity:0.3;"></div>
+            <div class="particle p2" style="position:absolute; top:60%; left:85%; width:7px; height:7px; background:white; border-radius:50%; opacity:0.2;"></div>
+            <div class="particle p3" style="position:absolute; top:30%; left:70%; width:4px; height:4px; background:white; border-radius:50%; opacity:0.4;"></div>
         </div>
 
-        <div class="container position-relative z-top" style="z-index: 10;">
-            <h1 class="hero-title">February Wall of Records</h1>
-            <p class="hero-subtitle">Celebrating the brilliance and hard work of our top performing students in February
-                2026</p>
+        <div class="container position-relative" style="z-index: 10;">
+            <div class="hero-content text-center mb-5">
+                <h1 class="hero-title">February Wall of Records</h1>
+                <p class="hero-subtitle">Celebrating the brilliance and hard work of our top performing students in February 2026</p>
+            </div>
 
-            <!-- Top 3 Podium -->
+            <!-- Top 3 Winners Podium -->
             <div class="podium-container">
-                <!-- Rank 2 -->
-                <div class="podium-item rank-2">
+                <!-- Second Place -->
+                <article class="podium-item rank-2" data-rank="2">
                     <div class="podium-rank">2</div>
-                    <div class="student-img-container">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop"
-                            class="student-img" alt="Student">
+                    <figure class="student-img-container">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop" 
+                             class="student-img" 
+                             alt="Sarah Jenkins - Second Place"
+                             loading="lazy">
+                    </figure>
+                    <div class="student-details">
+                        <h3 class="student-name">Sarah Jenkins</h3>
+                        <p class="student-dept">Cyber Security</p>
+                        <div class="student-score">
+                            <span class="score-value">2,850</span>
+                            <span class="xp-label">XP</span>
+                        </div>
                     </div>
-                    <h3 class="student-name">Sarah Jenkins</h3>
-                    <p class="student-dept">Cyber Security</p>
-                    <div class="student-score">2,850 <span class="xp-label">XP</span></div>
-                </div>
+                </article>
 
-                <!-- Rank 1 -->
-                <div class="podium-item rank-1">
-                    <div class="podium-rank"><i class="bi bi-trophy-fill"></i></div>
-                    <div class="student-img-container">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
-                            class="student-img" alt="Student">
+                <!-- First Place - Champion -->
+                <article class="podium-item rank-1" data-rank="1">
+                    <div class="podium-rank">
+                        <i class="bi bi-trophy-fill"></i>
                     </div>
-                    <h3 class="student-name">Alex Rivera</h3>
-                    <p class="student-dept">Programming & Cyber Security</p>
-                    <div class="student-score">3,120 <span class="xp-label">XP</span></div>
-                </div>
+                    <figure class="student-img-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" 
+                             class="student-img" 
+                             alt="Alex Rivera - Champion"
+                             loading="lazy">
+                    </figure>
+                    <div class="student-details">
+                        <h3 class="student-name">Alex Rivera</h3>
+                        <p class="student-dept">Programming & Cyber Security</p>
+                        <div class="student-score">
+                            <span class="score-value">3,120</span>
+                            <span class="xp-label">XP</span>
+                        </div>
+                    </div>
+                </article>
 
-                <!-- Rank 3 -->
-                <div class="podium-item rank-3">
+                <!-- Third Place -->
+                <article class="podium-item rank-3" data-rank="3">
                     <div class="podium-rank">3</div>
-                    <div class="student-img-container">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop"
-                            class="student-img" alt="Student">
+                    <figure class="student-img-container">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop" 
+                             class="student-img" 
+                             alt="Marcus Chen - Third Place"
+                             loading="lazy">
+                    </figure>
+                    <div class="student-details">
+                        <h3 class="student-name">Marcus Chen</h3>
+                        <p class="student-dept">Web Development</p>
+                        <div class="student-score">
+                            <span class="score-value">2,720</span>
+                            <span class="xp-label">XP</span>
+                        </div>
                     </div>
-                    <h3 class="student-name">Marcus Chen</h3>
-                    <p class="student-dept">Web Development</p>
-                    <div class="student-score">2,720 <span class="xp-label">XP</span></div>
-                </div>
+                </article>
             </div>
         </div>
     </header>
 
-    <!-- Rankings Section -->
+    <!-- Full Rankings List Section -->
     <main class="leaderboard-list-section">
         <div class="container">
-            <div class="leaderboard-table-container">
-                <!-- Table Header -->
-                <div class="header-row"
-                    style="background:rgba(31, 143, 255, 0.05); border-bottom:2px solid rgba(31, 143, 255, 0.1);">
+            <section class="leaderboard-table-container">
+                <!-- Rankings Table Header -->
+                <header class="header-row" style="background:rgba(31, 143, 255, 0.05); border-bottom:2px solid rgba(31, 143, 255, 0.1);">
                     <div class="row-rank text-primary">#</div>
                     <div class="card-info header-info text-primary">
                         <div class="card-name pb-0 mb-0">Student Name</div>
                         <div class="card-dept mt-0 pt-0">Department</div>
                     </div>
                     <div class="card-score text-primary text-end">February XP Score</div>
-                </div>
+                </header>
 
-                <!-- Rank 4-10 -->
-                <div class="ranking-card">
-                    <div class="card-rank">4</div>
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop"
-                        class="card-avatar" alt="Student">
-                    <div class="card-info">
-                        <div class="card-name">Elena Rodriguez</div>
-                        <div class="card-dept">Data Science</div>
-                    </div>
-                    <div class="card-score">2,450 <span class="xp-symbol">XP</span></div>
-                </div>
+                <!-- Rankings List (Positions 4-10) -->
+                <div class="rankings-list">
+                    <!-- Rank 4 -->
+                    <article class="ranking-card" data-rank="4">
+                        <span class="card-rank">4</span>
+                        <figure class="card-avatar-wrapper">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop"
+                                 class="card-avatar" 
+                                 alt="Elena Rodriguez"
+                                 loading="lazy">
+                        </figure>
+                        <div class="card-info">
+                            <h4 class="card-name">Elena Rodriguez</h4>
+                            <p class="card-dept">Data Science</p>
+                        </div>
+                        <div class="card-score">
+                            <span class="score-value">2,450</span>
+                            <span class="xp-symbol">XP</span>
+                        </div>
+                    </article>
 
-                <div class="ranking-card">
-                    <div class="card-rank">5</div>
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop"
-                        class="card-avatar" alt="Student">
-                    <div class="card-info">
-                        <div class="card-name">James Wilson</div>
-                        <div class="card-dept">Cloud Computing</div>
-                    </div>
-                    <div class="card-score">2,380 <span class="xp-symbol">XP</span></div>
-                </div>
+                    <!-- Rank 5 -->
+                    <article class="ranking-card" data-rank="5">
+                        <span class="card-rank">5</span>
+                        <figure class="card-avatar-wrapper">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop"
+                                 class="card-avatar" 
+                                 alt="James Wilson"
+                                 loading="lazy">
+                        </figure>
+                        <div class="card-info">
+                            <h4 class="card-name">James Wilson</h4>
+                            <p class="card-dept">Cloud Computing</p>
+                        </div>
+                        <div class="card-score">
+                            <span class="score-value">2,380</span>
+                            <span class="xp-symbol">XP</span>
+                        </div>
+                    </article>
 
-                <div class="ranking-card">
-                    <div class="card-rank">6</div>
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop"
-                        class="card-avatar" alt="Student">
-                    <div class="card-info">
-                        <div class="card-name">Maya Patel</div>
-                        <div class="card-dept">Programming & Cyber Security</div>
-                    </div>
-                    <div class="card-score">2,210 <span class="xp-symbol">XP</span></div>
-                </div>
+                    <!-- Rank 6 -->
+                    <article class="ranking-card" data-rank="6">
+                        <span class="card-rank">6</span>
+                        <figure class="card-avatar-wrapper">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop"
+                                 class="card-avatar" 
+                                 alt="Maya Patel"
+                                 loading="lazy">
+                        </figure>
+                        <div class="card-info">
+                            <h4 class="card-name">Maya Patel</h4>
+                            <p class="card-dept">Programming & Cyber Security</p>
+                        </div>
+                        <div class="card-score">
+                            <span class="score-value">2,210</span>
+                            <span class="xp-symbol">XP</span>
+                        </div>
+                    </article>
 
-                <div class="ranking-card">
-                    <div class="card-rank">7</div>
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop"
-                        class="card-avatar" alt="Student">
-                    <div class="card-info">
-                        <div class="card-name">David Kim</div>
-                        <div class="card-dept">UI/UX Design</div>
-                    </div>
-                    <div class="card-score">2,150 <span class="xp-symbol">XP</span></div>
-                </div>
+                    <!-- Rank 7 -->
+                    <article class="ranking-card" data-rank="7">
+                        <span class="card-rank">7</span>
+                        <figure class="card-avatar-wrapper">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop"
+                                 class="card-avatar" 
+                                 alt="David Kim"
+                                 loading="lazy">
+                        </figure>
+                        <div class="card-info">
+                            <h4 class="card-name">David Kim</h4>
+                            <p class="card-dept">UI/UX Design</p>
+                        </div>
+                        <div class="card-score">
+                            <span class="score-value">2,150</span>
+                            <span class="xp-symbol">XP</span>
+                        </div>
+                    </article>
 
-                <div class="ranking-card">
-                    <div class="card-rank">8</div>
-                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=200&h=200&fit=crop"
-                        class="card-avatar" alt="Student">
-                    <div class="card-info">
-                        <div class="card-name">Sofia Garcia</div>
-                        <div class="card-dept">AI & Machine Learning</div>
-                    </div>
-                    <div class="card-score">2,090 <span class="xp-symbol">XP</span></div>
-                </div>
+                    <!-- Rank 8 -->
+                    <article class="ranking-card" data-rank="8">
+                        <span class="card-rank">8</span>
+                        <figure class="card-avatar-wrapper">
+                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=200&h=200&fit=crop"
+                                 class="card-avatar" 
+                                 alt="Sofia Garcia"
+                                 loading="lazy">
+                        </figure>
+                        <div class="card-info">
+                            <h4 class="card-name">Sofia Garcia</h4>
+                            <p class="card-dept">AI & Machine Learning</p>
+                        </div>
+                        <div class="card-score">
+                            <span class="score-value">2,090</span>
+                            <span class="xp-symbol">XP</span>
+                        </div>
+                    </article>
 
-                <div class="ranking-card">
-                    <div class="card-rank">9</div>
-                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&h=200&fit=crop"
-                        class="card-avatar" alt="Student">
-                    <div class="card-info">
-                        <div class="card-name">Lucas Brown</div>
-                        <div class="card-dept">Network Security</div>
-                    </div>
-                    <div class="card-score">1,980 <span class="xp-symbol">XP</span></div>
-                </div>
+                    <!-- Rank 9 -->
+                    <article class="ranking-card" data-rank="9">
+                        <span class="card-rank">9</span>
+                        <figure class="card-avatar-wrapper">
+                            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&h=200&fit=crop"
+                                 class="card-avatar" 
+                                 alt="Lucas Brown"
+                                 loading="lazy">
+                        </figure>
+                        <div class="card-info">
+                            <h4 class="card-name">Lucas Brown</h4>
+                            <p class="card-dept">Network Security</p>
+                        </div>
+                        <div class="card-score">
+                            <span class="score-value">1,980</span>
+                            <span class="xp-symbol">XP</span>
+                        </div>
+                    </article>
 
-                <div class="ranking-card">
-                    <div class="card-rank">10</div>
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop"
-                        class="card-avatar" alt="Student">
-                    <div class="card-info">
-                        <div class="card-name">Olivia White</div>
-                        <div class="card-dept">Software Engineering</div>
-                    </div>
-                    <div class="card-score">1,850 <span class="xp-symbol">XP</span></div>
+                    <!-- Rank 10 -->
+                    <article class="ranking-card" data-rank="10">
+                        <span class="card-rank">10</span>
+                        <figure class="card-avatar-wrapper">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop"
+                                 class="card-avatar" 
+                                 alt="Olivia White"
+                                 loading="lazy">
+                        </figure>
+                        <div class="card-info">
+                            <h4 class="card-name">Olivia White</h4>
+                            <p class="card-dept">Software Engineering</p>
+                        </div>
+                        <div class="card-score">
+                            <span class="score-value">1,850</span>
+                            <span class="xp-symbol">XP</span>
+                        </div>
+                    </article>
                 </div>
-            </div>
+            </section>
         </div>
     </main>
 
