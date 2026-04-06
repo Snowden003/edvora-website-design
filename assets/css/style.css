@@ -107,6 +107,7 @@ body.dark-mode .card {
 
 .course-card {
   position: relative;
+  width: 100% !important;
 }
 
 .course-card .card-img-top {
@@ -1393,17 +1394,17 @@ body.dark-mode .card {
 @keyframes float {
   0% {
     transform: translateY(0px) rotate(0deg);
-    opacity: 0.1;
+    opacity: 0.4;
   }
 
   50% {
-    transform: translateY(-30px) rotate(15deg);
-    opacity: 0.2;
+    transform: translateY(-10px) rotate(2deg);
+    opacity: 0.5;
   }
 
   100% {
     transform: translateY(0px) rotate(0deg);
-    opacity: 0.1;
+    opacity: 0.4;
   }
 }
 
@@ -2476,7 +2477,7 @@ body.dark-mode .card {
 /* Teachers Page Premium Hero Animation Styles */
 .teachers-hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 98vh;
   background: linear-gradient(
     135deg,
     var(--primary-black) 0%,
@@ -4309,8 +4310,7 @@ section.gray form .form-control {
 
   /* Teachers Hero */
   .teachers-hero-section {
-    min-height: 80vh;
-    padding: 2rem 0;
+    min-height: 70vh;
   }
 
   .hero-title-teachers {
@@ -4414,10 +4414,6 @@ section.gray form .form-control {
   /* Courses Slider */
   .courses-slider-track {
     gap: 15px !important;
-  }
-
-  .course-card {
-    flex: 0 0 280px !important;
   }
 
   .slider-nav-btn {
@@ -4552,10 +4548,6 @@ section.gray form .form-control {
 
   .students-nav {
     display: none;
-  }
-
-  .course-card {
-    flex: 0 0 260px !important;
   }
 
   .course-content {

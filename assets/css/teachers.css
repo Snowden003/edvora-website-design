@@ -14,7 +14,7 @@
   );
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  /* padding-top: 80px; */
   /* Account for fixed header */
 }
 
@@ -171,7 +171,7 @@
 /* Teachers Hero Section */
 .teachers-hero-section {
   position: relative;
-  padding: 180px 0 100px;
+  /* padding: 180px 0 100px; */
   overflow: hidden;
   background: #0d0d0d;
 }
@@ -673,7 +673,7 @@
 /* Responsive Design for Teachers Page */
 @media (max-width: 991px) {
   .teachers-hero-section {
-    padding: 140px 0 80px;
+    padding: 1rem 0;
     text-align: center;
   }
 
@@ -703,10 +703,6 @@
 }
 
 @media (max-width: 576px) {
-  .teachers-hero-section {
-    padding: 120px 0 60px;
-  }
-
   .hero-title-teachers {
     font-size: 2.2rem;
   }
