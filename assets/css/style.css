@@ -309,38 +309,6 @@ body.dark-mode .card {
   box-shadow: 0 0 25px rgba(31, 143, 255, 0.6);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 80vh;
-    text-align: center;
-  }
-
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-
-  .student-avatar {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-section h1 {
-    font-size: 1.75rem;
-  }
-
-  .card-body {
-    padding: 15px;
-  }
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-}
-
 /* Animation Classes */
 .fade-in {
   opacity: 0;
@@ -587,21 +555,6 @@ body.dark-mode .card {
   }
 }
 
-/* Responsive Design for Logo Hero */
-@media (max-width: 768px) {
-  .animated-logo {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (max-width: 576px) {
-  .animated-logo {
-    width: 150px;
-    height: 150px;
-  }
-}
-
 /* Loading Animation */
 .loading {
   display: inline-block;
@@ -828,82 +781,6 @@ body.dark-mode .card {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-  .logo-container > div {
-    width: 220px !important;
-    height: 220px !important;
-  }
-
-  .hero-title {
-    font-size: 3rem !important;
-  }
-
-  .slogan-container h2 {
-    font-size: 1.8rem !important;
-  }
-
-  .slogan-container p {
-    font-size: 1.1rem !important;
-  }
-
-  .hero-description {
-    font-size: 1rem !important;
-  }
-
-  .hero-content {
-    padding-left: 1rem !important;
-    text-align: center !important;
-  }
-
-  .hero-buttons {
-    justify-content: center !important;
-  }
-
-  .hero-stats {
-    justify-content: center !important;
-  }
-
-  .orbit-element {
-    display: none !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .logo-container > div {
-    width: 170px !important;
-    height: 170px !important;
-  }
-
-  .hero-title {
-    font-size: 2.5rem !important;
-  }
-
-  .slogan-container h2 {
-    font-size: 1.5rem !important;
-  }
-
-  .slogan-container p {
-    font-size: 1rem !important;
-  }
-
-  .hero-description {
-    font-size: 0.9rem !important;
-  }
-
-  .hero-buttons button {
-    padding: 12px 24px !important;
-    font-size: 1rem !important;
-  }
-
-  .hero-stats {
-    gap: 1rem !important;
-  }
-
-  .stat-item div:first-child {
-    font-size: 2rem !important;
-  }
 }
 
 /* Courses Slider Styles */
@@ -1752,24 +1629,6 @@ body.dark-mode .card {
   }
 }
 
-@media (max-width: 768px) {
-  .events-hero-title {
-    font-size: 3rem;
-  }
-
-  .events-hero-subtitle {
-    font-size: 1rem;
-  }
-
-  .floating-icon {
-    font-size: 3rem;
-  }
-
-  .icon-clock {
-    font-size: 4rem;
-  }
-}
-
 .student-particle.particle-4 {
   top: 80%;
   left: 15%;
@@ -2097,57 +1956,6 @@ body.dark-mode .card {
 .students-indicator:hover {
   background: rgba(31, 143, 255, 0.6);
   transform: scale(1.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .students-slider-track {
-    gap: 20px;
-    padding: 15px;
-  }
-
-  .student-card-enhanced {
-    flex: 0 0 280px;
-    padding: 20px;
-  }
-
-  .students-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-
-  .students-prev {
-    left: -20px;
-  }
-
-  .students-next {
-    right: -20px;
-  }
-
-  .students-title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .student-card-enhanced {
-    flex: 0 0 250px;
-    padding: 15px;
-  }
-
-  .student-avatar {
-    width: 60px;
-    height: 60px;
-  }
-
-  .student-name {
-    font-size: 1.1rem;
-  }
-
-  .students-nav {
-    display: none;
-  }
 }
 
 /* ===== COURSES PAGE HERO ANIMATION STYLES ===== */
@@ -2577,10 +2385,10 @@ body.dark-mode .card {
 /* Image Glow Effect */
 .image-glow {
   position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
   background: linear-gradient(45deg, #1f8fff, #1f8fff, #1f8fff);
   border-radius: 25px;
   opacity: 0.3;
@@ -2596,7 +2404,7 @@ body.dark-mode .card {
   }
 
   50% {
-    transform: scale(1.05);
+    transform: scale(1.1);
     opacity: 0.6;
   }
 }
@@ -2662,25 +2470,6 @@ body.dark-mode .card {
   100% {
     transform: scale(1);
     opacity: 0;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .courses-hero-section {
-    min-height: 80vh;
-  }
-
-  .floating-learning-icon {
-    font-size: 1.5rem;
-  }
-
-  .geometric-shape {
-    display: none;
-  }
-
-  .animated-line {
-    display: none;
   }
 }
 
@@ -3363,108 +3152,6 @@ body.dark-mode .card {
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .teachers-hero-section {
-    min-height: 80vh;
-    padding: 2rem 0;
-  }
-
-  .hero-title-teachers {
-    font-size: 2.5rem !important;
-  }
-
-  .hero-stats-teachers {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .hero-stats-teachers .stat-item {
-    padding: 0.8rem 1rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .btn-premium {
-    justify-content: center;
-    padding: 15px 25px;
-  }
-
-  .teacher-avatar-showcase {
-    height: 300px;
-  }
-
-  .ring-outer {
-    width: 250px;
-    height: 250px;
-  }
-
-  .ring-middle {
-    width: 200px;
-    height: 200px;
-  }
-
-  .ring-inner {
-    width: 160px;
-    height: 160px;
-  }
-
-  .main-avatar {
-    width: 120px;
-    height: 120px;
-  }
-
-  .mini-avatar {
-    width: 40px;
-    height: 40px;
-  }
-
-  .floating-academic-icon {
-    font-size: 1.5rem;
-  }
-
-  .magic-orb {
-    width: 60px !important;
-    height: 60px !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-title-teachers {
-    font-size: 2rem !important;
-  }
-
-  .hero-stats-teachers {
-    gap: 0.5rem;
-  }
-
-  .teacher-avatar-showcase {
-    height: 250px;
-  }
-
-  .ring-outer {
-    width: 200px;
-    height: 200px;
-  }
-
-  .ring-middle {
-    width: 160px;
-    height: 160px;
-  }
-
-  .ring-inner {
-    width: 120px;
-    height: 120px;
-  }
-
-  .main-avatar {
-    width: 80px;
-    height: 80px;
-  }
-}
 /* =========================
    Events Section
 ========================= */
@@ -3856,39 +3543,6 @@ body.dark-mode .card {
   box-shadow: 0 12px 28px rgba(31, 143, 255, 0.36);
 }
 
-/* =========================
-   Responsive
-========================= */
-@media (max-width: 992px) {
-  .event-card-enhanced {
-    flex-basis: calc((100% - 24px) / 2);
-    max-width: calc((100% - 24px) / 2);
-  }
-}
-
-@media (max-width: 768px) {
-  .events-slider-container {
-    padding: 0;
-  }
-
-  .events-nav-btn {
-    display: none;
-  }
-
-  .event-card-enhanced {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-  .events-slider-track {
-    gap: 18px;
-  }
-
-  .event-image-container {
-    height: 200px;
-  }
-}
-
 /* Event Animations */
 @keyframes eventParticleFloat {
   0%,
@@ -3981,49 +3635,6 @@ body.dark-mode .card {
   }
 }
 
-/* Responsive Design for Events */
-@media (max-width: 768px) {
-  .events-nav-btn {
-    width: 45px !important;
-    height: 45px !important;
-    font-size: 1.2rem !important;
-  }
-
-  .events-prev {
-    left: -15px !important;
-  }
-
-  .events-next {
-    right: -15px !important;
-  }
-
-  .event-card-enhanced {
-    flex: 0 0 280px;
-  }
-
-  .event-content {
-    padding: 20px;
-  }
-
-  .event-title {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .events-nav-btn {
-    display: none !important;
-  }
-
-  .event-card-enhanced {
-    flex: 0 0 250px;
-  }
-
-  .events-slider-track {
-    gap: 20px !important;
-  }
-}
-
 .slider-nav-btn:active {
   transform: translateY(-50%) scale(0.95) !important;
 }
@@ -4045,45 +3656,6 @@ body.dark-mode .card {
 .slider-nav-btn,
 .indicator {
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Responsive Design for Courses Slider */
-@media (max-width: 768px) {
-  .courses-slider-track {
-    gap: 15px !important;
-  }
-
-  .course-card {
-    flex: 0 0 280px !important;
-  }
-
-  .slider-nav-btn {
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 1.2rem !important;
-  }
-
-  .slider-prev {
-    left: -15px !important;
-  }
-
-  .slider-next {
-    right: -15px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .course-card {
-    flex: 0 0 260px !important;
-  }
-
-  .course-content {
-    padding: 15px !important;
-  }
-
-  .course-image {
-    height: 160px !important;
-  }
 }
 
 /* ===== Continue Your Learning Section - Premium Redesign ===== */
@@ -4598,5 +4170,399 @@ section.gray form .form-control {
   75% {
     transform: translateY(-30px) rotate(270deg) scale(1.1);
     opacity: 0.25;
+  }
+}
+
+/* ------------------------------------------- */
+/* ------------ Responsive Design ------------ */
+/* ------------------------------------------- */
+
+/* ========= 992px ========= */
+@media (max-width: 998px) {
+  .event-card-enhanced {
+    flex-basis: calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
+  }
+
+  .hero-image-container {
+    margin-top: 30px;
+  }
+}
+
+/* ========= 768px ========= */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero-section {
+    min-height: 80vh;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content {
+    padding-left: 1rem !important;
+    text-align: center !important;
+  }
+
+  .hero-buttons,
+  .hero-stats {
+    justify-content: center !important;
+  }
+
+  .hero-description {
+    font-size: 1rem !important;
+  }
+
+  .hero-title {
+    font-size: 3rem !important;
+  }
+
+  /* Logo Hero */
+  .animated-logo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .logo-container > div {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .orbit-element {
+    display: none !important;
+  }
+
+  .slogan-container h2 {
+    font-size: 1.8rem !important;
+  }
+
+  .slogan-container p {
+    font-size: 1.1rem !important;
+  }
+
+  /* Events Hero */
+  .events-hero-title {
+    font-size: 3rem;
+  }
+
+  .events-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .floating-icon {
+    font-size: 3rem;
+  }
+
+  .icon-clock {
+    font-size: 4rem;
+  }
+
+  /* Students Slider */
+  .students-slider-track {
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .student-card-enhanced {
+    flex: 0 0 280px;
+    padding: 20px;
+  }
+
+  .student-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .students-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .students-prev {
+    left: -20px;
+  }
+
+  .students-next {
+    right: -20px;
+  }
+
+  .students-title {
+    font-size: 2rem;
+  }
+
+  /* Courses Hero */
+  .courses-hero-section {
+    min-height: 80vh;
+  }
+
+  .floating-learning-icon {
+    font-size: 1.5rem;
+  }
+
+  .geometric-shape,
+  .animated-line {
+    display: none;
+  }
+
+  /* Teachers Hero */
+  .teachers-hero-section {
+    min-height: 80vh;
+    padding: 2rem 0;
+  }
+
+  .hero-title-teachers {
+    font-size: 2.5rem !important;
+  }
+
+  .hero-stats-teachers {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-stats-teachers .stat-item {
+    padding: 0.8rem 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-premium {
+    justify-content: center;
+    padding: 15px 25px;
+  }
+
+  .teacher-avatar-showcase {
+    height: 300px;
+  }
+
+  .ring-outer {
+    width: 250px;
+    height: 250px;
+  }
+  .ring-middle {
+    width: 200px;
+    height: 200px;
+  }
+  .ring-inner {
+    width: 160px;
+    height: 160px;
+  }
+
+  .main-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  .mini-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .floating-academic-icon {
+    font-size: 1.5rem;
+  }
+
+  .magic-orb {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  /* Events Slider */
+  .events-slider-container {
+    padding: 0;
+  }
+
+  .events-nav-btn {
+    display: none;
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .events-prev {
+    left: -15px !important;
+  }
+  .events-next {
+    right: -15px !important;
+  }
+
+  .events-slider-track {
+    gap: 18px;
+  }
+
+  .event-card-enhanced {
+    flex: 0 0 280px;
+    max-width: 100%;
+  }
+
+  .event-content {
+    padding: 20px;
+  }
+
+  .event-title {
+    font-size: 1.1rem;
+  }
+
+  .event-image-container {
+    height: 200px;
+  }
+
+  /* Courses Slider */
+  .courses-slider-track {
+    gap: 15px !important;
+  }
+
+  .course-card {
+    flex: 0 0 280px !important;
+  }
+
+  .slider-nav-btn {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .slider-prev {
+    left: -15px !important;
+  }
+  .slider-next {
+    right: -15px !important;
+  }
+}
+
+/* ========= 576px ========= */
+@media (max-width: 576px) {
+  .hero-section h1 {
+    font-size: 1.75rem;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Logo */
+  .animated-logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .logo-container > div {
+    width: 170px !important;
+    height: 170px !important;
+  }
+
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+
+  .slogan-container h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .slogan-container p {
+    font-size: 1rem !important;
+  }
+
+  .hero-description {
+    font-size: 0.9rem !important;
+  }
+
+  .hero-buttons button {
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+  }
+
+  .hero-stats {
+    gap: 1rem !important;
+  }
+
+  .stat-item div:first-child {
+    font-size: 2rem !important;
+  }
+
+  /* Teachers */
+  .hero-title-teachers {
+    font-size: 2rem !important;
+  }
+
+  .hero-stats-teachers {
+    gap: 0.5rem;
+  }
+
+  .teacher-avatar-showcase {
+    height: 250px;
+  }
+
+  .ring-outer {
+    width: 200px;
+    height: 200px;
+  }
+  .ring-middle {
+    width: 160px;
+    height: 160px;
+  }
+  .ring-inner {
+    width: 120px;
+    height: 120px;
+  }
+
+  .main-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Events */
+  .events-nav-btn {
+    display: none !important;
+  }
+
+  .event-card-enhanced {
+    flex: 0 0 250px;
+  }
+
+  .events-slider-track {
+    gap: 20px !important;
+  }
+}
+
+/* ========= 480px ========= */
+@media (max-width: 480px) {
+  .student-card-enhanced {
+    flex: 0 0 250px;
+    padding: 15px;
+  }
+
+  .student-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .student-name {
+    font-size: 1.1rem;
+  }
+
+  .students-nav {
+    display: none;
+  }
+
+  .course-card {
+    flex: 0 0 260px !important;
+  }
+
+  .course-content {
+    padding: 15px !important;
+  }
+
+  .course-image {
+    height: 160px !important;
   }
 }
