@@ -1394,17 +1394,17 @@ body.dark-mode .card {
 @keyframes float {
   0% {
     transform: translateY(0px) rotate(0deg);
-    opacity: 0.4;
+    opacity: 0.1;
   }
 
   50% {
-    transform: translateY(-10px) rotate(2deg);
-    opacity: 0.5;
+    transform: translateY(-20px) rotate(2deg);
+    opacity: 0.2;
   }
 
   100% {
     transform: translateY(0px) rotate(0deg);
-    opacity: 0.4;
+    opacity: 0.1;
   }
 }
 
